@@ -102,43 +102,42 @@ tooltipRow.append('span')
 //   .classed('tool', true);
 
 
-function tooltip(geoObj) {
-
-
-
-  if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
-    var coords = path.bounds(geoObj);
-    var tooltip = d3.select('div.tooltip');
-    //  console.log(coords);
-
-    tooltip.style('left', function() {
-        var x = coords[0][0];
-        //console.log(x);
-        return x + 'px';
-      })
-      .style('top', function() {
-        var y = coords[0][1] + 40;
-        //  console.log(y)
-        return y + 'px';
-      })
-      .classed('hidden', false);
-
-    var idx = issueAreaData[issueArea].metadata.indexData
-      .filter(function(obj) {
-        return obj.iso3 == d.properties.ISO_A3_EH;
-      })[0];
-
-    tooltip.select('h1')
-      .text(idx.country);
-
-    var tooltipBody = tooltip.select('.tooltip-body');
-    //var left = d3.select('.left').html('');
-    //  var right = d3.select('.right').html('');
-
-    tooltipBody.select('.country-score').text(idx.val);
-    tooltipBody.select('.units').text(' units');
-  }
-}
+// function tooltip(geoObj) {
+//
+//   if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
+//     var coords = path.bounds(geoObj);
+//     var tooltip = d3.select('div.tooltip');
+//     //  console.log(coords);
+//
+//     tooltip.style('left', function() {
+//         var x = coords[0][0];
+//         //console.log(x);
+//         return x + 'px';
+//       })
+//       .style('top', function() {
+//         var y = coords[0][1] + 40;
+//         //  console.log(y)
+//         return y + 'px';
+//       })
+//       .classed('hidden', false);
+//
+//     var idx = issueAreaData[issueArea].metadata.indexData
+//       .filter(function(obj) {
+//         return obj.iso3 == d.properties.ISO_A3_EH;
+//       })[0];
+//
+//     tooltip.select('h1')
+//       .text(idx.country);
+//
+//     var tooltipBody = tooltip.select('.tooltip-body');
+//     //var left = d3.select('.left').html('');
+//     //  var right = d3.select('.right').html('');
+//
+//     tooltipBody.select('.country-score').text(idx.val);
+//     tooltipBody.select('.units').text(issueAreaData[issueArea].cards[activeCard].map.units);
+//
+//   }
+// }
 
 // ... and the modals
 $('#resizeModal').modal({
@@ -1049,13 +1048,11 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 
         })
         .on('mouseenter', function(d) {
-          //console.log(d);
           if (issueAreaData[issueArea].cards[activeCard].map.tooltip) {
 
             if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
               var coords = path.bounds(d);
               var tooltip = d3.select('div.tooltip');
-              //  console.log(coords);
               var idx = issueAreaData[issueArea].metadata.indexData
                 .filter(function(obj) {
                   return obj.iso3 == d.properties.ISO_A3_EH;
@@ -1084,17 +1081,17 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               tooltip.select('h1')
                 .text(idx.country);
 
+              // May need to work out how to include multiplier for units
+              var units = issueAreaData[issueArea].cards[activeCard].map.units,
+                tooltipVal = idx["c" + activeCard] * units.multiplier;
+
               var tooltipBody = tooltip.select('.tooltip-body');
-              tooltipBody.select('.country-score').text(idx["c" + activeCard]);
-              tooltipBody.select('.units').text(' units');
-
-
+              tooltipBody.select('.country-score').text(tooltipVal.toFixed(1));
+              tooltipBody.select('.units').text(' ' + units.text);
 
             } else {
-              //  console.log(d.properties.ISO_)
               d3.selectAll('.label.' + d.properties.ISO_A3_EH)
                 .classed('invisible', false);
-              //  console.log(d);
             }
           }
         })
@@ -1102,6 +1099,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           d3.select('.label.' + d.properties.ISO_A3_EH)
             .classed('invisible', true);
           d3.select('div.tooltip').classed('hidden', true);
+
         });
 
       var wSaharaCoords = [

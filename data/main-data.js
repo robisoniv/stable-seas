@@ -62,6 +62,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -236,6 +240,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
@@ -337,6 +342,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
@@ -444,6 +450,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer'; // Class EEZs or countries?
             d3.select('.card-eez-layer')
@@ -652,6 +659,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -977,6 +985,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1111,6 +1120,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1214,6 +1224,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1326,6 +1337,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1449,6 +1461,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1683,6 +1696,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -2335,6 +2349,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -3354,6 +3369,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             // var layer = 'card-'+index+'-layer';
             // var l = d3.select('.card-eez-layer')
@@ -3438,6 +3454,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             var l = d3.select('.card-eez-layer')
@@ -3674,6 +3691,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '../../data/ia5c3.csv',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
 
             var layer = 'card-' + index + '-layer';
@@ -3776,6 +3794,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
 
             var layer = 'card-' + index + '-layer';
@@ -4092,6 +4111,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             // var layer = 'card-'+index+'-layer';
             // var l = d3.select('.card-eez-layer')
@@ -4177,6 +4197,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             var l = d3.select('.card-eez-layer')
@@ -4295,6 +4316,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             // Define what the map should be.
             d3.select('.card-eez-layer')
@@ -4405,6 +4427,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '../../data/blue-economy/world-port-index.csv',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
 
             // What about adding a choropleth - total port capacity (all port scores added up)??
@@ -4524,6 +4547,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             // Load higher resolution Sierra Leone layer
@@ -4644,6 +4668,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
@@ -4753,6 +4778,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
             d3.json(file, function(error, offshoreOil) {
@@ -4971,6 +4997,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             var l = d3.select('.card-eez-layer')
@@ -5065,6 +5092,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             // Load point data from Stimson Center research
@@ -5170,6 +5198,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
 
             var layer = 'card-' + index + '-layer';
@@ -5245,6 +5274,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           //          highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             // There might not be any load on this??
             var layer = 'card-' + index + '-layer';
@@ -5350,6 +5380,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '../../data/fisheries/mogadishu-updated.js',
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
 
@@ -5963,6 +5994,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -6058,6 +6090,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -6172,6 +6205,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           //extent: [[45,24],[88,-15]],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -6390,6 +6424,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) {
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -6471,6 +6506,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           extent: [
             [15, -65],
             [150, 60]
@@ -6624,6 +6660,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Load flow map layer
 
@@ -6855,6 +6892,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             // Load flow map layer
 
@@ -7054,6 +7092,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Load flow map layer
             var layer = 'card-' + index + '-layer';
@@ -7240,6 +7279,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Load flow map layer
             var layer = 'card-' + index + '-layer';
@@ -7565,6 +7605,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -7647,6 +7688,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -7809,6 +7851,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -7937,6 +7980,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -8187,6 +8231,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -8306,6 +8351,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          units: 'xo units',
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
