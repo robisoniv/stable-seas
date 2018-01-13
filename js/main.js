@@ -1026,7 +1026,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
         .enter().insert("path", ".graticule")
         .attr('class', function(d) {
           if (d.properties.NAME == 'France') {
-            console.log(d);
+          //  console.log(d);
           }
           if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
             return d.properties.ISO_A3_EH + ' country in';
@@ -1041,7 +1041,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
         .attr("d", path)
         .attr('title', function(d) {
           //console.log(d);
-          console.log(d.properties.SOVEREIGNT);
+        //  console.log(d.properties.SOVEREIGNT);
 
           return d.properties.SOVEREIGNT;
 

@@ -849,10 +849,10 @@ function buildOverviewIndexTable ( obj, container, cardIndex, elIndex ) {
 }
 
 function buildRadar ( obj, container, cardIndex, elIndex ) {
-  console.log(obj);
-  console.log(container);
-  console.log('card', cardIndex);
-  console.log('el', elIndex);
+  console.log('obj', obj);
+  // console.log(container);
+  // console.log('card', cardIndex);
+  // console.log('el', elIndex);
 
 
 

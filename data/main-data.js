@@ -38,7 +38,9 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        console.log('vals', vals);
         vals.forEach(function(d) {
+          console.log('d', d);
           for (key in d) {
             if (key != "country" && key != "iso3") {
               d[key] = +d[key];
@@ -240,7 +242,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
@@ -342,7 +347,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
@@ -450,7 +458,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer'; // Class EEZs or countries?
             d3.select('.card-eez-layer')
@@ -631,6 +642,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'Maritime instability in African waters cause ripples that undermine global economies, international security, and strong social networks.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
+
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
           d.ia2c0 = +d.ia2c0;
@@ -645,6 +658,19 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('internationalCooperation load csv function callback');
       });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
+      });
+
     },
     cards: [{ // Card 0
         title: 'International Cooperation',
@@ -659,7 +685,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -985,7 +1014,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1120,7 +1152,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1224,7 +1259,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1337,7 +1375,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1461,7 +1502,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
             var layer = 'card-' + index + '-layer';
@@ -1670,6 +1714,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'Where the rule of law is strong, governments can be confident that legal efforts to address maritime crime and violence will yield results.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
+
       // Load index value data from CSV - page-wide data!
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
@@ -1681,6 +1727,18 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         issueAreaData[issueArea].metadata.countryData = vals; // Master data load - csv file into 'data' object
         callback('hey this is the csv callback');
+      });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [{ // Card 0
@@ -1696,7 +1754,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -2297,8 +2358,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       //    }
     ]
   }, // End of sixth  object in cards array
-  //  ]    // End of cards array
-  //  },      // end of issueArea Object
   maritimeEnforcement: { // Checked out by Sean
     metadata: { // Independent data source for each page
       version: '0.0.1',
@@ -2323,6 +2382,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'In states where maritime enforcement is employed, smugglers and traffickers cannot operate freely and fisheries laws are enforced.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
+
       // Load index value data from CSV - page-wide data!
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
@@ -2332,6 +2393,18 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         issueAreaData[issueArea].metadata.countryData = vals; // Master data load - csv file into 'data' object
         callback('maritimeEnforcement load csv callback');
+      });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [
@@ -2349,7 +2422,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -3345,6 +3421,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'Maritime security is closely linked to the well-being of the people living in adjacent coastal areas.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
+
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
           //  d.ia5c0 = +d.ia5c0;
@@ -3353,6 +3431,18 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('coastalWelfare load csv function callback');
+      });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [{ // Card 0
@@ -3369,7 +3459,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             // var layer = 'card-'+index+'-layer';
             // var l = d3.select('.card-eez-layer')
@@ -3454,7 +3547,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             var l = d3.select('.card-eez-layer')
@@ -3691,7 +3787,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '../../data/ia5c3.csv',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
 
             var layer = 'card-' + index + '-layer';
@@ -3794,7 +3893,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
 
             var layer = 'card-' + index + '-layer';
@@ -4085,7 +4187,9 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'The contributions ocean-based commercial sectors make to a state’s overall economic health can lead to a less violent society.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
       d3.csv(csv, function(vals) {
+
         vals.forEach(function(d) {
           d.ia6c1 = +d.ia6c1;
           d.ia6c2 = +d.ia6c2;
@@ -4095,6 +4199,21 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('blueEconomy load csv function callback');
+      });
+      //    console.log('../../data/' + md.path + '/indexValues.csv');
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+
+        console.log('vals', vals);
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [{ // Card 0 //###version 1.0
@@ -4111,7 +4230,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'ports',
+            multiplier: 100
+          },
           load: function(index, file) {
             // var layer = 'card-'+index+'-layer';
             // var l = d3.select('.card-eez-layer')
@@ -4197,7 +4319,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             var l = d3.select('.card-eez-layer')
@@ -4316,7 +4441,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             // Define what the map should be.
             d3.select('.card-eez-layer')
@@ -4427,7 +4555,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '../../data/blue-economy/world-port-index.csv',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
 
             // What about adding a choropleth - total port capacity (all port scores added up)??
@@ -4547,7 +4678,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             // Load higher resolution Sierra Leone layer
@@ -4668,7 +4802,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
@@ -4778,7 +4915,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
             d3.json(file, function(error, offshoreOil) {
@@ -4973,7 +5113,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'Fish are one of the last remaining wild sources of protein on the planet, and are a critical component of both food and economic security.'
     },
     load: function(csv, callback) {
-      console.log('no fisheries data yet')
+      var md = issueAreaData[issueArea].metadata;
+
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
           d.ia7c0 = +d.ia7c0;
@@ -4981,6 +5122,18 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('coastalWelfare load csv function callback');
+      });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [{ // Card 0
@@ -4997,7 +5150,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             var l = d3.select('.card-eez-layer')
@@ -5092,7 +5248,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
             // Load point data from Stimson Center research
@@ -5198,7 +5357,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
 
             var layer = 'card-' + index + '-layer';
@@ -5274,7 +5436,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           //          highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             // There might not be any load on this??
             var layer = 'card-' + index + '-layer';
@@ -5380,7 +5545,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           path: '../../data/fisheries/mogadishu-updated.js',
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) {
             var layer = 'card-' + index + '-layer';
 
@@ -5642,6 +5810,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'Most maritime crime continues to be piracy and armed robbery. These acts endanger seafarers, threaten commerce, and fund criminal networks.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
+
       //    console.log('no piracy data yet');
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
@@ -5649,6 +5819,18 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('piracy load csv function callback');
+      });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [{ // Card 0
@@ -5994,7 +6176,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -6090,7 +6275,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -6205,7 +6393,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           //extent: [[45,24],[88,-15]],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -6403,12 +6594,26 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'Criminal networks leverage new technologies to deal in the markets of narcotics, weapons, wildlife, and black market pharmaceuticals.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
+
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
           d.ia9c0 = +d.ia9c0;
         });
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('illicitTrade load csv function callback');
+      });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [{ // Card 0
@@ -6424,7 +6629,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) {
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -6506,7 +6714,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           extent: [
             [15, -65],
             [150, 60]
@@ -6660,7 +6871,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Load flow map layer
 
@@ -6892,7 +7106,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             // Load flow map layer
 
@@ -7092,7 +7309,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Load flow map layer
             var layer = 'card-' + index + '-layer';
@@ -7279,7 +7499,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Load flow map layer
             var layer = 'card-' + index + '-layer';
@@ -7582,6 +7805,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       description: 'Migrants hoping for better economic opportunities are susceptible to being victims of crimes such as human trafficking, slavery, and the illicit sex trade.'
     },
     load: function(csv, callback) {
+      var md = issueAreaData[issueArea].metadata;
+
       d3.csv(csv, function(vals) {
         vals.forEach(function(d) {
           d.ia10c0 = +d.ia10c0;
@@ -7590,6 +7815,18 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('maritime mixed migration load csv function callback');
+      });
+
+      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+        vals.forEach(function(d) {
+          for (key in d) {
+            if (key != "country" && key != "iso3") {
+              d[key] = +d[key];
+            }
+          }
+        });
+        issueAreaData[issueArea].metadata.indexData = vals;
+
       });
     },
     cards: [{ // Card 0
@@ -7605,7 +7842,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -7688,7 +7928,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -7851,7 +8094,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -7980,7 +8226,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           ],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -8231,7 +8480,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
@@ -8351,7 +8603,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: 'xo units',
+          units: {
+            text: 'xo units',
+            multiplier: 100
+          },
           load: function(index, file) { // ### *** This only should be for the first card ...
             var layer = 'card-' + index + '-layer';
 
