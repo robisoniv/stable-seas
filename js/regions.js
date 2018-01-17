@@ -15,7 +15,7 @@
   // var colorBrew = d3.scaleOrdinal(d3.schemeCategory20);// I don't think we need this any more...
   var colorBrew = [['#a6cee3', '#1f78b4'],['#b2df8a', '#33a02c'],['#fb9a99', '#e31a1c'],['#fdbf6f', '#ff7f00'], ['#cab2d6', '#6a3d9a']];
   var regionsColor = d3.schemeCategory10;
-  var regionsColorSelection = regionsColor[regionsData[region].metadata.index];
+  var regionsColorSelection = regionsColor[regionsIndex];
   var rampColor = d3.interpolateLab('white', regionsColorSelection);
 
   // Map variables
@@ -254,7 +254,7 @@ $('#content-holder').on('click', '.table-expand', function () {
 
       var counter = 0;
       for (regionTmp in regionsData) {
-
+        if (regionTmp != 'radarData') {
           var metadata = regionsData[regionTmp].metadata;
           var index = metadata.index;
         //  console.log(index);
@@ -278,6 +278,8 @@ $('#content-holder').on('click', '.table-expand', function () {
 
           regionsDiv.append('p')
             .text(regionsText);
+        }
+
 
       }
 
@@ -849,12 +851,31 @@ function buildOverviewIndexTable ( obj, container, cardIndex, elIndex ) {
 }
 
 function buildRadar ( obj, container, cardIndex, elIndex ) {
-  console.log('obj', obj);
-  // console.log(container);
-  // console.log('card', cardIndex);
-  // console.log('el', elIndex);
+  //console.log('obj', obj);
+  //console.log(container);
+  //console.log('card', cardIndex);
+  //console.log('el', elIndex);
+  var iso3 = regionsData[region].cards[cardIndex].map.highlights;
+
+  // Lex - this is how you access the radar data
 
 
+  if (cardIndex == 0) {
+    var cardRadarData = [
+      // region average data
+      radarData[region],
+      // africa average data
+      radarData.africa
+    ];
+  } else {
+    var cardRadarData = [
+      // region average data
+      radarData[iso3],
+      // africa average data
+      radarData[region]
+    ];
+  }
+  console.log(cardRadarData);
 
 }
 
