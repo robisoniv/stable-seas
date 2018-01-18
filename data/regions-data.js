@@ -1,1041 +1,1041 @@
 var radarData = {
   "AGO": [{
-    "value": 0.175,
-    "axis": "ruleOfLaw"
+    "value": 0.2077,
+    "axis": "Rule of Law"
   }, {
-    "value": 0.0643,
-    "axis": "internationalCooperation"
+    "value": 0.3414,
+    "axis": "International Cooperation"
   }, {
-    "value": 0.1716,
-    "axis": "maritimeEnforcement"
+    "value": 0.6858,
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.8947,
-    "axis": "coastalWelfare"
+    "value": 0.2884,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.7558,
-    "axis": "blueEconomy"
+    "value": 0.3966,
+    "axis": "Blue Economy"
   }, {
-    "value": 0.347,
-    "axis": "fisheries"
+    "value": 0.1754,
+    "axis": "Fisheries"
   }, {
-    "value": 0.0142,
-    "axis": "piracy"
+    "value": 0.3158,
+    "axis": "Piracy"
   }, {
-    "value": 0.3018,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.5073,
-    "axis": "maritimeMixedMigration"
-  }],
-  "GNQ": [{
-    "value": 0.6813,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.8966,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.4366,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.0212,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.3742,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.6353,
-    "axis": "fisheries"
-  }, {
-    "value": 0.6876,
-    "axis": "piracy"
-  }, {
-    "value": 0.1041,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.1739,
-    "axis": "maritimeMixedMigration"
-  }],
-  "BEN": [{
-    "value": 0.067,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.4099,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.961,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.8402,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.6151,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.7681,
-    "axis": "fisheries"
-  }, {
-    "value": 0.7813,
-    "axis": "piracy"
-  }, {
-    "value": 0.6321,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.6138,
-    "axis": "maritimeMixedMigration"
-  }],
-  "NGA": [{
-    "value": 0.015,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.8514,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.6582,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.7569,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.0463,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.3445,
-    "axis": "fisheries"
-  }, {
-    "value": 0.451,
-    "axis": "piracy"
-  }, {
-    "value": 0.9672,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.9576,
-    "axis": "maritimeMixedMigration"
-  }],
-  "MUS": [{
-    "value": 0.5153,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.3571,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.9323,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.4513,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.0101,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.7231,
-    "axis": "fisheries"
-  }, {
-    "value": 0.3309,
-    "axis": "piracy"
-  }, {
-    "value": 0.1033,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.6936,
-    "axis": "maritimeMixedMigration"
-  }],
-  "africa": [{
-    "value": 0.1697,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.0901,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.8564,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.0819,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.2688,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.3167,
-    "axis": "fisheries"
-  }, {
-    "value": 0.9285,
-    "axis": "piracy"
-  }, {
-    "value": 0.6891,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.9368,
-    "axis": "maritimeMixedMigration"
-  }],
-  "NAM": [{
-    "value": 0.2734,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.3593,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.9033,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.2444,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.4419,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.7623,
-    "axis": "fisheries"
-  }, {
-    "value": 0.7049,
-    "axis": "piracy"
-  }, {
-    "value": 0.1458,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.7374,
-    "axis": "maritimeMixedMigration"
-  }],
-  "GNB": [{
-    "value": 0.4742,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.1948,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.9316,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.9638,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.6176,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.3397,
-    "axis": "fisheries"
-  }, {
-    "value": 0.674,
-    "axis": "piracy"
-  }, {
-    "value": 0.2318,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.2863,
-    "axis": "maritimeMixedMigration"
-  }],
-  "westernCoast": [{
-    "value": 0.9983,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.2275,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.127,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.6651,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.0203,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.3077,
-    "axis": "fisheries"
-  }, {
-    "value": 0.1677,
-    "axis": "piracy"
-  }, {
-    "value": 0.1287,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.4298,
-    "axis": "maritimeMixedMigration"
-  }],
-  "CIV": [{
-    "value": 0.5084,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.3881,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.6015,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.6171,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.2038,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.299,
-    "axis": "fisheries"
-  }, {
-    "value": 0.132,
-    "axis": "piracy"
-  }, {
-    "value": 0.4175,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.2809,
-    "axis": "maritimeMixedMigration"
-  }],
-  "COG": [{
-    "value": 0.4827,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.0255,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.7185,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.975,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.1423,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.858,
-    "axis": "fisheries"
-  }, {
-    "value": 0.1349,
-    "axis": "piracy"
-  }, {
-    "value": 0.0178,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.1546,
-    "axis": "maritimeMixedMigration"
-  }],
-  "SLE": [{
-    "value": 0.6019,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.696,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.7,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.1003,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.0012,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.2661,
-    "axis": "fisheries"
-  }, {
-    "value": 0.4559,
-    "axis": "piracy"
-  }, {
-    "value": 0.9838,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.7683,
-    "axis": "maritimeMixedMigration"
-  }],
-  "southernGulf": [{
-    "value": 0.0313,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.3088,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.5462,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.1634,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.7309,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.1818,
-    "axis": "fisheries"
-  }, {
-    "value": 0.5578,
-    "axis": "piracy"
-  }, {
-    "value": 0.2078,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.2539,
-    "axis": "maritimeMixedMigration"
-  }],
-  "COM": [{
-    "value": 0.5758,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.9557,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.6149,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.55,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.8726,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.8383,
-    "axis": "fisheries"
-  }, {
-    "value": 0.2231,
-    "axis": "piracy"
-  }, {
-    "value": 0.3811,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.9687,
-    "axis": "maritimeMixedMigration"
-  }],
-  "CMR": [{
-    "value": 0.61,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.4023,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.0268,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.9121,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.7146,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.1682,
-    "axis": "fisheries"
-  }, {
-    "value": 0.9499,
-    "axis": "piracy"
-  }, {
-    "value": 0.3227,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.4732,
-    "axis": "maritimeMixedMigration"
-  }],
-  "CPV": [{
-    "value": 0.2893,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.7785,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.013,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.4512,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.4627,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.6043,
-    "axis": "fisheries"
-  }, {
-    "value": 0.8812,
-    "axis": "piracy"
-  }, {
-    "value": 0.0527,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.1651,
-    "axis": "maritimeMixedMigration"
-  }],
-  "LBR": [{
-    "value": 0.3675,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.6115,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.3582,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.411,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.4854,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.9809,
-    "axis": "fisheries"
-  }, {
-    "value": 0.9247,
-    "axis": "piracy"
-  }, {
-    "value": 0.2798,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.7833,
-    "axis": "maritimeMixedMigration"
-  }],
-  "northernGulf": [{
-    "value": 0.1249,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.5033,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.0862,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.9546,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.8593,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.2861,
-    "axis": "fisheries"
-  }, {
-    "value": 0.3601,
-    "axis": "piracy"
+    "value": 0.2186,
+    "axis": "Illicit Trades"
   }, {
     "value": 0.7735,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.7003,
-    "axis": "maritimeMixedMigration"
+    "axis": "Maritime Mixed Migration"
   }],
-  "SOM": [{
-    "value": 0.9542,
-    "axis": "ruleOfLaw"
+  "GNQ": [{
+    "value": 0.0755,
+    "axis": "Rule of Law"
   }, {
-    "value": 0.8336,
-    "axis": "internationalCooperation"
+    "value": 0.6193,
+    "axis": "International Cooperation"
   }, {
-    "value": 0.2539,
-    "axis": "maritimeEnforcement"
+    "value": 0.0121,
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.6403,
-    "axis": "coastalWelfare"
+    "value": 0.8449,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.5206,
-    "axis": "blueEconomy"
+    "value": 0.8045,
+    "axis": "Blue Economy"
   }, {
-    "value": 0.6963,
-    "axis": "fisheries"
+    "value": 0.1202,
+    "axis": "Fisheries"
   }, {
-    "value": 0.3348,
-    "axis": "piracy"
+    "value": 0.8238,
+    "axis": "Piracy"
   }, {
-    "value": 0.5763,
-    "axis": "illicitTrades"
+    "value": 0.9631,
+    "axis": "Illicit Trades"
   }, {
-    "value": 0.216,
-    "axis": "maritimeMixedMigration"
+    "value": 0.091,
+    "axis": "Maritime Mixed Migration"
   }],
-  "MDG": [{
-    "value": 0.8704,
-    "axis": "ruleOfLaw"
+  "BEN": [{
+    "value": 0.8558,
+    "axis": "Rule of Law"
   }, {
-    "value": 0.5591,
-    "axis": "internationalCooperation"
+    "value": 0.9686,
+    "axis": "International Cooperation"
   }, {
-    "value": 0.1537,
-    "axis": "maritimeEnforcement"
+    "value": 0.6244,
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.0619,
-    "axis": "coastalWelfare"
+    "value": 0.4267,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.2322,
-    "axis": "blueEconomy"
+    "value": 0.0551,
+    "axis": "Blue Economy"
   }, {
-    "value": 0.4849,
-    "axis": "fisheries"
+    "value": 0.7348,
+    "axis": "Fisheries"
   }, {
-    "value": 0.2981,
-    "axis": "piracy"
+    "value": 0.2062,
+    "axis": "Piracy"
   }, {
-    "value": 0.0203,
-    "axis": "illicitTrades"
+    "value": 0.7558,
+    "axis": "Illicit Trades"
   }, {
-    "value": 0.2326,
-    "axis": "maritimeMixedMigration"
+    "value": 0.2209,
+    "axis": "Maritime Mixed Migration"
   }],
-  "TZA": [{
-    "value": 0.862,
-    "axis": "ruleOfLaw"
+  "NGA": [{
+    "value": 0.344,
+    "axis": "Rule of Law"
   }, {
-    "value": 0.5628,
-    "axis": "internationalCooperation"
+    "value": 0.5393,
+    "axis": "International Cooperation"
   }, {
-    "value": 0.788,
-    "axis": "maritimeEnforcement"
+    "value": 0.6604,
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.3132,
-    "axis": "coastalWelfare"
+    "value": 0.8684,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.1415,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.541,
-    "axis": "fisheries"
-  }, {
-    "value": 0.0014,
-    "axis": "piracy"
-  }, {
-    "value": 0.4616,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.5499,
-    "axis": "maritimeMixedMigration"
-  }],
-  "SEN": [{
-    "value": 0.9216,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.5717,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.7186,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.3961,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.822,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.9579,
-    "axis": "fisheries"
-  }, {
-    "value": 0.9545,
-    "axis": "piracy"
-  }, {
-    "value": 0.3116,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.4246,
-    "axis": "maritimeMixedMigration"
-  }],
-  "GAB": [{
-    "value": 0.2772,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.0395,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.1881,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.848,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.4158,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.5266,
-    "axis": "fisheries"
-  }, {
-    "value": 0.9382,
-    "axis": "piracy"
-  }, {
-    "value": 0.7527,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.6526,
-    "axis": "maritimeMixedMigration"
-  }],
-  "MOZ": [{
-    "value": 0.3117,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.1391,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.603,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.3967,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.9875,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.8186,
-    "axis": "fisheries"
-  }, {
-    "value": 0.3397,
-    "axis": "piracy"
-  }, {
-    "value": 0.8118,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.9516,
-    "axis": "maritimeMixedMigration"
-  }],
-  "GMB": [{
-    "value": 0.5516,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.6174,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.774,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.8597,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.9046,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.713,
-    "axis": "fisheries"
-  }, {
-    "value": 0.6442,
-    "axis": "piracy"
+    "value": 0.9136,
+    "axis": "Blue Economy"
   }, {
     "value": 0.7606,
-    "axis": "illicitTrades"
+    "axis": "Fisheries"
   }, {
-    "value": 0.0498,
-    "axis": "maritimeMixedMigration"
+    "value": 0.0842,
+    "axis": "Piracy"
+  }, {
+    "value": 0.9271,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.0294,
+    "axis": "Maritime Mixed Migration"
   }],
-  "STP": [{
-    "value": 0.7297,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.611,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.4007,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.4039,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.0766,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.2961,
-    "axis": "fisheries"
-  }, {
-    "value": 0.7416,
-    "axis": "piracy"
-  }, {
-    "value": 0.2278,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.8951,
-    "axis": "maritimeMixedMigration"
-  }],
-  "DJI": [{
-    "value": 0.5382,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.0859,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.8037,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.3386,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.2806,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.6834,
-    "axis": "fisheries"
-  }, {
-    "value": 0.7515,
-    "axis": "piracy"
-  }, {
-    "value": 0.171,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.2974,
-    "axis": "maritimeMixedMigration"
-  }],
-  "GIN": [{
-    "value": 0.2081,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.2758,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.0293,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.588,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.1657,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.7761,
-    "axis": "fisheries"
-  }, {
-    "value": 0.1852,
-    "axis": "piracy"
-  }, {
-    "value": 0.5722,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.9994,
-    "axis": "maritimeMixedMigration"
-  }],
-  "SYC": [{
-    "value": 0.0081,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.0403,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.8228,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.8499,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.5034,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.7,
-    "axis": "fisheries"
-  }, {
-    "value": 0.018,
-    "axis": "piracy"
-  }, {
-    "value": 0.5078,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.2208,
-    "axis": "maritimeMixedMigration"
-  }],
-  "KEN": [{
-    "value": 0.4623,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.3509,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.2135,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.1676,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.9272,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.5243,
-    "axis": "fisheries"
-  }, {
-    "value": 0.7938,
-    "axis": "piracy"
-  }, {
-    "value": 0.5595,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.7322,
-    "axis": "maritimeMixedMigration"
-  }],
-  "easternCoast": [{
-    "value": 0.1965,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.7505,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.3554,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.4677,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.7487,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.285,
-    "axis": "fisheries"
-  }, {
-    "value": 0.0404,
-    "axis": "piracy"
-  }, {
-    "value": 0.02,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.6553,
-    "axis": "maritimeMixedMigration"
-  }],
-  "ZAF": [{
-    "value": 0.5407,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.6832,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.4323,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.7626,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.2971,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.5925,
-    "axis": "fisheries"
-  }, {
-    "value": 0.777,
-    "axis": "piracy"
-  }, {
-    "value": 0.7287,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.147,
-    "axis": "maritimeMixedMigration"
-  }],
-  "GHA": [{
-    "value": 0.7623,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.0102,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.3813,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.1472,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.0752,
-    "axis": "blueEconomy"
-  }, {
-    "value": 0.1959,
-    "axis": "fisheries"
-  }, {
-    "value": 0.4112,
-    "axis": "piracy"
-  }, {
-    "value": 0.7399,
-    "axis": "illicitTrades"
-  }, {
-    "value": 0.0538,
-    "axis": "maritimeMixedMigration"
-  }],
-  "southernCoast": [{
-    "value": 0.1326,
-    "axis": "ruleOfLaw"
-  }, {
-    "value": 0.5415,
-    "axis": "internationalCooperation"
-  }, {
-    "value": 0.9058,
-    "axis": "maritimeEnforcement"
-  }, {
-    "value": 0.5872,
-    "axis": "coastalWelfare"
-  }, {
-    "value": 0.0295,
-    "axis": "blueEconomy"
+  "MUS": [{
+    "value": 0.1651,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.8071,
+    "axis": "International Cooperation"
   }, {
     "value": 0.0943,
-    "axis": "fisheries"
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.0693,
-    "axis": "piracy"
+    "value": 0.5286,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.9655,
-    "axis": "illicitTrades"
+    "value": 0.4773,
+    "axis": "Blue Economy"
   }, {
-    "value": 0.7628,
-    "axis": "maritimeMixedMigration"
+    "value": 0.8292,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.1883,
+    "axis": "Piracy"
+  }, {
+    "value": 0.8465,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.9971,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "africa": [{
+    "value": 0.8765,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.365,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.8042,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.0177,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.5602,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.6476,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.6931,
+    "axis": "Piracy"
+  }, {
+    "value": 0.0572,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.3741,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "NAM": [{
+    "value": 0.589,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.3806,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.0918,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.3225,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.004,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.2623,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.7684,
+    "axis": "Piracy"
+  }, {
+    "value": 0.801,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.2004,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "GNB": [{
+    "value": 0.3997,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.3126,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.6029,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.6233,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.8731,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.6969,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.4041,
+    "axis": "Piracy"
+  }, {
+    "value": 0.497,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.7934,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "westernCoast": [{
+    "value": 0.9752,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.7345,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.3201,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.979,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.4362,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.9106,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.5292,
+    "axis": "Piracy"
+  }, {
+    "value": 0.7217,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.404,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "CIV": [{
+    "value": 0.8935,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.4625,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.0403,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.1782,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.8043,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.8997,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.0929,
+    "axis": "Piracy"
+  }, {
+    "value": 0.6356,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.1432,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "COG": [{
+    "value": 0.8965,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.7302,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.5203,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.3389,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.5071,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.1907,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.1165,
+    "axis": "Piracy"
+  }, {
+    "value": 0.9168,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.5081,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "SLE": [{
+    "value": 0.0023,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.3254,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.8948,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.513,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.2053,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.8539,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.9344,
+    "axis": "Piracy"
+  }, {
+    "value": 0.2976,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.9607,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "southernGulf": [{
+    "value": 0.0281,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.8636,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.6568,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.093,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.7736,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.4122,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.8223,
+    "axis": "Piracy"
+  }, {
+    "value": 0.122,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.1127,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "COM": [{
+    "value": 0.3032,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.7109,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.1639,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.7577,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.9545,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.7283,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.1943,
+    "axis": "Piracy"
+  }, {
+    "value": 0.0249,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.7477,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "CMR": [{
+    "value": 0.7082,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.9092,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.4499,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.4629,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.9186,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.6759,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.4475,
+    "axis": "Piracy"
+  }, {
+    "value": 0.3812,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.9995,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "CPV": [{
+    "value": 0.6647,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.7906,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.9882,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.2233,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.8594,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.1061,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.6156,
+    "axis": "Piracy"
+  }, {
+    "value": 0.2484,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.2453,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "LBR": [{
+    "value": 0.6095,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.5818,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.9913,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.4964,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.2438,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.728,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.2431,
+    "axis": "Piracy"
+  }, {
+    "value": 0.5722,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.6923,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "northernGulf": [{
+    "value": 0.1995,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.7715,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.6099,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.7094,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.7082,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.3416,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.8989,
+    "axis": "Piracy"
+  }, {
+    "value": 0.3067,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.87,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "SOM": [{
+    "value": 0.832,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.632,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.4088,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.8956,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.656,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.5933,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.625,
+    "axis": "Piracy"
+  }, {
+    "value": 0.3509,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.316,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "MDG": [{
+    "value": 0.4077,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.2206,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.0306,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.3047,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.5139,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.4169,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.7392,
+    "axis": "Piracy"
+  }, {
+    "value": 0.5542,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.2773,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "TZA": [{
+    "value": 0.2197,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.4941,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.4882,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.5071,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.914,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.6473,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.7076,
+    "axis": "Piracy"
+  }, {
+    "value": 0.8768,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.9918,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "SEN": [{
+    "value": 0.8883,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.4007,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.18,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.0521,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.8346,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.8059,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.0381,
+    "axis": "Piracy"
+  }, {
+    "value": 0.8581,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.7593,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "GAB": [{
+    "value": 0.1133,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.9161,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.9467,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.8331,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.6103,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.6769,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.0901,
+    "axis": "Piracy"
+  }, {
+    "value": 0.6289,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.9382,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "MOZ": [{
+    "value": 0.1042,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.6785,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.4024,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.0137,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.9748,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.6086,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.1797,
+    "axis": "Piracy"
+  }, {
+    "value": 0.3234,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.8118,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "GMB": [{
+    "value": 0.6411,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.6893,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.853,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.8045,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.8865,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.005,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.2977,
+    "axis": "Piracy"
+  }, {
+    "value": 0.0843,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.9625,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "STP": [{
+    "value": 0.3131,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.9186,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.3611,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.7601,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.8401,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.9918,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.6222,
+    "axis": "Piracy"
+  }, {
+    "value": 0.2337,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.3877,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "DJI": [{
+    "value": 0.5872,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.1878,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.7957,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.6104,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.5617,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.3505,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.3944,
+    "axis": "Piracy"
+  }, {
+    "value": 0.8199,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.1024,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "GIN": [{
+    "value": 0.1374,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.1017,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.3223,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.9832,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.0865,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.8728,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.7018,
+    "axis": "Piracy"
+  }, {
+    "value": 0.0285,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.0561,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "SYC": [{
+    "value": 0.2473,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.3781,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.2427,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.7775,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.6023,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.3366,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.1959,
+    "axis": "Piracy"
+  }, {
+    "value": 0.3224,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.5762,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "KEN": [{
+    "value": 0.3535,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.1517,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.0303,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.2929,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.9884,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.6292,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.799,
+    "axis": "Piracy"
+  }, {
+    "value": 0.4453,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.3563,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "easternCoast": [{
+    "value": 0.358,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.3796,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.2337,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.745,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.0876,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.3112,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.8102,
+    "axis": "Piracy"
+  }, {
+    "value": 0.3437,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.639,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "ZAF": [{
+    "value": 0.1441,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.3645,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.4886,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.6681,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.7218,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.1485,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.6601,
+    "axis": "Piracy"
+  }, {
+    "value": 0.4251,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.2364,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "GHA": [{
+    "value": 0.2258,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.8581,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.7532,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.0777,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.4048,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.1218,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.1831,
+    "axis": "Piracy"
+  }, {
+    "value": 0.5493,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.6545,
+    "axis": "Maritime Mixed Migration"
+  }],
+  "southernCoast": [{
+    "value": 0.891,
+    "axis": "Rule of Law"
+  }, {
+    "value": 0.8217,
+    "axis": "International Cooperation"
+  }, {
+    "value": 0.2594,
+    "axis": "Maritime Enforcement"
+  }, {
+    "value": 0.7849,
+    "axis": "Coastal Welfare"
+  }, {
+    "value": 0.9931,
+    "axis": "Blue Economy"
+  }, {
+    "value": 0.8135,
+    "axis": "Fisheries"
+  }, {
+    "value": 0.8759,
+    "axis": "Piracy"
+  }, {
+    "value": 0.7543,
+    "axis": "Illicit Trades"
+  }, {
+    "value": 0.261,
+    "axis": "Maritime Mixed Migration"
   }],
   "TGO": [{
-    "value": 0.7614,
-    "axis": "ruleOfLaw"
+    "value": 0.9306,
+    "axis": "Rule of Law"
   }, {
-    "value": 0.4411,
-    "axis": "internationalCooperation"
+    "value": 0.149,
+    "axis": "International Cooperation"
   }, {
-    "value": 0.8291,
-    "axis": "maritimeEnforcement"
+    "value": 0.8929,
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.9915,
-    "axis": "coastalWelfare"
+    "value": 0.7647,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.2343,
-    "axis": "blueEconomy"
+    "value": 0.5671,
+    "axis": "Blue Economy"
   }, {
-    "value": 0.188,
-    "axis": "fisheries"
+    "value": 0.4713,
+    "axis": "Fisheries"
   }, {
-    "value": 0.4385,
-    "axis": "piracy"
+    "value": 0.505,
+    "axis": "Piracy"
   }, {
-    "value": 0.442,
-    "axis": "illicitTrades"
+    "value": 0.5209,
+    "axis": "Illicit Trades"
   }, {
-    "value": 0.8471,
-    "axis": "maritimeMixedMigration"
+    "value": 0.6712,
+    "axis": "Maritime Mixed Migration"
   }],
   "westIndianOcean": [{
-    "value": 0.7479,
-    "axis": "ruleOfLaw"
+    "value": 0.0047,
+    "axis": "Rule of Law"
   }, {
-    "value": 0.8264,
-    "axis": "internationalCooperation"
+    "value": 0.3589,
+    "axis": "International Cooperation"
   }, {
-    "value": 0.7972,
-    "axis": "maritimeEnforcement"
+    "value": 0.2736,
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.0319,
-    "axis": "coastalWelfare"
+    "value": 0.4533,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.3906,
-    "axis": "blueEconomy"
+    "value": 0.0567,
+    "axis": "Blue Economy"
   }, {
-    "value": 0.3352,
-    "axis": "fisheries"
+    "value": 0.6306,
+    "axis": "Fisheries"
   }, {
-    "value": 0.7513,
-    "axis": "piracy"
+    "value": 0.8892,
+    "axis": "Piracy"
   }, {
-    "value": 0.133,
-    "axis": "illicitTrades"
+    "value": 0.6044,
+    "axis": "Illicit Trades"
   }, {
-    "value": 0.719,
-    "axis": "maritimeMixedMigration"
+    "value": 0.1694,
+    "axis": "Maritime Mixed Migration"
   }],
   "COD": [{
-    "value": 0.5294,
-    "axis": "ruleOfLaw"
+    "value": 0.6469,
+    "axis": "Rule of Law"
   }, {
-    "value": 0.3284,
-    "axis": "internationalCooperation"
+    "value": 0.0323,
+    "axis": "International Cooperation"
   }, {
-    "value": 0.5851,
-    "axis": "maritimeEnforcement"
+    "value": 0.2911,
+    "axis": "Maritime Enforcement"
   }, {
-    "value": 0.8054,
-    "axis": "coastalWelfare"
+    "value": 0.0981,
+    "axis": "Coastal Welfare"
   }, {
-    "value": 0.4532,
-    "axis": "blueEconomy"
+    "value": 0.4809,
+    "axis": "Blue Economy"
   }, {
-    "value": 0.52,
-    "axis": "fisheries"
+    "value": 0.072,
+    "axis": "Fisheries"
   }, {
-    "value": 0.1834,
-    "axis": "piracy"
+    "value": 0.6675,
+    "axis": "Piracy"
   }, {
-    "value": 0.3325,
-    "axis": "illicitTrades"
+    "value": 0.3916,
+    "axis": "Illicit Trades"
   }, {
-    "value": 0.9697,
-    "axis": "maritimeMixedMigration"
+    "value": 0.8953,
+    "axis": "Maritime Mixed Migration"
   }]
-} // end radarData
+}// end radarData
 
 
 var regionsData = {
