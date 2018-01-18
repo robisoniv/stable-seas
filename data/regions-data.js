@@ -1037,7 +1037,6 @@ var radarData = {
   }]
 }// end radarData
 
-
 var regionsData = {
 
   overview: {
