@@ -321,7 +321,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
     var iaMainNav = d3.select('#ia-main-nav');
 
     iaMainNav.append('div')
-      .classed('ia ia-buffer col-lg-1', true);
+      .classed('ia ia-buffer col-xs-1', true);
 
 
     for (ia in issueAreaData) {
@@ -355,12 +355,10 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
     var iaBtn = d3.select('#ia-' + issueArea);
 
-    iaBtn.style('background-color', function () {
-        return rampColor(0.6);
+    iaBtn.style('border-bottom', function() {
+        return "5px solid black";
       })
-      .style('border-bottom', function() {
-        return "5px solid " + iaColorSelection;
-      });
+      .style('margin-bottom', '-5px');
 
     // Pull target card index from URL anchor:
     var hash = window.location.hash;
@@ -407,7 +405,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
         var cardUnderConstruction = d3.select('#content-holder')
           .append('div')
           .attr('id', constructionCard)
-          .classed('card col-lg-4 col-sm-12 invisible', true)
+          .classed('card col-xs-4 invisible', true)
           .style('border-left', function() {
             return '5px solid ' + rampColor(1);
           });
@@ -622,7 +620,7 @@ function buildBlockquote(obj, container, cardIndex, elIndex) {
   var selector = '#' + container;
   var bqDiv = d3.select(selector)
     .append('div')
-    .attr('class', 'block col-lg-12')
+    .attr('class', 'block col-xs-12')
     .style('background-color', function() {
       return rampColor(0.2);
     })
@@ -645,7 +643,7 @@ function buildBigText(obj, container, cardIndex, elIndex) {
   var selector = '#' + container;
   var bigText = d3.select(selector)
     .append('div')
-    .attr('class', 'big-text col-lg-12');
+    .attr('class', 'big-text col-xs-12');
 
 
   bigText.append('p')
@@ -696,7 +694,7 @@ function buildVideo(obj, container, elIndex) {
 
   var videoThumb = d3.select('#' + container)
     .append('div')
-    .classed('video-thumb js-video-button col-lg-12', true)
+    .classed('video-thumb js-video-button col-xs-12', true)
     .attr('data-video-id', obj.videoId)
     .attr('data-channel', obj.channel ? obj.channel : 'youtube');
 
