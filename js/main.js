@@ -88,56 +88,13 @@ tooltip.append('h1');
 var tooltipRow = tooltip.append('div')
   .classed('row tooltip-body', true);
 
-tooltipRow.append('span')
-  .classed('country-score', true);
+// #### This needs to get excluded
+// tooltipRow.append('span')
+//   .classed('country-score', true);
+//
+// tooltipRow.append('span')
+//   .classed('units', true);
 
-tooltipRow.append('span')
-  .classed('units', true);
-
-// tooltipRow.append('div')
-//   .classed('col-lg-6 left', true);
-// tooltipRow.append('div')
-//   .classed('col-lg-6 right', true);
-// tooltip.append('svg')
-//   .classed('tool', true);
-
-
-// function tooltip(geoObj) {
-//
-//   if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
-//     var coords = path.bounds(geoObj);
-//     var tooltip = d3.select('div.tooltip');
-//     //  console.log(coords);
-//
-//     tooltip.style('left', function() {
-//         var x = coords[0][0];
-//         //console.log(x);
-//         return x + 'px';
-//       })
-//       .style('top', function() {
-//         var y = coords[0][1] + 40;
-//         //  console.log(y)
-//         return y + 'px';
-//       })
-//       .classed('hidden', false);
-//
-//     var idx = issueAreaData[issueArea].metadata.indexData
-//       .filter(function(obj) {
-//         return obj.iso3 == d.properties.ISO_A3_EH;
-//       })[0];
-//
-//     tooltip.select('h1')
-//       .text(idx.country);
-//
-//     var tooltipBody = tooltip.select('.tooltip-body');
-//     //var left = d3.select('.left').html('');
-//     //  var right = d3.select('.right').html('');
-//
-//     tooltipBody.select('.country-score').text(idx.val);
-//     tooltipBody.select('.units').text(issueAreaData[issueArea].cards[activeCard].map.units);
-//
-//   }
-// }
 
 // ... and the modals
 $('#resizeModal').modal({
@@ -269,20 +226,20 @@ $('#content-holder').on('click', '.table-expand', function() {
 
 });
 
-function clearTooltip() {
-  var ttip = d3.select('#tooltip-below-menu');
-
-  ttip.select('.country-name')
-    .classed('muted', true)
-    .text('Country');
-
-  ttip.select('.country-score')
-    .classed('muted', true)
-    .text('Score /')
-  ttip.select('.units')
-    .classed('muted', true)
-    .text(' units');
-}
+// function clearTooltip() {
+//   var ttip = d3.select('#tooltip-below-menu');
+//
+//   ttip.select('.country-name')
+//     .classed('muted', true)
+//     .text('Country');
+//
+//   ttip.select('.country-score')
+//     .classed('muted', true)
+//     .text('Score /')
+//   ttip.select('.units')
+//     .classed('muted', true)
+//     .text(' units');
+// }
 
 
 // 4 Functions
@@ -1051,12 +1008,16 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           if (issueAreaData[issueArea].cards[activeCard].map.tooltip) {
 
             if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
-              var coords = path.bounds(d);
+              var coords = path.bounds(d); // returns bounds of country hovered on
+
               var tooltip = d3.select('div.tooltip');
               var idx = issueAreaData[issueArea].metadata.indexData
                 .filter(function(obj) {
                   return obj.iso3 == d.properties.ISO_A3_EH;
                 })[0];
+                // idx is object with country, iso3, values for each card ...
+                // pulled from issue area's metadata.indexData
+                console.log(idx);
 
               tooltip.style('left', function() {
                   var x = coords[0][0];
@@ -1082,12 +1043,11 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                 .text(idx.country);
 
               // May need to work out how to include multiplier for units
-              var units = issueAreaData[issueArea].cards[activeCard].map.units,
-                tooltipVal = idx["c" + activeCard] * units.multiplier;
+
+              var tooltipVal = idx["c" + activeCard];
 
               var tooltipBody = tooltip.select('.tooltip-body');
-              tooltipBody.select('.country-score').text(tooltipVal.toFixed(1));
-              tooltipBody.select('.units').text(' ' + units.text);
+              tooltipBody.html(tooltipVal);
 
             } else {
               d3.selectAll('.label.' + d.properties.ISO_A3_EH)

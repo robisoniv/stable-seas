@@ -38,17 +38,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        console.log('vals', vals);
-        vals.forEach(function(d) {
-          console.log('d', d);
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
         issueAreaData[issueArea].metadata.indexData = vals;
-
       });
     },
     cards: [{ // Card 0
@@ -660,13 +650,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -1730,13 +1713,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -2396,13 +2372,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
+
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -3434,13 +3404,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
+
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -4203,15 +4167,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       //    console.log('../../data/' + md.path + '/indexValues.csv');
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-
-        console.log('vals', vals);
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -5125,13 +5080,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
+
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -5822,13 +5771,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
+
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -6605,13 +6548,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
+
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
@@ -7818,13 +7755,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       });
 
       d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        vals.forEach(function(d) {
-          for (key in d) {
-            if (key != "country" && key != "iso3") {
-              d[key] = +d[key];
-            }
-          }
-        });
+
         issueAreaData[issueArea].metadata.indexData = vals;
 
       });
