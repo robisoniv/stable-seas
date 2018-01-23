@@ -585,7 +585,8 @@ tr:nth-child(odd) {
 
 .country {
   fill: whitesmoke;
-  stroke: darkgrey;
+  stroke: #cccccc;
+  stroke-width: 0.5;
   opacity: 1;
 }
 /*.country:hover {
@@ -593,7 +594,7 @@ tr:nth-child(odd) {
 }*/
 
 .country.in {
-  fill: #dadada;
+  fill: #093C5C;
 }
 .country.on {
   fill: #9c9c9c;
@@ -617,11 +618,11 @@ tr:nth-child(odd) {
 
 .eez {
   fill: transparent;
-  stroke: #072031;
+  stroke: whitesmoke;
   /*stroke-width: 1px*/
 }
 .pulse.eez {
-  stroke: #FC4C02;
+  stroke: #093C5C;
   stroke-width: 3px;
 }
 tr.pulse {
@@ -629,7 +630,7 @@ tr.pulse {
 
 }
 .pulse.country {
-  fill: #FC4C02;
+  fill: rgb(112, 132, 154);
 }
 
 
@@ -697,7 +698,7 @@ div.tooltip h1 {
 }
 
 .background {
-  fill: #0d3a58;
+  fill: #8c8c8c;
 }
 
 /*.fished {
