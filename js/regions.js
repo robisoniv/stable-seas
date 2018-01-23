@@ -852,12 +852,12 @@ function buildOverviewIndexTable ( obj, container, cardIndex, elIndex ) {
 
 function buildRadar ( obj, container, cardIndex, elIndex ) {
   //console.log('obj', obj);
-  console.log(container);
+  //console.log(container);
   //console.log('card', cardIndex);
   //console.log('el', elIndex);
   var iso3 = regionsData[region].cards[cardIndex].map.highlights;
 
-  // Lex - Radar data for the radar plot being built will be stored in cardRadarData variable:
+  // Lex - this is how you access the radar data
   if (cardIndex == 0) {
     var cardRadarData = [
       // region average data
@@ -873,18 +873,8 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
       radarData[region]
     ];
   }
-  // NOTE: I did not include colors in the cardRadarData - we will want to adapt
-  // them to dynamically pull from another source, so that we can update the
-  // color themes easily. For now can you just set it so it's a random demo color?
-
-  // Define radarChartOptions in a way that will work inthe cards
-  // This is what I need the most help with as I am having a hard time with
-  // setting parameters right so the chart consistently is placed properly
-  var radarChartOptions = {};
-
-  // Call RadarChart() function from the code you wrote - radarChartV4/radarchart.js
-  // RadarChart('#' + container, cardRadarData, radarChartOptions)
-
+  console.log(cardRadarData);
+  // Figure out some way to define colors
 
 }
 
