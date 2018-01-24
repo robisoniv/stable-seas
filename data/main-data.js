@@ -612,16 +612,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
     metadata: {
       version: '1.0.0', // Independent data source for each page
       name: 'International Cooperation',
-      updates: true,
-      /*
-           here is where you write updates
-           do one line per update, like
-           added legend to card 3
-           added citations to card 5
-           input thumbnail path to card 4
-           loaded point data
-
-           */
       index: 2,
       code: 'internationalCooperation',
       path: 'international-cooperation',
@@ -633,7 +623,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
     },
     load: function(csv, callback) {
       var md = issueAreaData[issueArea].metadata;
-
+      var tooltipVals = {};
       d3.csv(csv, function(vals) {
         console.log(vals);
         vals.forEach(function(d) {
@@ -656,13 +646,14 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         console.log(vals);
       //  console.log(oldvals)
         issueAreaData[issueArea].metadata.countryData = vals;
+        issueAreaData[issueArea].metadata.indexData = tooltipVals;
+
         callback('internationalCooperation load csv function callback');
       });
 
-      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        issueAreaData[issueArea].metadata.indexData = vals;
-
-      });
+      // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+      //   issueAreaData[issueArea].metadata.indexData = vals;
+      // });
 
     },
     cards: [{ // Card 0
@@ -678,10 +669,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: {
-            text: 'xo units',
-            multiplier: 100
-          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -689,6 +676,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
               .classed(layer, true);
           },
           switch: function(index) {
+
+
             // switchMainIndexInverse(index);
             ssiChoropleth(index);
             // Choropleth of scores
