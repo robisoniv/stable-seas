@@ -21,7 +21,11 @@ var colorBrew = [
   ['#cab2d6', '#6a3d9a']
 ];
 var iaColorSelection = issueAreaData[issueArea].metadata.color;
-var rampColor = d3.interpolateLab('white', iaColorSelection);
+var themeColor = d3.interpolateLab('white', iaColorSelection);
+
+var rampColor = d3.scaleQuantize()
+    .domain([0, 0.0625, 0.125, 0.1875, 0.25, 1])
+    .range(["#F06A26", "#F29928", "#F6C927", "#F2EA2A", "#D7E036", "steelblue"]);
 
 // Map variables
 var width = $(window).width(),
@@ -313,7 +317,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
     var iaBtn = d3.select('#ia-' + issueArea);
 
     iaBtn.style('background-color', function () {
-        return rampColor(0.6);
+        return themeColor(0.6);
       })
       .style('border-bottom', function() {
         return "5px solid " + iaColorSelection;
@@ -366,7 +370,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
           .attr('id', constructionCard)
           .classed('card col-lg-4 col-sm-12 invisible', true)
           .style('border-left', function() {
-            return '5px solid ' + rampColor(1);
+            return '5px solid ' + themeColor(1);
           });
 
         if (cardIndex != 0) {
@@ -504,10 +508,10 @@ function buildLinks(obj, container, cardIndex, elIndex) {
       .append('div')
       .classed('link', true)
       .style('background-color', function() {
-        return rampColor(0.3);
+        return themeColor(0.3);
       })
       .style('border-right', function() {
-        return '5px solid ' + rampColor(1);
+        return '5px solid ' + themeColor(1);
       });
 
     a.append('p')
@@ -532,10 +536,10 @@ function buildLegend(obj, container, cardIndex, elIndex) {
     .attr('role', 'tablist')
     .attr('aria-multiselectable', 'true')
     .style('background-color', function() {
-      return rampColor(0.2);
+      return themeColor(0.2);
     })
     .style('border-left', function() {
-      return '5px solid ' + rampColor(1);
+      return '5px solid ' + themeColor(1);
     });
 
   var a = legendDiv.append('a')
@@ -581,10 +585,10 @@ function buildBlockquote(obj, container, cardIndex, elIndex) {
     .append('div')
     .attr('class', 'block col-lg-12')
     .style('background-color', function() {
-      return rampColor(0.2);
+      return themeColor(0.2);
     })
     .style('border-left', function() {
-      return '5px solid ' + rampColor(1);
+      return '5px solid ' + themeColor(1);
     });
 
   bqDiv.append('p')
@@ -608,10 +612,10 @@ function buildBigText(obj, container, cardIndex, elIndex) {
   bigText.append('p')
     .html(obj.html)
     .style('border-top', function() {
-      return '2px solid ' + rampColor(0.3);
+      return '2px solid ' + themeColor(0.3);
     })
     .style('border-bottom', function() {
-      return '2px solid ' + rampColor(0.3);
+      return '2px solid ' + themeColor(0.3);
     });;
 
 }
@@ -801,7 +805,7 @@ function buildIndexTable(obj, container, cardIndex, elIndex) {
   d3.select('#' + container).append('div')
     .classed('table-expand', true)
     .style('background-color', function() {
-      return rampColor(0.2);
+      return themeColor(0.2);
     })
     .append('p')
     .text('Expand to see more...');
@@ -888,7 +892,7 @@ function buildOverviewIndexTable(obj, container, cardIndex, elIndex) {
   d3.select('#' + container).append('div')
     .classed('table-expand', true)
     .style('background-color', function() {
-      return rampColor(0.2);
+      return themeColor(0.2);
     })
     .append('p')
     .text('Expand to see more...');
@@ -1173,7 +1177,7 @@ function switchCard(target) {
           return rampColor(0.5);
         })
         .style('stroke', function() {
-          return rampColor(1);
+          return themeColor(1);
         });
       //.classed('on', true);
 
@@ -1183,10 +1187,10 @@ function switchCard(target) {
   d3.select('#card-' + target + '-menu')
     .classed('active', true)
     .style('background-color', function() {
-      return rampColor(0.3);
+      return themeColor(0.3);
     })
     .style('border-left', function() {
-      return '5px solid ' + rampColor(1);
+      return '5px solid ' + themeColor(1);
     });
 
   var cardMapObj = issueAreaData[issueArea].cards[target].map;
