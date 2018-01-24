@@ -20,8 +20,13 @@ var colorBrew = [
   ['#fdbf6f', '#ff7f00'],
   ['#cab2d6', '#6a3d9a']
 ];
+
+// Color vars and functions
 var iaColorSelection = issueAreaData[issueArea].metadata.color;
 var rampColor = d3.interpolateLab('white', iaColorSelection);
+
+// SSI values variable
+var ssiValues = {};
 
 // Map variables
 var width = $(window).width(),
@@ -117,6 +122,10 @@ $('body').append('<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3
 if (width > 1199 || window.navigator.userAgent.indexOf('MSIE') != -1) {
 
   buildMap('../../data/map-layer.js')
+    .then(function(resolutions) {
+
+      return loadValues();
+    })
     .then(function(resolution) {
       // console.log(resolution);
       // If buildMap() resolves, execute:
@@ -243,6 +252,29 @@ $('#content-holder').on('click', '.table-expand', function() {
 
 
 // 4 Functions
+
+// Master Load SSI values function:
+function loadValues() {
+  return new Promise(function(resolve, reject) {
+    d3.csv('../data/ssi.csv', function (vals) {
+      vals.forEach(function (d) {
+        for (key in d) {
+          if (key != "country" && key != "iso3") {
+            d[key] = +d[key];
+          }
+        }
+        ssiValues[d.iso3] = d;
+        //console.log('ssi',d);
+      })
+      console.log('ssi', ssiValues);
+    });
+
+    resolve("SSI Values loaded");
+  })
+
+}
+
+
 // Master IA load function
 function loadIA(data, card) { // where data = data.js format ... so it's an object set as a variable? Or array of objects?
   return new Promise(function(resolve, reject) {
@@ -1214,6 +1246,27 @@ Array.prototype.contains = function(needle) {
   return false;
 }
 
+function ssiChoropleth (cardIndex, order) {
+  var target = 'card-' + cardIndex + '-layer';
+
+  console.log(ssiValues);
+  var i = 0;
+  for (iso3 in ssiValues) {
+    var highlightedCountry = d3.selectAll('.eez.' + iso3);
+
+    // highlightedCountry.classed('highlighted', true);
+    highlightedCountry.transition()
+      .delay(i * 10)
+      .style('fill', function() {
+        if (order == -1) {
+          return rampColor(1 - ssiValues[iso3][issueArea]);
+        } else {
+          return rampColor(ssiValues[iso3][issueArea]);
+        }
+      });
+      i++;
+  }
+}
 
 function switchMainIndex(cardIndex) {
   if (!cardIndex) {

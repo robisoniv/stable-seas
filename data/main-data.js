@@ -1,4 +1,4 @@
-// v0.0.6
+// v1.0.0
 var issueAreaData = { // ### replace data with something more descriptive. issueAreaData?
   overview: {
     metadata: {
@@ -610,7 +610,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
   },
   internationalCooperation: {
     metadata: {
-      version: '0.0.2', // Independent data source for each page
+      version: '1.0.0', // Independent data source for each page
       name: 'International Cooperation',
       updates: true,
       /*
@@ -635,16 +635,26 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       var md = issueAreaData[issueArea].metadata;
 
       d3.csv(csv, function(vals) {
+        console.log(vals);
         vals.forEach(function(d) {
-          d.ia2c0 = +d.ia2c0;
-          d.ia2c1 = +d.ia2c1;
-          d.ia2c2 = +d.ia2c2;
-          d.ia2c3 = +d.ia2c3;
-          d.ia2c4 = +d.ia2c4;
-          d.ia2c7 = +d.ia2c7;
-          d.ia2c7 = +d.ia2c7;
+        //  console.log('d',d);
+          for (key in d) {
+            if (key != 'country' && key != 'iso3') {
+              d[key] = +d[key];
+            }
+            //console.log('key',key);
+          }
+          // d.ia2c0 = +d.ia2c0;
+          // d.ia2c1 = +d.ia2c1;
+          // d.ia2c2 = +d.ia2c2;
+          // d.ia2c3 = +d.ia2c3;
+          // d.ia2c4 = +d.ia2c4;
+          // d.ia2c7 = +d.ia2c7;
+          // d.ia2c7 = +d.ia2c7;
 
         });
+        console.log(vals);
+      //  console.log(oldvals)
         issueAreaData[issueArea].metadata.countryData = vals;
         callback('internationalCooperation load csv function callback');
       });
@@ -680,28 +690,15 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           },
           switch: function(index) {
             // switchMainIndexInverse(index);
-            var unclos = issueAreaData[issueArea].metadata.countryData;
+            ssiChoropleth(index);
+            // Choropleth of scores
+            // Will pull from ssiValues variable!
+            // for (iso3 in ssiValues) {
+            //
+            //
+            // }
 
-            unclos.forEach(function(country, i) {
-              if (country.ia2c0 == 1) {
-                d3.selectAll('.country.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('fill', function() {
-                    return rampColor(0.5);
-                  })
-                  .style('stroke', rampColor(1));
 
-                d3.selectAll('.eez.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('stroke', function() {
-                    return rampColor(1);
-                  });
-              }
-            });
 
           }
         },
