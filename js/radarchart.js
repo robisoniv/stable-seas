@@ -23,12 +23,13 @@ function RadarChart(id, data, options) {
         opacityCircles: 0.1, //The opacity of the circles of each blob
         strokeWidth: 2, //The width of the stroke around each blob
         roundStrokes: false, //If true the area and stroke will follow a round path (cardinal-closed)
-        color: color = d3.scaleOrdinal(d3.schemeCategory10), //Color function  - Lex change to v4
+      //  color: color = d3.scaleOrdinal(d3.schemeCategory10), //Color function  - Lex change to v4
         // custom from Lex
         formatValue: '%', // type of Format from D3 ( default is %)
     };
 
     //Put all of the options into a variable called cfg
+    console.log('options', options.color);
     if ('undefined' !== typeof options) {
         for (var i in options) {
             if ('undefined' !== typeof options[i]) {
@@ -106,8 +107,8 @@ function RadarChart(id, data, options) {
         })
         .style("fill", "#CDCDCD")
         .style("stroke", "#CDCDCD")
-        .style("fill-opacity", cfg.opacityCircles)
-        .style("filter", "url(#glow)");
+        .style("fill-opacity", cfg.opacityCircles);
+        //.style("filter", "url(#glow)");
 
     //Text indicating at what % each level is
     axisGrid.selectAll(".axisLabel")
@@ -200,7 +201,8 @@ function RadarChart(id, data, options) {
             return radarLine(d);
         })
         .style("fill", function(d, i) {
-            return cfg.color(i);
+            console.log(i,cfg.color);
+            return cfg.color[i];
         })
         .style("fill-opacity", cfg.opacityArea)
         .on('mouseover', function(d, i) {
@@ -228,7 +230,7 @@ function RadarChart(id, data, options) {
         })
         .style("stroke-width", cfg.strokeWidth + "px")
         .style("stroke", function(d, i) {
-            return cfg.color(i);
+            return cfg.color[i];
         })
         .style("fill", "none")
         .style("filter", "url(#glow)");
@@ -242,13 +244,17 @@ function RadarChart(id, data, options) {
         .attr("class", "radarCircle")
         .attr("r", cfg.dotRadius)
         .attr("cx", function(d, i) {
+        //  console.log('cx',d);
             return rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2);
         })
         .attr("cy", function(d, i) {
             return rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2);
         })
         .style("fill", function(d, i, j) {
-            return cfg.color(j);
+          // for (k in j) {
+          //   console.log('k',k);
+          // }
+            return cfg.color[j];
         })
         .style("fill-opacity", 0.8);
 
