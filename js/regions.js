@@ -898,7 +898,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
         w: width,
         h: height,
         margin: margin,
-        maxValue: 1, // max value in data
+        maxValue: 0.5, // max value in data
         levels: 4, // number of circles in chart
         roundStrokes: true,
         color: color,
