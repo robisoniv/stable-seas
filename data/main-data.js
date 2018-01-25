@@ -17,7 +17,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 1,
       code: 'overview',
       path: 'overview',
-      countryData: [],
+      countryData: {},
       csv: '../../data/overview/overview.csv',
       color: '#FC4C02',
       order: -1,
@@ -26,20 +26,25 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
     load: function(csv, callback) {
       var md = issueAreaData[issueArea].metadata;
       d3.csv(csv, function(vals) {
+      //  console.log('v',vals);
         vals.forEach(function(d) {
-          d.ia1c0 = +d.ia1c0;
-          d.ia1c1 = +d.ia1c1;
-          d.ia1c2 = +d.ia1c2;
-          d.ia1c3 = +d.ia1c3;
-          d.ia1c4 = +d.ia1c4;
+          for (key in d) {
+            if (isNaN(d[key]) != true) {
+              // Convert all numbers (floats and ints) to proper data type
+              d[key] = +d[key];
+            }
+
+          }
+          md.countryData[d.iso3] = d;
+
         });
-        md.countryData = vals;
+      //  md.countryData = vals;
         callback('overview load csv function callback');
       });
 
-      d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-        issueAreaData[issueArea].metadata.indexData = vals;
-      });
+      // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+      //   issueAreaData[issueArea].metadata.indexData = vals;
+      // });
     },
     cards: [{ // Card 0
         title: 'Introducing Stable Seas',
@@ -54,6 +59,12 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          tooltipHTML: function (tooltipVal) {
+
+            if (tooltipVal == 1) {
+              return "This country is part of UNCLOS";
+            }
+          },
           units: {
             text: 'xo units',
             multiplier: 100
@@ -615,7 +626,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 2,
       code: 'internationalCooperation',
       path: 'international-cooperation',
-      countryData: [],
+      countryData: {},
       csv: '../../data/international-cooperation/internationalCooperation.csv',
       color: '#3CB2C1',
       order: -1,
@@ -623,31 +634,17 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
     },
     load: function(csv, callback) {
       var md = issueAreaData[issueArea].metadata;
-      var tooltipVals = {};
       d3.csv(csv, function(vals) {
-        console.log(vals);
+      //  console.log('v',vals);
         vals.forEach(function(d) {
-        //  console.log('d',d);
           for (key in d) {
-            if (key != 'country' && key != 'iso3') {
+            if (isNaN(d[key]) != true) {
+              // Convert all numbers (floats and ints) to proper data type
               d[key] = +d[key];
             }
-            //console.log('key',key);
           }
-          // d.ia2c0 = +d.ia2c0;
-          // d.ia2c1 = +d.ia2c1;
-          // d.ia2c2 = +d.ia2c2;
-          // d.ia2c3 = +d.ia2c3;
-          // d.ia2c4 = +d.ia2c4;
-          // d.ia2c7 = +d.ia2c7;
-          // d.ia2c7 = +d.ia2c7;
-
+          md.countryData[d.iso3] = d;
         });
-        console.log(vals);
-      //  console.log(oldvals)
-        issueAreaData[issueArea].metadata.countryData = vals;
-        issueAreaData[issueArea].metadata.indexData = tooltipVals;
-
         callback('internationalCooperation load csv function callback');
       });
 
@@ -656,7 +653,8 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       // });
 
     },
-    cards: [{ // Card 0
+    cards: [
+      { // Card 0
         title: 'International Cooperation',
         menu: 'International Cooperation',
         metadata: {
@@ -669,6 +667,11 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
+          tooltipHTML: function (tooltipVal) {
+            tooltipVal = (tooltipVal * 100).toFixed(2);
+            return "International Cooperation:<br />" + tooltipVal + " / 100";
+
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
             var layer = 'card-' + index + '-layer';
@@ -676,19 +679,9 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
               .classed(layer, true);
           },
           switch: function(index) {
-
-
-            // switchMainIndexInverse(index);
-            ssiChoropleth(index);
             // Choropleth of scores
             // Will pull from ssiValues variable!
-            // for (iso3 in ssiValues) {
-            //
-            //
-            // }
-
-
-
+            switchMainIndex(index, 1);
           }
         },
         els: [{
@@ -699,11 +692,11 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
             tag: 'caption',
             text: 'Transnational challenges demand multilateral efforts'
           },
-          {
-            tag: 'legend',
-            text: 'Map Legend',
-            legendContent: '<em>Highlighted countries are party to all parts of UNCLOS, including Part XI.'
-          },
+          // {
+          //   tag: 'legend',
+          //   text: 'Map Legend',
+          //   legendContent: '<em>Highlighted countries are party to all parts of UNCLOS, including Part XI.'
+          // },
           {
             tag: 'p',
             html: 'The security and governance of African waters is not an interest exclusive to African nations. Maritime instability causes economic, security, and social problems with effects that ripple across the globe. Acknowledging this interdependency, a variety of international actors—from individual states to global institutions—have facilitated programs which aim to build a more secure African maritime domain.'
@@ -766,85 +759,76 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           // },
         ] // end of els array
       }, // End of first element of cards object
-      // {  // Card 1
-      //   title: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
-      //   menu: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
-      //   metadata: {
-      //     owner: 'Jay Benson',
-      //     description: 'Discuss effects of UNCLOS on SSA.'
-      //   },
-      //   map: {
-      //     scale: [],
-      //     classes: 'card-eez-layer',
-      //     translate: [],
-      //     highlights: [],
-      //     load: function (index, csv) {  // ### *** This only should be for the first card ...
-      //       // Class EEZ with card-0-layer to enable switch() method
-      //       var layer = 'card-'+index+'-layer';
-      //       d3.select('.card-eez-layer')
-      //         .classed(layer, true);
-      //     },
-      //     switch: function (index) {
-      //
-      //       var unclos = issueAreaData[issueArea].metadata.countryData;
-      //
-      //       unclos.forEach( function ( country, i ) {
-      //         if (country.ia2c1 == 1) {
-      //           d3.selectAll('.country.' + country.iso3)
-      //             .classed('active', true)
-      //             .transition()
-      //             .delay(i * 10)
-      //             .style('fill', function () {
-      //               return rampColor(1);
-      //             })
-      //             .style('stroke', 'grey');
-      //
-      //           // d3.selectAll('.eez.' + country.iso3)
-      //           //   .classed('active', true)
-      //           //   .transition()
-      //           //   .delay(i * 10)
-      //           //   .style('fill', function () {
-      //           //     return rampColor(0.6);
-      //           //   });
-      //         }
-      //       });
-      //     }
-      //   },
-      //   els: [
-      //     // { tag: 'h1',
-      //       // text: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
-      //     // },
-      //     // { tag: 'caption',
-      //     //   text: 'UNCLOS provides Africa with enhanced sovereignty over maritime resources'
-      //     // },
-      //     // // { tag: 'legend',
-      //     // //   text: 'Map Legend',
-      //     // //   legendContent: '<em></em>.'
-      //     // // },
-      //     // { tag: 'p',
-      //     //   html: 'Prior to the adoption of the United Nations Convention on the Law of the Sea (UNCLOS) in 1982, the maritime space beyond a narrow strip of coastal waters was governed not by law, but by those who had the most maritime technology and power. UNCLOS codified the growing preference among countries to have increased legal rights to govern larger maritime spaces, reducing conflict over competing claims to offshore resources.'
-      //     // },
-      //     // { tag: 'p',
-      //     //    html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
-      //     // },
-      //     // { tag: 'p',
-      //     //    html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
-      //     // },
-      //     // { tag: 'p',
-      //     //    html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
-      //     // },
-      //     // { tag: 'p',
-      //     //    html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
-      //     // },
-      //     // { tag: 'links',
-      //     //   items: [
-      //     //   {org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,', url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'},
-      //     //   {org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,', url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'},
-      //     //   ]
-      //     //},
-      //     //###Insert graphics, video, and blockquote
-      //   ] // end of els array
-      // },
+      {  // Card 1
+        title: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
+        menu: 'UNCLOS in Africa',
+        metadata: {
+          owner: 'Jay Benson',
+          description: 'Discusses how the UN Law of the Sea influences maritime security in sub-Saharan Africa'
+        },
+        map: {
+          scale: [],
+          classes: 'card-eez-layer',
+          translate: [],
+          highlights: [],
+          tooltip: true,
+          tooltipHTML: function (tooltipVal) {
+            var output = "";
+
+            if (tooltipVal == 1) {
+              output = "UNCLOS: Signed<br>"
+                + "Part XI: Signed<br>"
+                + "Fish Stocks: Signed";
+            }
+            return output;
+
+          },
+          load: function (index, csv) {  // ### *** This only should be for the first card ...
+            // Class EEZ with card-0-layer to enable switch() method
+            var layer = 'card-'+index+'-layer';
+            d3.select('.card-eez-layer')
+              .classed(layer, true);
+          },
+          switch: function (index) {
+
+
+          }
+        },
+        els: [
+          { tag: 'h1',
+            text: 'UNCLOS in Sub-Saharan Africa',
+          },
+          { tag: 'caption',
+            text: 'The Law of the Sea in African waters'
+          },
+          // { tag: 'legend',
+          //   text: 'Map Legend',
+          //   legendContent: '<em></em>.'
+          // },
+          { tag: 'p',
+            html: 'Prior to the adoption of the United Nations Convention on the Law of the Sea (UNCLOS) in 1982, the maritime space beyond a narrow strip of coastal waters was governed not by law, but by those who had the most maritime technology and power. UNCLOS codified the growing preference among countries to have increased legal rights to govern larger maritime spaces, reducing conflict over competing claims to offshore resources.'
+          },
+          { tag: 'p',
+             html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
+          },
+          { tag: 'p',
+             html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
+          },
+          { tag: 'p',
+             html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
+          },
+          { tag: 'p',
+             html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
+          },
+          { tag: 'links',
+            items: [
+            {org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,', url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'},
+            {org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,', url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'},
+            ]
+          },
+          //###Insert graphics, video, and blockquote
+        ] // end of els array
+      },
       { // Card 2
         title: 'Ongoing Disputes',
         menu: 'Ongoing Disputes',
@@ -983,9 +967,22 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: {
-            text: 'xo units',
-            multiplier: 100
+          tooltipHTML: function (agreements) {
+            var output = "";
+            if (agreements == 1) {
+              output = "Port States: Ratified <br />" +
+                "Fish Stocks: Ratified";
+            } else if (agreements == 2) {
+              output = "Port States: Not Ratified <br />" +
+                "Fish Stocks: Ratified";
+            } else if (agreements == 3) {
+              output = "Port States: Ratified <br />" +
+                "Fish Stocks: Not Ratified";
+            } else {
+              output = "Port States: Not Ratified <br />" +
+                "Fish Stocks: Not Ratified";
+            }
+            return output;
           },
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
@@ -1000,58 +997,96 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
 
             var fishing = issueAreaData[issueArea].metadata.countryData;
 
-            fishing.forEach(function(country, i) {
-              if (country.ia2c2 == 1) {
-                d3.selectAll('.country.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('fill', colorBrew[0][0]) // ### what colors??
-                  .style('stroke', colorBrew[0][1]);
+            var i = 0;
+            for (iso3 in fishing) {
 
-                d3.selectAll('.eez.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('stroke', colorBrew[0][1]); // ### what colors?? Also EEZ opacity is meh ...
-                //  .style('stroke', 'grey');
+              var agreements = fishing[iso3]["c" + index];
+              var strokeColor, fillColor;
 
-              } else if (country.ia2c2 == 2) {
-                // code for Cat2
-                d3.selectAll('.country.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('fill', colorBrew[2][0]) // ### what colors??
-                  .style('stroke', colorBrew[2][1]);
-
-                d3.selectAll('.eez.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('stroke', colorBrew[2][0]); // ### what colors Also EEZ opacity is meh ...??
-                //  .style('stroke', 'grey');
-
-
-              } else if (country.ia2c2 == 3) {
-                // code for Cat3
-                d3.selectAll('.country.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('fill', colorBrew[4][0]) // ### what colors??
-                  .style('stroke', colorBrew[4][1]);
-
-                d3.selectAll('.eez.' + country.iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('stroke', colorBrew[4][0]); // ### what colors?? Also EEZ opacity is meh ...
-                //      .style('stroke', 'grey');
-
-
+              if (agreements == 1) {
+                strokeColor = colorBrew[0][1];
+                fillColor = colorBrew[0][0];
+              } else if (agreements == 2) {
+                strokeColor = colorBrew[2][1];
+                fillColor = colorBrew[2][0];
+              } else if (agreements == 3) {
+                strokeColor = colorBrew[4][1];
+                fillColor = colorBrew[4][0];
+              } else {
+                strokeColor = null;
+                fillColor = null;
               }
-            });
+
+              console.log(fillColor, strokeColor);
+
+                d3.selectAll('.country.' + iso3)
+                  .classed('active', true)
+                  .transition()
+                  .delay(i * 10)
+                  .style('fill', fillColor) // ### what colors??
+                  .style('stroke', strokeColor);
+
+                d3.selectAll('.eez.' + iso3)
+                  .classed('active', true)
+                  .transition()
+                  .delay(i * 10)
+                  .style('stroke', strokeColor); // ### what colors?? Also EEZ opacity is meh ...
+                i++;
+            }
+
+
+            // fishing.forEach(function(country, i) {
+            //   if (country.ia2c2 == 1) {
+            //     d3.selectAll('.country.' + country.iso3)
+            //       .classed('active', true)
+            //       .transition()
+            //       .delay(i * 10)
+            //       .style('fill', colorBrew[0][0]) // ### what colors??
+            //       .style('stroke', colorBrew[0][1]);
+            //
+            //     d3.selectAll('.eez.' + country.iso3)
+            //       .classed('active', true)
+            //       .transition()
+            //       .delay(i * 10)
+            //       .style('stroke', colorBrew[0][1]); // ### what colors?? Also EEZ opacity is meh ...
+            //     //  .style('stroke', 'grey');
+            //
+            //   } else if (country.ia2c2 == 2) {
+            //     // code for Cat2
+            //     d3.selectAll('.country.' + country.iso3)
+            //       .classed('active', true)
+            //       .transition()
+            //       .delay(i * 10)
+            //       .style('fill', colorBrew[2][0]) // ### what colors??
+            //       .style('stroke', colorBrew[2][1]);
+            //
+            //     d3.selectAll('.eez.' + country.iso3)
+            //       .classed('active', true)
+            //       .transition()
+            //       .delay(i * 10)
+            //       .style('stroke', colorBrew[2][0]); // ### what colors Also EEZ opacity is meh ...??
+            //     //  .style('stroke', 'grey');
+            //
+            //
+            //   } else if (country.ia2c2 == 3) {
+            //     // code for Cat3
+            //     d3.selectAll('.country.' + country.iso3)
+            //       .classed('active', true)
+            //       .transition()
+            //       .delay(i * 10)
+            //       .style('fill', colorBrew[4][0]) // ### what colors??
+            //       .style('stroke', colorBrew[4][1]);
+            //
+            //     d3.selectAll('.eez.' + country.iso3)
+            //       .classed('active', true)
+            //       .transition()
+            //       .delay(i * 10)
+            //       .style('stroke', colorBrew[4][0]); // ### what colors?? Also EEZ opacity is meh ...
+            //     //      .style('stroke', 'grey');
+            //
+            //
+            //   }
+            // });
 
           }
         },
@@ -1675,7 +1710,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 3, //Issue Area #3, index 2...
 
       code: 'ruleOfLaw',
-      countryData: [],
+      countryData: {},
       csv: '../../data/rule-of-law/ruleOfLaw.csv',
       path: 'rule-of-law',
       color: '#6E497E',
@@ -2337,7 +2372,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 4,
       code: 'maritimeEnforcement',
       path: 'maritime-enforcement',
-      countryData: [],
+      countryData: {},
       csv: '../../data/maritime-enforcement/maritimeEnforcement.csv',
       color: '#354EA1',
       order: -1,
@@ -3370,7 +3405,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 5,
       code: 'coastalWelfare',
       path: 'coastal-welfare',
-      countryData: [],
+      countryData: {},
       csv: '../../data/coastal-welfare/coastalWelfare.csv',
       color: '#B89E42',
       order: -1,
@@ -4130,7 +4165,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 6,
       code: 'blueEconomy',
       path: 'blue-economy',
-      countryData: [],
+      countryData: {},
       csv: '../../data/blue-economy/blueEconomy.csv',
       color: '#307ABD',
       order: 1,
@@ -5047,7 +5082,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 7,
       code: 'fisheries',
       path: 'fisheries',
-      countryData: [],
+      countryData: {},
       csv: '../../data/fisheries/fisheries.csv',
       color: '#06A89D',
       order: -1,
@@ -5738,7 +5773,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 8,
       code: 'piracy',
       path: 'piracy',
-      countryData: [],
+      countryData: {},
       csv: '../../data/piracy/piracy.csv',
       color: '#B6782A',
       order: -1,
@@ -6516,7 +6551,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 9,
       code: 'illicitTrade',
       path: 'illicit-trade',
-      countryData: [],
+      countryData: {},
       csv: '../../data/illicit-trade/illicitTrade.csv',
       color: '#098895',
       order: -1,
@@ -7721,7 +7756,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
       index: 10,
       code: 'maritimeMixedMigration',
       path: 'maritime-mixed-migration',
-      countryData: [],
+      countryData: {},
       csv: '../../data/maritime-mixed-migration/maritimeMixedMigration.csv',
       color: '#896F33',
       order: -1,
