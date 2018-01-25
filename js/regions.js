@@ -875,7 +875,49 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
       radarData[region]
     ];
   }
-  console.log(cardRadarData);
+  {
+    // setup a div with class called "radarChart" so that we can put chart to this div.
+    var chartIndex = Math.random().toString(36).substring(5); // random chart index so that it won't add 2 charts into 1 div.
+    d3.select('#card' + cardIndex).append('div')
+      .classed('radarChart radarChart-' + chartIndex, true);
+    // setup all need for chart
+    var margin = {
+            top: 50,
+            right: 80,
+            bottom: 50,
+            left: 80
+        },
+    // We should get width of "card" div
+    cardWidth = 450;
+    width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
+    height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+    var color = d3.scaleOrdinal() // setup color for lines
+        .range(["#EDC951", "#CC333F", "#00A0B0"]);
+
+    var radarChartOptions = {
+        w: width,
+        h: height,
+        margin: margin,
+        maxValue: 1, // max value in data
+        levels: 4, // number of circles in chart
+        roundStrokes: true,
+        color: color,
+        formatValue: '.4f', // value will be displayed as: 0.0000
+    };
+    //Call function to draw the Radar chart
+    RadarChart(".radarChart-" + chartIndex, cardRadarData, radarChartOptions);
+
+    var aspect = width / height,
+        chart = d3.select('.radarChart');
+    d3.select(window)
+        .on("resize", function() {
+            var targetWidth = chart.node().getBoundingClientRect().width;
+            chart.attr("width", targetWidth);
+            chart.attr("height", targetWidth / aspect);
+        });
+    }
+
+//console.log(cardRadarData);
 
 }
 
@@ -970,7 +1012,7 @@ function buildMap (json) {  // ### Need some way to attach EEZ layer to specific
               .classed('invisible', true);
           })
           .on('click', function (d) {
-            console.log(d3.geoBounds(d));
+            //console.log(d3.geoBounds(d));
 
           //  console.log(d);
           //  console.log(path.bounds(d));
@@ -1036,7 +1078,7 @@ function buildMap (json) {  // ### Need some way to attach EEZ layer to specific
           })
           .on('click', function (d) {
 
-            console.log(d3.geoBounds(d));
+            //console.log(d3.geoBounds(d));
 
           //   if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
           //     var coords = path.bounds(d);
