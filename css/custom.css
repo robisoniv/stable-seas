@@ -674,7 +674,7 @@ div.tooltip h1 {
 }
 
 .label.out {
-  fill: grey;
+  fill: lightgrey;
 }
 
 .route-label {
@@ -813,7 +813,7 @@ footer {
 
 /* ia2c2 - International Cooperation: Maritime Disputes */
 .maritime-dispute {
-  fill-opacity: 0;
+  fill-opacity: 1;
   stroke-width: 3px;
 }
 

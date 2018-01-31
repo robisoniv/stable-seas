@@ -77,27 +77,44 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           },
           switch: function(index) {
             //  switchMainIndexInverse(index); // ### will this work elsewhere??
-            var target = 'card-' + index + '-layer';
             var vals = issueAreaData[issueArea].metadata.countryData;
+            ssiChoropleth(index, vals, 1);
 
-            vals.forEach(function(val, i) {
 
-              d3.selectAll('.country.' + val.iso3)
-                .classed('active', true)
-                .transition().delay(10 * i)
-                .style('fill', rampColor(0.5))
-                .style('stroke', rampColor(1));
+            // var target = 'card-' + index + '-layer';
+            // var vals = issueAreaData[issueArea].metadata.countryData;
+            // var i = 1;
+            // for (iso in vals) {
+            //   d3.selectAll('.country.' + iso)
+            //   .classed('active', true)
+            //   .transition().delay(10 * i)
+            //   .style('fill', rampColor(0.5))
+            //   .style('stroke', rampColor(1));
+            //
+            //   d3.selectAll('.eez.' + iso)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     .style('stroke', rampColor(1));
+            //
+            //   i++;
+            // }
 
-              d3.selectAll('.eez.' + val.iso3)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('stroke', rampColor(1));
+            // vals.forEach(function(val, i) {
+            //
+            //   d3.selectAll('.country.' + val.iso3)
+            //     .classed('active', true)
+            //     .transition().delay(10 * i)
+            //     .style('fill', rampColor(0.5))
+            //     .style('stroke', rampColor(1));
+            //
+            //   d3.selectAll('.eez.' + val.iso3)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     .style('stroke', rampColor(1));
               //  function () {
               //   return d3.interpolateLab('white', color)(0.5);
               // });
-
-
-            });
+            // });
 
             d3.select('.' + target)
               .classed('invisible', false);
@@ -622,7 +639,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
   internationalCooperation: {
     metadata: {
       version: '1.0.0', // Independent data source for each page
-      name: 'International Cooperation',
+      name: '*International Cooperation*',
       index: 2,
       code: 'internationalCooperation',
       path: 'international-cooperation',
@@ -635,7 +652,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
     load: function(csv, callback) {
       var md = issueAreaData[issueArea].metadata;
       d3.csv(csv, function(vals) {
-      //  console.log('v',vals);
         vals.forEach(function(d) {
           for (key in d) {
             if (isNaN(d[key]) != true) {
@@ -647,11 +663,6 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         });
         callback('internationalCooperation load csv function callback');
       });
-
-      // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-      //   issueAreaData[issueArea].metadata.indexData = vals;
-      // });
-
     },
     cards: [
       { // Card 0
@@ -667,7 +678,9 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          tooltipHTML: function (tooltipVal) {
+          tooltipHTML: function (iso) {
+
+            var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
             tooltipVal = (tooltipVal * 100).toFixed(2);
             return "International Cooperation:<br />" + tooltipVal + " / 100";
 
@@ -680,8 +693,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           },
           switch: function(index) {
             // Choropleth of scores
-            // Will pull from ssiValues variable!
-            switchMainIndex(index, 1);
+            ssiChoropleth(index, 1);
           }
         },
         els: [{
@@ -759,7 +771,7 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           // },
         ] // end of els array
       }, // End of first element of cards object
-      {  // Card 1
+      { // Card 1
         title: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
         menu: 'UNCLOS in Africa',
         metadata: {
@@ -772,14 +784,30 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          tooltipHTML: function (tooltipVal) {
+          tooltipHTML: function (iso) {
             var output = "";
 
-            if (tooltipVal == 1) {
-              output = "UNCLOS: Signed<br>"
-                + "Part XI: Signed<br>"
-                + "Fish Stocks: Signed";
+            var vals = issueAreaData[issueArea].metadata.countryData;
+          //  console.log(iso,vals[iso]);
+
+            if (vals[iso].unclos == 1) {
+              output += "UNCLOS: Signed<br>";
+            } else {
+              output += "UNCLOS: Not signed<br>";
             }
+
+            if (vals[iso].partXI == 1) {
+              output += "Part XI: Signed<br>";
+            } else {
+              output += "Part XI: Not signed<br>";
+            }
+
+            if (vals[iso]["un-fish-stocks"] == 1) {
+              output += "Fish Stocks: Signed";
+            } else {
+              output += "Fish Stocks: Not signed";
+            }
+        //    console.log(output);
             return output;
 
           },
@@ -790,7 +818,41 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
               .classed(layer, true);
           },
           switch: function (index) {
+            var vals = issueAreaData[issueArea].metadata.countryData;
+            var cat;
+            var i = 0;
+            for (iso in vals) {
+              var unclos = vals[iso].unclos == 1 ? true : false,
+                partXI = vals[iso].partXI == 1 ? true : false,
+                fishStocks = vals[iso]["un-fish-stocks"] == 1 ? true : false;
 
+              if (unclos && partXI && fishStocks) {
+                cat = 0;
+              } else if (unclos && partXI && !fishStocks) {
+                cat = 1;
+              } else if (unclos && !partXI && !fishStocks) {
+                cat = 2;
+              } else if (unclos && !partXI && fishStocks) {
+                cat = 4;
+              } else {
+                cat = 3;
+              }
+
+              d3.selectAll('.country.' + iso)
+                .classed('active', true)
+                .transition().delay(10 * i)
+                .style('fill', function () {
+                  return colorBrew[cat][1];
+                });
+
+              d3.selectAll('.eez.' + iso)
+                .classed('active', true)
+                .transition().delay(10 * i)
+                .style('fill', function () {
+                  return colorBrew[cat][0];
+                });
+              i++;
+            }
 
           }
         },
@@ -841,6 +903,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           classes: 'card-eez-layer',
           path: '../../data/international-cooperation/maritime-border-disputes.csv',
           translate: [],
+          tooltip: true,
+          tooltipHTML: function (iso) {
+
+          },
           load: function(index, csv) { // ### *** This only should be for the first card ...
             // Class EEZ with card-0-layer to enable switch() method
 
@@ -860,31 +926,40 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
                 .data(rows).enter()
                 .append('rect')
                 .attr('x', function(d) {
-                  return projection([d.lon, d.lat])[0] - 20;
+                  return projection([d.lon, d.lat])[0] - 16;
                 })
                 .attr('y', function(d) {
-                  return projection([d.lon, d.lat])[1] - 20;
+                  return projection([d.lon, d.lat])[1] - 15;
                 })
-                .attr('width', '40px')
-                .attr('height', '40px')
-                .style('stroke', colorBrew[2][1])
+                .attr('width', '30px')
+                .attr('height', '30px')
+                .style('fill', function (d, i) {
+                  return d3.interpolateLab('white', rampColor(i / (rows.length)))(0.5);
+                } )
                 .classed('maritime-dispute', true);
 
 
-              //console.log(JSON.stringify(rows));
+                disputes.selectAll('text')
+                  .data(rows).enter()
+                  .append('text')
+                  .attr('x', function (d, i) {
+                  //  console.log('lat', d.lat, 'lon', d.lon);
 
-              // var labels = mapg.append('g')
-              //   .classed('disputed-labels', true);
-              //
-              // labels.selectAll('.disputed.label')
-              //   .data(rows).enter()
-              //   .append('text')
-              //     .attr('x', function (d) { console.log(d);return projection([d.lon, d.lat])[0]; } )
-              //     .attr('y', function (d) { return projection([d.lon, d.lat])[1]; } )
-              //     .text( function (d) { return d.dispute; } )
-              //     .attr('class', function (d) {
-              //       return 'disputed label invisible card-layer';
-              //     });
+                    if (i < 9) {
+                      return projection([d.lon, d.lat])[0] - 7;
+                    } else {
+                      return projection([d.lon, d.lat])[0] - 12;
+                    }
+                  })
+                  .attr('y', function (d) {
+                    return projection([d.lon, d.lat])[1] + 7;
+                  })
+                  .attr('font-size', '20px')
+                  .classed('maritime-disputes-label', true)
+                  .style('fill', function (d, i) {
+                    return d3.interpolateLab('white', rampColor(i / (rows.length)))(1);
+                  } )
+                  .text(function (d, i) {return i + 1;});
 
             });
 
@@ -894,11 +969,13 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           },
           switch: function(index) {
             var countries = ['SOM', 'GHA', 'CIV', 'AGO', 'KEN', 'GAB', 'GNQ', 'COD', 'COG', 'YEM', 'DJI', 'MUS', 'GBR', 'FRA', 'MDG', 'ATF', 'COM', 'MYT'];
-            countries.forEach(function(country) {
+
+            countries.forEach(function(country, i) {
               d3.selectAll('.country.' + country)
                 .classed('active', true)
-                .style('fill', rampColor(0.5))
-                .style('stroke', rampColor(1));
+                .transition().delay(i * 10)
+                .style('fill', themeColor(0.5))
+                .style('stroke', 'grey');
             })
 
           }
@@ -911,11 +988,11 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
             tag: 'caption',
             text: 'Disputes undermine maritime security, governance, and the Blue Economy'
           },
-          {
-            tag: 'legend',
-            text: 'Map Legend',
-            legendContent: '<em>Red boxes outline areas of maritime border disputes.<br />Highlighted countries are involved in these disputes.</em>'
-          },
+          // {
+          //   tag: 'legend',
+          //   text: 'Map Legend',
+          //   legendContent: '<em>Red boxes outline areas of maritime border disputes.<br />Highlighted countries are involved in these disputes.</em>'
+          // },
           {
             tag: 'p',
             html: 'International legal developments including UNCLOS have reduced the potential for conflict by establishing common definitions and guidelines pertaining to maritime claims and resources. This work has provided states with many non-violent methods for overcoming contested claims and most African states have entered formal agreements with their neighbors that establish mutually recognized maritime borders.'
@@ -967,21 +1044,29 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          tooltipHTML: function (agreements) {
+          tooltipHTML: function (iso) {
             var output = "";
-            if (agreements == 1) {
+            // ### come back to this!
+
+            var countryData = issueAreaData[issueArea].metadata.countryData[iso];
+
+            var portStateMeasuresRatified = countryData["port-state-measures-ratified"];
+            var fishStocksRatified = countryData["un-fish-stocks-ratified"];
+
+            if (portStateMeasuresRatified == 1 && fishStocksRatified == 1) {
               output = "Port States: Ratified <br />" +
                 "Fish Stocks: Ratified";
-            } else if (agreements == 2) {
+            } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 1) {
               output = "Port States: Not Ratified <br />" +
                 "Fish Stocks: Ratified";
-            } else if (agreements == 3) {
+            } else if (portStateMeasuresRatified == 1 && fishStocksRatified == 0) {
               output = "Port States: Ratified <br />" +
                 "Fish Stocks: Not Ratified";
-            } else {
-              output = "Port States: Not Ratified <br />" +
-                "Fish Stocks: Not Ratified";
+            } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 0) {
+            output = "Port States: Not Ratified <br />" +
+              "Fish Stocks: Not Ratified";
             }
+
             return output;
           },
           load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -989,105 +1074,49 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
               .classed(layer, true);
-            // Loop through highlights array and class each country with layer??
 
           },
           switch: function(index) {
-            // Setup is right, just need updated data file from Curtis
-
             var fishing = issueAreaData[issueArea].metadata.countryData;
-
             var i = 0;
             for (iso3 in fishing) {
-
-              var agreements = fishing[iso3]["c" + index];
+              var portStateMeasuresRatified = fishing[iso3]["port-state-measures-ratified"];
+              var fishStocksRatified = fishing[iso3]["un-fish-stocks-ratified"];
               var strokeColor, fillColor;
 
-              if (agreements == 1) {
-                strokeColor = colorBrew[0][1];
-                fillColor = colorBrew[0][0];
-              } else if (agreements == 2) {
-                strokeColor = colorBrew[2][1];
-                fillColor = colorBrew[2][0];
-              } else if (agreements == 3) {
+              if (portStateMeasuresRatified == 1 && fishStocksRatified == 1) {
                 strokeColor = colorBrew[4][1];
                 fillColor = colorBrew[4][0];
+              } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 1) {
+                strokeColor = colorBrew[0][1];
+                fillColor = colorBrew[0][0];
+              } else if (portStateMeasuresRatified == 1 && fishStocksRatified == 0) {
+                f = 'portStateMeasures';
+                strokeColor = colorBrew[2][1];
+                fillColor = colorBrew[2][0];
+              } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 0) {
+                f = 'neither';
+                strokeColor = null;
+                fillColor = null;
               } else {
                 strokeColor = null;
                 fillColor = null;
               }
 
-              console.log(fillColor, strokeColor);
+              d3.selectAll('.country.' + iso3)
+                .classed('active', true)
+                .transition()
+                .delay(i * 10)
+                .style('fill', fillColor) // ### what colors??
+                .style('stroke', strokeColor);
 
-                d3.selectAll('.country.' + iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('fill', fillColor) // ### what colors??
-                  .style('stroke', strokeColor);
-
-                d3.selectAll('.eez.' + iso3)
-                  .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
-                  .style('stroke', strokeColor); // ### what colors?? Also EEZ opacity is meh ...
-                i++;
+              d3.selectAll('.eez.' + iso3)
+                .classed('active', true)
+                .transition()
+                .delay(i * 10)
+                .style('stroke', strokeColor); // ### what colors?? Also EEZ opacity is meh ...
+              i++;
             }
-
-
-            // fishing.forEach(function(country, i) {
-            //   if (country.ia2c2 == 1) {
-            //     d3.selectAll('.country.' + country.iso3)
-            //       .classed('active', true)
-            //       .transition()
-            //       .delay(i * 10)
-            //       .style('fill', colorBrew[0][0]) // ### what colors??
-            //       .style('stroke', colorBrew[0][1]);
-            //
-            //     d3.selectAll('.eez.' + country.iso3)
-            //       .classed('active', true)
-            //       .transition()
-            //       .delay(i * 10)
-            //       .style('stroke', colorBrew[0][1]); // ### what colors?? Also EEZ opacity is meh ...
-            //     //  .style('stroke', 'grey');
-            //
-            //   } else if (country.ia2c2 == 2) {
-            //     // code for Cat2
-            //     d3.selectAll('.country.' + country.iso3)
-            //       .classed('active', true)
-            //       .transition()
-            //       .delay(i * 10)
-            //       .style('fill', colorBrew[2][0]) // ### what colors??
-            //       .style('stroke', colorBrew[2][1]);
-            //
-            //     d3.selectAll('.eez.' + country.iso3)
-            //       .classed('active', true)
-            //       .transition()
-            //       .delay(i * 10)
-            //       .style('stroke', colorBrew[2][0]); // ### what colors Also EEZ opacity is meh ...??
-            //     //  .style('stroke', 'grey');
-            //
-            //
-            //   } else if (country.ia2c2 == 3) {
-            //     // code for Cat3
-            //     d3.selectAll('.country.' + country.iso3)
-            //       .classed('active', true)
-            //       .transition()
-            //       .delay(i * 10)
-            //       .style('fill', colorBrew[4][0]) // ### what colors??
-            //       .style('stroke', colorBrew[4][1]);
-            //
-            //     d3.selectAll('.eez.' + country.iso3)
-            //       .classed('active', true)
-            //       .transition()
-            //       .delay(i * 10)
-            //       .style('stroke', colorBrew[4][0]); // ### what colors?? Also EEZ opacity is meh ...
-            //     //      .style('stroke', 'grey');
-            //
-            //
-            //   }
-            // });
-
           }
         },
         els: [{
@@ -1098,11 +1127,11 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
             tag: 'caption',
             text: 'Sustainable management through regional cooperation'
           },
-          {
-            tag: 'legend',
-            text: 'Map Legend',
-            legendContent: '<div class="brew-00 legend-entries light">Ratified UN Fish Stocks Agreement</div><br /><div class="brew-20 legend-entries light">Ratified Port State Measures Agreement</div><br /><div class="brew-40 legend-entries light">Ratified both</div><br />'
-          },
+          // {
+          //   tag: 'legend',
+          //   text: 'Map Legend',
+          //   legendContent: '<div class="brew-00 legend-entries light">Ratified UN Fish Stocks Agreement</div><br /><div class="brew-20 legend-entries light">Ratified Port State Measures Agreement</div><br /><div class="brew-40 legend-entries light">Ratified both</div><br />'
+          // },
           //###Kelsey would like a map of different RFMOs in SSA. She has sent a file with the corresponding data to John.
           {
             tag: 'p',
@@ -1150,15 +1179,32 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           scale: [],
           classes: 'card-eez-layer',
           translate: [],
-          extent: [
-            [],
-            []
-          ],
           highlights: [],
           tooltip: true,
-          units: {
-            text: 'xo units',
-            multiplier: 100
+          tooltipHTML: function (iso) {
+            var zone = issueAreaData[issueArea].metadata.countryData[iso].yaounde;
+
+            switch (zone) {
+              case 1:
+                return "Zone A";
+                break;
+              case 2:
+                return "Zone D";
+                break;
+              case 3:
+                return "Zone E";
+                break;
+              case 4:
+                return "Zone F";
+                break;
+              case 5:
+                return "Zone G";
+                break;
+              default:
+                return "Not a member of the Lome Charter";
+            }
+
+
           },
           load: function(index, file) { // ### *** This only should be for the first card ...
 
@@ -1169,13 +1215,14 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           },
           switch: function(index) {
             var yaounde = issueAreaData[issueArea].metadata.countryData;
+            var card = 'yaounde';
+            var i = 0;
+            for (iso in yaounde) {
+              var cat = yaounde[iso][card] - 1;
 
-            yaounde.forEach(function(country, i) {
-              //  console.log(country);
-              var cat = country.ia2c3 - 1;
               if (cat >= 0) {
                 //  console.log(country.ia2c3);
-                d3.selectAll('.country.' + country.iso3)
+                d3.selectAll('.country.' + iso)
                   .classed('active', true)
                   .transition()
                   .delay(i * 10)
@@ -1183,16 +1230,16 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
                   .style('stroke', colorBrew[cat][1]); // ### what colors??
                 //  .style('stroke', 'white');
 
-                d3.selectAll('.eez.' + country.iso3)
+                d3.selectAll('.eez.' + iso)
                   .classed('active', true)
                   .transition()
                   .delay(i * 10)
                   .style('stroke', colorBrew[cat][0]); // ### what colors?? Also EEZ opacity is meh ...
-                //    .style('opacity', '0.5')
-                //  .style('stroke', 'white');
-              }
-            });
 
+                i++;
+
+              }
+            }
           }
         },
         els: [{
@@ -1203,11 +1250,11 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
             tag: 'caption',
             text: 'A model for regional maritime security cooperation'
           },
-          {
-            tag: 'legend',
-            text: 'Map Legend',
-            legendContent: '<p>Yaoundé Code of Conduct multi-national level information sharing zones:</p><div class="brew-00 legend-entries light">Zone A</div><br /><div class="brew-10 legend-entries light">Zone D</div><br /><div class="brew-20 legend-entries light">Zone E</div><br /><div class="brew-30 legend-entries light">Zone F</div><br /><div class="brew-40 legend-entries light">Zone G</div><br />'
-          },
+          // {
+          //   tag: 'legend',
+          //   text: 'Map Legend',
+          //   legendContent: '<p>Yaoundé Code of Conduct multi-national level information sharing zones:</p><div class="brew-00 legend-entries light">Zone A</div><br /><div class="brew-10 legend-entries light">Zone D</div><br /><div class="brew-20 legend-entries light">Zone E</div><br /><div class="brew-30 legend-entries light">Zone F</div><br /><div class="brew-40 legend-entries light">Zone G</div><br />'
+          // },
           //###Insert Graphic: There is a graphic below called information sharing in West Africa I would like to try and use that, but I am not sure if that is possible in the web format. If not we can use that as an image within the card. In that case I think it would be good to have a map zoomed into west/central Africa with two components. First is a shaded map with ECOWAS countries in one color and ECCAS countries in another and corresponding labels. The second would be points which show the centers for the ICC, CRESMAC and CRESMAO. All country lists, labels and GPS coordinates will be in the excel file I will send.
           {
             tag: 'p',
@@ -1263,9 +1310,15 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           translate: [],
           highlights: [],
           tooltip: true,
-          units: {
-            text: 'xo units',
-            multiplier: 100
+          tooltipHTML: function (iso) {
+
+            var dcoc = issueAreaData[issueArea].metadata.countryData[iso].djibouti;
+            if (dcoc == 1) {
+              return "Member of the Djibouti Code of Conduct";
+
+            } else {
+              return "Not a member of the Djibouti Code of Conduct";
+            }
           },
           load: function(index, file) { // ### *** This only should be for the first card ...
 
@@ -1278,29 +1331,33 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           switch: function(index) {
 
             var dcoc = issueAreaData[issueArea].metadata.countryData;
+            var i = 1;
+            var card = 'djibouti';
+            //      console.log ('card', card);
+            for (iso in dcoc) {
 
-            dcoc.forEach(function(member, i) {
-              if (member.ia2c4 == 1) {
-                d3.selectAll('.country.' + member.iso3)
+              if (dcoc[iso][card] == 1) {
+                d3.selectAll('.country.' + iso)
                   .classed('active', true)
                   .transition().delay(i * 10)
                   .style('fill', function() {
-                    return rampColor(0.5);
+                    return themeColor(0.5);
                   })
                   .style('stroke', function() {
-                    return rampColor(1);
+                    return themeColor(1);
                   });
 
-                d3.selectAll('.eez.' + member.iso3)
+                d3.selectAll('.eez.' + iso)
                   .classed('active', true)
                   .transition().delay(i * 10)
                   //  .style('fill', function () {return rampColor(0.1);})
                   .style('stroke', function() {
-                    return rampColor(1);
+                    return themeColor(1);
                   })
                   .style('stroke-width', '2px');
+                  i++;
               }
-            });
+            }
 
             d3.selectAll('.card-' + index + '-layer')
               .classed('invisible', false);
@@ -1315,11 +1372,11 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
             tag: 'caption',
             text: 'An emerging cross-continental consensus'
           },
-          {
-            tag: 'legend',
-            text: 'Map Legend',
-            legendContent: '<em>Highlighted countries are sub-Saharan members of the Djibouti Code of Conduct</em>.'
-          },
+          // {
+          //   tag: 'legend',
+          //   text: 'Map Legend',
+          //   legendContent: '<em>Highlighted countries are sub-Saharan members of the Djibouti Code of Conduct</em>.'
+          // },
           //##Insert Map: Similar to above it would be great to use the East African Info sharing image below. If not, it would be great to have all of the DCoC countries highlighted as well as the location of the information exchange centers. The excel file will have all the countries, labels for information sharing centers and corresponding coordinates.
           {
             tag: 'p',
@@ -1361,138 +1418,138 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           //###Insert graphics
         ] // end of els array
       },
-      { // Card 6
-        title: 'Operation Copper',
-        menu: 'Operation Copper',
-        metadata: {
-          owner: 'Jay Benson',
-          description: 'Multinational anti-piracy efforts in the Mozambican straits.'
-        },
-        map: {
-          scale: [],
-          path: '../../data/international-cooperation/south-indian-piracy.csv',
-          classes: '',
-          translate: [],
-          extent: [
-            [30, -40],
-            [100, 10]
-          ],
-          highlights: [],
-          tooltip: true,
-          units: {
-            text: 'xo units',
-            multiplier: 100
-          },
-          load: function(index, csv) { // ### *** This only should be for the first card ...
-
-            var layer = 'card-' + index + '-layer';
-            d3.csv(csv, function(vals) {
-              vals.forEach(function(d) {
-                d.lat = +d.lat;
-                d.lon = +d.lon;
-                d.weight = +d.weight;
-              });
-
-              var copper = mapg.append('g')
-                .classed('card-layer copper-incidents invisible ' + layer, true);
-
-              copper.selectAll('circle')
-                .data(vals).enter()
-                .append('circle')
-                .attr('cx', function(d) {
-                  return projection([d.lon, d.lat])[0];
-                })
-                .attr('cy', function(d) {
-                  return projection([d.lon, d.lat])[1];
-                })
-                .attr('r', '3px')
-                .style('fill', function(d, i) {
-                  return rampColor(i / vals.length);
-                })
-                // .style('fill-opacity', function (d, i) {
-                //   return i / vals.length;                // ### this doesn't communicate what it is meant to . . . maybe different colors for different years ??
-                // })
-                .classed('copper-incident', true);
-            })
-
-          },
-          switch: function(index) {
-            d3.selectAll('.card-' + index + '-layer')
-              .classed('invisible', false);
-
-          }
-        },
-        els: [{
-            tag: 'h1',
-            text: 'Operation Copper',
-          },
-          {
-            tag: 'caption',
-            text: 'Neighbors help neighbors fight pirates'
-          },
-          {
-            tag: 'legend',
-            text: 'Map Legend',
-            legendContent: '<em>Points indicate the coordinates of West Indian Ocean piracy-related incidents reported by the International Maritime Organization south of the equator, 2006 - 2016. Lighter points represent older events</em>.'
-          },
-          //###Insert map: Zoom into Mozambique channel and color all the EEZs differently. I feel like that might help convey the complexity of different jurisdictions in the channel
-          {
-            tag: 'p',
-            html: 'The rise of piracy off the coast of Somalia catalyzed several high-profile efforts by international actors to <a class="piracy inline" href="../../piracy#2">protect shipping and improve maritime security in the region</a>. It also drove a lesser-known regional operation aimed at stopping the southward spread of piracy into the Mozambique Channel.<sup>8</sup>'
-          },
-          {
-            tag: 'img',
-            src: '../../assets/international-cooperation/south-africa-281265_1920.jpg',
-            alt: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.',
-            caption: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.'
-          },
-          {
-            tag: 'p',
-            html: 'The threat of increased piracy in the channel threatened the economic and security interests of regional states and the wider international community. The channel is a key transit area for maritime shipping, particularly for South African trade, and the site of major oil and gas reserves which have drawn investment from multinational energy firms.<sup>9</sup> Fears of piracy’s spread to the channel were confirmed in December 2010 when there were several piracy incidents off the coast of Mozambique.<sup>10</sup>'
-          },
-          {
-            tag: 'p',
-            html: 'In response to these threats, South Africa spearheaded Operation Copper in 2011.<sup>11</sup> The agreement allowed South African naval vessels to conduct patrols in Mozambican waters, and also conduct multinational training, intelligence gathering, and information sharing. Tanzania later joined and left the operation. The presence of South African frigates, offshore patrol vessels, and air assets greatly increased both <a class="maritime-enforcement inline" href="../../maritime-enforcement#2">maritime domain awareness</a> (MDA) and the assets available to counter piracy in the channel. The operation has been successful in this mission. In April of 2012, a South African naval resupply vessel that was deployed as part of Operation Copper assisted international forces in searching down and arresting seven pirates.<sup>12</sup> These counterpiracy operations are valuable in and of themselves, but even more important to the long-term maritime security of the region are Operation Copper’s maritime domain awareness and capacity-building components.'
-          },
-          {
-            tag: 'p',
-            html: 'Operation Copper is a valuable model for intra-regional cooperation and capacity building, though there may be limited opportunities to replicate its success in the near future. From the perspective of national interests, it makes sense for states to attempt to cooperate with and improve the maritime security capacities of their immediate neighbors. Threats to maritime security such as piracy, trafficking, and IUU fishing are fluid and can easily spill across long, difficult-to-monitor maritime boundaries. As such, improving the maritime security of one’s neighbors serves to protect a state’s own maritime space before those same forms of maritime crime spread into one’s own waters.'
-          },
-          {
-            tag: 'p',
-            html: 'However, replicating the success of Operation Copper will be fairly difficult. Simply put, there are few maritime security forces in the region with the capacity to maintain robust security in their own maritime spaces while simultaneously sustaining patrols in a neighbor’s waters. Operation Copper has become expensive and difficult to maintain even for the South African Navy.<sup>13</sup>  What may serve a similar purpose at a lower cost is to increase bilateral training and shared MDA efforts. Such an approach would build cooperation between adjacent forces and increase awareness about the potential spread of maritime security threats without incurring the costs of long-range patrols.'
-          },
-          {
-            tag: 'links',
-            items: [{
-                org: '<sup>8</sup> Louis Bergeron, “The Forgotten Chokepoint: The Mozambique Channel’s Rich Past and Bright but Uncertain Future,” Center for International Maritime Security, 25 December 2014,',
-                url: 'http://cimsec.org/forgotten-chokepoint-mozambique-channels-rich-past-bright-insecure-future/14071'
-              },
-              {
-                org: '<sup>9</sup> Borges Nhamire, “Eni Finalizes $7 Billion Mozambique Gas Project Investment,” <em>Bloomberg</em>, 1 June 2017,',
-                url: 'https://www.bloomberg.com/news/articles/2017-06-01/eni-finalizes-7-billion-investment-in-mozambique-gas-project'
-              },
-              {
-                org: '<sup>10</sup> Guy Martin, “Operation Copper Now Only with SA and Mozambique,” <em>DefenceWeb</em>, 20 March 2014,',
-                url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=34071:operation-copper-now-only-with-sa-and-mozambique&catid=108:maritime-security'
-              },
-              {
-                org: '<sup>11</sup> “South Africa and Mozambique Join Forces to Fight Piracy,” <em>BBC</em>, 2 June 2011,',
-                url: 'http://www.bbc.com/news/world-africa-13628132'
-              },
-              {
-                org: '<sup>12</sup> South African Navy Helps Catch Pirates,” <em>DefenceWeb</em>, 23 April 2012,',
-                url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=25142:south-african-navy-helps-catch-pirates&catid=108:maritime-security&Itemid=233'
-              },
-              {
-                org: '<sup>13</sup> Dean Wingrin, “Operation Copper Stretching SA Navy,” <em>DefenceWeb</em>, 26 March 2015,',
-                url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=38541:operation-copper-stretching-sa-navy&catid=111:sa-defence&Itemid=242'
-              },
-            ]
-          },
-          //###Insert Map and Graphics
-        ] // end of els array
-      },
+      // { // Card 6
+        //   title: 'Operation Copper',
+        //   menu: 'Operation Copper',
+        //   metadata: {
+        //     owner: 'Jay Benson',
+        //     description: 'Multinational anti-piracy efforts in the Mozambican straits.'
+        //   },
+        //   map: {
+        //     scale: [],
+        //     path: '../../data/international-cooperation/south-indian-piracy.csv',
+        //     classes: '',
+        //     translate: [],
+        //     extent: [
+        //       [30, -40],
+        //       [100, 10]
+        //     ],
+        //     highlights: [],
+        //     tooltip: true,
+        //     units: {
+        //       text: 'xo units',
+        //       multiplier: 100
+        //     },
+        //     load: function(index, csv) { // ### *** This only should be for the first card ...
+        //
+        //       var layer = 'card-' + index + '-layer';
+        //       d3.csv(csv, function(vals) {
+        //         vals.forEach(function(d) {
+        //           d.lat = +d.lat;
+        //           d.lon = +d.lon;
+        //           d.weight = +d.weight;
+        //         });
+        //
+        //         var copper = mapg.append('g')
+        //           .classed('card-layer copper-incidents invisible ' + layer, true);
+        //
+        //         copper.selectAll('circle')
+        //           .data(vals).enter()
+        //           .append('circle')
+        //           .attr('cx', function(d) {
+        //             return projection([d.lon, d.lat])[0];
+        //           })
+        //           .attr('cy', function(d) {
+        //             return projection([d.lon, d.lat])[1];
+        //           })
+        //           .attr('r', '3px')
+        //           .style('fill', function(d, i) {
+        //             return rampColor(i / vals.length);
+        //           })
+        //           // .style('fill-opacity', function (d, i) {
+        //           //   return i / vals.length;                // ### this doesn't communicate what it is meant to . . . maybe different colors for different years ??
+        //           // })
+        //           .classed('copper-incident', true);
+        //       })
+        //
+        //     },
+        //     switch: function(index) {
+        //       d3.selectAll('.card-' + index + '-layer')
+        //         .classed('invisible', false);
+        //
+        //     }
+        //   },
+        //   els: [{
+        //       tag: 'h1',
+        //       text: 'Operation Copper',
+        //     },
+        //     {
+        //       tag: 'caption',
+        //       text: 'Neighbors help neighbors fight pirates'
+        //     },
+        //     {
+        //       tag: 'legend',
+        //       text: 'Map Legend',
+        //       legendContent: '<em>Points indicate the coordinates of West Indian Ocean piracy-related incidents reported by the International Maritime Organization south of the equator, 2006 - 2016. Lighter points represent older events</em>.'
+        //     },
+        //     //###Insert map: Zoom into Mozambique channel and color all the EEZs differently. I feel like that might help convey the complexity of different jurisdictions in the channel
+        //     {
+        //       tag: 'p',
+        //       html: 'The rise of piracy off the coast of Somalia catalyzed several high-profile efforts by international actors to <a class="piracy inline" href="../../piracy#2">protect shipping and improve maritime security in the region</a>. It also drove a lesser-known regional operation aimed at stopping the southward spread of piracy into the Mozambique Channel.<sup>8</sup>'
+        //     },
+        //     {
+        //       tag: 'img',
+        //       src: '../../assets/international-cooperation/south-africa-281265_1920.jpg',
+        //       alt: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.',
+        //       caption: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.'
+        //     },
+        //     {
+        //       tag: 'p',
+        //       html: 'The threat of increased piracy in the channel threatened the economic and security interests of regional states and the wider international community. The channel is a key transit area for maritime shipping, particularly for South African trade, and the site of major oil and gas reserves which have drawn investment from multinational energy firms.<sup>9</sup> Fears of piracy’s spread to the channel were confirmed in December 2010 when there were several piracy incidents off the coast of Mozambique.<sup>10</sup>'
+        //     },
+        //     {
+        //       tag: 'p',
+        //       html: 'In response to these threats, South Africa spearheaded Operation Copper in 2011.<sup>11</sup> The agreement allowed South African naval vessels to conduct patrols in Mozambican waters, and also conduct multinational training, intelligence gathering, and information sharing. Tanzania later joined and left the operation. The presence of South African frigates, offshore patrol vessels, and air assets greatly increased both <a class="maritime-enforcement inline" //href="../../maritime-enforcement#2">maritime domain awareness</a> (MDA) and the assets available to counter piracy in the channel. The operation has been successful in this mission. In April of 2012, a South African naval resupply vessel that was deployed as part of Operation Copper assisted international forces in searching down and arresting seven pirates.<sup>12</sup> These counterpiracy operations are valuable in and of themselves, but even more important to the long-term maritime //security of the region are Operation Copper’s maritime domain awareness and capacity-building components.'
+        //     },
+        //     {
+        //       tag: 'p',
+        //       html: 'Operation Copper is a valuable model for intra-regional cooperation and capacity building, though there may be limited opportunities to replicate its success in the near future. From the perspective of national interests, it makes sense for states to attempt to cooperate with and improve the maritime security capacities of their immediate neighbors. Threats to maritime security such as piracy, trafficking, and IUU fishing are fluid and can easily spill across long, difficult-to-monitor maritime boundaries. As such, improving the maritime security of one’s neighbors serves to protect a state’s own maritime space before those same forms of maritime crime spread into one’s own waters.'
+        //     },
+        //     {
+        //       tag: 'p',
+        //       html: 'However, replicating the success of Operation Copper will be fairly difficult. Simply put, there are few maritime security forces in the region with the capacity to maintain robust security in their own maritime spaces while simultaneously sustaining patrols in a neighbor’s waters. Operation Copper has become expensive and difficult to maintain even for the South African Navy.<sup>13</sup>  What may serve a similar purpose at a lower cost is to increase bilateral training and shared MDA efforts. Such an approach would build cooperation between adjacent forces and increase awareness about the potential spread of maritime security threats without incurring the costs of long-range patrols.'
+        //     },
+        //     {
+        //       tag: 'links',
+        //       items: [{
+        //           org: '<sup>8</sup> Louis Bergeron, “The Forgotten Chokepoint: The Mozambique Channel’s Rich Past and Bright but Uncertain Future,” Center for International Maritime Security, 25 December 2014,',
+        //           url: 'http://cimsec.org/forgotten-chokepoint-mozambique-channels-rich-past-bright-insecure-future/14071'
+        //         },
+        //         {
+        //           org: '<sup>9</sup> Borges Nhamire, “Eni Finalizes $7 Billion Mozambique Gas Project Investment,” <em>Bloomberg</em>, 1 June 2017,',
+        //           url: 'https://www.bloomberg.com/news/articles/2017-06-01/eni-finalizes-7-billion-investment-in-mozambique-gas-project'
+        //         },
+        //         {
+        //           org: '<sup>10</sup> Guy Martin, “Operation Copper Now Only with SA and Mozambique,” <em>DefenceWeb</em>, 20 March 2014,',
+        //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=34071:operation-copper-now-only-with-sa-and-mozambique&catid=108:maritime-security'
+        //         },
+        //         {
+        //           org: '<sup>11</sup> “South Africa and Mozambique Join Forces to Fight Piracy,” <em>BBC</em>, 2 June 2011,',
+        //           url: 'http://www.bbc.com/news/world-africa-13628132'
+        //         },
+        //         {
+        //           org: '<sup>12</sup> South African Navy Helps Catch Pirates,” <em>DefenceWeb</em>, 23 April 2012,',
+        //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=25142:south-african-navy-helps-catch-pirates&catid=108:maritime-security&Itemid=233'
+        //         },
+        //         {
+        //           org: '<sup>13</sup> Dean Wingrin, “Operation Copper Stretching SA Navy,” <em>DefenceWeb</em>, 26 March 2015,',
+        //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=38541:operation-copper-stretching-sa-navy&catid=111:sa-defence&Itemid=242'
+        //         },
+        //       ]
+        //     },
+        //     //###Insert Map and Graphics
+        //   ] // end of els array
+        // },
       { // Card 7
         title: 'African Union Efforts',
         menu: 'AU Efforts',
@@ -1503,12 +1560,17 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
         map: {
           scale: [],
           classes: '',
-          translate: [],
           highlights: [],
           tooltip: true,
-          units: {
-            text: 'xo units',
-            multiplier: 100
+          tooltipHTML: function (iso) {
+
+            var lome = issueAreaData[issueArea].metadata.countryData[iso].lome;
+            if (lome == 1) {
+              return "Signatory of the Lome Charter";
+
+            } else {
+              return "Not a signatory of the Lome Charter";
+            }
           },
           load: function(index, csv) { // ### *** This only should be for the first card ...
 
@@ -1520,29 +1582,35 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
           switch: function(index) {
             var lome = issueAreaData[issueArea].metadata.countryData;
 
-            lome.forEach(function(country, i) {
-              //  console.log(country);
-              if (country.ia2c6 == 1) {
-                d3.selectAll('.eez.' + country.iso3)
+            var i = 1;
+            var card = 'lome';
+            for (iso in lome) {
+
+              if (lome[iso][card] == 1) {
+                d3.selectAll('.country.' + iso)
                   .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
+                  .transition().delay(i * 10)
+                  .style('fill', function() {
+                    return themeColor(0.5);
+                  })
                   .style('stroke', function() {
-                    return rampColor(1);
+                    return themeColor(1);
                   });
 
-                d3.selectAll('.country.' + country.iso3)
+                d3.selectAll('.eez.' + iso)
                   .classed('active', true)
-                  .transition()
-                  .delay(i * 10)
+                  .transition().delay(i * 10)
+                  //  .style('fill', function () {return rampColor(0.1);})
                   .style('stroke', function() {
-                    return rampColor(1);
+                    return themeColor(1);
                   })
-                  .style('fill', function() {
-                    return rampColor(0.5);
-                  });
+                  .style('stroke-width', '2px');
+                  i++;
               }
-            });
+            }
+
+            d3.selectAll('.card-' + index + '-layer')
+              .classed('invisible', false);
           }
         },
         els: [{
@@ -1618,27 +1686,10 @@ var issueAreaData = { // ### replace data with something more descriptive. issue
               .classed(layer, true);
           },
           switch: function(index) {
-            var values = issueAreaData[issueArea].metadata.countryData;
 
-            values.forEach(function(row, i) {
-              if (row.ia2c7 == 1) {
-                d3.selectAll('.country.' + row.iso3)
-                  .classed('active', true)
-                  .transition().delay(i * 10)
-                  .style('fill', rampColor(0.5))
-                  .style('stroke', rampColor(1));
+            ssiChoropleth(index, 1);
 
 
-
-                d3.selectAll('.eez.' + row.iso3)
-                  .classed('active', true)
-                  .transition().delay(i * 10)
-
-                  .style('stroke', rampColor(1));
-              }
-
-            })
-            //  switchMainIndex(0);
           }
         },
         els: [{

@@ -1011,6 +1011,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               var coords = path.bounds(d); // returns bounds of country hovered on
             //  console.log(coords);
               var tooltip = d3.select('div.tooltip');
+              var cardMap = issueAreaData[issueArea].cards[activeCard].map;
               var idx = issueAreaData[issueArea].metadata.countryData[iso3];
             //  console.log('idx',idx);
                 // idx is object with country, iso3, values for each card ...
@@ -1026,7 +1027,8 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                   return y + 'px';
                 })
                 .classed('hidden', function () {
-                  if (idx["c" + activeCard]) {
+                  console.log(cardMap);
+                  if (cardMap.tooltip) {
                     return false;
                   } else {
                     d3.selectAll('.label.' + iso3)
@@ -1040,8 +1042,8 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               tooltip.select('h1')
                 .text(idx.country);
 
-              var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
-              var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(tooltipVal);
+          //    var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
+              var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(iso3);
 
               var tooltipBody = tooltip.select('.tooltip-body');
               tooltipBody.html(tooltipHTML);
@@ -1117,8 +1119,9 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               var coords = path.bounds(d); // returns bounds of country hovered on
             //  console.log(coords);
               var tooltip = d3.select('div.tooltip');
+              var cardMap = issueAreaData[issueArea].cards[activeCard].map;
               var idx = issueAreaData[issueArea].metadata.countryData[iso3];
-              console.log('idx',idx);
+            //  console.log('idx',idx);
                 // idx is object with country, iso3, values for each card ...
                 // pulled from issue area's metadata.indexData
               //  console.log('xx', idx);
@@ -1132,7 +1135,8 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                   return y + 'px';
                 })
                 .classed('hidden', function () {
-                  if (idx["c" + activeCard]) {
+                  console.log(cardMap);
+                  if (cardMap.tooltip) {
                     return false;
                   } else {
                     d3.selectAll('.label.' + iso3)
@@ -1146,8 +1150,8 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               tooltip.select('h1')
                 .text(idx.country);
 
-              var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
-              var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(tooltipVal);
+          //    var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
+              var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(iso3);
 
               var tooltipBody = tooltip.select('.tooltip-body');
               tooltipBody.html(tooltipHTML);
@@ -1320,10 +1324,11 @@ Array.prototype.contains = function(needle) {
 
 function ssiChoropleth (cardIndex, order) {
   var target = 'card-' + cardIndex + '-layer';
+  var vals = issueAreaData[issueArea].metadata.countryData;
 
   //console.log(ssiValues);
   var i = 0;
-  for (iso3 in ssiValues) {
+  for (iso3 in vals) {
     var highlightedCountry = d3.selectAll('.eez.' + iso3);
 
     // highlightedCountry.classed('highlighted', true);
@@ -1332,9 +1337,9 @@ function ssiChoropleth (cardIndex, order) {
       .delay(i * 10)
       .style('fill', function() {
         if (order == -1) {
-          return rampColor(1 - ssiValues[iso3][issueArea]);
+          return rampColor(1 -  vals[iso3].index);
         } else {
-          return rampColor(ssiValues[iso3][issueArea]);
+          return rampColor(vals[iso3].index);
         }
       });
       i++;
