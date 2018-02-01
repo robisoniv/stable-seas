@@ -262,7 +262,7 @@ $('#content-holder').on('click', '.table-expand', function() {
 // Master Load SSI values function:
 function loadValues() {
   return new Promise(function(resolve, reject) {
-    d3.csv('../data/ssi.csv', function (vals) {
+    d3.csv('../../data/ssi.csv', function (vals) {
       vals.forEach(function (d) {
         for (key in d) {
           if (key != "country" && key != "iso3") {
