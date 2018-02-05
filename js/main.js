@@ -159,7 +159,7 @@ if (width > 1199 || window.navigator.userAgent.indexOf('MSIE') != -1) {
 
 // Ad hoc elements - ### Add these to templates !
 
-$('#resources-menu').prepend('<li><a href="../../stable-seas-executive-brief.pdf" target="_blank">Executive Summary</a></li>');
+$('#resources-menu').prepend('<li><a href="../../assets/summaries/stable-seas-' + issueAreaData[issueArea].metadata.path + '-executive-summary.pdf" target="_blank">Executive Summary</a></li>');
 
 
 // 3 Event listeners
