@@ -443,6 +443,24 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
   }); // end of Promise
 }
 
+// Load IA csv function:
+function loadIAcsv(csv, callback) {
+//  console.log('csv!');
+  var md = issueAreaData[issueArea].metadata;
+  d3.csv(csv, function(vals) {
+    console.log(vals);
+    vals.forEach(function(d) {
+      for (key in d) {
+        if (isNaN(d[key]) != true) {
+          // Convert all numbers (floats and ints) to proper data type
+          d[key] = +d[key];
+        }
+      }
+      md.countryData[d.iso3] = d;
+    });
+    callback('internationalCooperation load csv function callback');
+  });
+}
 // Build Modals:
 function buildModals() {
   var resizeModalHTML = '<div class="modal fade" id="resizeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Under Construction</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Thanks so much for exploring our interface.<br><br>This beta version of the site does not support dynamic resizing. If you\'d like to view our Issue Area summary paper for mobile, click <a href="../maritime-enforcement/m/stable-seas-maritime-enforcement-summary.pdf">here</a>.<br><br>If you\'d like to use the interactive desktop version of the site maximize your browser window and reload.<br><br>If you have any feedback please email info@stableseas.org.<br><br>Thank you!</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>';
@@ -1322,7 +1340,7 @@ Array.prototype.contains = function(needle) {
   return false;
 }
 
-function ssiChoropleth (cardIndex, order) {
+function choropleth (cardIndex, order, key) {
   var target = 'card-' + cardIndex + '-layer';
   var vals = issueAreaData[issueArea].metadata.countryData;
 
@@ -1337,9 +1355,9 @@ function ssiChoropleth (cardIndex, order) {
       .delay(i * 10)
       .style('fill', function() {
         if (order == -1) {
-          return rampColor(1 -  vals[iso3].index);
+          return rampColor(1 -  vals[iso3][key]);
         } else {
-          return rampColor(vals[iso3].index);
+          return rampColor(vals[iso3][key]);
         }
       });
       i++;
