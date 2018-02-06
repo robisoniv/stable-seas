@@ -329,7 +329,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
       var iaLink = iaMainNav.append('a')
         .attr('href', function() {
-          return '../' + iaPath;
+          return '../issue-areas/' + iaPath;
         });
 
       var iaDiv = iaLink.append('div')
