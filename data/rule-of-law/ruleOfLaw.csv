@@ -1,31 +1,31 @@
-country,iso3,ia3c0,ia3c1,ia3c2,ia3c3,ia3c4
-Angola,AGO,18,-4,19.27,1,0.5
-Benin,BEN,36,0,59.89,8,0.75
-Cameroon,CMR,26,0,15.99,3,0.5
-Cape Verde,CPV,59,-1,64.74,10,0.5
-Comoros,COM,24,-4,66.18,4,0.5
-Congo (Rep),COG,20,-6,19.68,2,0.25
-Djibouti,DJI,30,-6,51.87,2,0.5
-DRC,COD,21,0,1.26,1,0.25
-Equatorial Guinea,GNQ,19,-1,32.05,0,0.5
-Gabon,GAB,35,0,43.94,3,0.5
-Gambia,GMB,26,-8,65.27,0,0.25
-Ghana,GHA,43,-2,52.32,10,0.5
-Guinea,GIN,27,3,46.24,3,0.25
-Guinea-Bissau,GNB,16,-9,52.86,1,0.5
-Ivory Coast,CIV,34,5,54.15,5,0.5
-Kenya,KEN,26,-1,66.38,5,0.5
-Liberia,LBR,37,-4,17.64,7,0.75
-Madagascar,MDG,26,-6,60.95,5,0.5
-Mauritius,MUS,54,-3,78.67,10,0.5
-Mozambique,MOZ,27,-4,66.31,5,0.5
-Namibia,NAM,52,4,61.47,9,0.5
-Nigeria,NGA,28,1,19.93,6,0.5
-Sao Tome,STP,46,4,62.78,9,0.5
-Senegal,SEN,45,9,60.85,8,0.75
-Seychelles,SYC,55,3,71.79,7,0.5
-Sierra Leone,SLE,30,-1,42.07,7,0.5
-Somalia,SOM,10,2,51.6,0,0.25
-South Africa,ZAF,45,2,58.01,7,0.5
-Tanzania,TZA,32,-3,20.21,7,0.5
-Togo,TGO,32,2,63.66,5,0.5
+country,iso3,index,corruptionPerceptions,easeOfTrade,ia3c1,ia3c3,inclusion
+Angola,AGO,0.260206667,0.18,0.1927,-4,1,0.5
+Benin,BEN,0.623113333,0.36,0.5989,0,8,0.75
+Ivory Coast,CIV,0.526633333,0.34,0.5415,5,5,0.5
+Cameroon,CMR,0.30698,0.26,0.1599,0,3,0.5
+DRC,COD,0.221686667,0.21,0.0126,0,1,0.25
+Congo (Rep),COG,0.262693333,0.2,0.1968,-6,2,0.25
+Comoros,COM,0.419026667,0.24,0.6618,-4,4,0.5
+Cape Verde,CPV,0.763646667,0.59,0.6474,-1,10,0.5
+Djibouti,DJI,0.372073333,0.3,0.5187,-6,2,0.5
+Gabon,GAB,0.40538,0.35,0.4394,0,3,0.5
+Ghana,GHA,0.638806667,0.43,0.5232,-2,10,0.5
+Guinea,GIN,0.39998,0.27,0.4624,3,3,0.25
+Gambia,GMB,0.39554,0.26,0.6527,-8,0,0.25
+Guinea-Bissau,GNB,0.342386667,0.16,0.5286,-9,1,0.5
+Equatorial Guinea,GNQ,0.2516,0.19,0.3205,-1,0,0.5
+Kenya,KEN,0.501093333,0.26,0.6638,-1,5,0.5
+Liberia,LBR,0.454446667,0.37,0.1764,-4,7,0.75
+Madagascar,MDG,0.450233333,0.26,0.6095,-6,5,0.5
+Mozambique,MOZ,0.533453333,0.27,0.6631,-4,5,0.5
+Mauritius,MUS,0.709006667,0.54,0.7867,-3,10,0.5
+Namibia,NAM,0.70294,0.52,0.6147,4,9,0.5
+Nigeria,NGA,0.44986,0.28,0.1993,1,6,0.5
+Senegal,SEN,0.677533333,0.45,0.6085,9,8,0.75
+Sierra Leone,SLE,0.495806667,0.3,0.4207,-1,7,0.5
+Somalia,SOM,0.2582,0.1,0.516,2,0,0.25
+Sao Tome,STP,0.68056,0.46,0.6278,4,9,0.5
+Seychelles,SYC,0.647746667,0.55,0.7179,3,7,0.5
+Togo,TGO,0.500653333,0.32,0.6366,2,5,0.5
+Tanzania,TZA,0.447086667,0.32,0.2021,-3,7,0.5
+South Africa,ZAF,0.615186667,0.45,0.5801,2,7,0.5

@@ -12,19 +12,7 @@ var internationalCooperationData = {
     description: 'Maritime instability in African waters cause ripples that undermine global economies, international security, and strong social networks.'
   },
   load: function(csv, callback) {
-    var md = issueAreaData[issueArea].metadata;
-    d3.csv(csv, function(vals) {
-      vals.forEach(function(d) {
-        for (key in d) {
-          if (isNaN(d[key]) != true) {
-            // Convert all numbers (floats and ints) to proper data type
-            d[key] = +d[key];
-          }
-        }
-        md.countryData[d.iso3] = d;
-      });
-      callback('internationalCooperation load csv function callback');
-    });
+    loadIAcsv(csv, callback);
   },
   cards: [
     { // Card 0
@@ -55,7 +43,7 @@ var internationalCooperationData = {
         },
         switch: function(index) {
           // Choropleth of scores
-          ssiChoropleth(index, 1);
+          choropleth(index, 1, 'index');
         }
       },
       els: [{
@@ -1049,7 +1037,7 @@ var internationalCooperationData = {
         },
         switch: function(index) {
 
-          ssiChoropleth(index, 1);
+          choropleth(index, 1, 'index');
 
 
         }

@@ -1,6 +1,6 @@
 var ruleOfLawData = {
   metadata: { // Independent data source for each page
-    version: '0.0.2',
+    version: '1.0.0',
     name: 'Rule of Law',
     updates: true,
     /*
@@ -23,25 +23,13 @@ var ruleOfLawData = {
     description: 'Where the rule of law is strong, governments can be confident that legal efforts to address maritime crime and violence will yield results.'
   },
   load: function(csv, callback) {
-    var md = issueAreaData[issueArea].metadata;
 
-    // Load index value data from CSV - page-wide data!
-    d3.csv(csv, function(vals) {
-      vals.forEach(function(d) {
-        d.ia3c0 = +d.ia3c0;
-        d.ia3c1 = +d.ia3c1;
-        d.ia3c2 = +d.ia3c2;
-        d.ia3c3 = +d.ia3c3;
-        d.ia3c5 = +d.ia3c5;
-      });
-      issueAreaData[issueArea].metadata.countryData = vals; // Master data load - csv file into 'data' object
-      callback('hey this is the csv callback');
-    });
+    loadIAcsv(csv, callback);
 
-    d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-      issueAreaData[issueArea].metadata.indexData = vals;
-
-    });
+    // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+    //   issueAreaData[issueArea].metadata.indexData = vals;
+    //
+    // });
   },
   cards: [{ // Card 0
       title: 'Rule of Law',
@@ -56,9 +44,12 @@ var ruleOfLawData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          tooltipVal = (tooltipVal * 100).toFixed(2);
+          return "Rule of Law:<br />" + tooltipVal + " / 100";
+
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
           // Class EEZ with card-0-layer to enable switch() method
@@ -67,26 +58,7 @@ var ruleOfLawData = {
             .classed(layer, true);
         },
         switch: function(index) {
-
-          var values = issueAreaData[issueArea].metadata.countryData;
-
-          var valsArr = [];
-
-          values.forEach(function(row, i) {
-            valsArr.push(row.ia3c0);
-          });
-
-          var max = d3.max(valsArr);
-          var min = d3.min(valsArr);
-          var range = max - min;
-
-          values.forEach(function(row, i) {
-            d3.selectAll('.eez.' + row.iso3)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', rampColor(1 - ((row.ia3c0 - min) / range)))
-              .style('stroke', rampColor(1));
-          });
+          choropleth(index, 1, 'index');
         }
       },
       els: [{
@@ -95,7 +67,7 @@ var ruleOfLawData = {
         },
         {
           tag: 'caption',
-          text: 'Addressing the legal finish'
+          text: 'Progress requires effective and legitimate legal institutions'
         },
         {
           tag: 'legend',
@@ -140,6 +112,14 @@ var ruleOfLawData = {
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
+        tooltip: true,
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['corruptionPerceptions'];
+          tooltipVal = (tooltipVal * 100);
+          return "Corruption Perceptions Index:<br />" + tooltipVal + " / 100";
+
+        },
         //  highlights: ['NGA'],
         load: function(index, js) {
           // Color EEZ according to change in Corruption Perceptions Index
@@ -147,49 +127,10 @@ var ruleOfLawData = {
             .classed('card-' + index + '-layer', true);
         },
         switch: function(index) {
-          //  ### We gotta figure out how to depict this with neg and pos values
-          var target = 'card-' + index + '-layer';
-          var vals = issueAreaData[issueArea].metadata.countryData; // ###
-          var valsArr = [];
-          var hex = issueAreaData[issueArea].metadata.color;
 
-          var posRamp = d3.interpolateLab('white', hex);
-          var negRamp = d3.interpolateLab('white', colorBrew[2][1]);
-
-          vals.forEach(function(d) {
-            valsArr.push(d.ia3c1);
-          });
-
-          var max = d3.max(valsArr);
-          var min = d3.min(valsArr);
+          choropleth(index, 1, 'corruptionPerceptions');
 
 
-          //  console.log(valsArr);
-          vals.forEach(function(d, i) {
-            if (d.ia3c1 > 0) {
-              // positive ramp
-              d3.selectAll('.eez.' + d.iso3)
-                .classed('active', true)
-                .transition().delay(i * 0)
-                .style('fill', posRamp((d.ia3c1 / max)));
-
-            } else if (d.ia3c1 <= 0) {
-              // negative ramp
-              d3.selectAll('.eez.' + d.iso3)
-                .classed('active', true)
-                .transition().delay(i * 0)
-                .style('fill', negRamp((Math.abs(d.ia3c1) / Math.abs(min))));
-            }
-            //
-            // d3.selectAll('.eez.' + d.iso3)
-            //   .transition()
-            //   .delay(i * 10)
-            //   .style('fill', function () {
-            //     return rampColor(((d.ia3c1 + Math.abs(min) ) / max));
-            //   });
-          });
-
-          d3.select('.' + target).classed('invisible', false);
         }
       }, // end of 'map' object
       els: [{
@@ -200,11 +141,11 @@ var ruleOfLawData = {
           tag: 'caption',
           text: 'When dishonesty and bribery undermine legal efforts'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Changes in the Corruption Perceptions Index, 2012-2016. Darker purple countries show improving conditions, while darker red countries show worsening. White-shaded countries saw no change during this period. <br />Source: <a href="https://www.transparency.org" target="_blank">Transparency International</a> </em>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Changes in the Corruption Perceptions Index, 2012-2016. Darker purple countries show improving conditions, while darker red countries show worsening. White-shaded countries saw no change during this period. <br />Source: <a href="https://www.transparency.org" target="_blank">Transparency International</a> </em>'
+        // },
         {
           tag: 'p',
           html: 'Corruption remains the greatest threat to effective policy implementation in sub-Saharan Africa. It is especially threatening in the maritime domain due to weak state presence, proximity to international borders, and the great concentration of wealth that occurs at important seaports. Where the rule of law is weak, local officials take bribes, profit from selective enforcement of fisheries and environmental regulations, and permit black market trading and trafficking. According to Transparency International, corruption is especially acute in major states like Ghana and South Africa. The good news, however, is that many sub-Saharan countries have made significant progress against corruption over the last five years.'
@@ -251,8 +192,8 @@ var ruleOfLawData = {
     }, // End of second  object in cards array
     // Card 2
     {
-      title: 'The Perils of Bureaucratic  Red Tape',
-      menu: 'Red Tape',
+      title: 'Bribes and Bureaucracy',
+      menu: 'Bribes & Bureaucracy',
       metadata: {
         owner: 'Curtis Bell',
         description: 'Why is corruption linked to bureaucratic burdens, opportunities for bribery. Highlight firm behavior report.'
@@ -263,6 +204,14 @@ var ruleOfLawData = {
         classes: 'card-2-layer',
         translate: [],
         highlights: null,
+        tooltip: true,
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['easeOfTrade'];
+          tooltipVal = (tooltipVal * 100).toFixed(2);
+          return "Ease of Trade Index:<br />" + tooltipVal + " / 100";
+
+        },
         load: function(index, js) { // ### do we need the 'js' parameter??
           // Color EEZ -- Ease of Trade score
           var layer = 'card-' + index + '-layer';
@@ -272,28 +221,9 @@ var ruleOfLawData = {
         },
         switch: function(index) {
           // Map the Ease of Trade score (WB)
-          var target = 'card-' + index + '-layer';
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          var valsArr = [];
+          choropleth(index, 1, 'easeOfTrade');
 
-          vals.forEach(function(d) {
-            valsArr.push(d.ia3c2);
-          });
-
-          var max = d3.max(valsArr);
-          var min = d3.min(valsArr);
-          var range = max - min;
-
-          vals.forEach(function(d, i) {
-            d3.selectAll('.eez.' + d.iso3)
-              .transition()
-              .delay(i * 10)
-              .style('fill', function() {
-                return rampColor(((d.ia3c2 - min) / range)) // ### waiting for data
-              });
-          })
-
-          d3.select('.' + target).classed('invisible', false);
+          //  d3.select('.' + target).classed('invisible', false);
         }
       },
       els: [{
@@ -381,7 +311,7 @@ var ruleOfLawData = {
         extent: [
           [-20, 14],
           [-3, 7]
-        ], // ### Guinea Bissau
+        ],
         highlights: ['GNB'], // Guinea Bissau
         load: function(index, js) {
           var layer = 'card-' + index + '-layer';
@@ -390,26 +320,7 @@ var ruleOfLawData = {
         },
         switch: function(target) {
           //  ### Need to figure out what this map will look like
-          var freedomHouse = issueAreaData[issueArea].metadata.countryData;
 
-          var values = [];
-
-          freedomHouse.forEach(function(row, i) {
-            values.push(row.ia3c3);
-          });
-
-          var max = d3.max(values),
-            min = d3.min(values),
-            range = max - min;
-
-          freedomHouse.forEach(function(row, i) {
-            d3.selectAll('.eez.' + row.iso3)
-              .classed('active', true)
-              .style('fill', function() {
-                return rampColor(((row.ia3c3 - range) / (max - min)))
-              })
-
-          });
         }
       },
       els: [{
@@ -482,35 +393,45 @@ var ruleOfLawData = {
         classes: 'card-4-layer',
         translate: [],
         highlights: null,
+        tooltip: true,
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['easeOfTrade'];
+          tooltipVal = (tooltipVal * 100).toFixed(2);
+          return "Inclusion:<br />" + tooltipVal + " / 100";
+
+        },
         load: function(index, js) {
           // Color map with 'some aspect of inclusion' chloropleth ...
           d3.select('.card-eez-layer')
             .classed('card-' + index + '-layer', true);
         },
         switch: function(index) {
-          var target = 'card-' + index + '-layer';
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          var valsArr = [];
-          vals.forEach(function(val) {
-            valsArr.push(parseFloat(val.ia3c4));
-          });
 
-          var max = d3.max(valsArr);
-          var min = d3.min(valsArr);
-          var range = max - min;
-
-          vals.forEach(function(d, i) {
-            console.log(d.ia3c4);
-            d3.selectAll('.eez.' + d.iso3)
-              .transition()
-              .delay(i * 10)
-              .style('fill', function() {
-                return rampColor(1 - ((d.ia3c4 - min) / range));
-              });
-          });
-
-          d3.select('.' + target)
-            .classed('invisible', false);
+          choropleth(index, 1, 'inclusion');
+          // var target = 'card-' + index + '-layer';
+          // var vals = issueAreaData[issueArea].metadata.countryData;
+          // var valsArr = [];
+          // vals.forEach(function(val) {
+          //   valsArr.push(parseFloat(val.ia3c4));
+          // });
+          //
+          // var max = d3.max(valsArr);
+          // var min = d3.min(valsArr);
+          // var range = max - min;
+          //
+          // vals.forEach(function(d, i) {
+          //   console.log(d.ia3c4);
+          //   d3.selectAll('.eez.' + d.iso3)
+          //     .transition()
+          //     .delay(i * 10)
+          //     .style('fill', function() {
+          //       return rampColor(1 - ((d.ia3c4 - min) / range));
+          //     });
+          // });
+          //
+          // d3.select('.' + target)
+          //   .classed('invisible', false);
 
           //setBGImg();
         }
@@ -582,81 +503,91 @@ var ruleOfLawData = {
       ]
     }, // End of fifth  object in cards array
 
-    // // Card 5
-    // { title: 'Methodology',
-    //   menu: 'Methodology',
-    //   metadata: {
-    //     owner: 'Curtis Bell',
-    //     description: 'Methods.'
-    //   },
-    //   map: {
-    //     scale: [],
-    //     classes: 'card-5-layer',
-    //     translate: [],
-    //     highlights: null,
-    //     load: function (index, csv) {  // ### *** This only should be for the first card ...
-    //       // Color EEZ according to master Stable Seas index
-    //       var layer = 'card-'+index+'-layer';
-    //
-    //       d3.select('.card-eez-layer')
-    //         .classed(layer, true);
-    //     },
-    //     switch: function (index) {
-    //       switchMainIndex(0);
-    //
-    //       // var target = 'card-'+index+'-layer';
-    //       // var vals = data.issueArea.metadata.countryData;
-    //       // vals.forEach(function (d, i) {
-    //       //   d3.selectAll('.' + d.iso3)
-    //       //     .transition()
-    //       //     .delay(i * 10)
-    //       //     .style('fill', function () { return rampColor(d.ia3c1); });
-    //       // });
-    //       //
-    //       // d3.select('.' + target)
-    //       //   .classed('invisible', false);
-    //     }
-    //   },
-    //   els: [
-    //     { tag: 'h3',
-    //       text: 'Methodology'
-    //     },
-    //     // { tag: 'legend',
-    //     //   text: 'Map Legend',
-    //     //   legendContent: '<em>Lighter shades indicate higher Rule of Law scores.</em>'
-    //     // },
-    //     // { tag: 'p',
-    //     //    html: 'The Rule of Law score considers five concepts that are central to good governance: corruption, government efficacy, government efficiency, judicial integrity, and inclusion. We calculate these five scores and then average them across the five areas. We provide an overview of our methodology below and a complete summary in the <a href="../../data" target="_blank">Technical Notes</a>.'
-    //     // },
-    //     // { tag: 'h4',
-    //     //   text: 'Corruption'
-    //     // },
-    //     // { tag: 'p',
-    //     //    html: 'Corrupt officials fail to enforce policy and thus enable transnational crime, and corruption in maritime governance and maritime trade is especially problematic because nearly all of Africa’s international economic activity—both legitimate and illicit—transits the maritime space. Many organizations have created corruption measures already, so we adapt the Corruption Perceptions Index by Transparency International (TI). This measure averages 13 other corruption indicators and scores states on a scale from 0 to 100, with more corrupt countries earning lower scores. TI’s methodology prevents nearly every state from exceeding 80, so we divide each country’s score by 80 to achieve a more reasonable high benchmark.'
-    //     // },
-    //     // { tag: 'h4',
-    //     //   text: 'Government Efficacy'
-    //     // },
-    //     // { tag: 'p',
-    //     //   html: 'Ineffective governments cannot enforce policy, which hinders a state’s ability to secure its maritime space and prevent illicit maritime activities. We measure efficacy by rescaling the Functioning of Government score from Freedom House. This score, published as part of the annual <em> Freedom in the World report </em>, reflects expert responses to questions like “Do non-state actors, including criminal gangs, the military, and foreign governments, interfere with or prevent elected representatives from adopting and implementing legislation and making meaningful policy decisions?” and “Are there independent and effective auditing and investigative bodies that function without impediment or political pressure or influence?”'
-    //     // },
-    //     // { tag: 'h4',
-    //     //   text: 'Government Efficiency'
-    //     // },
-    //     // { tag: 'p',
-    //     //   html: 'Governments that have unnecessary administrative and bureaucratic hurdles provide more opportunities for bribery and corruption, especially as these systems relate to trade, customs, and international migration. Each year, the World Bank gauges government efficiency in several areas, one of which is “Trading Across Borders.” This score is computed from expert estimates of the amount of time and money required to move a standard shipping container into the country. The measure is especially relevant for efficiency in African maritime governance, as the region’s international trade transits almost exclusively through seaports.'
-    //     // },
-    //     // { tag: 'h4',
-    //     //   text: 'Judicial Integrity'
-    //     // },
-    //     // { tag: 'p',
-    //     //   html: 'Judicial integrity is important to the enforcement of existing laws and ensuring that the de jure regulations are de facto conditions. Where judges are bribed and laws go unenforced, the rule of law is too weak for policies aimed at the maritime domain to be effective. We capture this concept using three variables from the Varieties of Democracy Project, a leading dataset on the strength of governance around the world. Specifically, we create a Judicial Integrity score from three measures that score how often (1) the government attacks the judiciary in public, (2) corrupt or inept judges are held accountable and removed from office, and (3) individuals and businesses pay bribes in return for favorable or speedy decisions.'
-    //     // },
-    //     // { tag: 'h4',
-    //     //   text: 'Inclusion'
-    //     // },
-    //     // { tag: 'p',
-    //     //   html: 'We gauge political inclusion with five measures from the Varieties of Democracy Project. These data are collected both globally and annually and they cover unequal treatment of the law according to social group identification (i.e., ethnic groups), subnational region, religion, socioeconomic status, and gender. Note that this is a measure of equal treatment under the law, and not the absolute provision of liberal and transparent governance. Non-democratic states can score well if the law is equally applied across all five of these social divisions.'
-    //    }
+    // Card 5
+    {
+      title: 'Methodology',
+      menu: 'Methodology',
+      metadata: {
+        owner: 'Curtis Bell',
+        description: 'Methods.'
+      },
+      map: {
+        scale: [],
+        classes: 'card-5-layer',
+        translate: [],
+        highlights: null,
+        tooltip: true,
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          tooltipVal = (tooltipVal * 100).toFixed(2);
+          return "Rule of Law:<br />" + tooltipVal + " / 100";
+
+        },
+        load: function(index, csv) { // ### *** This only should be for the first card ...
+          // Color EEZ according to master Stable Seas index
+          var layer = 'card-' + index + '-layer';
+
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
+        },
+        switch: function(index) {
+          choropleth(index, 1, 'index');
+
+          // var target = 'card-'+index+'-layer';
+          // var vals = data.issueArea.metadata.countryData;
+          // vals.forEach(function (d, i) {
+          //   d3.selectAll('.' + d.iso3)
+          //     .transition()
+          //     .delay(i * 10)
+          //     .style('fill', function () { return rampColor(d.ia3c1); });
+          // });
+          //
+          // d3.select('.' + target)
+          //   .classed('invisible', false);
+        }
+      },
+      els: [{
+          tag: 'h3',
+          text: 'Methodology'
+        },
+        // { tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Lighter shades indicate higher Rule of Law scores.</em>'
+        // },
+        // { tag: 'p',
+        //    html: 'The Rule of Law score considers five concepts that are central to good governance: corruption, government efficacy, government efficiency, judicial integrity, and inclusion. We calculate these five scores and then average them across the five areas. We provide an overview of our methodology below and a complete summary in the <a href="../../data" target="_blank">Technical Notes</a>.'
+        // },
+        // { tag: 'h4',
+        //   text: 'Corruption'
+        // },
+        // { tag: 'p',
+        //    html: 'Corrupt officials fail to enforce policy and thus enable transnational crime, and corruption in maritime governance and maritime trade is especially problematic because nearly all of Africa’s international economic activity—both legitimate and illicit—transits the maritime space. Many organizations have created corruption measures already, so we adapt the Corruption Perceptions Index by Transparency International (TI). This measure averages 13 other corruption indicators and scores states on a scale from 0 to 100, with more corrupt countries earning lower scores. TI’s methodology prevents nearly every state from exceeding 80, so we divide each country’s score by 80 to achieve a more reasonable high benchmark.'
+        // },
+        // { tag: 'h4',
+        //   text: 'Government Efficacy'
+        // },
+        // { tag: 'p',
+        //   html: 'Ineffective governments cannot enforce policy, which hinders a state’s ability to secure its maritime space and prevent illicit maritime activities. We measure efficacy by rescaling the Functioning of Government score from Freedom House. This score, published as part of the annual <em> Freedom in the World report </em>, reflects expert responses to questions like “Do non-state actors, including criminal gangs, the military, and foreign governments, interfere with or prevent elected representatives from adopting and implementing legislation and making meaningful policy decisions?” and “Are there independent and effective auditing and investigative bodies that function without impediment or political pressure or influence?”'
+        // },
+        // { tag: 'h4',
+        //   text: 'Government Efficiency'
+        // },
+        // { tag: 'p',
+        //   html: 'Governments that have unnecessary administrative and bureaucratic hurdles provide more opportunities for bribery and corruption, especially as these systems relate to trade, customs, and international migration. Each year, the World Bank gauges government efficiency in several areas, one of which is “Trading Across Borders.” This score is computed from expert estimates of the amount of time and money required to move a standard shipping container into the country. The measure is especially relevant for efficiency in African maritime governance, as the region’s international trade transits almost exclusively through seaports.'
+        // },
+        // { tag: 'h4',
+        //   text: 'Judicial Integrity'
+        // },
+        // { tag: 'p',
+        //   html: 'Judicial integrity is important to the enforcement of existing laws and ensuring that the de jure regulations are de facto conditions. Where judges are bribed and laws go unenforced, the rule of law is too weak for policies aimed at the maritime domain to be effective. We capture this concept using three variables from the Varieties of Democracy Project, a leading dataset on the strength of governance around the world. Specifically, we create a Judicial Integrity score from three measures that score how often (1) the government attacks the judiciary in public, (2) corrupt or inept judges are held accountable and removed from office, and (3) individuals and businesses pay bribes in return for favorable or speedy decisions.'
+        // },
+        // { tag: 'h4',
+        //   text: 'Inclusion'
+        // },
+        // { tag: 'p',
+        //   html: 'We gauge political inclusion with five measures from the Varieties of Democracy Project. These data are collected both globally and annually and they cover unequal treatment of the law according to social group identification (i.e., ethnic groups), subnational region, religion, socioeconomic status, and gender. Note that this is a measure of equal treatment under the law, and not the absolute provision of liberal and transparent governance. Non-democratic states can score well if the law is equally applied across all five of these social divisions.'
+      ]
+    }
   ]
 }
