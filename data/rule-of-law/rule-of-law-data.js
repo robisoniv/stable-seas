@@ -1,7 +1,7 @@
 var ruleOfLawData = {
   metadata: { // Independent data source for each page
     version: '1.0.0',
-    name: 'Rule of Law',
+    name: '*Rule of Law*',
     updates: true,
     /*
          here is where you write updates
@@ -13,7 +13,6 @@ var ruleOfLawData = {
 
          */
     index: 3, //Issue Area #3, index 2...
-
     code: 'ruleOfLaw',
     countryData: {},
     csv: '../../data/rule-of-law/ruleOfLaw.csv',
@@ -25,11 +24,6 @@ var ruleOfLawData = {
   load: function(csv, callback) {
 
     loadIAcsv(csv, callback);
-
-    // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-    //   issueAreaData[issueArea].metadata.indexData = vals;
-    //
-    // });
   },
   cards: [{ // Card 0
       title: 'Rule of Law',
