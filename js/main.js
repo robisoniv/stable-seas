@@ -329,7 +329,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
       var iaLink = iaMainNav.append('a')
         .attr('href', function() {
-          return '../' + iaPath;
+          return '../issue-areas/' + iaPath;
         });
 
       var iaDiv = iaLink.append('div')
@@ -1284,8 +1284,6 @@ function switchCard(target) {
   } // ### This has to be on every card - no 'if' statement needed??
 
   // And turn on target card's data layers
-
-
   // And highlight the relevant countries:
   d3.selectAll('.on').classed('on', false);
   // ### Then loop through cards[i].map.highlights,
@@ -1317,6 +1315,9 @@ function switchCard(target) {
 
   var cardMapObj = issueAreaData[issueArea].cards[target].map;
   cardMapObj.extent ? zoom(cardMapObj.extent) : reset();
+
+  // Update the browser URL:
+  history.pushState(null, issueAreaData[issueArea].cards[target].title, '#' + target);
 
   activeCard = target;
 }
