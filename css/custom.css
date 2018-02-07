@@ -729,6 +729,15 @@ svg#map-svg {
 
 
 
+.legend-g {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+}
+
+.legend-g text {
+  font-size: 10;
+}
 
 
 .disputed {
