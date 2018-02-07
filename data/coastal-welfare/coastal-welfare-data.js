@@ -54,9 +54,12 @@ var coastalWelfareData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        tooltipHTML: function () {
+        tooltipHTML: function (iso3) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
           tooltipVal = (tooltipVal * 100).toFixed(2);
+
+          console.log(tooltipVal);
+          updatePointer(tooltipVal);
           return "Coastal Welfare:<br />" + tooltipVal + " / 100";
         },
         load: function(index, file) {
@@ -146,6 +149,8 @@ var coastalWelfareData = {
         tooltipHTML: function (iso3) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].artisanalFishing;
           tooltipVal = tooltipVal * 100;
+          updatePointer(tooltipVal);
+
           return "Artisanal Fishing Opportunities:<br />" + tooltipVal + " / 100<br />(Source: Ocean Health Index)";
         },
         load: function(index, file) {
@@ -493,10 +498,12 @@ var coastalWelfareData = {
         path: '',
         highlights: [],
         tooltip: true,
-        tooltipHTML: function (iso) {
+        tooltipHTML: function (iso3) {
 
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].womensEconomicSecurity;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].womensEconomicSecurity;
           tooltipVal = Math.round(tooltipVal * 100);
+          updatePointer(tooltipVal);
+
           return "Womens' Economic Security:<br />" + tooltipVal + " / 100 <br />Source: World Bank Women,<br />Business, and the Law Dataset";
 
         },
@@ -673,9 +680,11 @@ var coastalWelfareData = {
       translate: [],
       highlights: null,
       tooltip: true,
-      tooltipHTML: function () {
+      tooltipHTML: function (iso3) {
         var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
         tooltipVal = (tooltipVal * 100).toFixed(2);
+        updatePointer(tooltipVal);
+
         return "Coastal Welfare:<br />" + tooltipVal + " / 100";
       },
       load: function (index, file) {  // ### *** This only should be for the first card ...

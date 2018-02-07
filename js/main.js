@@ -62,21 +62,26 @@ var map = d3.select('#map-svg')
     return '0 0 ' + w + ' ' + h
   });
 
-// Set <pattern> element at top:
-map.append('defs')
-  .append('pattern')
-  .attr('id', 'pattern-stripe')
-  .attr('patternUnits', 'userSpaceOnUse')
-  .attr('width', '10')
-  .attr('height', '10')
-  .attr('patternTransform', 'rotate(45)');
-map.append('mask')
-  .attr('id', 'mask-stripe')
-  .append('rect')
-  .attr('x', '0')
-  .attr('y', '0')
-  .attr('width', '100%')
-  .attr('fill', 'url(#pattern-stripe)');
+  var defs = map.append('defs');
+
+    var linearGradient = defs.append('linearGradient')
+      .attr('id', 'linear-gradient');
+
+    linearGradient.attr("x1", "0%")
+      .attr("y1", "0%")
+      .attr("x2", "100%")
+      .attr("y2", "0%");
+
+    linearGradient.selectAll('stop')
+      .data(rampColor.range()).enter()
+      .append('stop')
+        .attr('offset', function (d, i) {
+          return i/(rampColor.range().length-1);
+        })
+        .attr('stop-color', function (d) {
+          return d;
+        })
+
 
 // Set background rect, include callback to reset zoom
 map.append('rect')
@@ -90,6 +95,43 @@ map = map.append('g')
   .classed('map-g', true);
 
 var mapg = d3.select('.map-g');
+
+// Add color gradient rectangle on top of map-g...
+console.log((h - 100).toString());
+var translateG = 'translate(20, '  + (h - 80).toString() + ')';
+
+console.log(translateG);
+var legendG = d3.select('#map-svg')
+  .append('g')
+    .classed('legend-g ', true)
+    .attr('width', 300)
+    .attr('height', 50)
+    .attr('transform', translateG)
+
+  legendG.append('rect')
+    .attr('width', 300)
+    .attr('height', 10)
+    .style('fill', 'url(#linear-gradient)');
+
+  legendG.append('text')
+    .text('Worse')
+    .attr('font-size', 10)
+    .attr('y', 25);
+
+  legendG.append('text')
+    .text('Better')
+    .attr('font-size', 10)
+    .attr('y', 25)
+    .attr('x', '270');
+
+legendG.append('polygon')
+  .classed('legend-pointer hidden', true)
+	.attr('points', '0 0, 16 0, 8 15')
+	.attr('fill','black')
+  .attr('transform', 'translate(0, -15)');
+	//.attr('stroke-width',5);
+
+
 
 // Set up the tooltip:
 var tooltip = d3.select('body').append('div')
@@ -1031,7 +1073,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               var tooltip = d3.select('div.tooltip');
               var cardMap = issueAreaData[issueArea].cards[activeCard].map;
               var idx = issueAreaData[issueArea].metadata.countryData[iso3];
-            //  console.log('idx',idx);
+              console.log('idx',idx);
                 // idx is object with country, iso3, values for each card ...
                 // pulled from issue area's metadata.indexData
               //  console.log('xx', idx);
@@ -1077,6 +1119,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
             .classed('invisible', true);
 
           d3.select('div.tooltip').classed('hidden', true);
+      //    d3.select('.legend-pointer').classed('hidden', true);
 
         });
       ///  .on('click', function(d) {});
@@ -1259,6 +1302,12 @@ function switchCard(target) {
   d3.selectAll('.card')
     .classed('invisible', true);
 
+  d3.select('.legend-pointer')
+    .classed('hidden', true);
+
+  d3.select('.legend-g')
+    .classed('hidden', true);
+
   d3.select('.card.active')
     .classed('active', false);
 
@@ -1341,6 +1390,7 @@ Array.prototype.contains = function(needle) {
 }
 
 function choropleth (cardIndex, order, key) {
+
   var target = 'card-' + cardIndex + '-layer';
   var vals = issueAreaData[issueArea].metadata.countryData;
 
@@ -1362,8 +1412,18 @@ function choropleth (cardIndex, order, key) {
       });
       i++;
   }
+
+  d3.select('.legend-g')
+    .classed('hidden', false);
 }
 
+function updatePointer(tooltipVal) {
+  d3.select('.legend-pointer')
+    .classed('hidden', false)
+  .transition().delay(10)
+    .attr('transform', 'translate(' + tooltipVal * 3 + ', -15)');
+
+}
 function switchMainIndex(cardIndex) {
   if (!cardIndex) {
     cardIndex = 0;
@@ -1407,7 +1467,7 @@ function switchMainIndex(cardIndex, direction) {
   for (key in vals) {
     valsArr.push(vals[key][csvSelector]);
   }
-//  console.log('valsArr',valsArr);
+  //  console.log('valsArr',valsArr);
 
   var max = d3.max(valsArr);
   var min = d3.min(valsArr);
