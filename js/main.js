@@ -445,10 +445,10 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
 // Load IA csv function:
 function loadIAcsv(csv, callback) {
-//  console.log('csv!');
+  console.log('csv!');
   var md = issueAreaData[issueArea].metadata;
   d3.csv(csv, function(vals) {
-    console.log(vals);
+    console.log('c',vals);
     vals.forEach(function(d) {
       for (key in d) {
         if (isNaN(d[key]) != true) {
@@ -1054,7 +1054,6 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                     return true;
                   }
                 });
-
 
 
               tooltip.select('h1')

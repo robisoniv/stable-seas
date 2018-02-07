@@ -1,7 +1,7 @@
 var coastalWelfareData = {
-  metadata: { // Independent data source for each page
+  metadata: {
     name: 'Coastal Welfare',
-    version: '0.0.2',
+    version: '1.0.0',
     updates: true,
     /*
          here is where you write updates
@@ -22,25 +22,25 @@ var coastalWelfareData = {
     description: 'Maritime security is closely linked to the well-being of the people living in adjacent coastal areas.'
   },
   load: function(csv, callback) {
-    var md = issueAreaData[issueArea].metadata;
 
+    // Not sure why loadIAcsv() isn't working here...
+    var md = issueAreaData[issueArea].metadata;
     d3.csv(csv, function(vals) {
       vals.forEach(function(d) {
-        //  d.ia5c0 = +d.ia5c0;
-        d.ia5c1 = +d.ia5c1;
-        d.ia5c4 = +d.ia5c4;
+        for (key in d) {
+          if (isNaN(d[key]) != true) {
+            // Convert all numbers (floats and ints) to proper data type
+            d[key] = +d[key];
+          }
+        }
+        md.countryData[d.iso3] = d;
       });
-      issueAreaData[issueArea].metadata.countryData = vals;
-      callback('coastalWelfare load csv function callback');
+      callback('internationalCooperation load csv function callback');
     });
 
-    d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-
-      issueAreaData[issueArea].metadata.indexData = vals;
-
-    });
   },
-  cards: [{ // Card 0
+  cards: [
+    { // Card 0
       title: 'Coastal Welfare',
       menu: 'Coastal Welfare',
       metadata: {
@@ -54,18 +54,19 @@ var coastalWelfareData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
+        tooltipHTML: function () {
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
+          tooltipVal = (tooltipVal * 100).toFixed(2);
+          return "Coastal Welfare:<br />" + tooltipVal + " / 100";
         },
         load: function(index, file) {
-          // var layer = 'card-'+index+'-layer';
-          // var l = d3.select('.card-eez-layer')
-          //   .classed(layer, true);
+          var layer = 'card-'+index+'-layer';
+          var l = d3.select('.card-eez-layer')
+            .classed(layer, true);
         },
         switch: function(index) {
           // This works because we classed the layer with .card-0-layer
-
+          choropleth(index, 1, 'index');
         }
       },
       els: [{
@@ -142,9 +143,10 @@ var coastalWelfareData = {
         path: '',
         highlights: [],
         tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
+        tooltipHTML: function (iso3) {
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].artisanalFishing;
+          tooltipVal = tooltipVal * 100;
+          return "Artisanal Fishing Opportunities:<br />" + tooltipVal + " / 100<br />(Source: Ocean Health Index)";
         },
         load: function(index, file) {
           var layer = 'card-' + index + '-layer';
@@ -153,25 +155,27 @@ var coastalWelfareData = {
         },
         switch: function(index) {
           //  switchMainIndex(index);
-          var artisanalFishing = issueAreaData[issueArea].metadata.countryData;
 
-          var values = [];
-
-          artisanalFishing.forEach(function(row, i) {
-            values.push(row.ia5c1);
-          });
-
-          var max = d3.max(values),
-            min = d3.min(values),
-            range = max - min;
-          artisanalFishing.forEach(function(row, i) {
-            d3.selectAll('.eez.' + row.iso3)
-              .classed('active', true)
-              .style('fill', function() {
-                return rampColor(1 - ((row.ia5c1 - range) / (max - min)))
-              })
-
-          });
+          choropleth(index, 1, 'artisanalFishing');
+          // var artisanalFishing = issueAreaData[issueArea].metadata.countryData;
+          //
+          // var values = [];
+          //
+          // artisanalFishing.forEach(function(row, i) {
+          //   values.push(row.ia5c1);
+          // });
+          //
+          // var max = d3.max(values),
+          //   min = d3.min(values),
+          //   range = max - min;
+          // artisanalFishing.forEach(function(row, i) {
+          //   d3.selectAll('.eez.' + row.iso3)
+          //     .classed('active', true)
+          //     .style('fill', function() {
+          //       return rampColor(1 - ((row.ia5c1 - range) / (max - min)))
+          //     })
+          //
+          // });
         }
       },
       els: [{
@@ -297,6 +301,7 @@ var coastalWelfareData = {
               .style('fill', function() {
                 return rampColor(1);
               });
+
           });
         },
         switch: function(index) {
@@ -397,7 +402,7 @@ var coastalWelfareData = {
             });
 
             var incidents = mapg.append('g')
-              .classed('card-layer card-0-layer coastal-incidents ' + layer, true);
+              .classed('card-layer coastal-incidents ' + layer, true);
 
             incidents.selectAll('circle')
               .data(vals)
@@ -488,9 +493,12 @@ var coastalWelfareData = {
         path: '',
         highlights: [],
         tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
+        tooltipHTML: function (iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].womensEconomicSecurity;
+          tooltipVal = Math.round(tooltipVal * 100);
+          return "Womens' Economic Security:<br />" + tooltipVal + " / 100 <br />Source: World Bank Women,<br />Business, and the Law Dataset";
+
         },
         load: function(index, file) {
 
@@ -500,27 +508,8 @@ var coastalWelfareData = {
 
         },
         switch: function(index) {
-
-          var values = issueAreaData[issueArea].metadata.countryData;
-          var valArr = [];
-          values.forEach(function(d) {
-            valArr.push(d.ia5c4);
-          });
-
-          var max = d3.max(valArr);
-          var min = d3.min(valArr);
-          var range = max - min;
-
-          values.forEach(function(row, i) {
-            d3.selectAll('.eez.' + row.iso3)
-              .classed('active', true)
-              .style('fill', rampColor(1 - ((row.ia5c4 - min) / range)));
-          });
-
-          var layer = 'card-' + index + '-layer';
-          d3.select('.' + layer)
-            .classed('invisible', false);
-        }
+          choropleth(index, 1, 'womensEconomicSecurity');
+         }
       },
       els: [{
           tag: 'h1',
@@ -530,11 +519,11 @@ var coastalWelfareData = {
           tag: 'caption',
           text: 'Secure coastlines for all'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Lighter shades indicate greater women\'s economic security. <br> Source: <a href="http://wbl.worldbank.org/" target="_blank">World Bank Women, Business, and the Law Dataset</a></em>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Lighter shades indicate greater women\'s economic security. <br> Source: <a href="http://wbl.worldbank.org/" target="_blank">World Bank Women, Business, and the Law Dataset</a></em>'
+        // },
         {
           tag: 'p',
           html: 'Women’s active participation in coastal economies helps create more stable, secure, and profitable coastal areas for all. However, there are many obstacles to their full participation in the economy, and maritime industries in particular.'
@@ -671,90 +660,96 @@ var coastalWelfareData = {
     //     }
     //   ] // end of els array
     // },
-    //{ // Card 6
-    // title: 'Methodology',
-    // menu: 'Methodology',
-    // metadata: {
-    //   owner: 'Curtis Bell',
-    //   description: 'Methods.'
-    // },
-    // map: {
-    //   scale: [],
-    //   classes: 'card-6-layer',
-    //   translate: [],
-    //   highlights: null,
-    //   load: function (index, file) {  // ### *** This only should be for the first card ...
-    //     // Color EEZ according to master Stable Seas index
-    //     var layer = 'card-'+index+'-layer';
-    //
-    //     d3.select('.card-eez-layer')
-    //       .classed(layer, true);
-    //   },
-    //   switch: function (index) {
-    //     switchMainIndexInverse(0);
-    //   }
-    // },
-    // els: [
-    // { tag: 'h3',
-    //   text: 'Methodology'
-    // },
-    // { tag: 'legend',
-    //   text: 'Map Legend',
-    //   legendContent: '<em>Lighter shades indicate higher coastal welfare scores.</em>'
-    // },
-    // { tag: 'p',
-    //    html: 'The Coastal Welfare Score gauges physical security and economic security, both throughout a country and specifically along the coast. This section briefly summarizes how each concept is measured. More technical details are included in the data documentation available for download.'
-    // },
-    // { tag: 'h4',
-    //   text: 'Physical Security'
-    // },
-    // { tag: 'p',
-    //    html: 'We use four inputs to measure physical security: the severity of coastal armed conflicts, the severity of nationwide armed conflicts, nationwide homicide rates, and an analysis of women’s physical security.'
-    // },
-    // { tag: 'p',
-    //    html: 'The first two of these inputs are derived from data from a joint initiative of the Uppsala Conflict Data Program and the Peace Research Institute of Oslo. The georeferenced event dataset produced by this initiative includes geocoded information about specific lethal instances of armed conflict, such as battles between governments and rebels or use of violence against civilians.<sup>19</sup> The project codebook defines a qualifying event as: “An incident where armed force was used by an organized actor against another organized actor, or against civilians, resulting in at least one direct death at a specific location and a specific date.”<sup>20</sup>'
-    // },
-    // { tag: 'p',
-    //    html: 'Counts of nationwide events by country were used to create the nationwide armed-conflict severity measure for each state. In 2016 the 30 coastal sub-Saharan countries collectively experienced 1,039 qualifying events. To isolate political violence occurring near the coastline, we used geographic event data to identify events occurring within 50 kilometers of a country’s coastline. This reduced the number of events to 256, and those are spread across six countries. Some countries, like Somalia and Angola, experienced most of their lethal conflict events near the coast. Others, like the Democratic Republic of the Congo and Cameroon, suffered conflict in interior regions but not in coastal areas.'
-    // },
-    // { tag: 'p',
-    //    html: 'The third measure of physical security is the nationwide homicide rate as recorded by the United Nations Office on Drugs and Crime. Homicide data was taken for the most recent available year for each country. In most cases, 2015 was the most recent year used.'
-    // },
-    // { tag: 'p',
-    //    html: 'The fourth measure is an analysis of women’s physical security, derived from the Women, Business, and the Law data from the World Bank. To create this measure, we used the data from the Protecting Women indicator in the dataset, which “examines the existence of legislation on domestic violence and sexual harassment”<sup>21</sup> in each country. '
-    // },
-    // { tag: 'h4',
-    //   text: 'Economic Security'
-    // },
-    // { tag: 'p',
-    //    html: 'We use five inputs to measure economic security on the coast and nationwide: artisanal fishing opportunities, coastal livelihoods and economies, the Human Development Index, infant mortality rate, and women’s economic security. We use three data sources to measure economic security: the Ocean Health Index (OHI) for coastal livelihoods and economies and artisanal fishing opportunities, the United Nations Development Programme for the Human Development Index, and the World Bank for infant mortality rate data and the Women, Business, and the Law dataset.'
-    // },
-    // { tag: 'p',
-    //    html: 'The first measure is the <a href="http://www.oceanhealthindex.org/methodology/components/artisanal-fishing-need" target="_blank">Artisanal Fishing Opportunities Index</a> collected by OHI. The index measures “whether people who need to fish on a small, local scale have the opportunity to do so.”<sup>22</sup> In other words, it captures whether the demand for fishing opportunities is met on the coast in a lawful and sustainable manner.'
-    // },
-    // { tag: 'p',
-    //    html: 'Second, the “Livelihoods and Economies” measure from OHI, weighted by the Human Development Index, assesses jobs and revenue produced from marine-related industries relative to national trends in employment and GDP. The score thus captures the relative economic well-being of coastal areas in comparison to the rest of the country. The industries considered in the measure are: (1) commercial fishing, (2) mariculture, (3) tourism and recreation, (4) shipping and transportation, (5) whale watching, (6) ports and harbors, (7) ship and boat building, and (8) renewable energy production (wind and wave).'
-    // },
-    // { tag: 'p',
-    //    html: 'Third, the Human Development Index (HDI) is a composite measure of the overall social well-being of citizens in each country and includes data on life expectancy, education, and per capita income. This measure is an excellent indicator for economic welfare across a country. We multiply it by the Livelihoods and Economies score to proxy coastal development.'
-    // },
-    // { tag: 'p',
-    //    html: 'Fourth, infant mortality rate is an ideal measure of social welfare because it reflects the state of healthcare, women’s education, and the availability of sufficient nutrition, transportation infrastructure, and shelter. These data are used with the HDI to gauge economic security at the country level.'
-    // },
-    // { tag: 'p',
-    //    html: 'Finally, the fifth measure is an analysis of women’s economic security derived from the Women, Business, and the Law data from the World Bank. To create this measure, we use the data from the “Getting a Job” indicator in the dataset, which “assesses restrictions on women’s work, such as prohibitions on working at night or in certain jobs. This indicator also covers laws on work-related maternity, paternity, parental benefits, retirement ages, equal remuneration for work of equal value and nondiscrimination in hiring.”<sup>23</sup>'
-    // },
-    // { tag: 'links',
-    //   items: [
-    //     {org: '<sup>19</sup> Sundberg and Melander, “Introducing the UCDP Georeferenced Event Dataset.'},
-    //     {org: '<sup>20</sup> Ibid., pg. 2'},
-    //     {org: '<sup>21</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,', url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'},
-    //     {org: '<sup>22</sup> “Artisanal Fishing Opportunities,” the Ocean Health Index, accessed 1 September 2017,', url: 'http://www.oceanhealthindex.org/methodology/goals/artisanal-fishing-opportunities'},
-    //     {org: '<sup>23</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,', url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'},
-    //   ],  // How about internal references????? ###
-    // }
+    { // Card 6
+    title: 'Methodology',
+    menu: 'Methodology',
+    metadata: {
+      owner: 'Curtis Bell',
+      description: 'Methods.'
+    },
+    map: {
+      scale: [],
+      classes: 'card-6-layer',
+      translate: [],
+      highlights: null,
+      tooltip: true,
+      tooltipHTML: function () {
+        var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
+        tooltipVal = (tooltipVal * 100).toFixed(2);
+        return "Coastal Welfare:<br />" + tooltipVal + " / 100";
+      },
+      load: function (index, file) {  // ### *** This only should be for the first card ...
+        // Color EEZ according to master Stable Seas index
+        var layer = 'card-'+index+'-layer';
 
-    //   ]
-    // } // End of seventh object in cards array
+        d3.select('.card-eez-layer')
+          .classed(layer, true);
+      },
+      switch: function (index) {
+        choropleth(index, 1, 'index');
+      }
+    },
+    els: [
+    { tag: 'h3',
+      text: 'Methodology'
+    },
+    { tag: 'legend',
+      text: 'Map Legend',
+      legendContent: '<em>Lighter shades indicate higher coastal welfare scores.</em>'
+    },
+    { tag: 'p',
+       html: 'The Coastal Welfare Score gauges physical security and economic security, both throughout a country and specifically along the coast. This section briefly summarizes how each concept is measured. More technical details are included in the data documentation available for download.'
+    },
+    { tag: 'h4',
+      text: 'Physical Security'
+    },
+    { tag: 'p',
+       html: 'We use four inputs to measure physical security: the severity of coastal armed conflicts, the severity of nationwide armed conflicts, nationwide homicide rates, and an analysis of women’s physical security.'
+    },
+    { tag: 'p',
+       html: 'The first two of these inputs are derived from data from a joint initiative of the Uppsala Conflict Data Program and the Peace Research Institute of Oslo. The georeferenced event dataset produced by this initiative includes geocoded information about specific lethal instances of armed conflict, such as battles between governments and rebels or use of violence against civilians.<sup>19</sup> The project codebook defines a qualifying event as: “An incident where armed force was used by an organized actor against another organized actor, or against civilians, resulting in at least one direct death at a specific location and a specific date.”<sup>20</sup>'
+    },
+    { tag: 'p',
+       html: 'Counts of nationwide events by country were used to create the nationwide armed-conflict severity measure for each state. In 2016 the 30 coastal sub-Saharan countries collectively experienced 1,039 qualifying events. To isolate political violence occurring near the coastline, we used geographic event data to identify events occurring within 50 kilometers of a country’s coastline. This reduced the number of events to 256, and those are spread across six countries. Some countries, like Somalia and Angola, experienced most of their lethal conflict events near the coast. Others, like the Democratic Republic of the Congo and Cameroon, suffered conflict in interior regions but not in coastal areas.'
+    },
+    { tag: 'p',
+       html: 'The third measure of physical security is the nationwide homicide rate as recorded by the United Nations Office on Drugs and Crime. Homicide data was taken for the most recent available year for each country. In most cases, 2015 was the most recent year used.'
+    },
+    { tag: 'p',
+       html: 'The fourth measure is an analysis of women’s physical security, derived from the Women, Business, and the Law data from the World Bank. To create this measure, we used the data from the Protecting Women indicator in the dataset, which “examines the existence of legislation on domestic violence and sexual harassment”<sup>21</sup> in each country. '
+    },
+    { tag: 'h4',
+      text: 'Economic Security'
+    },
+    { tag: 'p',
+       html: 'We use five inputs to measure economic security on the coast and nationwide: artisanal fishing opportunities, coastal livelihoods and economies, the Human Development Index, infant mortality rate, and women’s economic security. We use three data sources to measure economic security: the Ocean Health Index (OHI) for coastal livelihoods and economies and artisanal fishing opportunities, the United Nations Development Programme for the Human Development Index, and the World Bank for infant mortality rate data and the Women, Business, and the Law dataset.'
+    },
+    { tag: 'p',
+       html: 'The first measure is the <a href="http://www.oceanhealthindex.org/methodology/components/artisanal-fishing-need" target="_blank">Artisanal Fishing Opportunities Index</a> collected by OHI. The index measures “whether people who need to fish on a small, local scale have the opportunity to do so.”<sup>22</sup> In other words, it captures whether the demand for fishing opportunities is met on the coast in a lawful and sustainable manner.'
+    },
+    { tag: 'p',
+       html: 'Second, the “Livelihoods and Economies” measure from OHI, weighted by the Human Development Index, assesses jobs and revenue produced from marine-related industries relative to national trends in employment and GDP. The score thus captures the relative economic well-being of coastal areas in comparison to the rest of the country. The industries considered in the measure are: (1) commercial fishing, (2) mariculture, (3) tourism and recreation, (4) shipping and transportation, (5) whale watching, (6) ports and harbors, (7) ship and boat building, and (8) renewable energy production (wind and wave).'
+    },
+    { tag: 'p',
+       html: 'Third, the Human Development Index (HDI) is a composite measure of the overall social well-being of citizens in each country and includes data on life expectancy, education, and per capita income. This measure is an excellent indicator for economic welfare across a country. We multiply it by the Livelihoods and Economies score to proxy coastal development.'
+    },
+    { tag: 'p',
+       html: 'Fourth, infant mortality rate is an ideal measure of social welfare because it reflects the state of healthcare, women’s education, and the availability of sufficient nutrition, transportation infrastructure, and shelter. These data are used with the HDI to gauge economic security at the country level.'
+    },
+    { tag: 'p',
+       html: 'Finally, the fifth measure is an analysis of women’s economic security derived from the Women, Business, and the Law data from the World Bank. To create this measure, we use the data from the “Getting a Job” indicator in the dataset, which “assesses restrictions on women’s work, such as prohibitions on working at night or in certain jobs. This indicator also covers laws on work-related maternity, paternity, parental benefits, retirement ages, equal remuneration for work of equal value and nondiscrimination in hiring.”<sup>23</sup>'
+    },
+    { tag: 'links',
+      items: [
+        {org: '<sup>19</sup> Sundberg and Melander, “Introducing the UCDP Georeferenced Event Dataset.'},
+        {org: '<sup>20</sup> Ibid., pg. 2'},
+        {org: '<sup>21</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,', url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'},
+        {org: '<sup>22</sup> “Artisanal Fishing Opportunities,” the Ocean Health Index, accessed 1 September 2017,', url: 'http://www.oceanhealthindex.org/methodology/goals/artisanal-fishing-opportunities'},
+        {org: '<sup>23</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,', url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'},
+      ],  // How about internal references????? ###
+    }
+
+      ]
+    } // End of seventh object in cards array
   ]
 };
