@@ -64,23 +64,23 @@ var map = d3.select('#map-svg')
 
   var defs = map.append('defs');
 
-    var linearGradient = defs.append('linearGradient')
-      .attr('id', 'linear-gradient');
+  var linearGradient = defs.append('linearGradient')
+    .attr('id', 'linear-gradient');
 
-    linearGradient.attr("x1", "0%")
-      .attr("y1", "0%")
-      .attr("x2", "100%")
-      .attr("y2", "0%");
+  linearGradient.attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "0%");
 
-    linearGradient.selectAll('stop')
-      .data(rampColor.range()).enter()
-      .append('stop')
-        .attr('offset', function (d, i) {
-          return i/(rampColor.range().length-1);
-        })
-        .attr('stop-color', function (d) {
-          return d;
-        })
+  linearGradient.selectAll('stop')
+    .data(rampColor.range()).enter()
+    .append('stop')
+      .attr('offset', function (d, i) {
+        return i/(rampColor.range().length-1);
+      })
+      .attr('stop-color', function (d) {
+        return d;
+      })
 
 
 // Set background rect, include callback to reset zoom
@@ -97,10 +97,8 @@ map = map.append('g')
 var mapg = d3.select('.map-g');
 
 // Add color gradient rectangle on top of map-g...
-console.log((h - 100).toString());
 var translateG = 'translate(20, '  + (h - 80).toString() + ')';
 
-console.log(translateG);
 var legendG = d3.select('#map-svg')
   .append('g')
     .classed('legend-g ', true)
