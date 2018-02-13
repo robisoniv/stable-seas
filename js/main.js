@@ -31,6 +31,7 @@ var rampColor = d3.scaleQuantize()
     .range(["#F06A26", "#F29928", "#F6C927", "#F2EA2A", "#D7E036", "#BAD538", "#9BCB3F",
       "#7BC144", "#6CBF56", "#6EC17A", "#6EC5A1", "#6FC9C3", "#6CC4D9", "#5BA5CE", "#4F8BC0", "#4471B3"]);
 
+
 // SSI values variable
 var ssiValues = {};
 
@@ -135,11 +136,11 @@ legendG.append('polygon')
 
 // Set up the tooltip:
 var tooltip = d3.select('body').append('div')
-  .attr('class', 'hidden tooltip col-sm-2');
+  .attr('class', 'hidden tooltip');
 
 tooltip.append('h1');
 var tooltipRow = tooltip.append('div')
-  .classed('row tooltip-body', true);
+  .classed('tooltip-body', true);
 
 // #### This needs to get excluded
 // tooltipRow.append('span')
@@ -233,7 +234,7 @@ $('#map-svg').on('mouseleave', '.stableseas', function() {
 // Window Resize:
 $(window).resize(function() {
   if ($(window).width() < 1200) {
-    console.log('what!?');
+//    console.log('what!?');
     $('#resizeModal').modal('show');
   }
 });
@@ -314,7 +315,7 @@ function loadValues() {
         ssiValues[d.iso3] = d;
         //console.log('ssi',d);
       })
-      console.log('ssi', ssiValues);
+    //  console.log('ssi', ssiValues);
     });
 
     resolve("SSI Values loaded");
@@ -487,10 +488,10 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
 // Load IA csv function:
 function loadIAcsv(csv, callback) {
-  console.log('csv!');
+//  console.log('csv!');
   var md = issueAreaData[issueArea].metadata;
   d3.csv(csv, function(vals) {
-    console.log('c',vals);
+//    console.log('c',vals);
     vals.forEach(function(d) {
       for (key in d) {
         if (isNaN(d[key]) != true) {
@@ -1073,21 +1074,21 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               var tooltip = d3.select('div.tooltip');
               var cardMap = issueAreaData[issueArea].cards[activeCard].map;
               var idx = issueAreaData[issueArea].metadata.countryData[iso3];
-              console.log('idx',idx);
+      //        console.log('idx',idx);
                 // idx is object with country, iso3, values for each card ...
                 // pulled from issue area's metadata.indexData
               //  console.log('xx', idx);
 
               tooltip.style('left', function() {
-                  var x = coords[0][0];
+                  var x = coords[0][0] - 50;
                   return x + 'px';
                 })
                 .style('top', function() {
-                  var y = coords[0][1] + 40;
+                  var y = coords[0][1] + 0;
                   return y + 'px';
                 })
                 .classed('hidden', function () {
-                  console.log(cardMap);
+            //      console.log(cardMap);
                   if (cardMap.tooltip) {
                     return false;
                   } else {
@@ -1186,24 +1187,25 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                 // pulled from issue area's metadata.indexData
               //  console.log('xx', idx);
 
-              tooltip.style('left', function() {
-                  var x = coords[0][0];
+              tooltip.classed('hidden', function () {
+          //      console.log(cardMap);
+                if (cardMap.tooltip) {
+                  return false;
+                } else {
+                  d3.selectAll('.label.' + iso3)
+                    .classed('invisible', false);
+                  return true;
+                }
+              })
+              .style('left', function() {
+                  var x = coords[0][0] - 50;
                   return x + 'px';
                 })
                 .style('top', function() {
-                  var y = coords[0][1] + 40;
+                  var y = coords[0][1] + 0;
                   return y + 'px';
                 })
-                .classed('hidden', function () {
-                  console.log(cardMap);
-                  if (cardMap.tooltip) {
-                    return false;
-                  } else {
-                    d3.selectAll('.label.' + iso3)
-                      .classed('invisible', false);
-                    return true;
-                  }
-                });
+                ;
 
 
 
@@ -1420,7 +1422,7 @@ function choropleth (cardIndex, order, key) {
 function updatePointer(tooltipVal) {
   d3.select('.legend-pointer')
     .classed('hidden', false)
-  .transition().delay(10)
+  .transition().delay(5)
     .attr('transform', 'translate(' + tooltipVal * 3 + ', -15)');
 
 }
