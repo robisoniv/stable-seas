@@ -381,146 +381,146 @@ var internationalCooperationData = {
         //###Insert image and Video for card
       ] // end of els array
     },
-    { // Card 3
-      title: 'International Fishing Agreements',
-      menu: 'International Fishing Agreements',
-      metadata: {
-        owner: 'Kelsey Soeth',
-        description: 'Map will talk about international cooperation around fishing.'
-      },
-      map: {
-        scale: [],
-        classes: 'card-eez-layer',
-        translate: [],
-        highlights: [],
-        tooltip: true,
-        tooltipHTML: function (iso) {
-          var output = "";
-          // ### come back to this!
-
-          var countryData = issueAreaData[issueArea].metadata.countryData[iso];
-
-          var portStateMeasuresRatified = countryData["port-state-measures-ratified"];
-          var fishStocksRatified = countryData["un-fish-stocks-ratified"];
-
-          if (portStateMeasuresRatified == 1 && fishStocksRatified == 1) {
-            output = "Port States: Ratified <br />" +
-              "Fish Stocks: Ratified";
-          } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 1) {
-            output = "Port States: Not Ratified <br />" +
-              "Fish Stocks: Ratified";
-          } else if (portStateMeasuresRatified == 1 && fishStocksRatified == 0) {
-            output = "Port States: Ratified <br />" +
-              "Fish Stocks: Not Ratified";
-          } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 0) {
-          output = "Port States: Not Ratified <br />" +
-            "Fish Stocks: Not Ratified";
-          }
-
-          return output;
-        },
-        load: function(index, csv) { // ### *** This only should be for the first card ...
-
-          var layer = 'card-' + index + '-layer';
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-
-        },
-        switch: function(index) {
-          var fishing = issueAreaData[issueArea].metadata.countryData;
-          var i = 0;
-          for (iso3 in fishing) {
-            var portStateMeasuresRatified = fishing[iso3]["port-state-measures-ratified"];
-            var fishStocksRatified = fishing[iso3]["un-fish-stocks-ratified"];
-            var strokeColor, fillColor;
-
-            if (portStateMeasuresRatified == 1 && fishStocksRatified == 1) {
-              strokeColor = colorBrew[4][1];
-              fillColor = colorBrew[4][0];
-            } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 1) {
-              strokeColor = colorBrew[0][1];
-              fillColor = colorBrew[0][0];
-            } else if (portStateMeasuresRatified == 1 && fishStocksRatified == 0) {
-              f = 'portStateMeasures';
-              strokeColor = colorBrew[2][1];
-              fillColor = colorBrew[2][0];
-            } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 0) {
-              f = 'neither';
-              strokeColor = null;
-              fillColor = null;
-            } else {
-              strokeColor = null;
-              fillColor = null;
-            }
-
-            d3.selectAll('.country.' + iso3)
-              .classed('active', true)
-              .transition()
-              .delay(i * 10)
-              .style('fill', fillColor) // ### what colors??
-              .style('stroke', strokeColor);
-
-            d3.selectAll('.eez.' + iso3)
-              .classed('active', true)
-              .transition()
-              .delay(i * 10)
-              .style('stroke', strokeColor); // ### what colors?? Also EEZ opacity is meh ...
-            i++;
-          }
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'International Fishing Agreements',
-        },
-        {
-          tag: 'caption',
-          text: 'Sustainable management through regional cooperation'
-        },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<div class="brew-00 legend-entries light">Ratified UN Fish Stocks Agreement</div><br /><div class="brew-20 legend-entries light">Ratified Port State Measures Agreement</div><br /><div class="brew-40 legend-entries light">Ratified both</div><br />'
-        // },
-        //###Kelsey would like a map of different RFMOs in SSA. She has sent a file with the corresponding data to John.
-        {
-          tag: 'p',
-          html: 'According to the UN Food and Agriculture Organization, the value of marine fisheries in Africa exceeds $15 billion.<sup>5</sup> The efficient management of these resources is imperative to the continued growth of sub-Saharan African economies as well as to long-term food security.'
-        },
-
-        {
-          tag: 'p',
-          html: 'However, fisheries management cannot be regulated by sovereign states alone. Many fish species are highly migratory, and marine fisheries on the high seas are subject to international, not sovereign, jurisdiction. International cooperation by coastal states and fishing nations is therefore necessary to conserve and promote the sustainable use of fish stocks and other marine resources. Since the late 1960s, this cooperation has often taken the form of regional fisheries management organizations (RFMOs) in sub-Saharan Africa.'
-        },
-        {
-          tag: 'bigtext',
-          html: 'RMFO: Regional Fisheries Management Organization'
-        },
-        {
-          tag: 'p',
-          html: 'RFMOs are international organizations dedicated to the sustainable management of fishery resources in a particular region of international waters, or of a highly migratory species. Most RFMOs with sub-Saharan African membership are focused on tuna, a particularly valuable fish with a vast global market. RFMOs split management of this species into geographic areas. Governing the Atlantic Ocean since 1969 is the International Commission for the Conservation of Atlantic Tunas (ICCAT). In 1993, the Indian Ocean Tuna Commission (IOTC) and the Commission for the Conservation of Southern Bluefin Tuna (CCSBT) were established. They are responsible for the management of tuna and tuna-like species in the Indian Ocean and for the southern bluefin tuna throughout its distribution, respectively. Membership in one RFMO does not preclude membership in another with a focus on a different species or geography. South Africa, for example, is an active member of all three tuna-related RFMOs.'
-        },
-
-        {
-          tag: 'p',
-          html: 'Some RFMOs have much broader mandates. The Commission for the Conservation of Antarctic Marine Living Resources (CCAMLR) was established in 1982. The South East Atlantic Fisheries Organization (SEAFO) is an intergovernmental fisheries science and management body with the primary purpose of ensuring the long-term conservation and sustainable use of all living marine resources in the southeast Atlantic Ocean as well as the environment and marine ecosystems in which the resources occur. The objectives of the South Indian Ocean Fisheries Agreement (SIOFA) are to ensure the long-term conservation and sustainable use of fishery resources including fish, mollusks, crustaceans, and other species and to promote the development of sustainable fisheries. This agreement, which entered into force in 2012, signals increasing understanding of the interconnectedness of marine resources and their importance to the sustainable development of coastal economies.'
-        },
-        {
-          tag: 'p',
-          html: 'Without decades of significant international cooperation, fish stocks and other marine resources off the African coast would be at far greater risk of decimation than they are today. Thanks to RFMOs and their member states, fishing on the high seas is not a free-for-all without any state accountability. Fishing, particularly of tuna, is a highly regulated commercial activity. RFMOs are a triumph of the international community, demonstrating how states from around the world can work together to build mutually beneficial regulatory systems.'
-        },
-        {
-          tag: 'links',
-          items: [{
-            org: '<sup>5</sup> Gertjan de Graaf and Luce Garibaldi, “The Value of African Fisheries,” FAO Fisheries and Aquaculture Circular No. 1093 (2014): 3.',
-            url: 'http://www.fao.org/3/a-i3917e.pdf'
-          }, ]
-        }
-      ] // end of els array
-    },
+    // { // Card 3
+    //   title: 'International Fishing Agreements',
+    //   menu: 'International Fishing Agreements',
+    //   metadata: {
+    //     owner: 'Kelsey Soeth',
+    //     description: 'Map will talk about international cooperation around fishing.'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: 'card-eez-layer',
+    //     translate: [],
+    //     highlights: [],
+    //     tooltip: true,
+    //     tooltipHTML: function (iso) {
+    //       var output = "";
+    //       // ### come back to this!
+    //
+    //       var countryData = issueAreaData[issueArea].metadata.countryData[iso];
+    //
+    //       var portStateMeasuresRatified = countryData["port-state-measures-ratified"];
+    //       var fishStocksRatified = countryData["un-fish-stocks-ratified"];
+    //
+    //       if (portStateMeasuresRatified == 1 && fishStocksRatified == 1) {
+    //         output = "Port States: Ratified <br />" +
+    //           "Fish Stocks: Ratified";
+    //       } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 1) {
+    //         output = "Port States: Not Ratified <br />" +
+    //           "Fish Stocks: Ratified";
+    //       } else if (portStateMeasuresRatified == 1 && fishStocksRatified == 0) {
+    //         output = "Port States: Ratified <br />" +
+    //           "Fish Stocks: Not Ratified";
+    //       } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 0) {
+    //       output = "Port States: Not Ratified <br />" +
+    //         "Fish Stocks: Not Ratified";
+    //       }
+    //
+    //       return output;
+    //     },
+    //     load: function(index, csv) { // ### *** This only should be for the first card ...
+    //
+    //       var layer = 'card-' + index + '-layer';
+    //       d3.select('.card-eez-layer')
+    //         .classed(layer, true);
+    //
+    //     },
+    //     switch: function(index) {
+    //       var fishing = issueAreaData[issueArea].metadata.countryData;
+    //       var i = 0;
+    //       for (iso3 in fishing) {
+    //         var portStateMeasuresRatified = fishing[iso3]["port-state-measures-ratified"];
+    //         var fishStocksRatified = fishing[iso3]["un-fish-stocks-ratified"];
+    //         var strokeColor, fillColor;
+    //
+    //         if (portStateMeasuresRatified == 1 && fishStocksRatified == 1) {
+    //           strokeColor = colorBrew[4][1];
+    //           fillColor = colorBrew[4][0];
+    //         } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 1) {
+    //           strokeColor = colorBrew[0][1];
+    //           fillColor = colorBrew[0][0];
+    //         } else if (portStateMeasuresRatified == 1 && fishStocksRatified == 0) {
+    //           f = 'portStateMeasures';
+    //           strokeColor = colorBrew[2][1];
+    //           fillColor = colorBrew[2][0];
+    //         } else if (portStateMeasuresRatified == 0 && fishStocksRatified == 0) {
+    //           f = 'neither';
+    //           strokeColor = null;
+    //           fillColor = null;
+    //         } else {
+    //           strokeColor = null;
+    //           fillColor = null;
+    //         }
+    //
+    //         d3.selectAll('.country.' + iso3)
+    //           .classed('active', true)
+    //           .transition()
+    //           .delay(i * 10)
+    //           .style('fill', fillColor) // ### what colors??
+    //           .style('stroke', strokeColor);
+    //
+    //         d3.selectAll('.eez.' + iso3)
+    //           .classed('active', true)
+    //           .transition()
+    //           .delay(i * 10)
+    //           .style('stroke', strokeColor); // ### what colors?? Also EEZ opacity is meh ...
+    //         i++;
+    //       }
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'International Fishing Agreements',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'Sustainable management through regional cooperation'
+    //     },
+    //     // {
+    //     //   tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<div class="brew-00 legend-entries light">Ratified UN Fish Stocks Agreement</div><br /><div class="brew-20 legend-entries light">Ratified Port State Measures Agreement</div><br /><div class="brew-40 legend-entries light">Ratified both</div><br />'
+    //     // },
+    //     //###Kelsey would like a map of different RFMOs in SSA. She has sent a file with the corresponding data to John.
+    //     {
+    //       tag: 'p',
+    //       html: 'According to the UN Food and Agriculture Organization, the value of marine fisheries in Africa exceeds $15 billion.<sup>5</sup> The efficient management of these resources is imperative to the continued growth of sub-Saharan African economies as well as to long-term food security.'
+    //     },
+    //
+    //     {
+    //       tag: 'p',
+    //       html: 'However, fisheries management cannot be regulated by sovereign states alone. Many fish species are highly migratory, and marine fisheries on the high seas are subject to international, not sovereign, jurisdiction. International cooperation by coastal states and fishing nations is therefore necessary to conserve and promote the sustainable use of fish stocks and other marine resources. Since the late 1960s, this cooperation has often taken the form of regional fisheries management organizations (RFMOs) in sub-Saharan Africa.'
+    //     },
+    //     {
+    //       tag: 'bigtext',
+    //       html: 'RMFO: Regional Fisheries Management Organization'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'RFMOs are international organizations dedicated to the sustainable management of fishery resources in a particular region of international waters, or of a highly migratory species. Most RFMOs with sub-Saharan African membership are focused on tuna, a particularly valuable fish with a vast global market. RFMOs split management of this species into geographic areas. Governing the Atlantic Ocean since 1969 is the International Commission for the Conservation of Atlantic Tunas (ICCAT). In 1993, the Indian Ocean Tuna Commission (IOTC) and the Commission for the Conservation of Southern Bluefin Tuna (CCSBT) were established. They are responsible for the management of tuna and tuna-like species in the Indian Ocean and for the southern bluefin tuna throughout its distribution, respectively. Membership in one RFMO does not preclude membership in another with a focus on a different species or geography. South Africa, for example, is an active member of all three tuna-related RFMOs.'
+    //     },
+    //
+    //     {
+    //       tag: 'p',
+    //       html: 'Some RFMOs have much broader mandates. The Commission for the Conservation of Antarctic Marine Living Resources (CCAMLR) was established in 1982. The South East Atlantic Fisheries Organization (SEAFO) is an intergovernmental fisheries science and management body with the primary purpose of ensuring the long-term conservation and sustainable use of all living marine resources in the southeast Atlantic Ocean as well as the environment and marine ecosystems in which the resources occur. The objectives of the South Indian Ocean Fisheries Agreement (SIOFA) are to ensure the long-term conservation and sustainable use of fishery resources including fish, mollusks, crustaceans, and other species and to promote the development of sustainable fisheries. This agreement, which entered into force in 2012, signals increasing understanding of the interconnectedness of marine resources and their importance to the sustainable development of coastal economies.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Without decades of significant international cooperation, fish stocks and other marine resources off the African coast would be at far greater risk of decimation than they are today. Thanks to RFMOs and their member states, fishing on the high seas is not a free-for-all without any state accountability. Fishing, particularly of tuna, is a highly regulated commercial activity. RFMOs are a triumph of the international community, demonstrating how states from around the world can work together to build mutually beneficial regulatory systems.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //         org: '<sup>5</sup> Gertjan de Graaf and Luce Garibaldi, “The Value of African Fisheries,” FAO Fisheries and Aquaculture Circular No. 1093 (2014): 3.',
+    //         url: 'http://www.fao.org/3/a-i3917e.pdf'
+    //       }, ]
+    //     }
+    //   ] // end of els array
+    // },
     { // Card 4
-      title: 'Yaoundé Process',
-      menu: 'Yaoundé Process',
+      title: 'Yaoundé Process and the Djibouti Code',
+      menu: 'Yaoundé & Djibouti',
       metadata: {
         owner: 'Jay Benson',
         description: 'How the zones and regional centers are set up, describe patrols and success.'
@@ -589,12 +589,35 @@ var internationalCooperationData = {
               i++;
 
             }
+
+              // Set up dcoc highlights too ...
+              // if (dcoc[iso].djibouti == 1) {
+              //   d3.selectAll('.country.' + iso)
+              //     .classed('active', true)
+              //     .transition().delay(i * 10)
+              //     .style('fill', function() {
+              //       return themeColor(0.5);
+              //     })
+              //     .style('stroke', function() {
+              //       return themeColor(1);
+              //     });
+              //
+              //   d3.selectAll('.eez.' + iso)
+              //     .classed('active', true)
+              //     .transition().delay(i * 10)
+              //     //  .style('fill', function () {return rampColor(0.1);})
+              //     .style('stroke', function() {
+              //       return themeColor(1);
+              //     })
+              //     .style('stroke-width', '2px');
+              //     i++;
+              // }
           }
         }
       },
       els: [{
           tag: 'h1',
-          text: 'Yaoundé Process',
+          text: 'Yaoundé Process and Djibouti Code',
         },
         {
           tag: 'caption',
@@ -645,129 +668,129 @@ var internationalCooperationData = {
         //###Insert video, quote, and image
       ] // end of els array
     },
-    { // Card 5
-      title: 'East Africa',
-      menu: 'East Africa',
-      metadata: {
-        owner: 'Jay Benson',
-        description: 'Multilateralism off the horn of Africa.'
-      },
-      map: {
-        scale: [],
-        classes: '',
-        //path: '../../data/international-cooperation/irtc.json',
-        //    extent: [[38,2],[71,21]], // ### is this the right zoom level?
-        translate: [],
-        highlights: [],
-        tooltip: true,
-        tooltipHTML: function (iso) {
-
-          var dcoc = issueAreaData[issueArea].metadata.countryData[iso].djibouti;
-          if (dcoc == 1) {
-            return "Member of the Djibouti Code of Conduct";
-
-          } else {
-            return "Not a member of the Djibouti Code of Conduct";
-          }
-        },
-        load: function(index, file) { // ### *** This only should be for the first card ...
-
-          var layer = 'card-' + index + '-layer';
-
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-
-        },
-        switch: function(index) {
-
-          var dcoc = issueAreaData[issueArea].metadata.countryData;
-          var i = 1;
-          var card = 'djibouti';
-          //      console.log ('card', card);
-          for (iso in dcoc) {
-
-            if (dcoc[iso][card] == 1) {
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('fill', function() {
-                  return themeColor(0.5);
-                })
-                .style('stroke', function() {
-                  return themeColor(1);
-                });
-
-              d3.selectAll('.eez.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                //  .style('fill', function () {return rampColor(0.1);})
-                .style('stroke', function() {
-                  return themeColor(1);
-                })
-                .style('stroke-width', '2px');
-                i++;
-            }
-          }
-
-          d3.selectAll('.card-' + index + '-layer')
-            .classed('invisible', false);
-
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'East Africa',
-        },
-        {
-          tag: 'caption',
-          text: 'An emerging cross-continental consensus'
-        },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>Highlighted countries are sub-Saharan members of the Djibouti Code of Conduct</em>.'
-        // },
-        //##Insert Map: Similar to above it would be great to use the East African Info sharing image below. If not, it would be great to have all of the DCoC countries highlighted as well as the location of the information exchange centers. The excel file will have all the countries, labels for information sharing centers and corresponding coordinates.
-        {
-          tag: 'p',
-          html: 'In the mid- to late 2000s, the Western Indian Ocean was the setting for the world’s most high-profile maritime security crisis. In a matter of a few years, piracy grew from a nascent criminal enterprise to a mature industry which was seizing cargo ships and tankers far out into the ocean. In response, states agreed to the Djibouti Code of Conduct (DCoC) in an effort to enhance cooperative regional maritime security.'
-        },
-        {
-          tag: 'p',
-          html: 'Twenty countries signed the DCoC in 2009, including all the 10 countries bordering the Indian Ocean studied in this report. The agreement was further strengthened in 2010 with the establishment of an international trust fund financed by donor states in order to build regional capacity and implementation of the agreement.<sup>6</sup> In January 2017, signatory states agreed to the Jeddah Amendment to the DCoC which expanded the scope of maritime crimes to be addressed and incorporated efforts to build the Blue Economy.<sup>7</sup>'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/international-cooperation/EastAfricaInfoSharingMap-01.png', // This should be on the Stable Seas Deck - comments
-        },
-
-        {
-          tag: 'p',
-          html: 'The DCoC’s primary tools for addressing these threats thus far have been regional capacity building and information sharing. Toward these ends, the agreement lays out plans for signatories to exchange ship riders and other maritime law enforcement officials and establishes National Focal Points for each signatory as well as three multinational information exchange centers. These information exchange centers are based in Sana’a, Mombasa, and Dar es Salaam, and lead coordination efforts among northern, central, and southern groupings of signatory states respectively. In addition, the DCoC places a premium on <a class="maritime-enforcement inline" href="../../maritime-enforcement#1">maritime domain awareness</a>, and efforts are being made in conjunction with a variety of international partners across the Western Indian Ocean to put in place additional automatic identification and radar systems in order to provide regional maritime security forces with a clearer picture of their operating environment.'
-        },
-        {
-          tag: 'p',
-          html: 'The DCoC has had some success in countering piracy and armed robbery in the Western Indian Ocean. However, the Jeddah Amendment changes the scope of the agreement to include cooperation on a wider range of maritime crimes and governance. It is yet to be seen if the DCoC can be effective in addressing this larger issue area. If it is to meet this new challenge, it will have to overcome several other challenges first.'
-        },
-        {
-          tag: 'p',
-          html: 'Most of the challenges presented by this change of scope are due to the DCoC’s origin as a response to the dramatic increase in piracy. The urgency of the situation meant that signatory states were eager to cooperate to address the pressing security threat, but it is yet to be seen if there is sufficient political will to pivot toward a broader framework for cooperative maritime governance. The urgent nature of its formation also means that the DCoC is not rooted in existing regional organizations such as the Intergovernmental Authority on Development. This means DCoC efforts cannot utilize the broader resources and political leverage of such organizations. Finally, if the DCoC is to realize the expanded objectives of the Jeddah Amendment, it will need to establish a sustainable source of funding. As the threat of piracy in the Western Indian Ocean becomes an increasingly distant memory, fewer and fewer donors are likely to prioritize giving to the DCoC’s trust fund. Without a sustainable source of funding, implementing  the expanded agenda will be extremely difficult.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>6</sup> “Project Implementation Unit,” International Maritime Organization, accessed 25 August 2017,',
-              url: 'http://www.imo.org/en/OurWork/Security/PIU/Pages/Project-Implementation-Unit.aspx'
-            },
-            {
-              org: '<sup>7</sup> “Regional Maritime Piracy Agreement Broadened to Cover Other Illicit Maritime Activity,” International Maritime Organization, 13 January 2017,',
-              url: 'http://www.imo.org/en/mediacentre/pressbriefings/pages/4-dcoc-widened.aspx'
-            },
-          ]
-        },
-        //###Insert graphics
-      ] // end of els array
-    },
+    // { // Card 5
+    //   title: 'East Africa',
+    //   menu: 'East Africa',
+    //   metadata: {
+    //     owner: 'Jay Benson',
+    //     description: 'Multilateralism off the horn of Africa.'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: '',
+    //     //path: '../../data/international-cooperation/irtc.json',
+    //     //    extent: [[38,2],[71,21]], // ### is this the right zoom level?
+    //     translate: [],
+    //     highlights: [],
+    //     tooltip: true,
+    //     tooltipHTML: function (iso) {
+    //
+    //       var dcoc = issueAreaData[issueArea].metadata.countryData[iso].djibouti;
+    //       if (dcoc == 1) {
+    //         return "Member of the Djibouti Code of Conduct";
+    //
+    //       } else {
+    //         return "Not a member of the Djibouti Code of Conduct";
+    //       }
+    //     },
+    //     load: function(index, file) { // ### *** This only should be for the first card ...
+    //
+    //       var layer = 'card-' + index + '-layer';
+    //
+    //       d3.select('.card-eez-layer')
+    //         .classed(layer, true);
+    //
+    //     },
+    //     switch: function(index) {
+    //
+    //       var dcoc = issueAreaData[issueArea].metadata.countryData;
+    //       var i = 1;
+    //       var card = 'djibouti';
+    //       //      console.log ('card', card);
+    //       for (iso in dcoc) {
+    //
+    //         if (dcoc[iso][card] == 1) {
+    //           d3.selectAll('.country.' + iso)
+    //             .classed('active', true)
+    //             .transition().delay(i * 10)
+    //             .style('fill', function() {
+    //               return themeColor(0.5);
+    //             })
+    //             .style('stroke', function() {
+    //               return themeColor(1);
+    //             });
+    //
+    //           d3.selectAll('.eez.' + iso)
+    //             .classed('active', true)
+    //             .transition().delay(i * 10)
+    //             //  .style('fill', function () {return rampColor(0.1);})
+    //             .style('stroke', function() {
+    //               return themeColor(1);
+    //             })
+    //             .style('stroke-width', '2px');
+    //             i++;
+    //         }
+    //       }
+    //
+    //       d3.selectAll('.card-' + index + '-layer')
+    //         .classed('invisible', false);
+    //
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'East Africa',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'An emerging cross-continental consensus'
+    //     },
+    //     // {
+    //     //   tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<em>Highlighted countries are sub-Saharan members of the Djibouti Code of Conduct</em>.'
+    //     // },
+    //     //##Insert Map: Similar to above it would be great to use the East African Info sharing image below. If not, it would be great to have all of the DCoC countries highlighted as well as the location of the information exchange centers. The excel file will have all the countries, labels for information sharing centers and corresponding coordinates.
+    //     {
+    //       tag: 'p',
+    //       html: 'In the mid- to late 2000s, the Western Indian Ocean was the setting for the world’s most high-profile maritime security crisis. In a matter of a few years, piracy grew from a nascent criminal enterprise to a mature industry which was seizing cargo ships and tankers far out into the ocean. In response, states agreed to the Djibouti Code of Conduct (DCoC) in an effort to enhance cooperative regional maritime security.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Twenty countries signed the DCoC in 2009, including all the 10 countries bordering the Indian Ocean studied in this report. The agreement was further strengthened in 2010 with the establishment of an international trust fund financed by donor states in order to build regional capacity and implementation of the agreement.<sup>6</sup> In January 2017, signatory states agreed to the Jeddah Amendment to the DCoC which expanded the scope of maritime crimes to be addressed and incorporated efforts to build the Blue Economy.<sup>7</sup>'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/international-cooperation/EastAfricaInfoSharingMap-01.png', // This should be on the Stable Seas Deck - comments
+    //     },
+    //
+    //     {
+    //       tag: 'p',
+    //       html: 'The DCoC’s primary tools for addressing these threats thus far have been regional capacity building and information sharing. Toward these ends, the agreement lays out plans for signatories to exchange ship riders and other maritime law enforcement officials and establishes National Focal Points for each signatory as well as three multinational information exchange centers. These information exchange centers are based in Sana’a, Mombasa, and Dar es Salaam, and lead coordination efforts among northern, central, and southern groupings of signatory states respectively. In addition, the DCoC places a premium on <a class="maritime-enforcement inline" href="../../maritime-enforcement#1">maritime domain awareness</a>, and efforts are being made in conjunction with a variety of international partners across the Western Indian Ocean to put in place additional automatic identification and radar systems in order to provide regional maritime security forces with a clearer picture of their operating environment.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'The DCoC has had some success in countering piracy and armed robbery in the Western Indian Ocean. However, the Jeddah Amendment changes the scope of the agreement to include cooperation on a wider range of maritime crimes and governance. It is yet to be seen if the DCoC can be effective in addressing this larger issue area. If it is to meet this new challenge, it will have to overcome several other challenges first.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Most of the challenges presented by this change of scope are due to the DCoC’s origin as a response to the dramatic increase in piracy. The urgency of the situation meant that signatory states were eager to cooperate to address the pressing security threat, but it is yet to be seen if there is sufficient political will to pivot toward a broader framework for cooperative maritime governance. The urgent nature of its formation also means that the DCoC is not rooted in existing regional organizations such as the Intergovernmental Authority on Development. This means DCoC efforts cannot utilize the broader resources and political leverage of such organizations. Finally, if the DCoC is to realize the expanded objectives of the Jeddah Amendment, it will need to establish a sustainable source of funding. As the threat of piracy in the Western Indian Ocean becomes an increasingly distant memory, fewer and fewer donors are likely to prioritize giving to the DCoC’s trust fund. Without a sustainable source of funding, implementing  the expanded agenda will be extremely difficult.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>6</sup> “Project Implementation Unit,” International Maritime Organization, accessed 25 August 2017,',
+    //           url: 'http://www.imo.org/en/OurWork/Security/PIU/Pages/Project-Implementation-Unit.aspx'
+    //         },
+    //         {
+    //           org: '<sup>7</sup> “Regional Maritime Piracy Agreement Broadened to Cover Other Illicit Maritime Activity,” International Maritime Organization, 13 January 2017,',
+    //           url: 'http://www.imo.org/en/mediacentre/pressbriefings/pages/4-dcoc-widened.aspx'
+    //         },
+    //       ]
+    //     },
+    //     //###Insert graphics
+    //   ] // end of els array
+    // },
     // { // Card 6
       //   title: 'Operation Copper',
       //   menu: 'Operation Copper',
@@ -1016,79 +1039,112 @@ var internationalCooperationData = {
         //###Insert image, video, and quote
       ] // end of els array
     },
-    { // Card 8
-      title: 'A Global Effort',
-      menu: 'A Global Effort',
+    { // Card 7
+      title: 'Methodology',
+      menu: 'Methodology',
       metadata: {
         owner: 'Curtis Bell',
-        description: 'A Global Effort'
+        description: 'Card will provide basic methodology info.'
       },
       map: {
         scale: [],
-        classes: 'card-8-layer',
+        classes: '',
         translate: [],
-        highlights: null,
-        load: function(index, file) { // ### *** This only should be for the first card ...
-          // Color EEZ according to master Stable Seas index
-          var layer = 'card-' + index + '-layer';
-
+        highlights: [],
+        load: function (index, csv) {  // ### *** This only should be for the first card ...
+          // Load flow map layer
+          var layer = 'card-'+index+'-layer';
+          // Load topoJSON of flow map
           d3.select('.card-eez-layer')
             .classed(layer, true);
+          // Class with layer
         },
-        switch: function(index) {
-
+        switch: function (index) {
+          // Simply show target layer
           choropleth(index, 1, 'index');
-
 
         }
       },
-      els: [{
-          tag: 'h1',
-          text: 'A Global Effort'
-        },
-        {
-          tag: 'caption',
-          text: 'How global partners complement Africa\'s maritime security strategies'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Highlighted countries are party to the Convention for the Suppression of Unlawful Acts against the Safety of Maritime Navigation.</em>'
-        },
-        {
-          tag: 'p',
-          html: 'African maritime governance is of material interest to stakeholders well beyond the African continent. International institutions, non-African states, and private stakeholders are important participants in the global effort to improve sub-Saharan maritime security.'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/international-cooperation/EUCAP-NESTOR-Djibouti-joint-training.jpg', // This should be on the Stable Seas Deck - comments
-          alt: 'Command exercise, Crew of EU Naval Force frigate FGS Augsburg, police officers with EUCAP NESTOR and Djibouti Navy. Photo credit: European Union Naval Force',
-          caption: 'Command exercise, Crew of EU Naval Force frigate FGS Augsburg, police officers with EUCAP NESTOR and Djibouti Navy. Photo credit: European Union Naval Force'
-        },
+      els: [
+        { tag: 'h1',
+          text: 'Methodology',
+        }
 
-        {
-          tag: 'p',
-          html: 'UN organizations play a very valuable role, primarily through the <a href="https://www.unodc.org/unodc/en/piracy/index_new.html" target="_blank">UN Office on Drugs and Crime (UNODC)</a> and the <a href="http://www.imo.org/en/Pages/Default.aspx" target="_blank">International Maritime Organization (IMO)</a>. The UNODC seeks to build national capacities for maritime law enforcement through the Global Maritime Crime Program, which, for example, is working with the Federal Government of Somalia to build the nascent state justice system. IMO does a variety of work, much of it focused on maritime law and the building of regional maritime institutions.'
-        },
-        {
-          tag: 'p',
-          html: 'Regional bodies also play an important role. The EU, for example, has three different programs in the realm of African maritime governance and security. The Program to Promote Maritime Security is EU-funded but implemented by regional institutions. It seeks to counteract piracy and crime in the Western Indian Ocean by building local maritime security capacity and undermining the root causes of these activities. Similarly, EUCAP Somalia builds capacity through providing training in relevant skillsets. Additionally, EU NAVFOR has deployed European naval vessels to protect vital shipping routes threatened by the rise of piracy off the Somali coast.'
-        },
-        {
-          tag: 'p',
-          html: 'More purpose-specific coalitions also contribute. Maritime Domain Awareness for Trade—Gulf of Guinea, an initiative of the French and British navies, serves as a maritime information-sharing center in the Gulf of Guinea, helping to mitigate the general lack of maritime domain awareness in African waters. The Combined Maritime Forces is another multilateral initiative comprised of 31 states which patrols the Western Indian Ocean on counter-piracy and counter-terrorism missions.'
-        },
-        {
-          tag: 'p',
-          html: 'Finally, individual states can also partner with local actors to improve maritime security. U.S. Naval Forces Africa provides training to African maritime security forces and puts on <a class="maritime-enforcement inline" href="../../maritime-enforcement#4">annual naval exercises</a> aimed at improving regional interoperability. Similarly, the French ASECMAR project supports reform of maritime security institutions in the Gulf of Guinea.'
-        },
-        {
-          tag: 'p',
-          html: 'This is by no means an exhaustive list. Across the globe, individual states, civil society workers, multilateral institutions, business associations, academics, security professionals, and a host of others are collaborating to help address the complex security and governance challenges faced in African waters.'
-        },
-        //###Insert images, videos, and quotes
-      ]
-    },
+      ] // end of els array
+    }
+    // { // Card 8
+    //   title: 'A Global Effort',
+    //   menu: 'A Global Effort',
+    //   metadata: {
+    //     owner: 'Curtis Bell',
+    //     description: 'A Global Effort'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: 'card-8-layer',
+    //     translate: [],
+    //     highlights: null,
+    //     load: function(index, file) { // ### *** This only should be for the first card ...
+    //       // Color EEZ according to master Stable Seas index
+    //       var layer = 'card-' + index + '-layer';
+    //
+    //       d3.select('.card-eez-layer')
+    //         .classed(layer, true);
+    //     },
+    //     switch: function(index) {
+    //
+    //       choropleth(index, 1, 'index');
+    //
+    //
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'A Global Effort'
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'How global partners complement Africa\'s maritime security strategies'
+    //     },
+    //     {
+    //       tag: 'legend',
+    //       text: 'Map Legend',
+    //       legendContent: '<em>Highlighted countries are party to the Convention for the Suppression of Unlawful Acts against the Safety of Maritime Navigation.</em>'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'African maritime governance is of material interest to stakeholders well beyond the African continent. International institutions, non-African states, and private stakeholders are important participants in the global effort to improve sub-Saharan maritime security.'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/international-cooperation/EUCAP-NESTOR-Djibouti-joint-training.jpg', // This should be on the Stable Seas Deck - comments
+    //       alt: 'Command exercise, Crew of EU Naval Force frigate FGS Augsburg, police officers with EUCAP NESTOR and Djibouti Navy. Photo credit: European Union Naval Force',
+    //       caption: 'Command exercise, Crew of EU Naval Force frigate FGS Augsburg, police officers with EUCAP NESTOR and Djibouti Navy. Photo credit: European Union Naval Force'
+    //     },
+    //
+    //     {
+    //       tag: 'p',
+    //       html: 'UN organizations play a very valuable role, primarily through the <a href="https://www.unodc.org/unodc/en/piracy/index_new.html" target="_blank">UN Office on Drugs and Crime (UNODC)</a> and the <a href="http://www.imo.org/en/Pages/Default.aspx" target="_blank">International Maritime Organization (IMO)</a>. The UNODC seeks to build national capacities for maritime law enforcement through the Global Maritime Crime Program, which, for example, is working with the Federal Government of Somalia to build the nascent state justice system. IMO does a variety of work, much of it focused on maritime law and the building of regional maritime institutions.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Regional bodies also play an important role. The EU, for example, has three different programs in the realm of African maritime governance and security. The Program to Promote Maritime Security is EU-funded but implemented by regional institutions. It seeks to counteract piracy and crime in the Western Indian Ocean by building local maritime security capacity and undermining the root causes of these activities. Similarly, EUCAP Somalia builds capacity through providing training in relevant skillsets. Additionally, EU NAVFOR has deployed European naval vessels to protect vital shipping routes threatened by the rise of piracy off the Somali coast.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'More purpose-specific coalitions also contribute. Maritime Domain Awareness for Trade—Gulf of Guinea, an initiative of the French and British navies, serves as a maritime information-sharing center in the Gulf of Guinea, helping to mitigate the general lack of maritime domain awareness in African waters. The Combined Maritime Forces is another multilateral initiative comprised of 31 states which patrols the Western Indian Ocean on counter-piracy and counter-terrorism missions.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Finally, individual states can also partner with local actors to improve maritime security. U.S. Naval Forces Africa provides training to African maritime security forces and puts on <a class="maritime-enforcement inline" href="../../maritime-enforcement#4">annual naval exercises</a> aimed at improving regional interoperability. Similarly, the French ASECMAR project supports reform of maritime security institutions in the Gulf of Guinea.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'This is by no means an exhaustive list. Across the globe, individual states, civil society workers, multilateral institutions, business associations, academics, security professionals, and a host of others are collaborating to help address the complex security and governance challenges faced in African waters.'
+    //     },
+    //     //###Insert images, videos, and quotes
+    //   ]
+    // },
 
     //   ]
     // }
