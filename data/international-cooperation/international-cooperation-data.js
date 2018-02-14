@@ -14,8 +14,7 @@ var internationalCooperationData = {
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
   },
-  cards: [
-    { // Card 0
+  cards: [{ // Card 0
       title: 'International Cooperation',
       menu: 'International Cooperation',
       metadata: {
@@ -28,10 +27,11 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        tooltipHTML: function (iso) {
+        tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
-          tooltipVal = (tooltipVal * 100).toFixed(2);
+          tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
           return "International Cooperation:<br />" + tooltipVal + " / 100";
 
         },
@@ -134,11 +134,11 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        tooltipHTML: function (iso) {
+        tooltipHTML: function(iso) {
           var output = "";
 
           var vals = issueAreaData[issueArea].metadata.countryData;
-        //  console.log(iso,vals[iso]);
+          //  console.log(iso,vals[iso]);
 
           if (vals[iso].unclos == 1) {
             output += "UNCLOS: Signed<br>";
@@ -157,19 +157,19 @@ var internationalCooperationData = {
           } else {
             output += "Fish Stocks: Not signed";
           }
-      //    console.log(output);
+          //    console.log(output);
           return output;
 
         },
-        load: function (index, csv) {  // ### *** This only should be for the first card ...
+        load: function(index, csv) { // ### *** This only should be for the first card ...
           // Class EEZ with card-0-layer to enable switch() method
-          var layer = 'card-'+index+'-layer';
+          var layer = 'card-' + index + '-layer';
           d3.select('.card-eez-layer')
             .classed(layer, true);
         },
-        switch: function (index) {
+        switch: function(index) {
           var vals = issueAreaData[issueArea].metadata.countryData;
-          var cat;
+          //    var cat;
           var i = 0;
           for (iso in vals) {
             var unclos = vals[iso].unclos == 1 ? true : false,
@@ -190,52 +190,143 @@ var internationalCooperationData = {
 
             d3.selectAll('.country.' + iso)
               .classed('active', true)
-              .transition().delay(10 * i)
-              .style('fill', function () {
+              .attr('data-category', cat)
+              .attr('data-iso', iso)
+              .on('mouseover', function() {
+
+                if (activeCard == 1) {
+
+                  var catTmp = d3.select(this).attr('data-category');
+                  var isoTmp = d3.select(this).attr('data-iso');
+                  d3.select(this)
+                    .style('fill', function() {
+                      return colorBrew[catTmp][1];
+                    })
+                    .style('stroke', 'black');
+
+                  d3.selectAll('.eez.' + isoTmp)
+                    .style('fill', function() {
+                      return colorBrew[catTmp][0];
+                    });
+                }
+              })
+              .on('mouseleave', function() {
+                if (activeCard == 1) {
+                  var catTmp = d3.select(this).attr('data-category');
+                  var isoTmp = d3.select(this).attr('data-iso');
+                  d3.select(this)
+                    .style('fill', function() {
+                      return colorBrew[catTmp][0];
+                    })
+                    .style('stroke', function() {
+                      return colorBrew[catTmp][1];
+                    });
+
+                  d3.selectAll('.eez.' + isoTmp)
+                    .style('fill', null);
+                }
+
+              })
+              //.transition().delay(10 * i)
+              .style('fill', function() {
+                return colorBrew[cat][0];
+              })
+              .style('stroke', function () {
                 return colorBrew[cat][1];
+
               });
+
+
 
             d3.selectAll('.eez.' + iso)
               .classed('active', true)
-              .transition().delay(10 * i)
-              .style('fill', function () {
-                return colorBrew[cat][0];
+              //  .transition().delay(10 * i)
+              .style('stroke', function() {
+                return colorBrew[cat][1];
+              })
+              .style('stroke-width', '4px')
+              .attr('data-category', cat)
+              .attr('data-iso', iso)
+              .on('mouseover', function() {
+                if (activeCard == 1) {
+                  var catTmp = d3.select(this).attr('data-category');
+                  var isoTmp = d3.select(this).attr('data-iso');
+
+                  d3.select(this)
+                    .style('fill', function() {
+                      return colorBrew[catTmp][0];
+                    });
+
+                  d3.select('.country.' + isoTmp)
+                    .style('fill', function() {
+                      return colorBrew[catTmp][1];
+                    })
+                    .style('stroke', 'black');
+                }
+
+              })
+              .on('mouseleave', function() {
+                if (activeCard == 1) {
+                  var catTmp = d3.select(this).attr('data-category');
+                  var isoTmp = d3.select(this).attr('data-iso');
+                  d3.select(this)
+                    .style('fill', null)
+                    .style('stroke-width', '4px');
+
+                  d3.select('.country.' + isoTmp)
+                    .style('fill', function() {
+                      return colorBrew[catTmp][0];
+                    })
+                    .style('stroke', colorBrew[catTmp][0]);
+                }
               });
             i++;
           }
 
         }
       },
-      els: [
-        { tag: 'h1',
+      els: [{
+          tag: 'h1',
           text: 'UNCLOS in Sub-Saharan Africa',
         },
-        { tag: 'caption',
+        {
+          tag: 'caption',
           text: 'The Law of the Sea in African waters'
         },
         // { tag: 'legend',
         //   text: 'Map Legend',
         //   legendContent: '<em></em>.'
         // },
-        { tag: 'p',
+        {
+          tag: 'p',
           html: 'Prior to the adoption of the United Nations Convention on the Law of the Sea (UNCLOS) in 1982, the maritime space beyond a narrow strip of coastal waters was governed not by law, but by those who had the most maritime technology and power. UNCLOS codified the growing preference among countries to have increased legal rights to govern larger maritime spaces, reducing conflict over competing claims to offshore resources.'
         },
-        { tag: 'p',
-           html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
+        {
+          tag: 'p',
+          html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
         },
-        { tag: 'p',
-           html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
+        {
+          tag: 'p',
+          html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
         },
-        { tag: 'p',
-           html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
+        {
+          tag: 'p',
+          html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
         },
-        { tag: 'p',
-           html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
+        {
+          tag: 'p',
+          html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
         },
-        { tag: 'links',
-          items: [
-          {org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,', url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'},
-          {org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,', url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'},
+        {
+          tag: 'links',
+          items: [{
+              org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
+              url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
+            },
+            {
+              org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
+              url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
+            },
           ]
         },
         //###Insert graphics, video, and blockquote
@@ -254,7 +345,7 @@ var internationalCooperationData = {
         path: '../../data/international-cooperation/maritime-border-disputes.csv',
         translate: [],
         tooltip: true,
-        tooltipHTML: function (iso) {
+        tooltipHTML: function(iso) {
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -283,33 +374,33 @@ var internationalCooperationData = {
               })
               .attr('width', '30px')
               .attr('height', '30px')
-              .style('fill', function (d, i) {
-                return d3.interpolateLab('white', rampColor(i / (rows.length)))(0.5);
-              } )
+              .style('fill', function(d, i) {
+                return d3.interpolateLab('white', rampColor(i / (rows.length)))(0.8);
+              })
               .classed('maritime-dispute', true);
 
 
-              disputes.selectAll('text')
-                .data(rows).enter()
-                .append('text')
-                .attr('x', function (d, i) {
+            disputes.selectAll('text')
+              .data(rows).enter()
+              .append('text')
+              .attr('x', function(d, i) {
                 //  console.log('lat', d.lat, 'lon', d.lon);
 
-                  if (i < 9) {
-                    return projection([d.lon, d.lat])[0] - 7;
-                  } else {
-                    return projection([d.lon, d.lat])[0] - 12;
-                  }
-                })
-                .attr('y', function (d) {
-                  return projection([d.lon, d.lat])[1] + 7;
-                })
-                .attr('font-size', '20px')
-                .classed('maritime-disputes-label', true)
-                .style('fill', function (d, i) {
-                  return d3.interpolateLab('white', rampColor(i / (rows.length)))(1);
-                } )
-                .text(function (d, i) {return i + 1;});
+                if (i < 9) {
+                  return projection([d.lon, d.lat])[0] - 7;
+                } else {
+                  return projection([d.lon, d.lat])[0] - 12;
+                }
+              })
+              .attr('y', function(d) {
+                return projection([d.lon, d.lat])[1] + 7;
+              })
+              .attr('font-size', '20px')
+              .classed('maritime-disputes-label', true)
+              .style('fill', 'grey')
+              .text(function(d, i) {
+                return i + 1;
+              });
 
           });
 
@@ -318,15 +409,27 @@ var internationalCooperationData = {
 
         },
         switch: function(index) {
-          var countries = ['SOM', 'GHA', 'CIV', 'AGO', 'KEN', 'GAB', 'GNQ', 'COD', 'COG', 'YEM', 'DJI', 'MUS', 'GBR', 'FRA', 'MDG', 'ATF', 'COM', 'MYT'];
+          // var countries = ['SOM', 'GHA', 'CIV', 'AGO', 'KEN', 'GAB', 'GNQ', 'COD', 'COG', 'YEM', 'DJI', 'MUS', 'GBR', 'FRA', 'MDG', 'ATF', 'COM', 'MYT'];
+          //
+          // countries.forEach(function(country, i) {
 
-          countries.forEach(function(country, i) {
-            d3.selectAll('.country.' + country)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', themeColor(0.5))
-              .style('stroke', 'grey');
-          })
+          // })
+
+          var disputes = issueAreaData[issueArea].metadata.countryData;
+
+          for (iso in disputes) {
+            console.log(disputes[iso]);
+            if (disputes[iso].disputes != 0) {
+          //    console.log('i', iso);
+
+              d3.selectAll('.country.' + iso)
+                .classed('active', true)
+            //    .transition().delay(i * 10)
+                .style('fill', themeColor(0.5))
+                .style('stroke', themeColor(1));
+            }
+          }
+      ///    console.log(disputes);
 
         }
       },
@@ -531,10 +634,10 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        tooltipHTML: function (iso) {
-          var zone = issueAreaData[issueArea].metadata.countryData[iso].yaounde;
+        tooltipHTML: function(iso) {
+          var zone = issueAreaData[issueArea].metadata.countryData[iso];
 
-          switch (zone) {
+          switch (zone.yaounde) {
             case 1:
               return "Zone A";
               break;
@@ -550,8 +653,12 @@ var internationalCooperationData = {
             case 5:
               return "Zone G";
               break;
+            case 0:
+              if (zone.djibouti == 1) {
+                return "Party to Djibouti Code of Conduct"
+              }
             default:
-              return "Not a member of the Lome Charter";
+              return "Neither a member of the Lome Charter nor the Djibouti Code of Conduct";
           }
 
 
@@ -564,55 +671,82 @@ var internationalCooperationData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          var yaounde = issueAreaData[issueArea].metadata.countryData;
-          var card = 'yaounde';
-          var i = 0;
-          for (iso in yaounde) {
-            var cat = yaounde[iso][card] - 1;
 
-            if (cat >= 0) {
+          // First highlight yaounde members .country.in
+          var vals = issueAreaData[issueArea].metadata.countryData;
+          var i = 0;
+          for (iso in vals) {
+            var yaounde = vals[iso]['yaounde'] - 1;
+
+            if (yaounde >= 0) {
               //  console.log(country.ia2c3);
               d3.selectAll('.country.' + iso)
                 .classed('active', true)
-                .transition()
-                .delay(i * 10)
-                .style('fill', colorBrew[cat][0])
-                .style('stroke', colorBrew[cat][1]); // ### what colors??
+              //  .transition().delay(i * 10)
+                .style('fill', colorBrew[yaounde][0])
+                .style('stroke', colorBrew[yaounde][1]); // ### what colors??
               //  .style('stroke', 'white');
 
               d3.selectAll('.eez.' + iso)
                 .classed('active', true)
-                .transition()
-                .delay(i * 10)
-                .style('stroke', colorBrew[cat][0]); // ### what colors?? Also EEZ opacity is meh ...
+              //  .transition().delay(i * 10)
+                .style('stroke', colorBrew[yaounde][0]); // ### what colors?? Also EEZ opacity is meh ...
 
               i++;
 
             }
 
-              // Set up dcoc highlights too ...
-              // if (dcoc[iso].djibouti == 1) {
-              //   d3.selectAll('.country.' + iso)
-              //     .classed('active', true)
-              //     .transition().delay(i * 10)
-              //     .style('fill', function() {
-              //       return themeColor(0.5);
-              //     })
-              //     .style('stroke', function() {
-              //       return themeColor(1);
-              //     });
-              //
-              //   d3.selectAll('.eez.' + iso)
-              //     .classed('active', true)
-              //     .transition().delay(i * 10)
-              //     //  .style('fill', function () {return rampColor(0.1);})
-              //     .style('stroke', function() {
-              //       return themeColor(1);
-              //     })
-              //     .style('stroke-width', '2px');
-              //     i++;
-              // }
+            var djibouti = vals[iso]['djibouti'];
+
+            if (djibouti == 1) {
+              d3.selectAll('.country.' + iso)
+                .classed('active', true)
+                .style('fill', function () {
+                  return d3.interpolateLab('white', '#fff000')(0.5);
+                });
+            //  console.log(iso);
+            }
+
+
+
+            // Set up dcoc highlights too ...
+            // if (dcoc[iso].djibouti == 1) {
+            //   d3.selectAll('.country.' + iso)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     .style('fill', function() {
+            //       return themeColor(0.5);
+            //     })
+            //     .style('stroke', function() {
+            //       return themeColor(1);
+            //     });
+            //
+            //   d3.selectAll('.eez.' + iso)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     //  .style('fill', function () {return rampColor(0.1);})
+            //     .style('stroke', function() {
+            //       return themeColor(1);
+            //     })
+            //     .style('stroke-width', '2px');
+            //     i++;
+            // }
           }
+
+          var yaoundeInland = ['BFA', 'CAF', 'MLI', 'NER', 'TCD','BDI', 'RWA'];
+          for (var j = 0; j < yaoundeInland.length; j++ ) {
+            var iso = yaoundeInland[j];
+            d3.selectAll('.country.' +  iso)
+              .classed('active', true)
+              .style('fill', themeColor(0.3));
+
+            d3.selectAll('.label.' + iso)
+              .classed('active', true)
+              .style('fill', 'black');
+          }
+
+
+
         }
       },
       els: [{
@@ -792,137 +926,137 @@ var internationalCooperationData = {
     //   ] // end of els array
     // },
     // { // Card 6
-      //   title: 'Operation Copper',
-      //   menu: 'Operation Copper',
-      //   metadata: {
-      //     owner: 'Jay Benson',
-      //     description: 'Multinational anti-piracy efforts in the Mozambican straits.'
-      //   },
-      //   map: {
-      //     scale: [],
-      //     path: '../../data/international-cooperation/south-indian-piracy.csv',
-      //     classes: '',
-      //     translate: [],
-      //     extent: [
-      //       [30, -40],
-      //       [100, 10]
-      //     ],
-      //     highlights: [],
-      //     tooltip: true,
-      //     units: {
-      //       text: 'xo units',
-      //       multiplier: 100
-      //     },
-      //     load: function(index, csv) { // ### *** This only should be for the first card ...
-      //
-      //       var layer = 'card-' + index + '-layer';
-      //       d3.csv(csv, function(vals) {
-      //         vals.forEach(function(d) {
-      //           d.lat = +d.lat;
-      //           d.lon = +d.lon;
-      //           d.weight = +d.weight;
-      //         });
-      //
-      //         var copper = mapg.append('g')
-      //           .classed('card-layer copper-incidents invisible ' + layer, true);
-      //
-      //         copper.selectAll('circle')
-      //           .data(vals).enter()
-      //           .append('circle')
-      //           .attr('cx', function(d) {
-      //             return projection([d.lon, d.lat])[0];
-      //           })
-      //           .attr('cy', function(d) {
-      //             return projection([d.lon, d.lat])[1];
-      //           })
-      //           .attr('r', '3px')
-      //           .style('fill', function(d, i) {
-      //             return rampColor(i / vals.length);
-      //           })
-      //           // .style('fill-opacity', function (d, i) {
-      //           //   return i / vals.length;                // ### this doesn't communicate what it is meant to . . . maybe different colors for different years ??
-      //           // })
-      //           .classed('copper-incident', true);
-      //       })
-      //
-      //     },
-      //     switch: function(index) {
-      //       d3.selectAll('.card-' + index + '-layer')
-      //         .classed('invisible', false);
-      //
-      //     }
-      //   },
-      //   els: [{
-      //       tag: 'h1',
-      //       text: 'Operation Copper',
-      //     },
-      //     {
-      //       tag: 'caption',
-      //       text: 'Neighbors help neighbors fight pirates'
-      //     },
-      //     {
-      //       tag: 'legend',
-      //       text: 'Map Legend',
-      //       legendContent: '<em>Points indicate the coordinates of West Indian Ocean piracy-related incidents reported by the International Maritime Organization south of the equator, 2006 - 2016. Lighter points represent older events</em>.'
-      //     },
-      //     //###Insert map: Zoom into Mozambique channel and color all the EEZs differently. I feel like that might help convey the complexity of different jurisdictions in the channel
-      //     {
-      //       tag: 'p',
-      //       html: 'The rise of piracy off the coast of Somalia catalyzed several high-profile efforts by international actors to <a class="piracy inline" href="../../piracy#2">protect shipping and improve maritime security in the region</a>. It also drove a lesser-known regional operation aimed at stopping the southward spread of piracy into the Mozambique Channel.<sup>8</sup>'
-      //     },
-      //     {
-      //       tag: 'img',
-      //       src: '../../assets/international-cooperation/south-africa-281265_1920.jpg',
-      //       alt: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.',
-      //       caption: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.'
-      //     },
-      //     {
-      //       tag: 'p',
-      //       html: 'The threat of increased piracy in the channel threatened the economic and security interests of regional states and the wider international community. The channel is a key transit area for maritime shipping, particularly for South African trade, and the site of major oil and gas reserves which have drawn investment from multinational energy firms.<sup>9</sup> Fears of piracy’s spread to the channel were confirmed in December 2010 when there were several piracy incidents off the coast of Mozambique.<sup>10</sup>'
-      //     },
-      //     {
-      //       tag: 'p',
-      //       html: 'In response to these threats, South Africa spearheaded Operation Copper in 2011.<sup>11</sup> The agreement allowed South African naval vessels to conduct patrols in Mozambican waters, and also conduct multinational training, intelligence gathering, and information sharing. Tanzania later joined and left the operation. The presence of South African frigates, offshore patrol vessels, and air assets greatly increased both <a class="maritime-enforcement inline" //href="../../maritime-enforcement#2">maritime domain awareness</a> (MDA) and the assets available to counter piracy in the channel. The operation has been successful in this mission. In April of 2012, a South African naval resupply vessel that was deployed as part of Operation Copper assisted international forces in searching down and arresting seven pirates.<sup>12</sup> These counterpiracy operations are valuable in and of themselves, but even more important to the long-term maritime //security of the region are Operation Copper’s maritime domain awareness and capacity-building components.'
-      //     },
-      //     {
-      //       tag: 'p',
-      //       html: 'Operation Copper is a valuable model for intra-regional cooperation and capacity building, though there may be limited opportunities to replicate its success in the near future. From the perspective of national interests, it makes sense for states to attempt to cooperate with and improve the maritime security capacities of their immediate neighbors. Threats to maritime security such as piracy, trafficking, and IUU fishing are fluid and can easily spill across long, difficult-to-monitor maritime boundaries. As such, improving the maritime security of one’s neighbors serves to protect a state’s own maritime space before those same forms of maritime crime spread into one’s own waters.'
-      //     },
-      //     {
-      //       tag: 'p',
-      //       html: 'However, replicating the success of Operation Copper will be fairly difficult. Simply put, there are few maritime security forces in the region with the capacity to maintain robust security in their own maritime spaces while simultaneously sustaining patrols in a neighbor’s waters. Operation Copper has become expensive and difficult to maintain even for the South African Navy.<sup>13</sup>  What may serve a similar purpose at a lower cost is to increase bilateral training and shared MDA efforts. Such an approach would build cooperation between adjacent forces and increase awareness about the potential spread of maritime security threats without incurring the costs of long-range patrols.'
-      //     },
-      //     {
-      //       tag: 'links',
-      //       items: [{
-      //           org: '<sup>8</sup> Louis Bergeron, “The Forgotten Chokepoint: The Mozambique Channel’s Rich Past and Bright but Uncertain Future,” Center for International Maritime Security, 25 December 2014,',
-      //           url: 'http://cimsec.org/forgotten-chokepoint-mozambique-channels-rich-past-bright-insecure-future/14071'
-      //         },
-      //         {
-      //           org: '<sup>9</sup> Borges Nhamire, “Eni Finalizes $7 Billion Mozambique Gas Project Investment,” <em>Bloomberg</em>, 1 June 2017,',
-      //           url: 'https://www.bloomberg.com/news/articles/2017-06-01/eni-finalizes-7-billion-investment-in-mozambique-gas-project'
-      //         },
-      //         {
-      //           org: '<sup>10</sup> Guy Martin, “Operation Copper Now Only with SA and Mozambique,” <em>DefenceWeb</em>, 20 March 2014,',
-      //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=34071:operation-copper-now-only-with-sa-and-mozambique&catid=108:maritime-security'
-      //         },
-      //         {
-      //           org: '<sup>11</sup> “South Africa and Mozambique Join Forces to Fight Piracy,” <em>BBC</em>, 2 June 2011,',
-      //           url: 'http://www.bbc.com/news/world-africa-13628132'
-      //         },
-      //         {
-      //           org: '<sup>12</sup> South African Navy Helps Catch Pirates,” <em>DefenceWeb</em>, 23 April 2012,',
-      //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=25142:south-african-navy-helps-catch-pirates&catid=108:maritime-security&Itemid=233'
-      //         },
-      //         {
-      //           org: '<sup>13</sup> Dean Wingrin, “Operation Copper Stretching SA Navy,” <em>DefenceWeb</em>, 26 March 2015,',
-      //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=38541:operation-copper-stretching-sa-navy&catid=111:sa-defence&Itemid=242'
-      //         },
-      //       ]
-      //     },
-      //     //###Insert Map and Graphics
-      //   ] // end of els array
-      // },
+    //   title: 'Operation Copper',
+    //   menu: 'Operation Copper',
+    //   metadata: {
+    //     owner: 'Jay Benson',
+    //     description: 'Multinational anti-piracy efforts in the Mozambican straits.'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     path: '../../data/international-cooperation/south-indian-piracy.csv',
+    //     classes: '',
+    //     translate: [],
+    //     extent: [
+    //       [30, -40],
+    //       [100, 10]
+    //     ],
+    //     highlights: [],
+    //     tooltip: true,
+    //     units: {
+    //       text: 'xo units',
+    //       multiplier: 100
+    //     },
+    //     load: function(index, csv) { // ### *** This only should be for the first card ...
+    //
+    //       var layer = 'card-' + index + '-layer';
+    //       d3.csv(csv, function(vals) {
+    //         vals.forEach(function(d) {
+    //           d.lat = +d.lat;
+    //           d.lon = +d.lon;
+    //           d.weight = +d.weight;
+    //         });
+    //
+    //         var copper = mapg.append('g')
+    //           .classed('card-layer copper-incidents invisible ' + layer, true);
+    //
+    //         copper.selectAll('circle')
+    //           .data(vals).enter()
+    //           .append('circle')
+    //           .attr('cx', function(d) {
+    //             return projection([d.lon, d.lat])[0];
+    //           })
+    //           .attr('cy', function(d) {
+    //             return projection([d.lon, d.lat])[1];
+    //           })
+    //           .attr('r', '3px')
+    //           .style('fill', function(d, i) {
+    //             return rampColor(i / vals.length);
+    //           })
+    //           // .style('fill-opacity', function (d, i) {
+    //           //   return i / vals.length;                // ### this doesn't communicate what it is meant to . . . maybe different colors for different years ??
+    //           // })
+    //           .classed('copper-incident', true);
+    //       })
+    //
+    //     },
+    //     switch: function(index) {
+    //       d3.selectAll('.card-' + index + '-layer')
+    //         .classed('invisible', false);
+    //
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'Operation Copper',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'Neighbors help neighbors fight pirates'
+    //     },
+    //     {
+    //       tag: 'legend',
+    //       text: 'Map Legend',
+    //       legendContent: '<em>Points indicate the coordinates of West Indian Ocean piracy-related incidents reported by the International Maritime Organization south of the equator, 2006 - 2016. Lighter points represent older events</em>.'
+    //     },
+    //     //###Insert map: Zoom into Mozambique channel and color all the EEZs differently. I feel like that might help convey the complexity of different jurisdictions in the channel
+    //     {
+    //       tag: 'p',
+    //       html: 'The rise of piracy off the coast of Somalia catalyzed several high-profile efforts by international actors to <a class="piracy inline" href="../../piracy#2">protect shipping and improve maritime security in the region</a>. It also drove a lesser-known regional operation aimed at stopping the southward spread of piracy into the Mozambique Channel.<sup>8</sup>'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/international-cooperation/south-africa-281265_1920.jpg',
+    //       alt: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.',
+    //       caption: 'South African naval vessels are integral not only to counter-piracy, but also to long-term maritime security.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'The threat of increased piracy in the channel threatened the economic and security interests of regional states and the wider international community. The channel is a key transit area for maritime shipping, particularly for South African trade, and the site of major oil and gas reserves which have drawn investment from multinational energy firms.<sup>9</sup> Fears of piracy’s spread to the channel were confirmed in December 2010 when there were several piracy incidents off the coast of Mozambique.<sup>10</sup>'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'In response to these threats, South Africa spearheaded Operation Copper in 2011.<sup>11</sup> The agreement allowed South African naval vessels to conduct patrols in Mozambican waters, and also conduct multinational training, intelligence gathering, and information sharing. Tanzania later joined and left the operation. The presence of South African frigates, offshore patrol vessels, and air assets greatly increased both <a class="maritime-enforcement inline" //href="../../maritime-enforcement#2">maritime domain awareness</a> (MDA) and the assets available to counter piracy in the channel. The operation has been successful in this mission. In April of 2012, a South African naval resupply vessel that was deployed as part of Operation Copper assisted international forces in searching down and arresting seven pirates.<sup>12</sup> These counterpiracy operations are valuable in and of themselves, but even more important to the long-term maritime //security of the region are Operation Copper’s maritime domain awareness and capacity-building components.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Operation Copper is a valuable model for intra-regional cooperation and capacity building, though there may be limited opportunities to replicate its success in the near future. From the perspective of national interests, it makes sense for states to attempt to cooperate with and improve the maritime security capacities of their immediate neighbors. Threats to maritime security such as piracy, trafficking, and IUU fishing are fluid and can easily spill across long, difficult-to-monitor maritime boundaries. As such, improving the maritime security of one’s neighbors serves to protect a state’s own maritime space before those same forms of maritime crime spread into one’s own waters.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'However, replicating the success of Operation Copper will be fairly difficult. Simply put, there are few maritime security forces in the region with the capacity to maintain robust security in their own maritime spaces while simultaneously sustaining patrols in a neighbor’s waters. Operation Copper has become expensive and difficult to maintain even for the South African Navy.<sup>13</sup>  What may serve a similar purpose at a lower cost is to increase bilateral training and shared MDA efforts. Such an approach would build cooperation between adjacent forces and increase awareness about the potential spread of maritime security threats without incurring the costs of long-range patrols.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>8</sup> Louis Bergeron, “The Forgotten Chokepoint: The Mozambique Channel’s Rich Past and Bright but Uncertain Future,” Center for International Maritime Security, 25 December 2014,',
+    //           url: 'http://cimsec.org/forgotten-chokepoint-mozambique-channels-rich-past-bright-insecure-future/14071'
+    //         },
+    //         {
+    //           org: '<sup>9</sup> Borges Nhamire, “Eni Finalizes $7 Billion Mozambique Gas Project Investment,” <em>Bloomberg</em>, 1 June 2017,',
+    //           url: 'https://www.bloomberg.com/news/articles/2017-06-01/eni-finalizes-7-billion-investment-in-mozambique-gas-project'
+    //         },
+    //         {
+    //           org: '<sup>10</sup> Guy Martin, “Operation Copper Now Only with SA and Mozambique,” <em>DefenceWeb</em>, 20 March 2014,',
+    //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=34071:operation-copper-now-only-with-sa-and-mozambique&catid=108:maritime-security'
+    //         },
+    //         {
+    //           org: '<sup>11</sup> “South Africa and Mozambique Join Forces to Fight Piracy,” <em>BBC</em>, 2 June 2011,',
+    //           url: 'http://www.bbc.com/news/world-africa-13628132'
+    //         },
+    //         {
+    //           org: '<sup>12</sup> South African Navy Helps Catch Pirates,” <em>DefenceWeb</em>, 23 April 2012,',
+    //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=25142:south-african-navy-helps-catch-pirates&catid=108:maritime-security&Itemid=233'
+    //         },
+    //         {
+    //           org: '<sup>13</sup> Dean Wingrin, “Operation Copper Stretching SA Navy,” <em>DefenceWeb</em>, 26 March 2015,',
+    //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=38541:operation-copper-stretching-sa-navy&catid=111:sa-defence&Itemid=242'
+    //         },
+    //       ]
+    //     },
+    //     //###Insert Map and Graphics
+    //   ] // end of els array
+    // },
     { // Card 7
       title: 'African Union Efforts',
       menu: 'AU Efforts',
@@ -935,7 +1069,7 @@ var internationalCooperationData = {
         classes: '',
         highlights: [],
         tooltip: true,
-        tooltipHTML: function (iso) {
+        tooltipHTML: function(iso) {
 
           var lome = issueAreaData[issueArea].metadata.countryData[iso].lome;
           if (lome == 1) {
@@ -978,7 +1112,7 @@ var internationalCooperationData = {
                   return themeColor(1);
                 })
                 .style('stroke-width', '2px');
-                i++;
+              i++;
             }
           }
 
@@ -1051,22 +1185,31 @@ var internationalCooperationData = {
         classes: '',
         translate: [],
         highlights: [],
-        load: function (index, csv) {  // ### *** This only should be for the first card ...
+        tooltip: true,
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "International Cooperation:<br />" + tooltipVal + " / 100";
+
+        },
+        load: function(index, csv) { // ### *** This only should be for the first card ...
           // Load flow map layer
-          var layer = 'card-'+index+'-layer';
+          var layer = 'card-' + index + '-layer';
           // Load topoJSON of flow map
           d3.select('.card-eez-layer')
             .classed(layer, true);
           // Class with layer
         },
-        switch: function (index) {
+        switch: function(index) {
           // Simply show target layer
           choropleth(index, 1, 'index');
 
         }
       },
-      els: [
-        { tag: 'h1',
+      els: [{
+          tag: 'h1',
           text: 'Methodology',
         }
 
