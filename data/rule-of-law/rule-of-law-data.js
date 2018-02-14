@@ -25,7 +25,8 @@ var ruleOfLawData = {
 
     loadIAcsv(csv, callback);
   },
-  cards: [{ // Card 0
+  cards: [
+    {   // Card 0
       title: 'Rule of Law',
       menu: 'Rule of Law',
       metadata: {
@@ -41,7 +42,7 @@ var ruleOfLawData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
-          tooltipVal = (tooltipVal * 100).toFixed(2);
+          tooltipVal = Math.round(tooltipVal * 100);
           return "Rule of Law:<br />" + tooltipVal + " / 100";
 
         },
@@ -63,11 +64,11 @@ var ruleOfLawData = {
           tag: 'caption',
           text: 'Progress requires effective and legitimate legal institutions'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Lighter shades indicate countries with a better Corruption Perceptions Index score. <br />Source: <a href="https://www.transparency.org/" target="_blank">Transparency International</a></em>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Lighter shades indicate countries with a better Corruption Perceptions Index score. <br />Source: <a href="https://www.transparency.org/" target="_blank">Transparency International</a></em>'
+        // },
         {
           tag: 'p',
           html: 'To achieve lasting maritime security and good maritime governance, countries must have officials and institutions that reliably enforce government policy. Where these structures are undermined by corruption, inefficiency, and discriminatory practices, legal efforts to improve maritime security will have little effect.'
@@ -93,8 +94,8 @@ var ruleOfLawData = {
         },
       ] // end of els array
     }, // End of first element of cards object
-    // Card 1
-    {
+    {   // Card 1
+
       title: 'Fighting Corruption',
       menu: 'Fighting Corruption',
       metadata: {
@@ -121,10 +122,7 @@ var ruleOfLawData = {
             .classed('card-' + index + '-layer', true);
         },
         switch: function(index) {
-
           choropleth(index, 1, 'corruptionPerceptions');
-
-
         }
       }, // end of 'map' object
       els: [{
@@ -184,8 +182,8 @@ var ruleOfLawData = {
         }
       ]
     }, // End of second  object in cards array
-    // Card 2
-    {
+    {   // Card 2
+
       title: 'Bribes and Bureaucracy',
       menu: 'Bribes & Bureaucracy',
       metadata: {
@@ -202,7 +200,7 @@ var ruleOfLawData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['easeOfTrade'];
-          tooltipVal = (tooltipVal * 100).toFixed(2);
+          tooltipVal = Math.round(tooltipVal * 100);
           return "Ease of Trade Index:<br />" + tooltipVal + " / 100";
 
         },
@@ -222,18 +220,18 @@ var ruleOfLawData = {
       },
       els: [{
           tag: 'h1',
-          text: 'The Perils of Bureaucratic Red Tape'
+          text: 'Bribes and Bureaucracy'
         },
         {
           tag: 'caption',
-          text: 'Bureaucracy and bribe-seeking'
+          text: 'How excessive bureaucracy brings bribe-seeking'
         },
         //###insert corruption infographic from Andrea
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Lighter shades indicate lower barriers and restrictions on international trade <br> Source: <a href="https://www.doingbusiness.org/" target="_blank">2017 World Bank Doing Business Report</a></em>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Lighter shades indicate lower barriers and restrictions on international trade <br> Source: <a href="https://www.doingbusiness.org/" target="_blank">2017 World Bank Doing Business Report</a></em>'
+        // },
         {
           tag: 'p',
           html: 'To effectively fight corruption and curtail bribe-seeking, states can review their bureaucracies and eliminate points where these activities are most likely to occur. Seaports should be a focal point in this search. Because more than 90% of sub-Saharan Africa’s international trade flows through its seaports, port administrators are uniquely positioned to demand bribes, permit illicit economic activity, and undermine good governance. A recent report by <em> The Economist </em> went as far as to call this behavior “onshore piracy.”<sup>1</sup>'
@@ -289,10 +287,10 @@ var ruleOfLawData = {
         }
       ]
     }, // End of third object in cards array
-    // Card 3
-    {
-      title: 'Exploiting the Bijagós', //###Bijagos special character
-      menu: 'Exploiting the Bijagós', //### Bijagos special character
+    {   // Card 3
+
+      title: 'Weak Sovereignty',
+      menu: 'Weak Sovereignty',
       metadata: {
         owner: 'Kelsey Soeth',
         description: 'Highlight an area that is under weak state control, poor governance - maybe the Bijagós in guinea-bissau.'
@@ -307,6 +305,7 @@ var ruleOfLawData = {
           [-3, 7]
         ],
         highlights: ['GNB'], // Guinea Bissau
+        tooltip: false,
         load: function(index, js) {
           var layer = 'card-' + index + '-layer';
           // d3.select('.card-eez-layer')
@@ -319,18 +318,17 @@ var ruleOfLawData = {
       },
       els: [{
           tag: 'h1',
-          text: 'Exploiting the Bijagós' //### Bijagos Special character
+          text: 'Weak Sovereignty'
         },
         {
           tag: 'caption',
           text: 'Weak local control undermines regional stability'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>The Bijagos are the island group off the coast of Guinea-Bissau.</em>'
-        },
-
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>The Bijagos are the island group off the coast of Guinea-Bissau.</em>'
+        // },
         {
           tag: 'p',
           html: 'Weak state control is a particular problem for states with offshore territories, such as Guinea-Bissau. The Bijagós Islands are a group of 88 islands and islets located in the Atlantic Ocean. Only 23 of the islands are inhabited.<sup>4</sup>'
@@ -372,8 +370,8 @@ var ruleOfLawData = {
         }
       ]
     }, // End of fourth  object in cards array
-    // Card 4
-    {
+    {   // Card 4
+
       title: 'Gender Equality',
       menu: 'Gender Equality',
       metadata: {
@@ -391,7 +389,7 @@ var ruleOfLawData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['easeOfTrade'];
-          tooltipVal = (tooltipVal * 100).toFixed(2);
+          tooltipVal = Math.round(tooltipVal * 100);
           return "Inclusion:<br />" + tooltipVal + " / 100";
 
         },
@@ -436,13 +434,13 @@ var ruleOfLawData = {
         },
         {
           tag: 'caption',
-          text: 'Inclusion of women strengthens the rule of law'
+          text: 'How women\'s inclusion strengthens the rule of law'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Lighter shades indicate more gender-inclusive political systems. <br> Source: <a href="https://www.v-dem.net/en/" target="_blank">Varieties of Democracy</a></em>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Lighter shades indicate more gender-inclusive political systems. <br> Source: <a href="https://www.v-dem.net/en/" target="_blank">Varieties of Democracy</a></em>'
+        // },
         {
           tag: 'p',
           html: 'Equal treatment under the law regardless of ethnicity, socioeconomic status, religion, subnational region, or gender is the basis of inclusive governance. Levels of inclusion vary greatly along the sub-Saharan coastline, though many states have made notable progress in this area, especially with regard to greater inclusion of women.'
@@ -496,9 +494,8 @@ var ruleOfLawData = {
         }
       ]
     }, // End of fifth  object in cards array
+    {   // Card 5
 
-    // Card 5
-    {
       title: 'Methodology',
       menu: 'Methodology',
       metadata: {
@@ -514,7 +511,7 @@ var ruleOfLawData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
-          tooltipVal = (tooltipVal * 100).toFixed(2);
+          tooltipVal = Math.round(tooltipVal * 100);
           return "Rule of Law:<br />" + tooltipVal + " / 100";
 
         },
@@ -527,18 +524,6 @@ var ruleOfLawData = {
         },
         switch: function(index) {
           choropleth(index, 1, 'index');
-
-          // var target = 'card-'+index+'-layer';
-          // var vals = data.issueArea.metadata.countryData;
-          // vals.forEach(function (d, i) {
-          //   d3.selectAll('.' + d.iso3)
-          //     .transition()
-          //     .delay(i * 10)
-          //     .style('fill', function () { return rampColor(d.ia3c1); });
-          // });
-          //
-          // d3.select('.' + target)
-          //   .classed('invisible', false);
         }
       },
       els: [{
