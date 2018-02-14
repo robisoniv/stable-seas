@@ -410,7 +410,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
     // Load page-level data:
     issueAreaData[issueArea].load(issueAreaData[issueArea].metadata.csv, function(result) {
-
+      console.log(result);
       // Loop through cards:
       var cards = issueAreaData[issueArea].cards; // Array of card objects
 
@@ -500,7 +500,7 @@ function loadIAcsv(csv, callback) {
       }
       md.countryData[d.iso3] = d;
     });
-    callback('internationalCooperation load csv function callback');
+    callback('load csv function callback');
   });
 }
 // Build Modals:
@@ -1065,6 +1065,8 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               d3.select('.label.' + iso3)
                 .classed('invisible', false);
             }
+          } else if (false) {
+            // #### here we add a test for Null rows, even if tooltip = True.
           } else {
 
             if ($.inArray(iso3, includedCountries) != -1) {
@@ -1073,7 +1075,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               var tooltip = d3.select('div.tooltip');
               var cardMap = issueAreaData[issueArea].cards[activeCard].map;
               var idx = issueAreaData[issueArea].metadata.countryData[iso3];
-              console.log('idx',idx);
+            //  console.log('idx',idx);
                 // idx is object with country, iso3, values for each card ...
                 // pulled from issue area's metadata.indexData
               //  console.log('xx', idx);
@@ -1087,7 +1089,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                   return y + 'px';
                 })
                 .classed('hidden', function () {
-                  console.log(cardMap);
+            //      console.log(cardMap);
                   if (cardMap.tooltip) {
                     return false;
                   } else {
@@ -1105,6 +1107,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(iso3);
 
               var tooltipBody = tooltip.select('.tooltip-body');
+              // #### here we should work out how to not display tooltip for null values ......... though it should be upstream of this
               tooltipBody.html(tooltipHTML);
 
             } else {
@@ -1195,7 +1198,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                   return y + 'px';
                 })
                 .classed('hidden', function () {
-                  console.log(cardMap);
+              //    console.log(cardMap);
                   if (cardMap.tooltip) {
                     return false;
                   } else {
