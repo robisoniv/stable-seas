@@ -1,6 +1,6 @@
 var overviewData = {
   metadata: {
-    name: 'Overview',
+    name: '*Overview*',
     updates: true,
     version: '1.0.0',
     /*
@@ -71,10 +71,9 @@ var overviewData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          //  switchMainIndexInverse(index); // ### will this work elsewhere??
+          var target = 'card-' + index + '-layer';
+
           var vals = issueAreaData[issueArea].metadata.countryData;
-          //  choropleth(index, 'index', 1);
-          //  console.log('v', vals);
           var i = 0;
           for (iso in vals) {
             var issue = vals[iso].strength;
@@ -154,11 +153,11 @@ var overviewData = {
           tag: 'caption',
           text: '<em>A new effort to measure and map maritime security in sub-Saharan Africa</em>'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>The 30 shaded countries and EEZs will be included in the inaugural Stable Seas Maritime Security Index</em>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>The 30 shaded countries and EEZs will be included in the inaugural Stable Seas Maritime Security Index</em>'
+        // },
         {
           tag: 'p',
           html: 'The Stable Seas Maritime Security Index is a first-of-its-kind effort to measure and map a range of threats to maritime governance. By bringing diverse challenges like <a class="piracy inline" href="../../piracy">piracy</a>, <a class="illicit-trade inline" href="../../illicit-trade">smuggling</a>, and <a class="maritime-enforcement inline" href="../../maritime-enforcement">capacity-building</a> into one comprehensive analysis, we can better understand how these issues intersect to affect maritime security.'
@@ -404,11 +403,11 @@ var overviewData = {
           tag: 'caption',
           text: 'The global hotspot for piracy, armed robbery, and extractives crime'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<div class="brew-20 legend-entries light">Sub-Saharan members of the Djibouti Code of Conduct</div>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<div class="brew-20 legend-entries light">Sub-Saharan members of the Djibouti Code of Conduct</div>'
+        // },
         {
           tag: 'p',
           html: 'Africa’s share of the Indian Ocean Basin includes the Gulf of Aden, the waters off the Horn of Africa, the vast expanse of the Western Indian Ocean, and the Mozambique Channel. The issues facing coastal countries in this region are as diverse and complex as the geographies of these maritime spaces. The ten sub-Saharan governments with territorial waters in this area coordinate through regional efforts like the Djibouti Code of Conduct and the Indian Ocean Tuna Commission, among others.'
