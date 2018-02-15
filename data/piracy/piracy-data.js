@@ -31,7 +31,7 @@ var piracyData = {
       });
 
       var incidentsLayer = mapg.append('g')
-        .classed('card-layer piracy-incidents card-1-layer card-2-layer ', true);
+        .classed('card-layer piracy-incidents card-1-layer card-2-layer card-3-layer', true);
 
       incidentsLayer.selectAll('circle')
         .data(incidents).enter()
