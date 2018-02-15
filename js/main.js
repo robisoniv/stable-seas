@@ -1287,6 +1287,20 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 }
 
 
+d3.selection.prototype.moveToFront = function() {
+      return this.each(function(){
+        this.parentNode.appendChild(this);
+      });
+    };
+    d3.selection.prototype.moveToBack = function() {
+        return this.each(function() {
+            var firstChild = this.parentNode.firstChild;
+            if (firstChild) {
+                this.parentNode.insertBefore(this, firstChild);
+            }
+        });
+    };
+
 // Interactivity functions
 function switchCard(target) {
   // First, remove highlighted menu item
@@ -1405,14 +1419,22 @@ function choropleth (cardIndex, order, key) {
     var highlightedCountry = d3.selectAll('.eez.' + iso3);
 
     // highlightedCountry.classed('highlighted', true);
+    var val = vals[iso3][key];
+
+    // First convert 0 - 100 range into 0 - 1.
+    if (!(val < 1 && val != 0)) {
+      val = val / 100;
+    }
+
+    console.log(val);
     highlightedCountry.classed('active', true)
       .transition()
       .delay(i * 10)
       .style('fill', function() {
         if (order == -1) {
-          return rampColor(1 -  vals[iso3][key]);
+          return rampColor(1 -  val);
         } else {
-          return rampColor(vals[iso3][key]);
+          return rampColor(val);
         }
       });
       i++;
@@ -1426,7 +1448,7 @@ function updatePointer(tooltipVal) {
   d3.select('.legend-pointer')
     .classed('hidden', false)
   .transition().delay(5)
-    .attr('transform', 'translate(' + tooltipVal * 3 + ', -15)');
+    .attr('transform', 'translate(' + ((tooltipVal * 3) - 8.5) + ', -15)');
 
 }
 function switchMainIndex(cardIndex) {
