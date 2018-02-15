@@ -381,11 +381,6 @@ var piracyData = {
         scale: [],
         classes: '',
         translate: [],
-    //    extent: [
-          // [43, -6],
-          // [68, 22]
-    //    ],
-        //  highlights: ,
         load: function(index, file) { // ### *** This only should be for the first card ...
           var layer = 'card-' + index + '-layer';
           d3.select('.piracy-incidents')
@@ -901,62 +896,70 @@ var piracyData = {
         }
       ] // end of els array
     },
-    // {  // Card 6
-    //   title: 'Methodology',
-    //   menu: 'Methodology',
-    //   metadata: {
-    //     owner: 'Curtis Bell',
-    //     description: 'Card will provide basic methodology info.'
-    //   },
-    //   map: {
-    //     scale: [],
-    //     classes: '',
-    //     translate: [],
-    //     highlights: [],
-    //     load: function (index, file) {  // ### *** This only should be for the first card ...
-    //       var layer = 'card-'+index+'-layer';
-    //
-    //       d3.selectAll('.card-eez-layer')
-    //         .classed(layer, true);
-    //
-    //     },
-    //     switch: function (index) {
-    //       switchMainIndex(0);
-    //     }
-    //   },
-    //   els: [
-    // { tag: 'h1',
-    //   text: 'Methodology',
-    // },
-    // { tag: 'p',
-    //   html: 'The Piracy and Armed Robbery Score measures instances of these events within and around each country’s exclusive economic zone (EEZ). Our definition of piracy is that established by the United Nations Convention on the Law of Sea, as follows, and our definition of armed robbery is taken from that of the International Maritime Organization, as seen below.'
-    // },
-    // { tag: 'p',
-    //   html: 'Piracy: “Any illegal acts of violence or detention, or any act of depredation, committed for private ends by the crew or the passengers of a private ship or a private aircraft, and directed:'
-    // },
-    // { tag: 'ul',
-    //    rows: ['on the high seas, against another ship or aircraft, or against persons on property on board such ship or aircraft;', 'against a ship, aircraft, persons, or property in a place outside the jurisdiction of any state.”<sup>11</sup>']
-    // },
-    // { tag: 'p',
-    //   html: 'Armed Robbery: “Unlawful act of violence or detention or any act of depredation, or threat thereof, other than an act of piracy, committed for private ends and directed against a ship or against persons or property on board such a ship, within a state’s internal waters, archipelagic waters and territorial sea.” '
-    // },
-    // { tag: 'p',
-    //   html: 'Legally, then, these activities are very similar and are mainly distinguished by where they occur. Events occurring within the territorial waters of a state, typically within 12 nautical miles of the shoreline, are acts of armed robbery at sea. Incidents occurring farther from the coast, including those occurring within an EEZ, are acts of piracy at sea.',
-    // },
-    // { tag: 'p',
-    //   html: 'The score includes two inputs. The first is the number of piracy and armed robbery incidents occurring within a state’s territorial waters or exclusive economic zone during the 2016 calendar year. We use data collected in the State of Piracy report, an annual evaluation of global piracy trends from Oceans Beyond Piracy. Using geographic information systems (GIS) methodology, we cross-reference the latitudes and longitudes of each qualifying incident with geographic shapefiles of each EEZ.'
-    // },
-    // { tag: 'p',
-    //   html: 'States can still face a threat of piracy even if events are not occurring in their own waters. Many attacks occur against international vessels operating just beyond a state’s exclusive economic zone, so we also include a measure or proximity to piracy attacks.'
-    // },
-    // { tag: 'p',
-    //   html: 'Using GIS, we calculate the minimum distance between every EEZ and every incident occurring around the African continent. Distances are measured as the minimum from the latitude and longitude of the incident to the closest border of the EEZ. Events occurring within an EEZ receive a distance score of 0. Then, we identify each country’s set of closest incidents and take the average distance of each incident in the set to the EEZ boundary. Closer events are given a higher score and we log-transform these distances so that more distant events have a much smaller influence on a state’s proximity-to-piracy score than events occurring very close to the EEZ. We measure distances in hundreds of kilometers and set a maximum distance of 1,000 kilometers, meaning anything occurring farther than that cannot count against a state’s proximity score.'
-    // },
-    // { tag: 'p',
-    //   html: 'More technical details are provided in the data documentation available for download.'
-    // }, // ### add link to data downloads page
-    //
-    //   ] // end of els array
-    // }
+    {  // Card 6
+      title: 'Methodology',
+      menu: 'Methodology',
+      metadata: {
+        owner: 'Curtis Bell',
+        description: 'Card will provide basic methodology info.'
+      },
+      map: {
+        scale: [],
+        classes: '',
+        translate: [],
+        highlights: [],
+        tooltip: true,
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          updatePointer(tooltipVal);
+          return "Piracy and Armed Robbery:<br />" + tooltipVal + " / 100";
+
+        },
+        load: function (index, file) {  // ### *** This only should be for the first card ...
+          var layer = 'card-'+index+'-layer';
+
+          d3.selectAll('.card-eez-layer')
+            .classed(layer, true);
+
+        },
+        switch: function (index) {
+          choropleth(index, 1, 'index');
+        }
+      },
+      els: [
+    { tag: 'h1',
+      text: 'Methodology',
+    },
+    { tag: 'p',
+      html: 'The Piracy and Armed Robbery Score measures instances of these events within and around each country’s exclusive economic zone (EEZ). Our definition of piracy is that established by the United Nations Convention on the Law of Sea, as follows, and our definition of armed robbery is taken from that of the International Maritime Organization, as seen below.'
+    },
+    { tag: 'p',
+      html: 'Piracy: “Any illegal acts of violence or detention, or any act of depredation, committed for private ends by the crew or the passengers of a private ship or a private aircraft, and directed:'
+    },
+    { tag: 'ul',
+       rows: ['on the high seas, against another ship or aircraft, or against persons on property on board such ship or aircraft;', 'against a ship, aircraft, persons, or property in a place outside the jurisdiction of any state.”<sup>11</sup>']
+    },
+    { tag: 'p',
+      html: 'Armed Robbery: “Unlawful act of violence or detention or any act of depredation, or threat thereof, other than an act of piracy, committed for private ends and directed against a ship or against persons or property on board such a ship, within a state’s internal waters, archipelagic waters and territorial sea.” '
+    },
+    { tag: 'p',
+      html: 'Legally, then, these activities are very similar and are mainly distinguished by where they occur. Events occurring within the territorial waters of a state, typically within 12 nautical miles of the shoreline, are acts of armed robbery at sea. Incidents occurring farther from the coast, including those occurring within an EEZ, are acts of piracy at sea.',
+    },
+    { tag: 'p',
+      html: 'The score includes two inputs. The first is the number of piracy and armed robbery incidents occurring within a state’s territorial waters or exclusive economic zone during the 2016 calendar year. We use data collected in the State of Piracy report, an annual evaluation of global piracy trends from Oceans Beyond Piracy. Using geographic information systems (GIS) methodology, we cross-reference the latitudes and longitudes of each qualifying incident with geographic shapefiles of each EEZ.'
+    },
+    { tag: 'p',
+      html: 'States can still face a threat of piracy even if events are not occurring in their own waters. Many attacks occur against international vessels operating just beyond a state’s exclusive economic zone, so we also include a measure or proximity to piracy attacks.'
+    },
+    { tag: 'p',
+      html: 'Using GIS, we calculate the minimum distance between every EEZ and every incident occurring around the African continent. Distances are measured as the minimum from the latitude and longitude of the incident to the closest border of the EEZ. Events occurring within an EEZ receive a distance score of 0. Then, we identify each country’s set of closest incidents and take the average distance of each incident in the set to the EEZ boundary. Closer events are given a higher score and we log-transform these distances so that more distant events have a much smaller influence on a state’s proximity-to-piracy score than events occurring very close to the EEZ. We measure distances in hundreds of kilometers and set a maximum distance of 1,000 kilometers, meaning anything occurring farther than that cannot count against a state’s proximity score.'
+    },
+    { tag: 'p',
+      html: 'More technical details are provided in the data documentation available for download.'
+    }, // ### add link to data downloads page
+
+      ] // end of els array
+    }
   ] // end of cards array
 };
