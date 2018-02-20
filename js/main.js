@@ -26,10 +26,11 @@ var iaColorSelection = issueAreaData[issueArea].metadata.color;
 var themeColor = d3.interpolateLab('white', iaColorSelection);
 
 var rampColor = d3.scaleQuantize()
-    .domain([0, 1])
-    //, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625
-    .range(["#F06A26", "#F29928", "#F6C927", "#F2EA2A", "#D7E036", "#BAD538", "#9BCB3F",
-      "#7BC144", "#6CBF56", "#6EC17A", "#6EC5A1", "#6FC9C3", "#6CC4D9", "#5BA5CE", "#4F8BC0", "#4471B3"]);
+  .domain([0, 1])
+  //, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625
+  .range(["#F06A26", "#F29928", "#F6C927", "#F2EA2A", "#D7E036", "#BAD538", "#9BCB3F",
+    "#7BC144", "#6CBF56", "#6EC17A", "#6EC5A1", "#6FC9C3", "#6CC4D9", "#5BA5CE", "#4F8BC0", "#4471B3"
+  ]);
 
 
 // SSI values variable
@@ -63,25 +64,25 @@ var map = d3.select('#map-svg')
     return '0 0 ' + w + ' ' + h
   });
 
-  var defs = map.append('defs');
+var defs = map.append('defs');
 
-    var linearGradient = defs.append('linearGradient')
-      .attr('id', 'linear-gradient');
+var linearGradient = defs.append('linearGradient')
+  .attr('id', 'linear-gradient');
 
-    linearGradient.attr("x1", "0%")
-      .attr("y1", "0%")
-      .attr("x2", "100%")
-      .attr("y2", "0%");
+linearGradient.attr("x1", "0%")
+  .attr("y1", "0%")
+  .attr("x2", "100%")
+  .attr("y2", "0%");
 
-    linearGradient.selectAll('stop')
-      .data(rampColor.range()).enter()
-      .append('stop')
-        .attr('offset', function (d, i) {
-          return i/(rampColor.range().length-1);
-        })
-        .attr('stop-color', function (d) {
-          return d;
-        })
+linearGradient.selectAll('stop')
+  .data(rampColor.range()).enter()
+  .append('stop')
+  .attr('offset', function(d, i) {
+    return i / (rampColor.range().length - 1);
+  })
+  .attr('stop-color', function(d) {
+    return d;
+  })
 
 
 // Set background rect, include callback to reset zoom
@@ -99,38 +100,38 @@ var mapg = d3.select('.map-g');
 
 // Add color gradient rectangle on top of map-g...
 console.log((h - 100).toString());
-var translateG = 'translate(20, '  + (h - 80).toString() + ')';
+var translateG = 'translate(20, ' + (h - 80).toString() + ')';
 
 console.log(translateG);
 var legendG = d3.select('#map-svg')
   .append('g')
-    .classed('legend-g ', true)
-    .attr('width', 300)
-    .attr('height', 50)
-    .attr('transform', translateG)
+  .classed('legend-g ', true)
+  .attr('width', 300)
+  .attr('height', 50)
+  .attr('transform', translateG)
 
-  legendG.append('rect')
-    .attr('width', 300)
-    .attr('height', 10)
-    .style('fill', 'url(#linear-gradient)');
+legendG.append('rect')
+  .attr('width', 300)
+  .attr('height', 10)
+  .style('fill', 'url(#linear-gradient)');
 
-  legendG.append('text')
-    .text('Worse')
-    .attr('font-size', 10)
-    .attr('y', 25);
+legendG.append('text')
+  .text('Worse')
+  .attr('font-size', 10)
+  .attr('y', 25);
 
-  legendG.append('text')
-    .text('Better')
-    .attr('font-size', 10)
-    .attr('y', 25)
-    .attr('x', '270');
+legendG.append('text')
+  .text('Better')
+  .attr('font-size', 10)
+  .attr('y', 25)
+  .attr('x', '270');
 
 legendG.append('polygon')
   .classed('legend-pointer hidden', true)
-	.attr('points', '0 0, 16 0, 8 15')
-	.attr('fill','black')
+  .attr('points', '0 0, 16 0, 8 15')
+  .attr('fill', 'black')
   .attr('transform', 'translate(0, -15)');
-	//.attr('stroke-width',5);
+//.attr('stroke-width',5);
 
 
 
@@ -234,7 +235,7 @@ $('#map-svg').on('mouseleave', '.stableseas', function() {
 // Window Resize:
 $(window).resize(function() {
   if ($(window).width() < 1200) {
-//    console.log('what!?');
+    //    console.log('what!?');
     $('#resizeModal').modal('show');
   }
 });
@@ -305,8 +306,8 @@ $('#content-holder').on('click', '.table-expand', function() {
 // Master Load SSI values function:
 function loadValues() {
   return new Promise(function(resolve, reject) {
-    d3.csv('../../data/ssi.csv', function (vals) {
-      vals.forEach(function (d) {
+    d3.csv('../../data/ssi.csv', function(vals) {
+      vals.forEach(function(d) {
         for (key in d) {
           if (key != "country" && key != "iso3") {
             d[key] = +d[key];
@@ -315,7 +316,7 @@ function loadValues() {
         ssiValues[d.iso3] = d;
         //console.log('ssi',d);
       })
-    //  console.log('ssi', ssiValues);
+      //  console.log('ssi', ssiValues);
     });
 
     resolve("SSI Values loaded");
@@ -393,7 +394,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
     var iaBtn = d3.select('#ia-' + issueArea);
 
-    iaBtn.style('background-color', function () {
+    iaBtn.style('background-color', function() {
         return themeColor(0.6);
       })
       .style('border-bottom', function() {
@@ -488,10 +489,10 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
 // Load IA csv function:
 function loadIAcsv(csv, callback) {
-//  console.log('csv!');
+  //  console.log('csv!');
   var md = issueAreaData[issueArea].metadata;
   d3.csv(csv, function(vals) {
-//    console.log('c',vals);
+    //    console.log('c',vals);
     vals.forEach(function(d) {
       for (key in d) {
         if (isNaN(d[key]) != true) {
@@ -1047,18 +1048,13 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           return classlist;
         })
         .attr('data-iso3', function(d) {
-
           if (d.properties.Pol_type === 'Disputed') {
             return null;
           } else {
             return d.properties.ISO_Ter1;
           }
         })
-        .on('mouseenter', function(d) {
-          //  console.log(d);
-
-
-        //  console.log('dddd', d);
+        .on('mousemove', function(d) {
           var iso3 = d.properties.ISO_Ter1;
 
           if (!issueAreaData[issueArea].cards[activeCard].map.tooltip) {
@@ -1071,26 +1067,26 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           } else {
 
             if ($.inArray(iso3, includedCountries) != -1) {
-              var coords = path.bounds(d); // returns bounds of country hovered on
-            //  console.log(coords);
+              var coords = d3.mouse(this); // returns bounds of country hovered on
+              //  console.log(coords);
               var tooltip = d3.select('div.tooltip');
               var cardMap = issueAreaData[issueArea].cards[activeCard].map;
               var idx = issueAreaData[issueArea].metadata.countryData[iso3];
-      //        console.log('idx',idx);
-                // idx is object with country, iso3, values for each card ...
-                // pulled from issue area's metadata.indexData
+              //        console.log('idx',idx);
+              // idx is object with country, iso3, values for each card ...
+              // pulled from issue area's metadata.indexData
               //  console.log('xx', idx);
 
               tooltip.style('left', function() {
-                  var x = coords[0][0] - 50;
+                  var x = coords[0];
                   return x + 'px';
                 })
                 .style('top', function() {
-                  var y = coords[0][1] + 0;
+                  var y = coords[1] + 100;
                   return y + 'px';
                 })
-                .classed('hidden', function () {
-            //      console.log(cardMap);
+                .classed('hidden', function() {
+                  //      console.log(cardMap);
                   if (cardMap.tooltip) {
                     return false;
                   } else {
@@ -1104,7 +1100,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               tooltip.select('h1')
                 .text(idx.country);
 
-          //    var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
+              //    var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
               var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(iso3);
 
               var tooltipBody = tooltip.select('.tooltip-body');
@@ -1122,13 +1118,9 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
         .on('mouseout', function(d) {
           d3.select('.label.' + d.properties.ISO_Ter1)
             .classed('invisible', true);
-
           d3.select('div.tooltip').classed('hidden', true);
-      //    d3.select('.legend-pointer').classed('hidden', true);
-
+          d3.select('.legend-pointer').classed('hidden', true);
         });
-      ///  .on('click', function(d) {});
-
 
       // Countries
       var countries = topojson.feature(geoData, geoData.objects.countries).features,
@@ -1144,7 +1136,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
         .enter().insert("path", ".graticule")
         .attr('class', function(d) {
           if (d.properties.NAME == 'France') {
-          //  console.log(d);
+            //  console.log(d);
           }
           if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
             return d.properties.ISO_A3_EH + ' country in stableseas';
@@ -1158,65 +1150,62 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
         }) // This is where we could add a class to included countries...
         .attr("d", path)
         .attr('title', function(d) {
-          //console.log(d);
-        //  console.log(d.properties.SOVEREIGNT);
-
           return d.properties.SOVEREIGNT;
-
-
         })
         .attr('data-iso3', function(d) {
-
-            return d.properties.ISO_A3_EH;
-
+          return d.properties.ISO_A3_EH;
         })
-        .on('mouseenter', function(d) {
+        .on('mousemove', function(d) {
           var iso3 = d.properties.ISO_A3_EH;
-
           if (!issueAreaData[issueArea].cards[activeCard].map.tooltip) {
             if (d.properties.Pol_type != 'Disputed') {
               d3.select('.label.' + iso3)
                 .classed('invisible', false);
             }
-          } else {
+          }
+          // Test if there is a tooltip for this card's map
+          // Test if there is a tooltip for this country on this card
+
+          //
+          else {
 
             if ($.inArray(iso3, includedCountries) != -1) {
-              var coords = path.bounds(d); // returns bounds of country hovered on
-            //  console.log(coords);
+              var coords = d3.mouse(this); // returns bounds of country hovered on
+
+              //  console.log('coords', coords);
               var tooltip = d3.select('div.tooltip');
               var cardMap = issueAreaData[issueArea].cards[activeCard].map;
               var idx = issueAreaData[issueArea].metadata.countryData[iso3];
-            //  console.log('idx',idx);
-                // idx is object with country, iso3, values for each card ...
-                // pulled from issue area's metadata.indexData
+              //  console.log('idx',idx);
+              // idx is object with country, iso3, values for each card ...
+              // pulled from issue area's metadata.indexData
               //  console.log('xx', idx);
 
-              tooltip.classed('hidden', function () {
-          //      console.log(cardMap);
-                if (cardMap.tooltip) {
-                  return false;
-                } else {
-                  d3.selectAll('.label.' + iso3)
-                    .classed('invisible', false);
-                  return true;
-                }
-              })
-              .style('left', function() {
-                  var x = coords[0][0] - 50;
+              tooltip.classed('hidden', function() {
+                  //      console.log(cardMap);
+                  if (cardMap.tooltip) {
+                    return false;
+                  } else {
+                    d3.selectAll('.label.' + iso3)
+                      .classed('invisible', false);
+                    return true;
+                  }
+                })
+                .style('left', function() {
+                  var x = coords[0];
                   return x + 'px';
                 })
                 .style('top', function() {
-                  var y = coords[0][1] + 0;
+                  var y = coords[1] + 100;
                   return y + 'px';
-                })
-                ;
+                });
 
 
 
               tooltip.select('h1')
                 .text(idx.country);
 
-          //    var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
+              //    var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
               var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(iso3);
 
               var tooltipBody = tooltip.select('.tooltip-body');
@@ -1234,7 +1223,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           d3.select('.label.' + d.properties.ISO_A3_EH)
             .classed('invisible', true);
           d3.select('div.tooltip').classed('hidden', true);
-
+          d3.select('.legend-pointer').classed('hidden', true);
         });
 
       var wSaharaCoords = [
@@ -1290,18 +1279,18 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 
 
 d3.selection.prototype.moveToFront = function() {
-      return this.each(function(){
-        this.parentNode.appendChild(this);
-      });
-    };
-    d3.selection.prototype.moveToBack = function() {
-        return this.each(function() {
-            var firstChild = this.parentNode.firstChild;
-            if (firstChild) {
-                this.parentNode.insertBefore(this, firstChild);
-            }
-        });
-    };
+  return this.each(function() {
+    this.parentNode.appendChild(this);
+  });
+};
+d3.selection.prototype.moveToBack = function() {
+  return this.each(function() {
+    var firstChild = this.parentNode.firstChild;
+    if (firstChild) {
+      this.parentNode.insertBefore(this, firstChild);
+    }
+  });
+};
 
 // Interactivity functions
 function switchCard(target) {
@@ -1410,7 +1399,7 @@ Array.prototype.contains = function(needle) {
   return false;
 }
 
-function choropleth (cardIndex, order, key) {
+function choropleth(cardIndex, order, key) {
 
   var target = 'card-' + cardIndex + '-layer';
   var vals = issueAreaData[issueArea].metadata.countryData;
@@ -1434,12 +1423,12 @@ function choropleth (cardIndex, order, key) {
       .delay(i * 10)
       .style('fill', function() {
         if (order == -1) {
-          return rampColor(1 -  val);
+          return rampColor(1 - val);
         } else {
           return rampColor(val);
         }
       });
-      i++;
+    i++;
   }
 
   d3.select('.legend-g')
@@ -1449,10 +1438,11 @@ function choropleth (cardIndex, order, key) {
 function updatePointer(tooltipVal) {
   d3.select('.legend-pointer')
     .classed('hidden', false)
-  .transition().delay(5)
+    .transition().delay(5)
     .attr('transform', 'translate(' + ((tooltipVal * 3) - 8.5) + ', -15)');
 
 }
+
 function switchMainIndex(cardIndex) {
   if (!cardIndex) {
     cardIndex = 0;
@@ -1504,7 +1494,7 @@ function switchMainIndex(cardIndex, direction) {
 
   var i = 0;
   for (iso3 in vals) {
-  //  console.log(iso3)
+    //  console.log(iso3)
 
     var highlightedCountry = d3.selectAll('.eez.' + iso3);
 
@@ -1512,16 +1502,16 @@ function switchMainIndex(cardIndex, direction) {
     highlightedCountry.transition()
       .delay(i * 10)
       .style('fill', function() {
-      //  console.log(rampColor(1 - vals[iso3][csvSelector] ));
+        //  console.log(rampColor(1 - vals[iso3][csvSelector] ));
         if (direction == -1) {
-          return rampColor(1 - vals[iso3][csvSelector] );
+          return rampColor(1 - vals[iso3][csvSelector]);
 
         } else {
-          return rampColor(vals[iso3][csvSelector] );
+          return rampColor(vals[iso3][csvSelector]);
 
         }
       });
-      i++;
+    i++;
   }
 
 

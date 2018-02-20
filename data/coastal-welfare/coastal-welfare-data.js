@@ -436,7 +436,7 @@ var coastalWelfareData = {
             });
 
             var incidents = mapg.append('g')
-              .classed('card-layer coastal-incidents ' + layer, true);
+              .classed('card-layer coastal-incidents invisible ' + layer, true);
 
             incidents.selectAll('circle')
               .data(vals)
