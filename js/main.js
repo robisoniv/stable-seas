@@ -1109,6 +1109,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 
               var tooltipBody = tooltip.select('.tooltip-body');
               // #### here we should work out how to not display tooltip for null values ......... though it should be upstream of this
+              tooltipBody.html(null);
               tooltipBody.html(tooltipHTML);
 
             } else {
@@ -1219,6 +1220,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
               var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(iso3);
 
               var tooltipBody = tooltip.select('.tooltip-body');
+              tooltipBody.html(null);
               tooltipBody.html(tooltipHTML);
 
             } else {

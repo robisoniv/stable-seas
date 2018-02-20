@@ -56,9 +56,7 @@ var coastalWelfareData = {
         tooltip: true,
         tooltipHTML: function (iso3) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
-          tooltipVal = (tooltipVal * 100).toFixed(2);
-
-          console.log(tooltipVal);
+          tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
           return "Coastal Welfare:<br />" + tooltipVal + " / 100";
         },
@@ -281,7 +279,10 @@ var coastalWelfareData = {
 
           var layer = 'card-' + index + '-layer';
           d3.csv(file, function(vals) {
+
+
             vals.forEach(function(d) {
+              console.log(d);
               d.lat = +d.lat;
               d.lon = +d.lon;
               d.Harbor_2ize_code = +d.Harbor_2ize_code;
@@ -305,6 +306,34 @@ var coastalWelfareData = {
               .classed('wpi-port', true)
               .style('fill', function() {
                 return rampColor(1);
+              })
+              .on('mousemove', function (d) {
+                var coords = d3.mouse(this);
+                var y = d3.event.pageY,
+                  x = d3.event.pageX;
+
+                var tooltip = d3.select('div.tooltip');
+                tooltip.style('left', (x + 20) + 'px')
+                  .style('top', (y - 20) + 'px')
+                  .classed('hidden', false)
+                  .classed('active', true)
+                  .style('text-align', 'left');
+
+
+                var portName = d.Main_port_name.toLowerCase();
+                portName = portName.replace(/\b\w/g, function(l){ return l.toUpperCase() })
+                // console.log(portName);
+                tooltip.select('h1')
+                  .text(portName);
+                //  console.log(d);
+                tooltip.select('.tooltip-body')
+                  .text(countries[d.iso3]);
+              })
+              .on('mouseleave', function () {
+                tooltip.classed('hidden', true);
+                tooltip.select('h1').text(null);
+                tooltip.select('.tooltip-body').text(null);
+                d3.select(this).moveToBack();
               });
 
           });
@@ -389,7 +418,7 @@ var coastalWelfareData = {
           [5, 20],
           [111, -41]
         ],
-        path: '../../data/ia5c3.csv',
+        path: '../../data/coastal-welfare/lethal-incidents.csv',
         highlights: [],
         tooltip: true,
         units: {
