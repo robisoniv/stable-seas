@@ -43,6 +43,8 @@ var ruleOfLawData = {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
           tooltipVal = Math.round(tooltipVal * 100);
+          updatePointer(tooltipVal);
+
           return "Rule of Law:<br />" + tooltipVal + " / 100";
 
         },
@@ -112,6 +114,7 @@ var ruleOfLawData = {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['corruptionPerceptions'];
           tooltipVal = (tooltipVal * 100);
+          updatePointer(tooltipVal);
           return "Corruption Perceptions Index:<br />" + tooltipVal + " / 100";
 
         },
@@ -201,6 +204,7 @@ var ruleOfLawData = {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['easeOfTrade'];
           tooltipVal = Math.round(tooltipVal * 100);
+          updatePointer(tooltipVal);
           return "Ease of Trade Index:<br />" + tooltipVal + " / 100";
 
         },
@@ -388,7 +392,7 @@ var ruleOfLawData = {
         tooltip: true,
         tooltipHTML: function(iso) {
 
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['easeOfTrade'];
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['inclusion'];
           tooltipVal = Math.round(tooltipVal * 100);
           return "Inclusion:<br />" + tooltipVal + " / 100";
 
@@ -512,6 +516,7 @@ var ruleOfLawData = {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
           tooltipVal = Math.round(tooltipVal * 100);
+          updatePointer(tooltipVal);
           return "Rule of Law:<br />" + tooltipVal + " / 100";
 
         },
