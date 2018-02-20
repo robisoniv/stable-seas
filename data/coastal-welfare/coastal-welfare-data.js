@@ -420,7 +420,7 @@ var coastalWelfareData = {
         ],
         path: '../../data/coastal-welfare/lethal-incidents.csv',
         highlights: [],
-        tooltip: true,
+        tooltip: false,
         units: {
           text: 'xo units',
           multiplier: 100
@@ -711,7 +711,7 @@ var coastalWelfareData = {
       tooltip: true,
       tooltipHTML: function (iso3) {
         var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
-        tooltipVal = (tooltipVal * 100).toFixed(2);
+        tooltipVal = Math.round(tooltipVal * 100);
         updatePointer(tooltipVal);
 
         return "Coastal Welfare:<br />" + tooltipVal + " / 100";
