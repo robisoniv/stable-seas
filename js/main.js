@@ -99,10 +99,10 @@ map = map.append('g')
 var mapg = d3.select('.map-g');
 
 // Add color gradient rectangle on top of map-g...
-console.log((h - 100).toString());
+//console.log((h - 100).toString());
 var translateG = 'translate(20, ' + (h - 80).toString() + ')';
 
-console.log(translateG);
+// console.log(translateG);
 var legendG = d3.select('#map-svg')
   .append('g')
   .classed('legend-g ', true)
@@ -395,9 +395,10 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
     var iaBtn = d3.select('#ia-' + issueArea);
 
     iaBtn.style('border-bottom', function() {
-        return "5px solid black";
+        return "10px solid black";
       })
-      .style('margin-bottom', '-5px');
+      .style('margin-bottom', '-10px')
+      .style('height', '60px');
 
     // Pull target card index from URL anchor:
     var hash = window.location.hash;
