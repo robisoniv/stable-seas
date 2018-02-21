@@ -1,8 +1,8 @@
 var piracyData = {
   // not prepped?
   metadata: { // Independent data source for each page
-    version: '0.0.5',
-    name: 'Piracy',
+    version: '1.0.0',
+    name: '*Piracy*',
     updates: true,
     /*
          0.0.2:
@@ -63,12 +63,22 @@ var piracyData = {
             .classed('hidden', false)
             .classed('active', true)
             .style('text-align', 'left');
-
+        //  console.log(d);
           tooltip.select('h1')
             .text(null);
 
+          var format = d3.timeParse('%m/%d/%y %h:%M');
+
+      //    console.log(Date(d.date));
+          var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          var date = new Date(Date.parse(d.date));
+          var day = days[date.getDay()];
+          var month = months[date.getMonth()];
+          var year = date.getYear() + 1900;
+          console.log(day, month, year);
           tooltip.select('.tooltip-body')
-            .text(d.category);
+            .text(d.category + ' on ' + date.getDate() + " " + month + ' ' + year);
         })
         .on('mouseleave', function () {
           d3.select(this)
@@ -551,17 +561,19 @@ var piracyData = {
           [46, 28]
         ],
         highlights: [],
-        tooltip: true,
+        tooltip: false,
         units: {
           text: 'xo units',
           multiplier: 100
         },
         load: function(index, file) { // ### *** This only should be for the first card ...
           var layer = 'card-' + index + '-layer';
-          console.log('load load load', layer);
+        //  console.log('load load load', layer);
 
           d3.select('piracy-incidents')
             .classed(layer,true);
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
           // Load up point map GIS layer - geojson
 
           // Class loaded layer with layer to enable switch() method
@@ -773,11 +785,7 @@ var piracyData = {
         ],
         //extent: [[45,24],[88,-15]],
         highlights: [],
-        tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
-        },
+        tooltip: false,
         load: function(index, file) { // ### *** This only should be for the first card ...
           var layer = 'card-' + index + '-layer';
 

@@ -1006,6 +1006,11 @@ function pulse(iso3) {
 
   d3.selectAll(a)
     .classed('pulse', true);
+
+  // d3.selectAll('.country' + a)
+  //   .style('fill', function (){
+  //     //d3.select(this).attr('')
+  //   })
 }
 
 function unpulse() {
@@ -1408,8 +1413,6 @@ function choropleth(cardIndex, order, key) {
   var i = 0;
   for (iso3 in vals) {
     var highlightedCountry = d3.selectAll('.eez.' + iso3);
-
-    // highlightedCountry.classed('highlighted', true);
     var val = vals[iso3][key];
 
     // First convert 0 - 100 range into 0 - 1.
@@ -1417,7 +1420,6 @@ function choropleth(cardIndex, order, key) {
       val = val / 100;
     }
 
-    console.log(val);
     highlightedCountry.classed('active', true)
       .transition()
       .delay(i * 10)
