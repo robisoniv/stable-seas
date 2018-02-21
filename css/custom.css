@@ -142,7 +142,7 @@ body {
 
 /* CSS for nav */
 nav {
-  box-shadow: 0px 1px 3px grey;
+  box-shadow: 0px 1px 3px black;
 }
 #nav-menu {
   margin-right: 100px;
@@ -192,17 +192,17 @@ nav {
   height: 50px;
   display: table;
   cursor: pointer;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  /* border-left: 1px solid white;
+  border-right: 1px solid white; */
 }
 
 .ia-btn:nth-child(0) {
-  border-left: 2px solid white;
+  /* border-left: 2px solid white; */
 }
 
 
 .ia-btn:nth-child(n) {
-  border-right: 2px solid white;
+  /* border-right: 2px solid white; */
 }
 
 .ia-btn:hover {
@@ -221,7 +221,7 @@ nav {
 }
 .ia-buffer {
   height: 50px;
-  background-color: #0d3a58;
+  background-color: #969696;
 }
 
 .small {

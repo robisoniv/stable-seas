@@ -70,16 +70,16 @@
 
   // Set up the tooltip:
   var tooltip = d3.select('body').append('div')
-      .attr('class', 'hidden tooltip col-lg-2');
+      .attr('class', 'hidden tooltip col-xs-2');
 
       tooltip.append('h1');
       var tooltipRow = tooltip.append('div')
         .classed('row', true);
 
       tooltipRow.append('div')
-        .classed('col-lg-6 left', true);
+        .classed('col-xs-6 left', true);
       tooltipRow.append('div')
-        .classed('col-lg-6 right', true);
+        .classed('col-xs-6 right', true);
       // tooltip.append('svg')
       //   .classed('tool', true);
 
@@ -858,8 +858,6 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
   var iso3 = regionsData[region].cards[cardIndex].map.highlights;
 
   // Lex - this is how you access the radar data
-
-
   if (cardIndex == 0) {
     var cardRadarData = [
       // region average data
@@ -875,6 +873,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
       radarData[region]
     ];
   }
+
   console.log(cardRadarData);
 
 }
