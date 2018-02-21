@@ -475,7 +475,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
       $('#ia-maritimeMixedMigration')
         .parent()
-        .attr('href', '../issue-areas/maritime-mixed-migration');
+        .attr('href', '../../issue-areas/maritime-mixed-migration');
 
       buildModals();
 
