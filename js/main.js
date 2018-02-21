@@ -248,7 +248,7 @@ d3.selectAll('.stableseas')
     })
   })
   .on('mouseout', function() {
-    unpulse();
+    unpulse(iso3);
   });
 
 // d3.selectAll('.label')
@@ -1007,15 +1007,35 @@ function pulse(iso3) {
   d3.selectAll(a)
     .classed('pulse', true);
 
+  var country = d3.selectAll('.country' + a),
+    countryVal = country.attr('data-val');
+
+  if (countryVal) {
+    country.classed('active', true)
+      .style('fill', function () {
+        console.log(countryVal);
+        return d3.interpolateLab('white',rampColor(countryVal))(0.5);
+      });
+  }
+
+
   // d3.selectAll('.country' + a)
   //   .style('fill', function (){
   //     //d3.select(this).attr('')
   //   })
 }
 
-function unpulse() {
+function unpulse(iso3) {
+
   d3.selectAll('.pulse')
     .classed('pulse', false);
+
+  if (d3.selectAll('.country.' + iso3).attr('data-val')) {
+    d3.selectAll('.country.' + iso3)
+      .attr('style', null)
+      .classed('active', false);
+  }
+
 }
 
 // Map functions
@@ -1126,6 +1146,12 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           d3.select('div.tooltip').classed('hidden', true);
           d3.select('.legend-pointer').classed('hidden', true);
         });
+        // Hide tooltip on click
+        // .on('click', function () {
+        //   var t = d3.select('.tooltip');
+        //   console.log(t.classed('tooltip'));
+        //   t.classed('hidden', !t.classed('hidden'));
+        // });
 
       // Countries
       var countries = topojson.feature(geoData, geoData.objects.countries).features,
@@ -1311,6 +1337,9 @@ function switchCard(target) {
 
   clearBGImg();
 
+  d3.selectAll('.country')
+    .attr('data-val', null);
+
   var targetCard = '#card' + target;
 
 
@@ -1430,6 +1459,9 @@ function choropleth(cardIndex, order, key) {
           return rampColor(val);
         }
       });
+
+    d3.selectAll('.country.' + iso3)
+      .attr('data-val', val);
     i++;
   }
 
