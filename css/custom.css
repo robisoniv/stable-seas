@@ -845,6 +845,11 @@ footer {
 .maritime-dispute {
   fill-opacity: 1;
   stroke-width: 3px;
+  cursor: pointer; 
+}
+
+.maritime-disputes-label {
+  pointer-events: none;
 }
 
 /* ia2c5 - International Cooperation: East Africa (IRTC lanes)*/

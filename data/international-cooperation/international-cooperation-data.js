@@ -507,13 +507,12 @@ var internationalCooperationData = {
         classes: 'card-eez-layer',
         path: '../../data/international-cooperation/maritime-border-disputes.csv',
         translate: [],
-        tooltip: true,
+        tooltip: false,
         tooltipHTML: function(iso) {
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
           // Class EEZ with card-0-layer to enable switch() method
-
 
           var layer = 'card-' + index + '-layer';
 
@@ -523,11 +522,17 @@ var internationalCooperationData = {
               d.lon = +d.lon;
             });
 
+            issueAreaData[issueArea].cards[activeCard].map.disputes = rows;
+
             var disputes = mapg.append('g')
               .classed('card-layer maritime-disputes invisible ' + layer, true);
 
             disputes.selectAll('rect')
               .data(rows).enter()
+              .append('a')
+                .attr('href', function (d, i) {
+                  return '#dispute-' + (i + 1);
+                })
               .append('rect')
               .attr('x', function(d) {
                 return projection([d.lon, d.lat])[0] - 16;
@@ -631,6 +636,86 @@ var internationalCooperationData = {
         {
           tag: 'p',
           html: 'The region primarily uses two models for maritime dispute resolution. The first relies on international legal institutions to resolve disputes. This is the model used in the aforementioned case of Ghana and Côte d’Ivoire, which is at the international Tribunal on the Law of the Sea, as well as the case of Kenya and Somalia, whose dispute is on trial at the International Court of Justice.<sup>4</sup> Alternatively, some states have chosen to shelve issues of sovereignty and establish frameworks and institutions for joint development and governance of maritime industries in the disputed areas. As both the <a class="international-cooperation inline internal-ref" data-link="6">African Union</a> and <a class="international-cooperation inline internal-ref" data-link="3">sub-regional organizations</a> turn their attention to governance of the maritime space, there may be room for both to further develop frameworks for maritime dispute resolution which facilitate cooperative economic development and security.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a id="dispute-1" class="dispute-header">Dispute 1</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-2">Dispute 2</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-3">Dispute 3</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-4">Dispute 4</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-5">Dispute 5</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-6">Dispute 6</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-7">Dispute 7</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-8">Dispute 8</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-9">Dispute 9</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-10">Dispute 10</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
         },
         {
           tag: 'links',
