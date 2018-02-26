@@ -125,16 +125,16 @@ var ruleOfLawData = {
             .classed('card-' + index + '-layer', true);
         },
         switch: function(index) {
-          choropleth(index, 1, 'corruptionPerceptions');
+          choropleth(index, 1, 'deltaCorruptionPerceptions');
         }
       }, // end of 'map' object
       els: [{
           tag: 'h1',
-          text: 'Fighting Corruption'
+          text: 'Fighting Corruption***'
         },
         {
           tag: 'caption',
-          text: 'When dishonesty and bribery undermine legal efforts'
+          text: '*** Need updated map data *** <br />When dishonesty and bribery undermine legal efforts'
         },
         // {
         //   tag: 'legend',
@@ -186,7 +186,6 @@ var ruleOfLawData = {
       ]
     }, // End of second  object in cards array
     {   // Card 2
-
       title: 'Bribes and Bureaucracy',
       menu: 'Bribes & Bureaucracy',
       metadata: {
@@ -291,213 +290,213 @@ var ruleOfLawData = {
         }
       ]
     }, // End of third object in cards array
-    {   // Card 3
-
-      title: 'Weak Sovereignty',
-      menu: 'Weak Sovereignty',
-      metadata: {
-        owner: 'Kelsey Soeth',
-        description: 'Highlight an area that is under weak state control, poor governance - maybe the Bijagós in guinea-bissau.'
-      },
-      map: {
-        path: '../../data/main.csv',
-        scale: [],
-        classes: 'card-eez-layer',
-        translate: [],
-        extent: [
-          [-20, 14],
-          [-3, 7]
-        ],
-        highlights: ['GNB'], // Guinea Bissau
-        tooltip: false,
-        load: function(index, js) {
-          var layer = 'card-' + index + '-layer';
-          // d3.select('.card-eez-layer')
-          //   .classed(layer, true)
-        },
-        switch: function(target) {
-          //  ### Need to figure out what this map will look like
-
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'Weak Sovereignty'
-        },
-        {
-          tag: 'caption',
-          text: 'Weak local control undermines regional stability'
-        },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>The Bijagos are the island group off the coast of Guinea-Bissau.</em>'
-        // },
-        {
-          tag: 'p',
-          html: 'Weak state control is a particular problem for states with offshore territories, such as Guinea-Bissau. The Bijagós Islands are a group of 88 islands and islets located in the Atlantic Ocean. Only 23 of the islands are inhabited.<sup>4</sup>'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/rule-of-law/packets_cocaine_guinea_bissau.jpg', // This should be on the Stable Seas Deck - comments
-          alt: 'Packets of seized cocaine at a police station in Guinea-Bissau. Photo: Issouf Sanogo/AFP/Getty Images',
-          caption: 'Packets of seized cocaine at a police station in Guinea-Bissau. Photo: Issouf Sanogo/AFP/Getty Images'
-        },
-        {
-          tag: 'blockquote',
-          html: '“The greatest fragility we have is the islands, many of them uninhabited, but still the drug traffickers use them as a depot and then transport [the drug] to the continent. On the other hand, even in those that are inhabited the presence of the state is weak, or in some cases nonexistent.” —Mamadu Djalo Pires, Minister of Justice, Guinea-Bissau, 2009; translated<sup>5</sup>', //### need closed brackets around the words "the drug" in this blockquote
-          link: 'http://***.org/***' // What about internal references?
-        },
-        {
-          tag: 'p',
-          html: 'Since the early 2000s, the isolated and practically autonomous islands have proven an attractive lure for Latin American drug cartels to use as a waystation for <a class="illicit-trade inline" href="../../illicit-trade#2">drug-smuggling operations</a> into Europe and Africa. The large swaths of uninhabited land are physically ideal for hiding drugs and speedboats, and the easy money of harboring drug smugglers is attractive to residents who have little to nothing to fear from a faraway authority with little capacity to enforce the law. The few patrol vessels belonging to Guinea-Bissau are not able to effectively monitor the islands due to their limited resources.<sup>6</sup>'
-        },
-        {
-          tag: 'p',
-          html: 'To weaken transnational crime in the Bijagós Islands, Guinea-Bissau will need to continue to improve its offshore communications infrastructure and allocate resources to more effectively patrol its maritime territory. While Guinea-Bissau is ultimately responsible for maintaining the rule of law over the Bijagós Islands, combatting transnational crime requires international partnerships.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>4</sup> Adam Nossiter, "Bijagós, a Tranquil Haven in a Troubled Land," <em>The New York Times</em>, 4 November 2009,',
-              url: 'http://www.nytimes.com/2009/11/08/travel/08Bijagos.html?mcubz=1'
-            },
-            {
-              org: '<sup>5</sup> S.A, RTP, Rádio e Televisão de Portugal 2009 LUSA Agência de Notícias de Portugal. “Arquipélago Dos Bijagós Utilizado Como Depósito Dos Narcotraficantes.” Accessed September 28, 2017.',
-              url: 'https://www.rtp.pt/noticias/mundo/arquipelago-dos-bijagos-utilizado-como-deposito-dos-narcotraficantes_n302245.'
-            },
-            {
-              org: '<sup>6</sup> Amy Corbin and Ashley Tindall, "Bijagós Archipelago,” Sacred Land Film Project, 1 September 2007,',
-              url: 'http://www.sacredland.org/bijagos-archipelago/'
-            },
-          ]
-        }
-      ]
-    }, // End of fourth  object in cards array
-    {   // Card 4
-
-      title: 'Gender Equality',
-      menu: 'Gender Equality',
-      metadata: {
-        owner: 'Kelsey Soeth',
-        guest: 'Our Secure Future',
-        description: 'Partner with OSF to talk about inclusion of women, perhaps in national security strategies.'
-      },
-      map: {
-        path: '../../data/main.csv',
-        scale: [],
-        classes: 'card-4-layer',
-        translate: [],
-        highlights: null,
-        tooltip: true,
-        tooltipHTML: function(iso) {
-
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['inclusion'];
-          tooltipVal = Math.round(tooltipVal * 100);
-          return "Inclusion:<br />" + tooltipVal + " / 100";
-
-        },
-        load: function(index, js) {
-          // Color map with 'some aspect of inclusion' chloropleth ...
-          d3.select('.card-eez-layer')
-            .classed('card-' + index + '-layer', true);
-        },
-        switch: function(index) {
-
-          choropleth(index, 1, 'inclusion');
-          // var target = 'card-' + index + '-layer';
-          // var vals = issueAreaData[issueArea].metadata.countryData;
-          // var valsArr = [];
-          // vals.forEach(function(val) {
-          //   valsArr.push(parseFloat(val.ia3c4));
-          // });
-          //
-          // var max = d3.max(valsArr);
-          // var min = d3.min(valsArr);
-          // var range = max - min;
-          //
-          // vals.forEach(function(d, i) {
-          //   console.log(d.ia3c4);
-          //   d3.selectAll('.eez.' + d.iso3)
-          //     .transition()
-          //     .delay(i * 10)
-          //     .style('fill', function() {
-          //       return rampColor(1 - ((d.ia3c4 - min) / range));
-          //     });
-          // });
-          //
-          // d3.select('.' + target)
-          //   .classed('invisible', false);
-
-          //setBGImg();
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'Gender Equality'
-        },
-        {
-          tag: 'caption',
-          text: 'How women\'s inclusion strengthens the rule of law'
-        },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>Lighter shades indicate more gender-inclusive political systems. <br> Source: <a href="https://www.v-dem.net/en/" target="_blank">Varieties of Democracy</a></em>'
-        // },
-        {
-          tag: 'p',
-          html: 'Equal treatment under the law regardless of ethnicity, socioeconomic status, religion, subnational region, or gender is the basis of inclusive governance. Levels of inclusion vary greatly along the sub-Saharan coastline, though many states have made notable progress in this area, especially with regard to greater inclusion of women.'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/rule-of-law/NetumboNandi-Ndaitwah_03-2015.jpg', // This should be on the Stable Seas Deck - comments
-          alt: 'Deputy Prime Minister of Namibia Netumbo Nandi-Ndaitwah shakes hands with politician Penehupifo Pohamba. Photo: Benutzer:Chtrede',
-          caption: 'Deputy Prime Minister of Namibia Netumbo Nandi-Ndaitwah shakes hands with politician Penehupifo Pohamba. Photo: Benutzer:Chtrede'
-        },
-        {
-          tag: 'p',
-          html: 'As of 2016, 19 members<sup>7</sup> of the African Union had developed and adopted National Action Plans on Women, Peace, and Security, including several of the top-ranking coastal states included in this analysis. The objective of these National Action Plans is the implementation of UN Security Council Resolution 1325, which calls for increased participation and representation of women at all levels of decision-making in an effort to empower women to participate as equals in preventing conflict and peacebuilding. These agreements do not speak specifically to the role of women in improving maritime governance, but they are an important step toward formalizing women’s inclusion.'
-        },
-        {
-          tag: 'p',
-          html: 'Several countries have improved women’s representation through new legislation and development-oriented partnerships with regional and global organizations. Senegal, for example, has been particularly successful at incorporating gender parity into its governance structures.'
-        },
-        {
-          tag: 'p',
-          html: 'Following the 2010 adoption of a new law requiring gender parity for candidates for elected positions, women’s participation in local government tripled from 15.9% in 2009 to 47.2% in 2015. Furthermore, 20% of ministerial-level positions were held by women as of 2015. According to the most recent data from the Inter-Parliamentary Union and the World Bank, The Gambia, Ghana, Guinea-Bissau, Namibia, and Nigeria have even higher proportions of women in high-level political positions.<sup>8</sup>'
-        },
-        {
-          tag: 'p',
-          html: 'As Sierra Leone emphasized in its national security strategy following its devastating civil war, poverty and a lack of social cohesion are national security threats that require civilian engagement to counter. To this end, Somalia is promoting women’s economic empowerment through a number of fisheries projects by the Food and Agriculture Organization of the United Nations (FAO). These projects include training women boat-builders and adding value to post-harvest fish catches. One community organizer working with the project notes:'
-        },
-        {
-          tag: 'blockquote',
-          html: '“It is important to have women involved in these activities since their contributions have a big influence on ensuring stronger household level financial management and food security that will directly benefit their families.”',
-          source: 'Ms. Shukri Ahmed Mohamed, community organizer with FAO Somalia<sup>9</sup',
-          link: '#'
-        },
-        {
-          tag: 'p',
-          text: 'Programs like this, when coupled with equal property and business rights for women, can greatly expand licit opportunities in coastal economies. Equal application of the rule of law across society is necessary for good governance. Whether gender equality is achieved through legislated parity or economic initiatives, the equal application of the rule of law can only help the region achieve peace and security and alleviate poverty.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>7</sup> Semiha Abdulmelik, “Implementation of the Women, Peace, and Security Agenda in Africa,” The African Union Commission, July 2016.',
-              url: 'http://www.un.org/en/africa/osaa/pdf/pubs/2016womenpeacesecurity-auc.pdf'
-            },
-            {
-              org: '<sup>8</sup> Ibid.'
-            },
-            {
-              org: '<sup>9</sup> "Promoting Gender in Fisheries Activities in Somalia," Food and Agriculture Organization of the United Nations, accessed 28 August 2017.',
-              url: 'http://www.fao.org/blogs/blue-growth-blog/promoting-gender-in-fisheries-activities-in-somalia/en/'
-            },
-          ]
-        }
-      ]
-    }, // End of fifth  object in cards array
+    // {   // Card 3
+    //
+    //   title: 'Weak Sovereignty',
+    //   menu: 'Weak Sovereignty',
+    //   metadata: {
+    //     owner: 'Kelsey Soeth',
+    //     description: 'Highlight an area that is under weak state control, poor governance - maybe the Bijagós in guinea-bissau.'
+    //   },
+    //   map: {
+    //     path: '../../data/main.csv',
+    //     scale: [],
+    //     classes: 'card-eez-layer',
+    //     translate: [],
+    //     extent: [
+    //       [-20, 14],
+    //       [-3, 7]
+    //     ],
+    //     highlights: ['GNB'], // Guinea Bissau
+    //     tooltip: false,
+    //     load: function(index, js) {
+    //       var layer = 'card-' + index + '-layer';
+    //       // d3.select('.card-eez-layer')
+    //       //   .classed(layer, true)
+    //     },
+    //     switch: function(target) {
+    //       //  ### Need to figure out what this map will look like
+    //
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'Weak Sovereignty'
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'Weak local control undermines regional stability'
+    //     },
+    //     // {
+    //     //   tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<em>The Bijagos are the island group off the coast of Guinea-Bissau.</em>'
+    //     // },
+    //     {
+    //       tag: 'p',
+    //       html: 'Weak state control is a particular problem for states with offshore territories, such as Guinea-Bissau. The Bijagós Islands are a group of 88 islands and islets located in the Atlantic Ocean. Only 23 of the islands are inhabited.<sup>4</sup>'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/rule-of-law/packets_cocaine_guinea_bissau.jpg', // This should be on the Stable Seas Deck - comments
+    //       alt: 'Packets of seized cocaine at a police station in Guinea-Bissau. Photo: Issouf Sanogo/AFP/Getty Images',
+    //       caption: 'Packets of seized cocaine at a police station in Guinea-Bissau. Photo: Issouf Sanogo/AFP/Getty Images'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“The greatest fragility we have is the islands, many of them uninhabited, but still the drug traffickers use them as a depot and then transport [the drug] to the continent. On the other hand, even in those that are inhabited the presence of the state is weak, or in some cases nonexistent.” —Mamadu Djalo Pires, Minister of Justice, Guinea-Bissau, 2009; translated<sup>5</sup>', //### need closed brackets around the words "the drug" in this blockquote
+    //       link: 'http://***.org/***' // What about internal references?
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Since the early 2000s, the isolated and practically autonomous islands have proven an attractive lure for Latin American drug cartels to use as a waystation for <a class="illicit-trade inline" href="../../illicit-trade#2">drug-smuggling operations</a> into Europe and Africa. The large swaths of uninhabited land are physically ideal for hiding drugs and speedboats, and the easy money of harboring drug smugglers is attractive to residents who have little to nothing to fear from a faraway authority with little capacity to enforce the law. The few patrol vessels belonging to Guinea-Bissau are not able to effectively monitor the islands due to their limited resources.<sup>6</sup>'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'To weaken transnational crime in the Bijagós Islands, Guinea-Bissau will need to continue to improve its offshore communications infrastructure and allocate resources to more effectively patrol its maritime territory. While Guinea-Bissau is ultimately responsible for maintaining the rule of law over the Bijagós Islands, combatting transnational crime requires international partnerships.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>4</sup> Adam Nossiter, "Bijagós, a Tranquil Haven in a Troubled Land," <em>The New York Times</em>, 4 November 2009,',
+    //           url: 'http://www.nytimes.com/2009/11/08/travel/08Bijagos.html?mcubz=1'
+    //         },
+    //         {
+    //           org: '<sup>5</sup> S.A, RTP, Rádio e Televisão de Portugal 2009 LUSA Agência de Notícias de Portugal. “Arquipélago Dos Bijagós Utilizado Como Depósito Dos Narcotraficantes.” Accessed September 28, 2017.',
+    //           url: 'https://www.rtp.pt/noticias/mundo/arquipelago-dos-bijagos-utilizado-como-deposito-dos-narcotraficantes_n302245.'
+    //         },
+    //         {
+    //           org: '<sup>6</sup> Amy Corbin and Ashley Tindall, "Bijagós Archipelago,” Sacred Land Film Project, 1 September 2007,',
+    //           url: 'http://www.sacredland.org/bijagos-archipelago/'
+    //         },
+    //       ]
+    //     }
+    //   ]
+    // }, // End of fourth  object in cards array
+    // {   // Card 4
+    //
+    //   title: 'Gender Equality',
+    //   menu: 'Gender Equality',
+    //   metadata: {
+    //     owner: 'Kelsey Soeth',
+    //     guest: 'Our Secure Future',
+    //     description: 'Partner with OSF to talk about inclusion of women, perhaps in national security strategies.'
+    //   },
+    //   map: {
+    //     path: '../../data/main.csv',
+    //     scale: [],
+    //     classes: 'card-4-layer',
+    //     translate: [],
+    //     highlights: null,
+    //     tooltip: true,
+    //     tooltipHTML: function(iso) {
+    //
+    //       var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['inclusion'];
+    //       tooltipVal = Math.round(tooltipVal * 100);
+    //       return "Inclusion:<br />" + tooltipVal + " / 100";
+    //
+    //     },
+    //     load: function(index, js) {
+    //       // Color map with 'some aspect of inclusion' chloropleth ...
+    //       d3.select('.card-eez-layer')
+    //         .classed('card-' + index + '-layer', true);
+    //     },
+    //     switch: function(index) {
+    //
+    //       choropleth(index, 1, 'inclusion');
+    //       // var target = 'card-' + index + '-layer';
+    //       // var vals = issueAreaData[issueArea].metadata.countryData;
+    //       // var valsArr = [];
+    //       // vals.forEach(function(val) {
+    //       //   valsArr.push(parseFloat(val.ia3c4));
+    //       // });
+    //       //
+    //       // var max = d3.max(valsArr);
+    //       // var min = d3.min(valsArr);
+    //       // var range = max - min;
+    //       //
+    //       // vals.forEach(function(d, i) {
+    //       //   console.log(d.ia3c4);
+    //       //   d3.selectAll('.eez.' + d.iso3)
+    //       //     .transition()
+    //       //     .delay(i * 10)
+    //       //     .style('fill', function() {
+    //       //       return rampColor(1 - ((d.ia3c4 - min) / range));
+    //       //     });
+    //       // });
+    //       //
+    //       // d3.select('.' + target)
+    //       //   .classed('invisible', false);
+    //
+    //       //setBGImg();
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'Gender Equality'
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'How women\'s inclusion strengthens the rule of law'
+    //     },
+    //     // {
+    //     //   tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<em>Lighter shades indicate more gender-inclusive political systems. <br> Source: <a href="https://www.v-dem.net/en/" target="_blank">Varieties of Democracy</a></em>'
+    //     // },
+    //     {
+    //       tag: 'p',
+    //       html: 'Equal treatment under the law regardless of ethnicity, socioeconomic status, religion, subnational region, or gender is the basis of inclusive governance. Levels of inclusion vary greatly along the sub-Saharan coastline, though many states have made notable progress in this area, especially with regard to greater inclusion of women.'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/rule-of-law/NetumboNandi-Ndaitwah_03-2015.jpg', // This should be on the Stable Seas Deck - comments
+    //       alt: 'Deputy Prime Minister of Namibia Netumbo Nandi-Ndaitwah shakes hands with politician Penehupifo Pohamba. Photo: Benutzer:Chtrede',
+    //       caption: 'Deputy Prime Minister of Namibia Netumbo Nandi-Ndaitwah shakes hands with politician Penehupifo Pohamba. Photo: Benutzer:Chtrede'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'As of 2016, 19 members<sup>7</sup> of the African Union had developed and adopted National Action Plans on Women, Peace, and Security, including several of the top-ranking coastal states included in this analysis. The objective of these National Action Plans is the implementation of UN Security Council Resolution 1325, which calls for increased participation and representation of women at all levels of decision-making in an effort to empower women to participate as equals in preventing conflict and peacebuilding. These agreements do not speak specifically to the role of women in improving maritime governance, but they are an important step toward formalizing women’s inclusion.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Several countries have improved women’s representation through new legislation and development-oriented partnerships with regional and global organizations. Senegal, for example, has been particularly successful at incorporating gender parity into its governance structures.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Following the 2010 adoption of a new law requiring gender parity for candidates for elected positions, women’s participation in local government tripled from 15.9% in 2009 to 47.2% in 2015. Furthermore, 20% of ministerial-level positions were held by women as of 2015. According to the most recent data from the Inter-Parliamentary Union and the World Bank, The Gambia, Ghana, Guinea-Bissau, Namibia, and Nigeria have even higher proportions of women in high-level political positions.<sup>8</sup>'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'As Sierra Leone emphasized in its national security strategy following its devastating civil war, poverty and a lack of social cohesion are national security threats that require civilian engagement to counter. To this end, Somalia is promoting women’s economic empowerment through a number of fisheries projects by the Food and Agriculture Organization of the United Nations (FAO). These projects include training women boat-builders and adding value to post-harvest fish catches. One community organizer working with the project notes:'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“It is important to have women involved in these activities since their contributions have a big influence on ensuring stronger household level financial management and food security that will directly benefit their families.”',
+    //       source: 'Ms. Shukri Ahmed Mohamed, community organizer with FAO Somalia<sup>9</sup',
+    //       link: '#'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       text: 'Programs like this, when coupled with equal property and business rights for women, can greatly expand licit opportunities in coastal economies. Equal application of the rule of law across society is necessary for good governance. Whether gender equality is achieved through legislated parity or economic initiatives, the equal application of the rule of law can only help the region achieve peace and security and alleviate poverty.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>7</sup> Semiha Abdulmelik, “Implementation of the Women, Peace, and Security Agenda in Africa,” The African Union Commission, July 2016.',
+    //           url: 'http://www.un.org/en/africa/osaa/pdf/pubs/2016womenpeacesecurity-auc.pdf'
+    //         },
+    //         {
+    //           org: '<sup>8</sup> Ibid.'
+    //         },
+    //         {
+    //           org: '<sup>9</sup> "Promoting Gender in Fisheries Activities in Somalia," Food and Agriculture Organization of the United Nations, accessed 28 August 2017.',
+    //           url: 'http://www.fao.org/blogs/blue-growth-blog/promoting-gender-in-fisheries-activities-in-somalia/en/'
+    //         },
+    //       ]
+    //     }
+    //   ]
+    // }, // End of fifth  object in cards array
     {   // Card 5
 
       title: 'Methodology',
