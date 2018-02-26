@@ -1024,6 +1024,10 @@ function pulse(iso3) {
   //   })
 }
 
+function classEEZ (layer) {
+  d3.select('.card-eez-layer')
+    .classed(layer, true);
+}
 function unpulse(iso3) {
 
   d3.selectAll('.pulse')
