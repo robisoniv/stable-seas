@@ -495,7 +495,306 @@ var internationalCooperationData = {
     //     //###Insert graphics, video, and blockquote
     //   ] // end of els array
     // },
+
     { // Card 2
+      title: 'Who has signed the Lome Charter?',
+      menu: 'AU Efforts',
+      metadata: {
+        owner: 'Jay Benson',
+        description: 'Move to comprehensive continental strategy.'
+      },
+      map: {
+        scale: [],
+        classes: '',
+        highlights: [],
+        tooltip: true,
+        tooltipHTML: function(iso) {
+
+          var lome = issueAreaData[issueArea].metadata.countryData[iso].lome;
+          if (lome == 1) {
+            return "Signatory of the Lome Charter";
+
+          } else {
+            return "Not a signatory of the Lome Charter";
+          }
+        },
+        load: function(index, csv) { // ### *** This only should be for the first card ...
+
+          var layer = 'card-' + index + '-layer';
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
+
+        },
+        switch: function(index) {
+          var lome = issueAreaData[issueArea].metadata.countryData;
+
+          var i = 1;
+          var card = 'lome';
+          for (iso in lome) {
+
+            if (lome[iso][card] == 1) {
+              d3.selectAll('.country.' + iso)
+                .classed('active', true)
+                .transition().delay(i * 10)
+                .style('fill', function() {
+                  return themeColor(0.5);
+                })
+                .style('stroke', function() {
+                  return themeColor(1);
+                });
+
+              d3.selectAll('.eez.' + iso)
+                .classed('active', true)
+                .transition().delay(i * 10)
+                //  .style('fill', function () {return rampColor(0.1);})
+                .style('stroke', function() {
+                  return themeColor(1);
+                })
+                .style('stroke-width', '2px');
+              i++;
+            }
+          }
+
+          d3.selectAll('.card-' + index + '-layer')
+            .classed('invisible', false);
+        }
+      },
+      els: [{
+          tag: 'h1',
+          text: 'Who has signed the Lome Charter?',
+        },
+        {
+          tag: 'caption',
+          text: 'An ambitious plan for governing African waters'
+        },
+        {
+          tag: 'legend',
+          text: 'Map Legend',
+          legendContent: '<em>Highlights represent sub-Saharan countries that have signed the African Union\'s Lomé Charter</em>.'
+        },
+        //###Insert Map: This one is tough. Do you think it would be possible to recalculate the scores in the enforcement section but based on the AU’s five regions (only 4 of which are relevant to SSA)? I think it could be interesting for getting an idea of what larger regions in SSA have the capacity to really improve governance towards AIMS
+        {
+          tag: 'p',
+          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS).<sup>14</sup>  AIMS was created with the goals of providing a framework for enhanced governance in Africa’s maritime domain, developing a platform for shared maritime policy, and facilitating the development of the <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>. Implementation of the ambitious strategy will be challenging, but the economic, security, and governance ramifications of its success have the potential to transform the African maritime space.'
+        },
+        {
+          tag: 'p',
+          html: 'Like maritime spaces around the world, the African maritime domain has been confronted with a variety of security and governance challenges from <a class="piracy inline" href="../../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../../fisheries#1">IUU Fishing</a>. AIMS was created as an effort to build a comprehensive, unified set of maritime policies designed to address these challenges and thereby develop the Blue Economy. AIMS is wide-ranging, addressing issues of economic development, environmental protection, maritime crime, disaster management, and maritime law, to name a few.<sup>15</sup>'
+        },
+        {
+          tag: 'p',
+          html: 'The document serves as a vision of shared policy. But if it is to become reality, there is still a tremendous amount of work to be done. Coordinated efforts will need to be made in the areas of:'
+        },
+        {
+          tag: 'ul',
+          rows: ['Developing political will. AIMS suggests several areas in which domestic laws regarding maritime governance should be synchronized and even puts forward the concept of a Combined Exclusive Maritime Zone of Africa. This level of integration on maritime policy will require substantial political will and the resolution of Africa’s ongoing maritime boundary disputes.', 'Data collection and research. There is a dearth of data and basic research on many maritime issues in Africa. AIMS identifies rectifying this gap as being key to the formation of empirically informed policies.', 'Infrastructure and equipment. In order to implement AIMS, states and other actors in the region will need to significantly upgrade equipment and infrastructure necessary for maritime governance such as patrol vessels, port facilities, and remote sensing systems which enhance maritime domain awareness.', 'In addition to having the necessary physical equipment, African actors will need to train a population of maritime professionals in skillsets such as fisheries management, navigation, and maritime law.']
+        },
+        {
+          tag: 'p',
+          html: 'Perhaps the best way to ensure the success of AIMS would be to establish an institutional home for efforts toward its implementation. The AU currently has no office or department focused exclusively on its maritime initiatives. The establishment of a well-resourced and politically influential entity to oversee these efforts would greatly improve AIMS implementation.'
+        },
+        {
+          tag: 'p',
+          html: 'The ramifications of full implementation of AIMS make tackling these formidable challenges worth the effort. Successful AIMS implementation has the potential to drastically improve maritime security and governance and unlock the potential of Africa’s Blue Economy.'
+        },
+        {
+          tag: 'links',
+          items: [{
+              org: '<sup>14</sup> “African Maritime Action Plan Adopted,” <em>Maritime Executive</em>, 2 February 2014.',
+              url: 'http://www.maritime-executive.com/article/African-Maritime-Action-Plan-Adopted-2014-02-02'
+            },
+            {
+              org: '<sup>15</sup> “2050 Africa’s Integrated Maritime Strategy,” African Union, 2012, Version 1.0.',
+              url: 'http://cggrps.org/wp-content/uploads/2050-AIM-Strategy_EN.pdf'
+            },
+          ]
+        },
+        //###Insert image, video, and quote
+      ] // end of els array
+    },
+    { // Card 3
+      title: 'Yaoundé Process and the Djibouti Code',
+      menu: 'Yaoundé & Djibouti',
+      metadata: {
+        owner: 'Jay Benson',
+        description: 'How the zones and regional centers are set up, describe patrols and success.'
+      },
+      map: {
+        scale: [],
+        classes: 'card-eez-layer',
+        translate: [],
+        highlights: [],
+        tooltip: true,
+        tooltipHTML: function(iso) {
+          var zone = issueAreaData[issueArea].metadata.countryData[iso];
+
+          switch (zone.yaounde) {
+            case 1:
+              return "Zone A";
+              break;
+            case 2:
+              return "Zone D";
+              break;
+            case 3:
+              return "Zone E";
+              break;
+            case 4:
+              return "Zone F";
+              break;
+            case 5:
+              return "Zone G";
+              break;
+            case 0:
+              if (zone.djibouti == 1) {
+                return "Party to Djibouti Code of Conduct"
+              }
+            default:
+              return "Neither a member of the Lome Charter nor the Djibouti Code of Conduct";
+          }
+
+
+        },
+        load: function(index, file) { // ### *** This only should be for the first card ...
+
+          var layer = 'card-' + index + '-layer';
+
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
+        },
+        switch: function(index) {
+
+          // First highlight yaounde members .country.in
+          var vals = issueAreaData[issueArea].metadata.countryData;
+          // ### Replace this with choropleth() function, once it is built to handle categorical data.
+          var i = 0;
+          for (iso in vals) {
+            var yaounde = vals[iso]['yaounde'] - 1;
+
+            if (yaounde >= 0) {
+              //  console.log(country.ia2c3);
+              d3.selectAll('.country.' + iso)
+                .classed('active', true)
+              //  .transition().delay(i * 10)
+                .style('fill', colorBrew[yaounde][0])
+                .style('stroke', colorBrew[yaounde][1]); // ### what colors??
+              //  .style('stroke', 'white');
+
+              d3.selectAll('.eez.' + iso)
+                .classed('active', true)
+              //  .transition().delay(i * 10)
+                .style('stroke', colorBrew[yaounde][0]); // ### what colors?? Also EEZ opacity is meh ...
+
+              i++;
+
+            }
+
+            var djibouti = vals[iso]['djibouti'];
+
+            if (djibouti == 1) {
+              d3.selectAll('.country.' + iso)
+                .classed('active', true)
+                .style('fill', function () {
+                  return d3.interpolateLab('white', '#fff000')(0.5);
+                });
+            //  console.log(iso);
+            }
+
+
+
+            // Set up dcoc highlights too ...
+            // if (dcoc[iso].djibouti == 1) {
+            //   d3.selectAll('.country.' + iso)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     .style('fill', function() {
+            //       return themeColor(0.5);
+            //     })
+            //     .style('stroke', function() {
+            //       return themeColor(1);
+            //     });
+            //
+            //   d3.selectAll('.eez.' + iso)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     //  .style('fill', function () {return rampColor(0.1);})
+            //     .style('stroke', function() {
+            //       return themeColor(1);
+            //     })
+            //     .style('stroke-width', '2px');
+            //     i++;
+            // }
+          }
+
+          var yaoundeInland = ['BFA', 'CAF', 'MLI', 'NER', 'TCD','BDI', 'RWA'];
+          for (var j = 0; j < yaoundeInland.length; j++ ) {
+            var iso = yaoundeInland[j];
+            d3.selectAll('.country.' +  iso)
+              .classed('active', true)
+              .style('fill', themeColor(0.3));
+
+            d3.selectAll('.label.' + iso)
+              .classed('active', true)
+              .style('fill', 'black');
+          }
+
+
+
+        }
+      },
+      els: [{
+          tag: 'h1',
+          text: 'Yaoundé Process and Djibouti Code',
+        },
+        {
+          tag: 'caption',
+          text: 'A model for regional maritime security cooperation'
+        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<p>Yaoundé Code of Conduct multi-national level information sharing zones:</p><div class="brew-00 legend-entries light">Zone A</div><br /><div class="brew-10 legend-entries light">Zone D</div><br /><div class="brew-20 legend-entries light">Zone E</div><br /><div class="brew-30 legend-entries light">Zone F</div><br /><div class="brew-40 legend-entries light">Zone G</div><br />'
+        // },
+        //###Insert Graphic: There is a graphic below called information sharing in West Africa I would like to try and use that, but I am not sure if that is possible in the web format. If not we can use that as an image within the card. In that case I think it would be good to have a map zoomed into west/central Africa with two components. First is a shaded map with ECOWAS countries in one color and ECCAS countries in another and corresponding labels. The second would be points which show the centers for the ICC, CRESMAC and CRESMAO. All country lists, labels and GPS coordinates will be in the excel file I will send.
+        {
+          tag: 'p',
+          html: 'In response to the rising threat of piracy and other forms of maritime crime, states and regional institutions in the Gulf of Guinea (GoG) developed the Yaoundé process, a series of regional arrangements which provide for enhanced cooperation in the area of maritime security.'
+        },
+        {
+          tag: 'p',
+          html: 'The central agreement of the Yaoundé process is the Yaoundé Code of Conduct (YCoC). The YCoC was agreed to in 2013 by 25 states in West and Central Africa. The agreement outlines commitments for combating maritime crime, and proposed the creation of the Interregional Coordination Centre (ICC), the institution responsible for overseeing the implementation of the objectives laid out in the YCoC. The subsequent Yaoundé Memorandum of Understanding lays out the organizational structure of the ICC.'
+        },
+        {
+          tag: 'img',
+          src: '../../assets/international-cooperation/information-sharing-in-West-Africa.png', // This should be on the Stable Seas Deck - comments
+        },
+        {
+          tag: 'p',
+          html: 'The ICC coordinates activities for the entire GoG between two regionally based centers, the Regional Center for Maritime Security in Central Africa (CRESMAC) and the Regional Center for Maritime Security in West Africa (CRESMAO). The structure is then further divided into five zones (three in CRESMAO and two in CRESMAC) of three to five states, each with its own Multinational Maritime Coordination Center (MMCC).'
+        },
+        {
+          tag: 'p',
+          html: 'The Yaoundé process takes a comprehensive approach to maritime security, identifying 12 different forms of maritime crime in the YCoC. The process provides a structure for enhancing all-around maritime security in the GoG through regional information-sharing, capacity building, and coordination of multinational maritime security operations. By improving the sharing of information regarding emerging and ongoing threats and ensuring that regional maritime security actors have the institutional and logistical arrangements in place for multinational operations, the region can better respond to the transnational nature of maritime crime.'
+        },
+        {
+          tag: 'p',
+          html: 'The Yaoundé process is still early in its development. Key steps need to be taken to build the capacity of not only state maritime security forces, but also of CRESMAC, CRESMAO, and the MMCCs. That said, the Yaoundé process has several characteristics which may make it a valuable model for the coordination of regional maritime security.'
+        },
+        {
+          tag: 'p',
+          html: 'The first aspect is its comprehensiveness. The process recognizes the interconnected nature of various forms of maritime crime and puts forward priorities for combating each. A focus on a single, high-visibility issue risks ignoring other crimes such as maritime pollution or illegal, unreported, and unregulated fishing which have significant, long-term effects on the economic and social wellbeing of a region.'
+        },
+        {
+          tag: 'p',
+          html: 'The process also makes use of existing regional institutions such as the Economic Community of West African States (ECOWAS) and the Economic Community of Central African States (ECCAS). By building upon these established institutions, the ICC can leverage existing relationships with individual states and the larger African Union system, gaining some level of access to their resources and enhancing its sustainability beyond a period of particular insecurity or the decline of an individual maritime threat.'
+        },
+        {
+          tag: 'p',
+          html: 'Though the Yaoundé process is still young and many of the functions envisioned within it still need to be developed, it may serve as a useful model for regions that have a large number of states to coordinate to refer to in confronting a variety of transnational maritime security threats.'
+        },
+        //###Insert video, quote, and image
+      ] // end of els array
+    },
+    { // Card 4
       title: 'Ongoing Disputes',
       menu: 'Ongoing Disputes',
       metadata: {
@@ -869,187 +1168,7 @@ var internationalCooperationData = {
     //     }
     //   ] // end of els array
     // },
-    { // Card 4
-      title: 'Yaoundé Process and the Djibouti Code',
-      menu: 'Yaoundé & Djibouti',
-      metadata: {
-        owner: 'Jay Benson',
-        description: 'How the zones and regional centers are set up, describe patrols and success.'
-      },
-      map: {
-        scale: [],
-        classes: 'card-eez-layer',
-        translate: [],
-        highlights: [],
-        tooltip: true,
-        tooltipHTML: function(iso) {
-          var zone = issueAreaData[issueArea].metadata.countryData[iso];
 
-          switch (zone.yaounde) {
-            case 1:
-              return "Zone A";
-              break;
-            case 2:
-              return "Zone D";
-              break;
-            case 3:
-              return "Zone E";
-              break;
-            case 4:
-              return "Zone F";
-              break;
-            case 5:
-              return "Zone G";
-              break;
-            case 0:
-              if (zone.djibouti == 1) {
-                return "Party to Djibouti Code of Conduct"
-              }
-            default:
-              return "Neither a member of the Lome Charter nor the Djibouti Code of Conduct";
-          }
-
-
-        },
-        load: function(index, file) { // ### *** This only should be for the first card ...
-
-          var layer = 'card-' + index + '-layer';
-
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-        },
-        switch: function(index) {
-
-          // First highlight yaounde members .country.in
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          var i = 0;
-          for (iso in vals) {
-            var yaounde = vals[iso]['yaounde'] - 1;
-
-            if (yaounde >= 0) {
-              //  console.log(country.ia2c3);
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-              //  .transition().delay(i * 10)
-                .style('fill', colorBrew[yaounde][0])
-                .style('stroke', colorBrew[yaounde][1]); // ### what colors??
-              //  .style('stroke', 'white');
-
-              d3.selectAll('.eez.' + iso)
-                .classed('active', true)
-              //  .transition().delay(i * 10)
-                .style('stroke', colorBrew[yaounde][0]); // ### what colors?? Also EEZ opacity is meh ...
-
-              i++;
-
-            }
-
-            var djibouti = vals[iso]['djibouti'];
-
-            if (djibouti == 1) {
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-                .style('fill', function () {
-                  return d3.interpolateLab('white', '#fff000')(0.5);
-                });
-            //  console.log(iso);
-            }
-
-
-
-            // Set up dcoc highlights too ...
-            // if (dcoc[iso].djibouti == 1) {
-            //   d3.selectAll('.country.' + iso)
-            //     .classed('active', true)
-            //     .transition().delay(i * 10)
-            //     .style('fill', function() {
-            //       return themeColor(0.5);
-            //     })
-            //     .style('stroke', function() {
-            //       return themeColor(1);
-            //     });
-            //
-            //   d3.selectAll('.eez.' + iso)
-            //     .classed('active', true)
-            //     .transition().delay(i * 10)
-            //     //  .style('fill', function () {return rampColor(0.1);})
-            //     .style('stroke', function() {
-            //       return themeColor(1);
-            //     })
-            //     .style('stroke-width', '2px');
-            //     i++;
-            // }
-          }
-
-          var yaoundeInland = ['BFA', 'CAF', 'MLI', 'NER', 'TCD','BDI', 'RWA'];
-          for (var j = 0; j < yaoundeInland.length; j++ ) {
-            var iso = yaoundeInland[j];
-            d3.selectAll('.country.' +  iso)
-              .classed('active', true)
-              .style('fill', themeColor(0.3));
-
-            d3.selectAll('.label.' + iso)
-              .classed('active', true)
-              .style('fill', 'black');
-          }
-
-
-
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'Yaoundé Process and Djibouti Code',
-        },
-        {
-          tag: 'caption',
-          text: 'A model for regional maritime security cooperation'
-        },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<p>Yaoundé Code of Conduct multi-national level information sharing zones:</p><div class="brew-00 legend-entries light">Zone A</div><br /><div class="brew-10 legend-entries light">Zone D</div><br /><div class="brew-20 legend-entries light">Zone E</div><br /><div class="brew-30 legend-entries light">Zone F</div><br /><div class="brew-40 legend-entries light">Zone G</div><br />'
-        // },
-        //###Insert Graphic: There is a graphic below called information sharing in West Africa I would like to try and use that, but I am not sure if that is possible in the web format. If not we can use that as an image within the card. In that case I think it would be good to have a map zoomed into west/central Africa with two components. First is a shaded map with ECOWAS countries in one color and ECCAS countries in another and corresponding labels. The second would be points which show the centers for the ICC, CRESMAC and CRESMAO. All country lists, labels and GPS coordinates will be in the excel file I will send.
-        {
-          tag: 'p',
-          html: 'In response to the rising threat of piracy and other forms of maritime crime, states and regional institutions in the Gulf of Guinea (GoG) developed the Yaoundé process, a series of regional arrangements which provide for enhanced cooperation in the area of maritime security.'
-        },
-        {
-          tag: 'p',
-          html: 'The central agreement of the Yaoundé process is the Yaoundé Code of Conduct (YCoC). The YCoC was agreed to in 2013 by 25 states in West and Central Africa. The agreement outlines commitments for combating maritime crime, and proposed the creation of the Interregional Coordination Centre (ICC), the institution responsible for overseeing the implementation of the objectives laid out in the YCoC. The subsequent Yaoundé Memorandum of Understanding lays out the organizational structure of the ICC.'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/international-cooperation/information-sharing-in-West-Africa.png', // This should be on the Stable Seas Deck - comments
-        },
-        {
-          tag: 'p',
-          html: 'The ICC coordinates activities for the entire GoG between two regionally based centers, the Regional Center for Maritime Security in Central Africa (CRESMAC) and the Regional Center for Maritime Security in West Africa (CRESMAO). The structure is then further divided into five zones (three in CRESMAO and two in CRESMAC) of three to five states, each with its own Multinational Maritime Coordination Center (MMCC).'
-        },
-        {
-          tag: 'p',
-          html: 'The Yaoundé process takes a comprehensive approach to maritime security, identifying 12 different forms of maritime crime in the YCoC. The process provides a structure for enhancing all-around maritime security in the GoG through regional information-sharing, capacity building, and coordination of multinational maritime security operations. By improving the sharing of information regarding emerging and ongoing threats and ensuring that regional maritime security actors have the institutional and logistical arrangements in place for multinational operations, the region can better respond to the transnational nature of maritime crime.'
-        },
-        {
-          tag: 'p',
-          html: 'The Yaoundé process is still early in its development. Key steps need to be taken to build the capacity of not only state maritime security forces, but also of CRESMAC, CRESMAO, and the MMCCs. That said, the Yaoundé process has several characteristics which may make it a valuable model for the coordination of regional maritime security.'
-        },
-        {
-          tag: 'p',
-          html: 'The first aspect is its comprehensiveness. The process recognizes the interconnected nature of various forms of maritime crime and puts forward priorities for combating each. A focus on a single, high-visibility issue risks ignoring other crimes such as maritime pollution or illegal, unreported, and unregulated fishing which have significant, long-term effects on the economic and social wellbeing of a region.'
-        },
-        {
-          tag: 'p',
-          html: 'The process also makes use of existing regional institutions such as the Economic Community of West African States (ECOWAS) and the Economic Community of Central African States (ECCAS). By building upon these established institutions, the ICC can leverage existing relationships with individual states and the larger African Union system, gaining some level of access to their resources and enhancing its sustainability beyond a period of particular insecurity or the decline of an individual maritime threat.'
-        },
-        {
-          tag: 'p',
-          html: 'Though the Yaoundé process is still young and many of the functions envisioned within it still need to be developed, it may serve as a useful model for regions that have a large number of states to coordinate to refer to in confronting a variety of transnational maritime security threats.'
-        },
-        //###Insert video, quote, and image
-      ] // end of els array
-    },
     // { // Card 5
     //   title: 'East Africa',
     //   menu: 'East Africa',
@@ -1305,122 +1424,7 @@ var internationalCooperationData = {
     //     //###Insert Map and Graphics
     //   ] // end of els array
     // },
-    { // Card 7
-      title: 'African Union Efforts',
-      menu: 'AU Efforts',
-      metadata: {
-        owner: 'Jay Benson',
-        description: 'Move to comprehensive continental strategy.'
-      },
-      map: {
-        scale: [],
-        classes: '',
-        highlights: [],
-        tooltip: true,
-        tooltipHTML: function(iso) {
 
-          var lome = issueAreaData[issueArea].metadata.countryData[iso].lome;
-          if (lome == 1) {
-            return "Signatory of the Lome Charter";
-
-          } else {
-            return "Not a signatory of the Lome Charter";
-          }
-        },
-        load: function(index, csv) { // ### *** This only should be for the first card ...
-
-          var layer = 'card-' + index + '-layer';
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-
-        },
-        switch: function(index) {
-          var lome = issueAreaData[issueArea].metadata.countryData;
-
-          var i = 1;
-          var card = 'lome';
-          for (iso in lome) {
-
-            if (lome[iso][card] == 1) {
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('fill', function() {
-                  return themeColor(0.5);
-                })
-                .style('stroke', function() {
-                  return themeColor(1);
-                });
-
-              d3.selectAll('.eez.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                //  .style('fill', function () {return rampColor(0.1);})
-                .style('stroke', function() {
-                  return themeColor(1);
-                })
-                .style('stroke-width', '2px');
-              i++;
-            }
-          }
-
-          d3.selectAll('.card-' + index + '-layer')
-            .classed('invisible', false);
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'African Union Efforts',
-        },
-        {
-          tag: 'caption',
-          text: 'An ambitious plan for governing African waters'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Highlights represent sub-Saharan countries that have signed the African Union\'s Lomé Charter</em>.'
-        },
-        //###Insert Map: This one is tough. Do you think it would be possible to recalculate the scores in the enforcement section but based on the AU’s five regions (only 4 of which are relevant to SSA)? I think it could be interesting for getting an idea of what larger regions in SSA have the capacity to really improve governance towards AIMS
-        {
-          tag: 'p',
-          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS).<sup>14</sup>  AIMS was created with the goals of providing a framework for enhanced governance in Africa’s maritime domain, developing a platform for shared maritime policy, and facilitating the development of the <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>. Implementation of the ambitious strategy will be challenging, but the economic, security, and governance ramifications of its success have the potential to transform the African maritime space.'
-        },
-        {
-          tag: 'p',
-          html: 'Like maritime spaces around the world, the African maritime domain has been confronted with a variety of security and governance challenges from <a class="piracy inline" href="../../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../../fisheries#1">IUU Fishing</a>. AIMS was created as an effort to build a comprehensive, unified set of maritime policies designed to address these challenges and thereby develop the Blue Economy. AIMS is wide-ranging, addressing issues of economic development, environmental protection, maritime crime, disaster management, and maritime law, to name a few.<sup>15</sup>'
-        },
-        {
-          tag: 'p',
-          html: 'The document serves as a vision of shared policy. But if it is to become reality, there is still a tremendous amount of work to be done. Coordinated efforts will need to be made in the areas of:'
-        },
-        {
-          tag: 'ul',
-          rows: ['Developing political will. AIMS suggests several areas in which domestic laws regarding maritime governance should be synchronized and even puts forward the concept of a Combined Exclusive Maritime Zone of Africa. This level of integration on maritime policy will require substantial political will and the resolution of Africa’s ongoing maritime boundary disputes.', 'Data collection and research. There is a dearth of data and basic research on many maritime issues in Africa. AIMS identifies rectifying this gap as being key to the formation of empirically informed policies.', 'Infrastructure and equipment. In order to implement AIMS, states and other actors in the region will need to significantly upgrade equipment and infrastructure necessary for maritime governance such as patrol vessels, port facilities, and remote sensing systems which enhance maritime domain awareness.', 'In addition to having the necessary physical equipment, African actors will need to train a population of maritime professionals in skillsets such as fisheries management, navigation, and maritime law.']
-        },
-        {
-          tag: 'p',
-          html: 'Perhaps the best way to ensure the success of AIMS would be to establish an institutional home for efforts toward its implementation. The AU currently has no office or department focused exclusively on its maritime initiatives. The establishment of a well-resourced and politically influential entity to oversee these efforts would greatly improve AIMS implementation.'
-        },
-        {
-          tag: 'p',
-          html: 'The ramifications of full implementation of AIMS make tackling these formidable challenges worth the effort. Successful AIMS implementation has the potential to drastically improve maritime security and governance and unlock the potential of Africa’s Blue Economy.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>14</sup> “African Maritime Action Plan Adopted,” <em>Maritime Executive</em>, 2 February 2014.',
-              url: 'http://www.maritime-executive.com/article/African-Maritime-Action-Plan-Adopted-2014-02-02'
-            },
-            {
-              org: '<sup>15</sup> “2050 Africa’s Integrated Maritime Strategy,” African Union, 2012, Version 1.0.',
-              url: 'http://cggrps.org/wp-content/uploads/2050-AIM-Strategy_EN.pdf'
-            },
-          ]
-        },
-        //###Insert image, video, and quote
-      ] // end of els array
-    },
     { // Card 7
       title: 'Methodology',
       menu: 'Methodology',
