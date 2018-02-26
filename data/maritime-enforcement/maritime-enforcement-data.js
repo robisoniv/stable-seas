@@ -1,6 +1,6 @@
 var maritimeEnforcementData = {
   metadata: { // Independent data source for each page
-    version: '0.0.1',
+    version: '1.0.0',
     name: 'Maritime Enforcement',
     updates: true,
     /*
@@ -22,28 +22,28 @@ var maritimeEnforcementData = {
     description: 'In states where maritime enforcement is employed, smugglers and traffickers cannot operate freely and fisheries laws are enforced.'
   },
   load: function(csv, callback) {
-    var md = issueAreaData[issueArea].metadata;
-
-    // Load index value data from CSV - page-wide data!
-    d3.csv(csv, function(vals) {
-      vals.forEach(function(d) {
-        d.ia4c0 = +d.ia4c0;
-        d.ia4c1 = +d.ia4c1;
-        d.ia4c4 = +d.ia4c4;
-      });
-      issueAreaData[issueArea].metadata.countryData = vals; // Master data load - csv file into 'data' object
-      callback('maritimeEnforcement load csv callback');
-    });
-
-    d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-
-      issueAreaData[issueArea].metadata.indexData = vals;
-
-    });
+    loadIAcsv(csv, callback);
+    // var md = issueAreaData[issueArea].metadata;
+    //
+    // // Load index value data from CSV - page-wide data!
+    // d3.csv(csv, function(vals) {
+    //   vals.forEach(function(d) {
+    //     d.ia4c0 = +d.ia4c0;
+    //     d.ia4c1 = +d.ia4c1;
+    //     d.ia4c4 = +d.ia4c4;
+    //   });
+    //   issueAreaData[issueArea].metadata.countryData = vals; // Master data load - csv file into 'data' object
+    //   callback('maritimeEnforcement load csv callback');
+    // });
+    //
+    // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+    //
+    //   issueAreaData[issueArea].metadata.indexData = vals;
+    //
+    // });
   },
   cards: [
-    // Card 0
-    {
+    { // Card 0
       title: 'Maritime Enforcement',
       menu: 'Maritime Enforcement',
       metadata: {
@@ -178,8 +178,8 @@ var maritimeEnforcementData = {
 
       ] // end of els array
     }, // End of first element of cards object
-    // Card 1
-    // { title: 'Investing in Capacity',
+    // {     // Card deprecatedd
+    //  title: 'Investing in Capacity',
     //   menu: 'Investing in Capacity',
     //   metadata: {
     //     owner: 'Jay Benson',
@@ -250,7 +250,7 @@ var maritimeEnforcementData = {
     //]
     //}, // End of second  object in cards array
     // Card 2
-    {
+    { // Card 1
       title: 'Maritime Domain Awareness',
       menu: 'Maritime Domain Awareness',
       metadata: {
@@ -397,132 +397,131 @@ var maritimeEnforcementData = {
         // }
       ]
     }, // End of third object in cards array
-    // Card 2
-    {
-      title: 'Toxic Waste Dumping',
-      menu: 'Toxic Waste Dumping',
-      metadata: {
-        owner: 'Sarah Glaser',
-        description: 'Electronics dumping as an example of lack of MDA, and debunking assumptions in Horn of Africa.'
-      },
-      map: {
-        path: '../../data/maritime-enforcement/toxic-dumping-locations.csv',
-        scale: [],
-        classes: '',
-        translate: [],
-        load: function(index, csv) {
-          var layer = 'card-' + index + '-layer';
-
-          d3.csv(csv, function(locations) {
-            locations.forEach(function(row) {
-              row.lat = +row.lat;
-              row.lon = +row.lon;
-            })
-
-            var locg = mapg.append('g')
-              .classed('card-layer toxic-dumping-locations invisible ' + layer, true);
-
-            locg.selectAll('circle')
-              .data(locations)
-              .enter()
-              .append('circle')
-              .attr('cx', function(d) {
-                return projection([d.lon, d.lat])[0];
-              })
-              .attr('cy', function(d) {
-                return projection([d.lon, d.lat])[1];
-              })
-              .attr('r', '8px')
-              .classed('toxic-dumping-incident', true)
-              .style('fill', function() {
-                return rampColor(1);
-              });
-
-          })
-        },
-        switch: function(target) {
-          var layer = 'card-' + target + '-layer';
-          d3.select(layer)
-            .classed('invisible', false);
-
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'Toxic Waste Dumping'
-        },
-        {
-          tag: 'caption',
-          text: 'Not pervasive but significant'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: 'Points on the map represent potential coastal sources of toxic contamination of the maritime environment. Sites are designated as such due to the presence of agrofuel and biomass energy plants, E-waste, waste importation zones, chemical industries, toxic waste treatment, uncontrolled dump sites, mineral processing, mine tailings, and thermal power plants. <br>Source: <a href="https://ejatlas.org/" target="_blank">Environmental Justice Atlas</a>'
-        },
-        {
-          tag: 'p',
-          text: 'The Yaoundé Code of Conduct, the Djibouti Code of Conduct, and the Lomé Charter recognize illegal dumping of toxic waste as part of transnational organized crime in the maritime domain. A lack of comprehensive numbers, and the illegal nature of the problem, obscures understanding of how widespread this problem really is.'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/maritime-enforcement/mauritania-ship-graveyard.jpg',
-          alt: '.',
-          caption: 'Ship graveyard in Mauritania. Photo credit: Sebastián Losada.'
-        },
-        {
-          tag: 'p',
-          text: 'In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high- profile illegal dumping cases:'
-        },
-        {
-          tag: 'p',
-          html: 'There are few confirmed cases of dumping. In 2006, a ship flagged in Panama but chartered by a multinational company docked in the Port of Abidjan, C&ocirc;te d\'Ivoire, carrying 500 tons of hazardous waste, which was later dumped into the water illegally. Ultimately, 100,000 people sought medical attention, the company responsible settled a lawsuit, and several Ivoirian officials were forced to resign.<sup>6</sup>'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/maritime-enforcement/toxic-waste-protesters.png',
-          caption: 'Protesters of toxic waste following the incident when an international oil-trader dumped 500 tons of toxic waste off the coast of Côte d’Ivoire. Photo credit: Issouf Sanogo/AFP/Getty Images.'
-        }, //###Make sure image is in
-        {
-          tag: 'p',
-          html: 'Dumping in Somalia has long been alleged but difficult to prove. A series of reports in the 1990s suggested  inland toxic waste dumping by Italian and other European groups in Somalia was widespread. Several reports suggested waste was also dumped at sea; after the 2004 Indian Ocean tsunami, waste canisters washed up on Somali beaches. The Environmental Justice Atlas reports the appearance of rashes, fish kills, groundwater pollution, and even deaths as a result of this dumping. But to date, widespread dumping in Somali waters has not been confirmed.<sup>7</sup>'
-        },
-        {
-          tag: 'p',
-          html: 'In Africa, illegal dumping of toxic waste threatens public health, water quality, and environmental justice. Developed nations exploit the less stringent environmental regulations in African countries and weaknesses in maritime domain awareness. As a result, toxic waste—including e-waste from electronics, a significant fraction of which originates in Western nations—enters African nations legally and illegally.'
-        },
-        {
-          tag: 'h4',
-          text: 'Legal Efforts'
-        },
-        {
-          tag: 'p',
-          html: 'Three international legal instruments attempt to control the movement of hazardous waste across national boundaries. The London Convention of 1972 permanently banned the dumping of radioactive and industrial waste in the world’s oceans. The Basel Convention of 1989 aimed to reduce the generation of hazardous waste and encourage environmentally sound disposal and treatment. In 1991, twelve African nations negotiated the Bamako Convention, which addressed weaknesses in the Basel Convention and explicitly banned importation of hazardous and radioactive waste. Regardless, hundreds of thousands of tons of waste are shipped to Africa each year, some of which ends up illegally dumped at sea or in ports.'
-        },
-        {
-          tag: 'p',
-          html: 'Ultimately, waste dumping and importation in Africa appears to be largely a terrestrial problem. Recent toxic leakage from ship graveyards in West Africa<sup>8</sup> is cause for concern, but overall the threat posed is believed to be neither systemic nor widespread.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>6</sup> BBC, “Trafigura Found Guilty of Exporting Toxic Waste,” 23 July 2010,',
-              url: 'http://www.bbc.com/news/world-africa-10735255'
-            },
-            {
-              org: '<sup>7</sup> Chris Milton, “Somalia Used as Toxic Dumping Ground,” <em>The Ecologist</em>, 1 March 2009,',
-              url: 'http://www.theecologist.org/News/news_analysis/268581/somalia_used_as_toxic_dumping_ground.html'
-            },
-            {
-              org: '<sup>8</sup> Daniel Cressey, “West Africa’s Toxic Problem,” <em>Nature</em>, 20 January 2011,',
-              url: 'http://www.nature.com/news/2011/110120/full/news.2011.35.html'
-            },
-          ]
-        }
-      ]
-    }, // End of fourth  object in cards array
+    // { // Card deprecated
+    //   title: 'Toxic Waste Dumping',
+    //   menu: 'Toxic Waste Dumping',
+    //   metadata: {
+    //     owner: 'Sarah Glaser',
+    //     description: 'Electronics dumping as an example of lack of MDA, and debunking assumptions in Horn of Africa.'
+    //   },
+    //   map: {
+    //     path: '../../data/maritime-enforcement/toxic-dumping-locations.csv',
+    //     scale: [],
+    //     classes: '',
+    //     translate: [],
+    //     load: function(index, csv) {
+    //       var layer = 'card-' + index + '-layer';
+    //
+    //       d3.csv(csv, function(locations) {
+    //         locations.forEach(function(row) {
+    //           row.lat = +row.lat;
+    //           row.lon = +row.lon;
+    //         })
+    //
+    //         var locg = mapg.append('g')
+    //           .classed('card-layer toxic-dumping-locations invisible ' + layer, true);
+    //
+    //         locg.selectAll('circle')
+    //           .data(locations)
+    //           .enter()
+    //           .append('circle')
+    //           .attr('cx', function(d) {
+    //             return projection([d.lon, d.lat])[0];
+    //           })
+    //           .attr('cy', function(d) {
+    //             return projection([d.lon, d.lat])[1];
+    //           })
+    //           .attr('r', '8px')
+    //           .classed('toxic-dumping-incident', true)
+    //           .style('fill', function() {
+    //             return rampColor(1);
+    //           });
+    //
+    //       })
+    //     },
+    //     switch: function(target) {
+    //       var layer = 'card-' + target + '-layer';
+    //       d3.select(layer)
+    //         .classed('invisible', false);
+    //
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'Toxic Waste Dumping'
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'Not pervasive but significant'
+    //     },
+    //     {
+    //       tag: 'legend',
+    //       text: 'Map Legend',
+    //       legendContent: 'Points on the map represent potential coastal sources of toxic contamination of the maritime environment. Sites are designated as such due to the presence of agrofuel and biomass energy plants, E-waste, waste importation zones, chemical industries, toxic waste treatment, uncontrolled dump sites, mineral processing, mine tailings, and thermal power plants. <br>Source: <a href="https://ejatlas.org/" target="_blank">Environmental Justice Atlas</a>'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       text: 'The Yaoundé Code of Conduct, the Djibouti Code of Conduct, and the Lomé Charter recognize illegal dumping of toxic waste as part of transnational organized crime in the maritime domain. A lack of comprehensive numbers, and the illegal nature of the problem, obscures understanding of how widespread this problem really is.'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/maritime-enforcement/mauritania-ship-graveyard.jpg',
+    //       alt: '.',
+    //       caption: 'Ship graveyard in Mauritania. Photo credit: Sebastián Losada.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       text: 'In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high- profile illegal dumping cases:'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'There are few confirmed cases of dumping. In 2006, a ship flagged in Panama but chartered by a multinational company docked in the Port of Abidjan, C&ocirc;te d\'Ivoire, carrying 500 tons of hazardous waste, which was later dumped into the water illegally. Ultimately, 100,000 people sought medical attention, the company responsible settled a lawsuit, and several Ivoirian officials were forced to resign.<sup>6</sup>'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/maritime-enforcement/toxic-waste-protesters.png',
+    //       caption: 'Protesters of toxic waste following the incident when an international oil-trader dumped 500 tons of toxic waste off the coast of Côte d’Ivoire. Photo credit: Issouf Sanogo/AFP/Getty Images.'
+    //     }, //###Make sure image is in
+    //     {
+    //       tag: 'p',
+    //       html: 'Dumping in Somalia has long been alleged but difficult to prove. A series of reports in the 1990s suggested  inland toxic waste dumping by Italian and other European groups in Somalia was widespread. Several reports suggested waste was also dumped at sea; after the 2004 Indian Ocean tsunami, waste canisters washed up on Somali beaches. The Environmental Justice Atlas reports the appearance of rashes, fish kills, groundwater pollution, and even deaths as a result of this dumping. But to date, widespread dumping in Somali waters has not been confirmed.<sup>7</sup>'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'In Africa, illegal dumping of toxic waste threatens public health, water quality, and environmental justice. Developed nations exploit the less stringent environmental regulations in African countries and weaknesses in maritime domain awareness. As a result, toxic waste—including e-waste from electronics, a significant fraction of which originates in Western nations—enters African nations legally and illegally.'
+    //     },
+    //     {
+    //       tag: 'h4',
+    //       text: 'Legal Efforts'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Three international legal instruments attempt to control the movement of hazardous waste across national boundaries. The London Convention of 1972 permanently banned the dumping of radioactive and industrial waste in the world’s oceans. The Basel Convention of 1989 aimed to reduce the generation of hazardous waste and encourage environmentally sound disposal and treatment. In 1991, twelve African nations negotiated the Bamako Convention, which addressed weaknesses in the Basel Convention and explicitly banned importation of hazardous and radioactive waste. Regardless, hundreds of thousands of tons of waste are shipped to Africa each year, some of which ends up illegally dumped at sea or in ports.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Ultimately, waste dumping and importation in Africa appears to be largely a terrestrial problem. Recent toxic leakage from ship graveyards in West Africa<sup>8</sup> is cause for concern, but overall the threat posed is believed to be neither systemic nor widespread.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>6</sup> BBC, “Trafigura Found Guilty of Exporting Toxic Waste,” 23 July 2010,',
+    //           url: 'http://www.bbc.com/news/world-africa-10735255'
+    //         },
+    //         {
+    //           org: '<sup>7</sup> Chris Milton, “Somalia Used as Toxic Dumping Ground,” <em>The Ecologist</em>, 1 March 2009,',
+    //           url: 'http://www.theecologist.org/News/news_analysis/268581/somalia_used_as_toxic_dumping_ground.html'
+    //         },
+    //         {
+    //           org: '<sup>8</sup> Daniel Cressey, “West Africa’s Toxic Problem,” <em>Nature</em>, 20 January 2011,',
+    //           url: 'http://www.nature.com/news/2011/110120/full/news.2011.35.html'
+    //         },
+    //       ]
+    //     }
+    //   ]
+    // }, // End of fourth  object in cards array
     // Card 3
-    {
+    { // Card 2
       title: 'Coast Guards',
       menu: 'Coast Guards',
       metadata: {
@@ -536,58 +535,58 @@ var maritimeEnforcementData = {
         translate: [],
         highlights: null,
         load: function(index, file) {
-          // Color map with 'some aspect of inclusion' chloropleth ...
-          d3.select('.card-eez-layer')
-            .classed('card-' + index + '-layer', true);
-
-
+          // Color map with vessel score chloropleth ...
+          var layer = 'card-' + index + '-layer';
+          classEEZ(layer);
         },
         switch: function(index) {
-          var layer = 'card-' + index + '-layer';
-          // Class countries per .xls 4.5 sheet
 
-          var navies = ['CIV', 'ZAF', 'TGO', 'AGO', 'BEN', 'COG', 'COD', 'GNQ', 'GAB', 'GMB', 'GIN', 'GNB', 'MDG', 'MOZ', 'NAM', 'SLE', 'TZA'],
-            lawEnf = ['CPV', 'LBR', 'MUS', 'SYC', 'SOM'], // ### what about the small islands? Can hardly see them colored in ...
-            both = ['CMR', 'GHA', 'KEN', 'NGA', 'DJI', 'SEN'];
-
-          navies.forEach(function(country, i) {
-            d3.selectAll('.country.' + country)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', colorBrew[0][0])
-              .style('stroke', colorBrew[0][1]);
-
-            d3.selectAll('.eez.' + country)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('stroke', colorBrew[0][1]);
-          });
-
-          lawEnf.forEach(function(country, i) {
-            d3.selectAll('.country.' + country)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', colorBrew[2][0])
-              .style('stroke', colorBrew[2][1]);
-
-            d3.selectAll('.eez.' + country)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('stroke', colorBrew[2][1]);
-          });
-
-          both.forEach(function(country, i) {
-            d3.selectAll('.country.' + country)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', colorBrew[4][0])
-              .style('stroke', colorBrew[4][1]);
-
-            d3.selectAll('.eez.' + country)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('stroke', colorBrew[4][1]);
-          });
+          choropleth(/*params*/);
+          // var layer = 'card-' + index + '-layer';
+          // // Class countries per .xls 4.5 sheet
+          //
+          // var navies = ['CIV', 'ZAF', 'TGO', 'AGO', 'BEN', 'COG', 'COD', 'GNQ', 'GAB', 'GMB', 'GIN', 'GNB', 'MDG', 'MOZ', 'NAM', 'SLE', 'TZA'],
+          //   lawEnf = ['CPV', 'LBR', 'MUS', 'SYC', 'SOM'], // ### what about the small islands? Can hardly see them colored in ...
+          //   both = ['CMR', 'GHA', 'KEN', 'NGA', 'DJI', 'SEN'];
+          //
+          // navies.forEach(function(country, i) {
+          //   d3.selectAll('.country.' + country)
+          //     .classed('active', true)
+          //     .transition().delay(i * 10)
+          //     .style('fill', colorBrew[0][0])
+          //     .style('stroke', colorBrew[0][1]);
+          //
+          //   d3.selectAll('.eez.' + country)
+          //     .classed('active', true)
+          //     .transition().delay(i * 10)
+          //     .style('stroke', colorBrew[0][1]);
+          // });
+          //
+          // lawEnf.forEach(function(country, i) {
+          //   d3.selectAll('.country.' + country)
+          //     .classed('active', true)
+          //     .transition().delay(i * 10)
+          //     .style('fill', colorBrew[2][0])
+          //     .style('stroke', colorBrew[2][1]);
+          //
+          //   d3.selectAll('.eez.' + country)
+          //     .classed('active', true)
+          //     .transition().delay(i * 10)
+          //     .style('stroke', colorBrew[2][1]);
+          // });
+          //
+          // both.forEach(function(country, i) {
+          //   d3.selectAll('.country.' + country)
+          //     .classed('active', true)
+          //     .transition().delay(i * 10)
+          //     .style('fill', colorBrew[4][0])
+          //     .style('stroke', colorBrew[4][1]);
+          //
+          //   d3.selectAll('.eez.' + country)
+          //     .classed('active', true)
+          //     .transition().delay(i * 10)
+          //     .style('stroke', colorBrew[4][1]);
+          // });
         }
       },
       els: [{
@@ -665,369 +664,369 @@ var maritimeEnforcementData = {
         }
       ]
     }, // End of fifth  object in cards array
-    // Card 4
-    {
-      title: 'The Role of Multinational Exercises',
-      menu: 'The Role of Multinational Exercises',
-      metadata: {
-        owner: 'Emina Sadic',
-        description: 'What kinds of exercises are being used to increase capacity?'
-      },
-      map: {
-        scale: [],
-        classes: 'card-5-layer',
-        translate: [],
-        highlights: null,
-        load: function(index, file) { // ### *** This only should be for the first card ...
-          // Class GIS layer with layer.
-          var layer = 'card-' + index + '-layer';
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-        },
-        switch: function(index) {
-          // ### Still need to work out how to represent countries that are in multiple lists!
-          var cutlass = ['DJI', 'MUS', 'MOZ', 'COM', 'KEN', 'MDG', 'SYC', 'UGA', 'USA'],
-            obangame = ['AGO', 'CPV', 'COG', 'COD', 'CIV', 'GNQ', 'GIN', 'GNB', 'LBR', 'NAM', 'STP', 'SEN',
-              'SLE', 'BEN', 'CMR', 'GAB', 'GHA', 'NGA', 'TGO', 'USA'
-            ],
-            nemo = ['FRA', 'BEN', 'CMR', 'GAB', 'GHA', 'NGA', 'TGO']; // ### lots of overlap with obangame!
-
-          cutlass.forEach(function(member, i) {
-            d3.selectAll('.country.' + member)
-              .classed('active', true) // flag so style gets cleared...!
-              .transition().delay(i * 10)
-              .style('fill', colorBrew[0][0])
-              .style('stroke', colorBrew[0][1]);
-
-
-            d3.selectAll('.eez.' + member)
-              .classed('active', true) // flag so style gets cleared...!
-              .transition().delay(i * 10)
-              .style('stroke', colorBrew[0][1]);
-          });
-
-          obangame.forEach(function(member, i) {
-            d3.selectAll('.country.' + member)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', colorBrew[1][0])
-              .style('stroke', colorBrew[1][1]);
-
-
-            d3.selectAll('.eez.' + member)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('stroke', colorBrew[1][1]);
-          });
-
-          nemo.forEach(function(member, i) {
-            d3.selectAll('.country.' + member)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', colorBrew[2][0])
-              .style('stroke', colorBrew[2][1]);
-
-
-            d3.selectAll('.eez.' + member)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('stroke', colorBrew[2][1]);
-          });
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'The Role of Multinational Exercises'
-        },
-        //###NEED THUMBNAILS FOR BOTH VIDEOS
-        {
-          tag: 'caption',
-          text: 'Building capacity and interoperability'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<div class="brew-00 legend-entries">Cutlass Express participants.</div><br /><div class="brew-10 legend-entries">Obangame Express participants.</div><br /><div class="brew-20 legend-entries">Nemo & Obangame participants.</div><br />'
-        },
-        {
-          tag: 'p',
-          text: 'Maritime security threats require cooperation and coordination among African navies and international actors. Coastal states are able to enhance their capacity-building efforts and interoperability measures through international exercises conducted on both coasts of Africa.'
-        },
-        {
-          tag: 'blockquote',
-          html: '“We know that the issues of maritime security involves a lot of people and a lot of issues across many agencies in each of our governments. So, there has to be cooperation within our governments as well as cooperation between our count[r]ies. Exercises like this are extremely important to make that possible.”',
-          source: 'Andrew Haviland, Charge d\' Affaires<br />U.S. Embassy Côte  d\'Ivoire<sup>14</sup>',
-          link: 'http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
-        },
-        {
-          tag: 'p',
-          html: 'Falling under the umbrella of the African Partnership Station, East Africa’s Cutlass Express and West Africa’s Obangame Express are annual regionally focused exercises facilitated by the U.S. Naval Forces Europe-Africa/U.S. 6th Fleet.<sup>15</sup> Obangame Express is designed to improve regional cooperation, maritime domain awareness, information-sharing practices, and tactical interdiction expertise among signatories of the Yaoundé Code of Conduct.<sup>16</sup> Collaboration with international actors allows these regional forces to learn how to counter illicit sea-based activity.<sup>17</sup>'
-        },
-        {
-          tag: 'video',
-          videoId: 'vkFQOqaxjP8',
-          thumb: '../../assets/maritime-enforcement/multinational_cooperation_video.jpg'
-        },
-        {
-          tag: 'caption',
-          html: 'American and Senegalese sailors conduct visit, board, search, and seizure training aboard Senegalese naval vessel PHM Njambuur during Obangame Express 2016.'
-        },
-        {
-          tag: 'p',
-          html: 'Further efforts to assist West African countries in their fight against <a class="piracy inline" href="../../piracy">piracy</a> and <a class="fisheries inline" href="../../fisheries">IUU fishing </a> include Exercise NEMO, a French initiative. The exercise seeks to strengthen a 2013 agreement between the Economic Community of Central African States (ECCAS) and the Economic Community of West African States (ECOWAS) to fight piracy in the Gulf of Guinea.<sup>18</sup>'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/maritime-enforcement/us-navy-cameroon-obangame.jpg',
-          alt: 'US Navy and Cameroonian sailors during a simulated boarding of a suspect vessel for Obangame Express.  Photo credit: John Herman/US Navy.',
-          caption: 'US Navy and Cameroonian sailors during a simulated boarding of a suspect vessel for Obangame Express.  Photo credit: John Herman/US Navy.'
-        },
-        {
-          tag: 'p',
-          html: 'In a similar vein, Cutlass Express is an exercise that serves to assess and improve the maritime law enforcement capacity of East African coastal and island states, promote regional security, and inform planning and operations. In order to achieve these goals, focused scenarios include the interdiction of illicit arms, drugs, natural resources, and people that pose a threat to regional stability. Partners in this exercise include Comoros, Djibouti, Kenya, Mauritius, Mozambique, Seychelles, Uganda, and the United States.<sup>19</sup>'
-        },
-        {
-          tag: 'blockquote',
-          html: '“We must continue in good spirit of partnership and alliances to support our continent and ensure that trade can advance freely. No one nation can deal with the challenges that we face in the world today. The ocean is so vast that a united effort is required to make sure that our oceans are safe.”',
-          source: 'Rear Adm. B.K. Mhlana, Fleet Flag Officer<br />South African Navy<sup>20</sup>',
-          link: 'http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
-        },
-
-        {
-          tag: 'p',
-          html: 'International exercises highlight the willingness of affected countries to enhance their coast guard and naval capacity to adequately respond to maritime threats ranging from piracy to human smuggling. By simulating real-life scenarios of the potential maritime threats existing in each region, international exercises can test the abilities of participating states to respond to these threats, highlighting areas of capacity strength and offering opportunities to improve upon weaker points.'
-        },
-        {
-          tag: 'video',
-          videoId: '593TZ8oVd08',
-          thumb: '../../assets/maritime-enforcement/exercise_cutlass_express_video.jpg', // ###
-          caption: 'Maritime forces of Djibouti and Sudan prepare to board a ship during exercise Cutlass Express 2016.<sup>21</sup>'
-        },
-        {
-          tag: 'caption',
-          html: 'Maritime forces of Djibouti and Sudan prepare to board a ship during exercise Cutlass Express 2016.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>14</sup> U.S. 6th Fleet Public Affairs, “Exercise Obangame Express 2017 Concludes with Closing Ceremonies,” United States Navy, 3 April 2017,',
-              url: 'http://www.navy.mil/submit/display.asp?story_id=99689'
-            },
-            {
-              org: '<sup>15</sup> Africom, “Exercise Cutlass Express 2017 Concludes,” <em>DefenceWeb</em>, 9 February 2017,',
-              url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=46748:exercise-cutlass-express-2017-concludes&catid=51:Sea&Itemid=106'
-            },
-            {
-              org: '<sup>16</sup> Africom, “Obangame Express,” United States Africa Command, accessed 29 August 2017,',
-              url: 'http://www.africom.mil/what-we-do/exercises/obangame-express'
-            },
-            {
-              org: '<sup>17</sup> Barthélemy Blédé, “US and West Africa Join Forces on Maritime Security,” Institute for Security Studies, 7 April 2017,',
-              url: 'https://issafrica.org/iss-today/us-and-west-africa-join-forces-on-maritime-security'
-            },
-            {
-              org: '<sup>18</sup> Ronald Mutum, “Nigerian, French Navy in Joint Exercise,” <em>AllAfrica.com</em>, 12 September 2016,',
-              url: 'http://allafrica.com/stories/201609130110.html'
-            },
-            {
-              org: '<sup>19</sup> Africom, “Cutlass Express,” United States Africa Command, accessed 29 August 2017,',
-              url: 'http://www.africom.mil/what-we-do/exercises/cutlass-express'
-            },
-            {
-              org: '<sup>20</sup> David Rider, “Exercise Cutlass Express 2015,” <em>Maritime Security Review</em>, 21 November 2014,',
-              url: 'http://www.marsecreview.com/2014/11/exercise-cutlass-express-2015/'
-            },
-            {
-              org: '<sup>21</sup> United States Navy, “Maritime Forces of Djibouti and Sudan Prepare to Board a Ship During Exercise Cutlass Express 2016,” 3 February 2016,',
-              url: 'http://www.navy.mil/view_imagex.asp?id=210947&t=1'
-            },
-          ]
-        }
-      ]
-    },
-    // Card 5
-    {
-      title: 'Training Together',
-      menu: 'Training Together',
-      metadata: {
-        owner: 'Emina Sadic',
-        description: 'Success story: togo/Ghana/US/Nigeria.'
-      },
-      map: {
-        scale: [],
-        classes: 'card-6-layer',
-        translate: [],
-        extent: [
-          [-10, 23],
-          [51, -8]
-        ],
-        highlights: ['NGA', 'STP', 'BEN', 'TGO', 'GHA'],
-        load: function(index, file) { // ### *** This only should be for the first card ...
-          // Load GIS data from file
-
-          // Class GIS data with layer
-          var layer = 'card-' + index + '-layer';
-
-        },
-        switch: function(index) {
-          d3.select('.card-' + index + '-layer')
-            .classed('invisible', false);
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'Training Together'
-        },
-        {
-          tag: 'caption',
-          text: 'The case of the MT Maximus'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Highlighted countries participated in USNS Spearhead</a>'
-        },
-        {
-          tag: 'p',
-          html: 'The significance of the multinational training exercises in the Gulf of Guinea was highlighted in 2016 when MT <i>Maximus</i> was hijacked by fourteen pirates 70 nm south of Côte d’Ivoire in an attempt to steal 4,700 metric tons of diesel fuel cargo.'
-        },
-        {
-          gif: true,
-          tag: 'video',
-          videoId: 'iOrjS1qmNDk',
-          thumb: '../../assets/maritime-enforcement/Maximus-Hijacking.gif'
-        },
-
-        {
-          tag: 'p',
-          html: 'At the same time that pirates hijacked the vessel and took 18 crew members hostage, the Ghanaian navy was conducting Africa Maritime Law Enforcement Partnership  operations with the United States’ USNS <i>Spearhead</i>. USNS <i>Spearhead</i> assisted the regional navies by tracking the vessel for two days as it sailed from Ivoirian to Ghanaian waters, at which point the tracking mission was handed over to the Ghanaian navy. While Benin and Togo were unable to mobilize a response effort, Nigeria was able to dispatch two naval vessels, NNS <i>Okpabana</i> and NNS <i>Sagbama</i>, reinforced with detachments of the Nigerian Special Boat Service, to recapture <i>Maximus</i>. <sup>22</sup> Nigerian forces subsequently apprehended six pirates.<sup>23</sup>'
-        },
-        {
-          tag: 'blockquote',
-          html: '“The training and exercises, as well as the combined operations that have taken place over the years, directly contributed to the successful interception and takedown of the pirates onboard the MAXIMUS.”<br /><br />Lt. Cdr. Todd Behney,  U.S. Africa Command maritime programs officer<br />US Coast Guard<sup>24</sup>',
-          //  source: '',
-          //    link: '### need a URL!'       // What about internal references?
-        },
-        {
-          tag: 'p',
-          html: 'As a model of regional cooperation under the Yaoundé Code of Conduct, the mission demonstrated that regional actors possess the coordination capacity to effectively respond to maritime threats. Similarly, the mission validated the effectiveness and significance of multinational exercises conducted with international navies, such as the Obangame Express exercise series, which contributed to the ability of regional naval actors to quickly respond to the situation.'
-        },
-        {
-          tag: 'video',
-          videoId: 'c5sCpFqv2Kw',
-          thumb: '../../assets/maritime-enforcement/nigerian_navy_video_thumb.png' // ### put in GIF animation and thumbNAILS John Hoopes
-        },
-        {
-          tag: 'p',
-          html: 'Previous efforts by the United States and France to help develop the national maritime operation centers of four Gulf of Guinea countries, Benin, Ghana, Nigeria, and Togo, including the use of remote sensors, radars, automated information systems, and databases, led these respective states to have the ability to track the vessel as it traversed the waters of those countries nearly 800 miles from its starting point.<sup>25</sup>'
-        },
-        {
-          tag: 'blockquote',
-          html: '“International cooperation is the new mantra for maritime security. We cannot go it alone.”',
-          source: 'Rear Admiral Henry Bablola<br />Nigerian Navy<sup>26</sup>',
-          link: '### need a URL!' // What about internal references?
-        }, //###CUT THIS QUOTE AND PLACE IT INTO VERY TOP OF CARD 2.7 AIMS 2050
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>22</sup> Nathan D. Herring, “West Africa Piracy Case Highlights U.S. Capacity Building Efforts,” United States Africa Command, 11 March 2016,',
-              url: 'https://www.africom.mil/media-room/article/28044/west-africa-piracy-case-highlights-u-s-capacity-building-efforts'
-            },
-            {
-              org: '<sup>23</sup> Dirk Steffen, “West African Navies Coming Of Age?” Center for International Maritime Security, 7 March 2016,',
-              url: 'http://cimsec.org/coming-of-age-of-the-west-african-navies/22919'
-            },
-            {
-              org: '<sup>24</sup> Herring, “West Africa Piracy Case.”'
-            },
-            {
-              org: '<sup>25</sup> Herring, “West Africa Piracy Case.”'
-            },
-            {
-              org: '<sup>26</sup> Michelle Faul, “Navies From The United States, Ghana, Togo And Nigeria Track Hijacked Tanker Through Waters Off Five Countries Before Nigerian Naval Forces Storm Aboard,” <em>US News and World Report</em>, 27 February 2016,',
-              url: 'https://www.usnews.com/news/world/articles/2016-02-26/us-nigerian-navies-ship-rescue-success-for-cooperation'
-            },
-          ]
-        }
-      ]
-    },
-    // // Card 7
-    // { title: 'Methodology',
-    //   menu: 'Methodology',
+    // { // Card 4
+    //   title: 'The Role of Multinational Exercises',
+    //   menu: 'The Role of Multinational Exercises',
     //   metadata: {
-    //     owner: 'Curtis Bell',
-    //     description: 'Methods.'
+    //     owner: 'Emina Sadic',
+    //     description: 'What kinds of exercises are being used to increase capacity?'
     //   },
     //   map: {
     //     scale: [],
-    //     classes: 'card-7-layer',
+    //     classes: 'card-5-layer',
     //     translate: [],
     //     highlights: null,
-    //     load: function (index, file) {  // ### *** This only should be for the first card ...
-    //       // Color EEZ according to master Stable Seas index
-    //       var layer = 'card-'+index+'-layer';
-    //
+    //     load: function(index, file) { // ### *** This only should be for the first card ...
+    //       // Class GIS layer with layer.
+    //       var layer = 'card-' + index + '-layer';
     //       d3.select('.card-eez-layer')
     //         .classed(layer, true);
     //     },
-    //     switch: function (index) {
-    //       switchMainIndexInverse(0);
+    //     switch: function(index) {
+    //       // ### Still need to work out how to represent countries that are in multiple lists!
+    //       var cutlass = ['DJI', 'MUS', 'MOZ', 'COM', 'KEN', 'MDG', 'SYC', 'UGA', 'USA'],
+    //         obangame = ['AGO', 'CPV', 'COG', 'COD', 'CIV', 'GNQ', 'GIN', 'GNB', 'LBR', 'NAM', 'STP', 'SEN',
+    //           'SLE', 'BEN', 'CMR', 'GAB', 'GHA', 'NGA', 'TGO', 'USA'
+    //         ],
+    //         nemo = ['FRA', 'BEN', 'CMR', 'GAB', 'GHA', 'NGA', 'TGO']; // ### lots of overlap with obangame!
+    //
+    //       cutlass.forEach(function(member, i) {
+    //         d3.selectAll('.country.' + member)
+    //           .classed('active', true) // flag so style gets cleared...!
+    //           .transition().delay(i * 10)
+    //           .style('fill', colorBrew[0][0])
+    //           .style('stroke', colorBrew[0][1]);
+    //
+    //
+    //         d3.selectAll('.eez.' + member)
+    //           .classed('active', true) // flag so style gets cleared...!
+    //           .transition().delay(i * 10)
+    //           .style('stroke', colorBrew[0][1]);
+    //       });
+    //
+    //       obangame.forEach(function(member, i) {
+    //         d3.selectAll('.country.' + member)
+    //           .classed('active', true)
+    //           .transition().delay(i * 10)
+    //           .style('fill', colorBrew[1][0])
+    //           .style('stroke', colorBrew[1][1]);
+    //
+    //
+    //         d3.selectAll('.eez.' + member)
+    //           .classed('active', true)
+    //           .transition().delay(i * 10)
+    //           .style('stroke', colorBrew[1][1]);
+    //       });
+    //
+    //       nemo.forEach(function(member, i) {
+    //         d3.selectAll('.country.' + member)
+    //           .classed('active', true)
+    //           .transition().delay(i * 10)
+    //           .style('fill', colorBrew[2][0])
+    //           .style('stroke', colorBrew[2][1]);
+    //
+    //
+    //         d3.selectAll('.eez.' + member)
+    //           .classed('active', true)
+    //           .transition().delay(i * 10)
+    //           .style('stroke', colorBrew[2][1]);
+    //       });
     //     }
     //   },
-    //   els: [
-    //     { tag: 'h3',
-    //       text: 'Methodology'
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'The Role of Multinational Exercises'
     //     },
-    //     // { tag: 'legend',
-    //     //   text: 'Map Legend',
-    //     //   legendContent: '<em>Lighter shades indicate greater maritiime enforcement capability</em>'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'The Maritime Enforcement score consists of three equally weighted parts: the difficulty of governing the specific maritime space, a quantitative measure of capability based on fleet size, and a qualitative expert assessment of enforcement capacity and international assistance received. Each of these parts is briefly introduced below, with more detailed technical notes in the data documentation available for download.'
-    //     // },
-    //     // { tag: 'h4',
-    //     //   text: 'Geography'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'We score the effect of EEZ geography on a state’s capacity to govern by considering two equally weighted factors: EEZ size and coastline length. Though these two concepts are correlated, they can diverge based on the shape of the coastline and the arrangement of neighboring EEZs. Cameroon, for example, has a very low EEZ-to-coastline ratio because its offshore claims quickly meet those of island neighbors like Equatorial Guinea. Conversely, Cabo Verde’s relative isolation in the mid-Atlantic means it has an EEZ that extends many nautical miles in all directions.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    html: 'Data on EEZ size is drawn from <a href="www.maritimeregions.org" target="_blank">www.maritimeregions.org</a>, an online gazetteer produced by the Flanders Maritime Institute. This resource contains comprehensive geospatial and legal information about maritime spaces around the world. Coastline lengths are taken from the CIA World Factbook.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'The difficulty score also accounts for the effect poor maritime relations can have on making EEZs more difficult to govern. Two factors inform relations with maritime neighbors: the number of EEZ neighbors and the proportion of those neighbors a state has come to a formal mutual agreement with about the placement of maritime boundaries. We draw both measures from data from the Flanders Maritime Institute. We argue that the difficulty of patrolling a maritime space increases with the number of direct maritime neighbors and further argue that it is even more difficult when borders are disputed or unestablished.'
-    //     // },
-    //     // { tag: 'h4',
-    //     //   text: 'Fleet Size'
-    //     // },
-    //     // { tag: 'p',
-    //     //    html: 'We include data about the number of significant vessels available to federal forces, which may include a navy, coast guard, port police, and/or maritime division of another branch of the armed forces. We derive these ship counts from <i>Military Balance</i>, which is an annual global report from the International Institute for Strategic Studies.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'We separate two types of vessels to measure two types of naval capacity: coastal patrol vessels, which provide countries with the ability to monitor activity near the coast, and surface warfare craft, which allow for a stronger enforcement presence farther offshore into a state’s exclusive economic zone and beyond.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'As opposed to other naval power measures that focus on weaponry and the ability to exert force well into neighboring ocean basins, this count of vessels focuses on two skills that help states govern their EEZs: the ability to patrol the coasts and the ability to project force across the deeper waters of an EEZ.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'Both measures are simple vessel counts that do not take into account age, working condition, or funding, but we address these factors in the expert assessments of capability and international assistance.'
-    //     // },
-    //     // { tag: 'h4',
-    //     //    text: 'Expert Assessment of Capability'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'Counts of vessels and displacement tonnage miss some aspects of naval capability. Equipment can be outdated, support vessels may hinder naval effectiveness, and insufficient ongoing commitments may mean navies are underfunded and undertrained. We use an expert assessment to gauge what activities fall within and beyond the capabilities of African navies.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    html: 'We adopt the Typology for Navies provided by <i>Leadmark: The Navy’s Strategy for 2020</i>, which was completed by the Canadian Navy. Using this 10-tier rating system, we asked four experts to independently evaluate and score the 30 African littoral states. The ratings were correlated at well over 0.90, so the ratings were averaged into a single capability score ranging from 4 (South Africa) to 10 (Somalia). For the purpose of patrolling an EEZ, further developments above “Medium Regional Force Projection” are unnecessary, as levels above that describe the ability to project power out into an ocean basin.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'Finally, many navies receive substantial international assistance with governing their maritime spaces. This assistance ranges from multilateral naval patrols to donations of training, vessels, and communications equipment. We asked four experts to assess the extent of four kinds of international assistance to each African navy: (1) training, (2) equipment, (3) exercises, and (4) patrols.'
-    //     // },
-    //     // { tag: 'p',
-    //     //    text: 'Respondents classified each of these aspects of international assistance according to the following scale: (0) no evidence of assistance, (1) evidence of infrequent/limited assistance, (2) recipient of minor assistance, (3) recipient of consistent and significant assistance, and (4) major recipient of formalized and large-scale assistance.'
-    //     // }
+    //     //###NEED THUMBNAILS FOR BOTH VIDEOS
+    //     {
+    //       tag: 'caption',
+    //       text: 'Building capacity and interoperability'
+    //     },
+    //     {
+    //       tag: 'legend',
+    //       text: 'Map Legend',
+    //       legendContent: '<div class="brew-00 legend-entries">Cutlass Express participants.</div><br /><div class="brew-10 legend-entries">Obangame Express participants.</div><br /><div class="brew-20 legend-entries">Nemo & Obangame participants.</div><br />'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       text: 'Maritime security threats require cooperation and coordination among African navies and international actors. Coastal states are able to enhance their capacity-building efforts and interoperability measures through international exercises conducted on both coasts of Africa.'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“We know that the issues of maritime security involves a lot of people and a lot of issues across many agencies in each of our governments. So, there has to be cooperation within our governments as well as cooperation between our count[r]ies. Exercises like this are extremely important to make that possible.”',
+    //       source: 'Andrew Haviland, Charge d\' Affaires<br />U.S. Embassy Côte  d\'Ivoire<sup>14</sup>',
+    //       link: 'http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Falling under the umbrella of the African Partnership Station, East Africa’s Cutlass Express and West Africa’s Obangame Express are annual regionally focused exercises facilitated by the U.S. Naval Forces Europe-Africa/U.S. 6th Fleet.<sup>15</sup> Obangame Express is designed to improve regional cooperation, maritime domain awareness, information-sharing practices, and tactical interdiction expertise among signatories of the Yaoundé Code of Conduct.<sup>16</sup> Collaboration with international actors allows these regional forces to learn how to counter illicit sea-based activity.<sup>17</sup>'
+    //     },
+    //     {
+    //       tag: 'video',
+    //       videoId: 'vkFQOqaxjP8',
+    //       thumb: '../../assets/maritime-enforcement/multinational_cooperation_video.jpg'
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       html: 'American and Senegalese sailors conduct visit, board, search, and seizure training aboard Senegalese naval vessel PHM Njambuur during Obangame Express 2016.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Further efforts to assist West African countries in their fight against <a class="piracy inline" href="../../piracy">piracy</a> and <a class="fisheries inline" href="../../fisheries">IUU fishing </a> include Exercise NEMO, a French initiative. The exercise seeks to strengthen a 2013 agreement between the Economic Community of Central African States (ECCAS) and the Economic Community of West African States (ECOWAS) to fight piracy in the Gulf of Guinea.<sup>18</sup>'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/maritime-enforcement/us-navy-cameroon-obangame.jpg',
+    //       alt: 'US Navy and Cameroonian sailors during a simulated boarding of a suspect vessel for Obangame Express.  Photo credit: John Herman/US Navy.',
+    //       caption: 'US Navy and Cameroonian sailors during a simulated boarding of a suspect vessel for Obangame Express.  Photo credit: John Herman/US Navy.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'In a similar vein, Cutlass Express is an exercise that serves to assess and improve the maritime law enforcement capacity of East African coastal and island states, promote regional security, and inform planning and operations. In order to achieve these goals, focused scenarios include the interdiction of illicit arms, drugs, natural resources, and people that pose a threat to regional stability. Partners in this exercise include Comoros, Djibouti, Kenya, Mauritius, Mozambique, Seychelles, Uganda, and the United States.<sup>19</sup>'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“We must continue in good spirit of partnership and alliances to support our continent and ensure that trade can advance freely. No one nation can deal with the challenges that we face in the world today. The ocean is so vast that a united effort is required to make sure that our oceans are safe.”',
+    //       source: 'Rear Adm. B.K. Mhlana, Fleet Flag Officer<br />South African Navy<sup>20</sup>',
+    //       link: 'http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
+    //     },
+    //
+    //     {
+    //       tag: 'p',
+    //       html: 'International exercises highlight the willingness of affected countries to enhance their coast guard and naval capacity to adequately respond to maritime threats ranging from piracy to human smuggling. By simulating real-life scenarios of the potential maritime threats existing in each region, international exercises can test the abilities of participating states to respond to these threats, highlighting areas of capacity strength and offering opportunities to improve upon weaker points.'
+    //     },
+    //     {
+    //       tag: 'video',
+    //       videoId: '593TZ8oVd08',
+    //       thumb: '../../assets/maritime-enforcement/exercise_cutlass_express_video.jpg', // ###
+    //       caption: 'Maritime forces of Djibouti and Sudan prepare to board a ship during exercise Cutlass Express 2016.<sup>21</sup>'
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       html: 'Maritime forces of Djibouti and Sudan prepare to board a ship during exercise Cutlass Express 2016.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>14</sup> U.S. 6th Fleet Public Affairs, “Exercise Obangame Express 2017 Concludes with Closing Ceremonies,” United States Navy, 3 April 2017,',
+    //           url: 'http://www.navy.mil/submit/display.asp?story_id=99689'
+    //         },
+    //         {
+    //           org: '<sup>15</sup> Africom, “Exercise Cutlass Express 2017 Concludes,” <em>DefenceWeb</em>, 9 February 2017,',
+    //           url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=46748:exercise-cutlass-express-2017-concludes&catid=51:Sea&Itemid=106'
+    //         },
+    //         {
+    //           org: '<sup>16</sup> Africom, “Obangame Express,” United States Africa Command, accessed 29 August 2017,',
+    //           url: 'http://www.africom.mil/what-we-do/exercises/obangame-express'
+    //         },
+    //         {
+    //           org: '<sup>17</sup> Barthélemy Blédé, “US and West Africa Join Forces on Maritime Security,” Institute for Security Studies, 7 April 2017,',
+    //           url: 'https://issafrica.org/iss-today/us-and-west-africa-join-forces-on-maritime-security'
+    //         },
+    //         {
+    //           org: '<sup>18</sup> Ronald Mutum, “Nigerian, French Navy in Joint Exercise,” <em>AllAfrica.com</em>, 12 September 2016,',
+    //           url: 'http://allafrica.com/stories/201609130110.html'
+    //         },
+    //         {
+    //           org: '<sup>19</sup> Africom, “Cutlass Express,” United States Africa Command, accessed 29 August 2017,',
+    //           url: 'http://www.africom.mil/what-we-do/exercises/cutlass-express'
+    //         },
+    //         {
+    //           org: '<sup>20</sup> David Rider, “Exercise Cutlass Express 2015,” <em>Maritime Security Review</em>, 21 November 2014,',
+    //           url: 'http://www.marsecreview.com/2014/11/exercise-cutlass-express-2015/'
+    //         },
+    //         {
+    //           org: '<sup>21</sup> United States Navy, “Maritime Forces of Djibouti and Sudan Prepare to Board a Ship During Exercise Cutlass Express 2016,” 3 February 2016,',
+    //           url: 'http://www.navy.mil/view_imagex.asp?id=210947&t=1'
+    //         },
+    //       ]
+    //     }
     //   ]
-    //} // End of eighth  object in cards array
+    // },
+    // Card 5
+    // {
+    //   title: 'Training Together',
+    //   menu: 'Training Together',
+    //   metadata: {
+    //     owner: 'Emina Sadic',
+    //     description: 'Success story: togo/Ghana/US/Nigeria.'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: 'card-6-layer',
+    //     translate: [],
+    //     extent: [
+    //       [-10, 23],
+    //       [51, -8]
+    //     ],
+    //     highlights: ['NGA', 'STP', 'BEN', 'TGO', 'GHA'],
+    //     load: function(index, file) { // ### *** This only should be for the first card ...
+    //       // Load GIS data from file
+    //
+    //       // Class GIS data with layer
+    //       var layer = 'card-' + index + '-layer';
+    //
+    //     },
+    //     switch: function(index) {
+    //       d3.select('.card-' + index + '-layer')
+    //         .classed('invisible', false);
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'Training Together'
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'The case of the MT Maximus'
+    //     },
+    //     {
+    //       tag: 'legend',
+    //       text: 'Map Legend',
+    //       legendContent: '<em>Highlighted countries participated in USNS Spearhead</a>'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'The significance of the multinational training exercises in the Gulf of Guinea was highlighted in 2016 when MT <i>Maximus</i> was hijacked by fourteen pirates 70 nm south of Côte d’Ivoire in an attempt to steal 4,700 metric tons of diesel fuel cargo.'
+    //     },
+    //     {
+    //       gif: true,
+    //       tag: 'video',
+    //       videoId: 'iOrjS1qmNDk',
+    //       thumb: '../../assets/maritime-enforcement/Maximus-Hijacking.gif'
+    //     },
+    //
+    //     {
+    //       tag: 'p',
+    //       html: 'At the same time that pirates hijacked the vessel and took 18 crew members hostage, the Ghanaian navy was conducting Africa Maritime Law Enforcement Partnership  operations with the United States’ USNS <i>Spearhead</i>. USNS <i>Spearhead</i> assisted the regional navies by tracking the vessel for two days as it sailed from Ivoirian to Ghanaian waters, at which point the tracking mission was handed over to the Ghanaian navy. While Benin and Togo were unable to mobilize a response effort, Nigeria was able to dispatch two naval vessels, NNS <i>Okpabana</i> and NNS <i>Sagbama</i>, reinforced with detachments of the Nigerian Special Boat Service, to recapture <i>Maximus</i>. <sup>22</sup> Nigerian forces subsequently apprehended six pirates.<sup>23</sup>'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“The training and exercises, as well as the combined operations that have taken place over the years, directly contributed to the successful interception and takedown of the pirates onboard the MAXIMUS.”<br /><br />Lt. Cdr. Todd Behney,  U.S. Africa Command maritime programs officer<br />US Coast Guard<sup>24</sup>',
+    //       //  source: '',
+    //       //    link: '### need a URL!'       // What about internal references?
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'As a model of regional cooperation under the Yaoundé Code of Conduct, the mission demonstrated that regional actors possess the coordination capacity to effectively respond to maritime threats. Similarly, the mission validated the effectiveness and significance of multinational exercises conducted with international navies, such as the Obangame Express exercise series, which contributed to the ability of regional naval actors to quickly respond to the situation.'
+    //     },
+    //     {
+    //       tag: 'video',
+    //       videoId: 'c5sCpFqv2Kw',
+    //       thumb: '../../assets/maritime-enforcement/nigerian_navy_video_thumb.png' // ### put in GIF animation and thumbNAILS John Hoopes
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Previous efforts by the United States and France to help develop the national maritime operation centers of four Gulf of Guinea countries, Benin, Ghana, Nigeria, and Togo, including the use of remote sensors, radars, automated information systems, and databases, led these respective states to have the ability to track the vessel as it traversed the waters of those countries nearly 800 miles from its starting point.<sup>25</sup>'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“International cooperation is the new mantra for maritime security. We cannot go it alone.”',
+    //       source: 'Rear Admiral Henry Bablola<br />Nigerian Navy<sup>26</sup>',
+    //       link: '### need a URL!' // What about internal references?
+    //     }, //###CUT THIS QUOTE AND PLACE IT INTO VERY TOP OF CARD 2.7 AIMS 2050
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>22</sup> Nathan D. Herring, “West Africa Piracy Case Highlights U.S. Capacity Building Efforts,” United States Africa Command, 11 March 2016,',
+    //           url: 'https://www.africom.mil/media-room/article/28044/west-africa-piracy-case-highlights-u-s-capacity-building-efforts'
+    //         },
+    //         {
+    //           org: '<sup>23</sup> Dirk Steffen, “West African Navies Coming Of Age?” Center for International Maritime Security, 7 March 2016,',
+    //           url: 'http://cimsec.org/coming-of-age-of-the-west-african-navies/22919'
+    //         },
+    //         {
+    //           org: '<sup>24</sup> Herring, “West Africa Piracy Case.”'
+    //         },
+    //         {
+    //           org: '<sup>25</sup> Herring, “West Africa Piracy Case.”'
+    //         },
+    //         {
+    //           org: '<sup>26</sup> Michelle Faul, “Navies From The United States, Ghana, Togo And Nigeria Track Hijacked Tanker Through Waters Off Five Countries Before Nigerian Naval Forces Storm Aboard,” <em>US News and World Report</em>, 27 February 2016,',
+    //           url: 'https://www.usnews.com/news/world/articles/2016-02-26/us-nigerian-navies-ship-rescue-success-for-cooperation'
+    //         },
+    //       ]
+    //     }
+    //   ]
+    // },
+    // // Card 7
+    { // Card 3
+      title: 'Methodology',
+      menu: 'Methodology',
+      metadata: {
+        owner: 'Curtis Bell',
+        description: 'Methods.'
+      },
+      map: {
+        scale: [],
+        classes: 'card-7-layer',
+        translate: [],
+        highlights: null,
+        load: function (index, file) {  // ### *** This only should be for the first card ...
+          // Color EEZ according to master Stable Seas index
+          var layer = 'card-'+index+'-layer';
+
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
+        },
+        switch: function (index) {
+          switchMainIndexInverse(0);
+        }
+      },
+      els: [
+        { tag: 'h3',
+          text: 'Methodology'
+        },
+        // { tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Lighter shades indicate greater maritiime enforcement capability</em>'
+        // },
+        // { tag: 'p',
+        //    text: 'The Maritime Enforcement score consists of three equally weighted parts: the difficulty of governing the specific maritime space, a quantitative measure of capability based on fleet size, and a qualitative expert assessment of enforcement capacity and international assistance received. Each of these parts is briefly introduced below, with more detailed technical notes in the data documentation available for download.'
+        // },
+        // { tag: 'h4',
+        //   text: 'Geography'
+        // },
+        // { tag: 'p',
+        //    text: 'We score the effect of EEZ geography on a state’s capacity to govern by considering two equally weighted factors: EEZ size and coastline length. Though these two concepts are correlated, they can diverge based on the shape of the coastline and the arrangement of neighboring EEZs. Cameroon, for example, has a very low EEZ-to-coastline ratio because its offshore claims quickly meet those of island neighbors like Equatorial Guinea. Conversely, Cabo Verde’s relative isolation in the mid-Atlantic means it has an EEZ that extends many nautical miles in all directions.'
+        // },
+        // { tag: 'p',
+        //    html: 'Data on EEZ size is drawn from <a href="www.maritimeregions.org" target="_blank">www.maritimeregions.org</a>, an online gazetteer produced by the Flanders Maritime Institute. This resource contains comprehensive geospatial and legal information about maritime spaces around the world. Coastline lengths are taken from the CIA World Factbook.'
+        // },
+        // { tag: 'p',
+        //    text: 'The difficulty score also accounts for the effect poor maritime relations can have on making EEZs more difficult to govern. Two factors inform relations with maritime neighbors: the number of EEZ neighbors and the proportion of those neighbors a state has come to a formal mutual agreement with about the placement of maritime boundaries. We draw both measures from data from the Flanders Maritime Institute. We argue that the difficulty of patrolling a maritime space increases with the number of direct maritime neighbors and further argue that it is even more difficult when borders are disputed or unestablished.'
+        // },
+        // { tag: 'h4',
+        //   text: 'Fleet Size'
+        // },
+        // { tag: 'p',
+        //    html: 'We include data about the number of significant vessels available to federal forces, which may include a navy, coast guard, port police, and/or maritime division of another branch of the armed forces. We derive these ship counts from <i>Military Balance</i>, which is an annual global report from the International Institute for Strategic Studies.'
+        // },
+        // { tag: 'p',
+        //    text: 'We separate two types of vessels to measure two types of naval capacity: coastal patrol vessels, which provide countries with the ability to monitor activity near the coast, and surface warfare craft, which allow for a stronger enforcement presence farther offshore into a state’s exclusive economic zone and beyond.'
+        // },
+        // { tag: 'p',
+        //    text: 'As opposed to other naval power measures that focus on weaponry and the ability to exert force well into neighboring ocean basins, this count of vessels focuses on two skills that help states govern their EEZs: the ability to patrol the coasts and the ability to project force across the deeper waters of an EEZ.'
+        // },
+        // { tag: 'p',
+        //    text: 'Both measures are simple vessel counts that do not take into account age, working condition, or funding, but we address these factors in the expert assessments of capability and international assistance.'
+        // },
+        // { tag: 'h4',
+        //    text: 'Expert Assessment of Capability'
+        // },
+        // { tag: 'p',
+        //    text: 'Counts of vessels and displacement tonnage miss some aspects of naval capability. Equipment can be outdated, support vessels may hinder naval effectiveness, and insufficient ongoing commitments may mean navies are underfunded and undertrained. We use an expert assessment to gauge what activities fall within and beyond the capabilities of African navies.'
+        // },
+        // { tag: 'p',
+        //    html: 'We adopt the Typology for Navies provided by <i>Leadmark: The Navy’s Strategy for 2020</i>, which was completed by the Canadian Navy. Using this 10-tier rating system, we asked four experts to independently evaluate and score the 30 African littoral states. The ratings were correlated at well over 0.90, so the ratings were averaged into a single capability score ranging from 4 (South Africa) to 10 (Somalia). For the purpose of patrolling an EEZ, further developments above “Medium Regional Force Projection” are unnecessary, as levels above that describe the ability to project power out into an ocean basin.'
+        // },
+        // { tag: 'p',
+        //    text: 'Finally, many navies receive substantial international assistance with governing their maritime spaces. This assistance ranges from multilateral naval patrols to donations of training, vessels, and communications equipment. We asked four experts to assess the extent of four kinds of international assistance to each African navy: (1) training, (2) equipment, (3) exercises, and (4) patrols.'
+        // },
+        // { tag: 'p',
+        //    text: 'Respondents classified each of these aspects of international assistance according to the following scale: (0) no evidence of assistance, (1) evidence of infrequent/limited assistance, (2) recipient of minor assistance, (3) recipient of consistent and significant assistance, and (4) major recipient of formalized and large-scale assistance.'
+        // }
+      ]
+    } // End of eighth  object in cards array
   ] // End of cards array
 };
