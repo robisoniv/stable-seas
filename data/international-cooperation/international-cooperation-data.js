@@ -14,7 +14,8 @@ var internationalCooperationData = {
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
   },
-  cards: [{ // Card 0
+  cards: [
+    { // Card 0
       title: 'International Cooperation',
       menu: 'International Cooperation',
       metadata: {
@@ -122,11 +123,11 @@ var internationalCooperationData = {
       ] // end of els array
     }, // End of first element of cards object
     { // Card 1
-      title: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
-      menu: 'UNCLOS in Africa',
+      title: 'Global Agreements',
+      menu: 'Global Agreements',
       metadata: {
-        owner: 'Jay Benson',
-        description: 'Discusses how the UN Law of the Sea influences maritime security in sub-Saharan Africa'
+        owner: '',
+        description: 'Global Agreements'
       },
       map: {
         scale: [],
@@ -137,27 +138,6 @@ var internationalCooperationData = {
         tooltipHTML: function(iso) {
           var output = "";
 
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          //  console.log(iso,vals[iso]);
-
-          if (vals[iso].unclos == 1) {
-            output += "UNCLOS: Signed<br>";
-          } else {
-            output += "UNCLOS: Not signed<br>";
-          }
-
-          if (vals[iso].partXI == 1) {
-            output += "Part XI: Signed<br>";
-          } else {
-            output += "Part XI: Not signed<br>";
-          }
-
-          if (vals[iso]["un-fish-stocks"] == 1) {
-            output += "Fish Stocks: Signed";
-          } else {
-            output += "Fish Stocks: Not signed";
-          }
-          //    console.log(output);
           return output;
 
         },
@@ -168,170 +148,353 @@ var internationalCooperationData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          //    var cat;
-          var i = 0;
-          for (iso in vals) {
-            var unclos = vals[iso].unclos == 1 ? true : false,
-              partXI = vals[iso].partXI == 1 ? true : false,
-              fishStocks = vals[iso]["un-fish-stocks"] == 1 ? true : false;
-
-            if (unclos && partXI && fishStocks) {
-              cat = 0;
-            } else if (unclos && partXI && !fishStocks) {
-              cat = 1;
-            } else if (unclos && !partXI && !fishStocks) {
-              cat = 2;
-            } else if (unclos && !partXI && fishStocks) {
-              cat = 4;
-            } else {
-              cat = 3;
-            }
-
-            d3.selectAll('.country.' + iso)
-              .classed('active', true)
-              .attr('data-category', cat)
-              .attr('data-iso', iso)
-              .on('mouseover', function() {
-
-                if (activeCard == 1) {
-
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-                  d3.select(this)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][1];
-                    })
-                    .style('stroke', 'black');
-
-                  d3.selectAll('.eez.' + isoTmp)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    });
-                }
-              })
-              .on('mouseleave', function() {
-                if (activeCard == 1) {
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-                  d3.select(this)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    })
-                    .style('stroke', function() {
-                      return colorBrew[catTmp][1];
-                    });
-
-                  d3.selectAll('.eez.' + isoTmp)
-                    .style('fill', null);
-                }
-
-              })
-              //.transition().delay(10 * i)
-              .style('fill', function() {
-                return colorBrew[cat][0];
-              })
-              .style('stroke', function () {
-                return colorBrew[cat][1];
-
-              });
-
-
-
-            d3.selectAll('.eez.' + iso)
-              .classed('active', true)
-              //  .transition().delay(10 * i)
-              .style('stroke', function() {
-                return colorBrew[cat][1];
-              })
-              .style('stroke-width', '4px')
-              .attr('data-category', cat)
-              .attr('data-iso', iso)
-              .on('mouseover', function() {
-                if (activeCard == 1) {
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-
-                  d3.select(this)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    });
-
-                  d3.select('.country.' + isoTmp)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][1];
-                    })
-                    .style('stroke', 'black');
-                }
-
-              })
-              .on('mouseleave', function() {
-                if (activeCard == 1) {
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-                  d3.select(this)
-                    .style('fill', null)
-                    .style('stroke-width', '4px');
-
-                  d3.select('.country.' + isoTmp)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    })
-                    .style('stroke', colorBrew[catTmp][0]);
-                }
-              });
-            i++;
-          }
+          // var vals = issueAreaData[issueArea].metadata.countryData;
+          // //    var cat;
+          // var i = 0;
+          // for (iso in vals) {
+          //   var unclos = vals[iso].unclos == 1 ? true : false,
+          //     partXI = vals[iso].partXI == 1 ? true : false,
+          //     fishStocks = vals[iso]["un-fish-stocks"] == 1 ? true : false;
+          //
+          //   if (unclos && partXI && fishStocks) {
+          //     cat = 0;
+          //   } else if (unclos && partXI && !fishStocks) {
+          //     cat = 1;
+          //   } else if (unclos && !partXI && !fishStocks) {
+          //     cat = 2;
+          //   } else if (unclos && !partXI && fishStocks) {
+          //     cat = 4;
+          //   } else {
+          //     cat = 3;
+          //   }
+          //
+          //   d3.selectAll('.country.' + iso)
+          //     .classed('active', true)
+          //     .attr('data-category', cat)
+          //     .attr('data-iso', iso)
+          //     .on('mouseover', function() {
+          //
+          //       if (activeCard == 1) {
+          //
+          //         var catTmp = d3.select(this).attr('data-category');
+          //         var isoTmp = d3.select(this).attr('data-iso');
+          //         d3.select(this)
+          //           .style('fill', function() {
+          //             return colorBrew[catTmp][1];
+          //           })
+          //           .style('stroke', 'black');
+          //
+          //         d3.selectAll('.eez.' + isoTmp)
+          //           .style('fill', function() {
+          //             return colorBrew[catTmp][0];
+          //           });
+          //       }
+          //     })
+          //     .on('mouseleave', function() {
+          //       if (activeCard == 1) {
+          //         var catTmp = d3.select(this).attr('data-category');
+          //         var isoTmp = d3.select(this).attr('data-iso');
+          //         d3.select(this)
+          //           .style('fill', function() {
+          //             return colorBrew[catTmp][0];
+          //           })
+          //           .style('stroke', function() {
+          //             return colorBrew[catTmp][1];
+          //           });
+          //
+          //         d3.selectAll('.eez.' + isoTmp)
+          //           .style('fill', null);
+          //       }
+          //
+          //     })
+          //     //.transition().delay(10 * i)
+          //     .style('fill', function() {
+          //       return colorBrew[cat][0];
+          //     })
+          //     .style('stroke', function () {
+          //       return colorBrew[cat][1];
+          //
+          //     });
+          //
+          //
+          //
+          //   d3.selectAll('.eez.' + iso)
+          //     .classed('active', true)
+          //     //  .transition().delay(10 * i)
+          //     .style('stroke', function() {
+          //       return colorBrew[cat][1];
+          //     })
+          //     .style('stroke-width', '4px')
+          //     .attr('data-category', cat)
+          //     .attr('data-iso', iso)
+          //     .on('mouseover', function() {
+          //       if (activeCard == 1) {
+          //         var catTmp = d3.select(this).attr('data-category');
+          //         var isoTmp = d3.select(this).attr('data-iso');
+          //
+          //         d3.select(this)
+          //           .style('fill', function() {
+          //             return colorBrew[catTmp][0];
+          //           });
+          //
+          //         d3.select('.country.' + isoTmp)
+          //           .style('fill', function() {
+          //             return colorBrew[catTmp][1];
+          //           })
+          //           .style('stroke', 'black');
+          //       }
+          //
+          //     })
+          //     .on('mouseleave', function() {
+          //       if (activeCard == 1) {
+          //         var catTmp = d3.select(this).attr('data-category');
+          //         var isoTmp = d3.select(this).attr('data-iso');
+          //         d3.select(this)
+          //           .style('fill', null)
+          //           .style('stroke-width', '4px');
+          //
+          //         d3.select('.country.' + isoTmp)
+          //           .style('fill', function() {
+          //             return colorBrew[catTmp][0];
+          //           })
+          //           .style('stroke', colorBrew[catTmp][0]);
+          //       }
+          //     });
+          //   i++;
+          // }
 
         }
       },
       els: [{
           tag: 'h1',
-          text: 'UNCLOS in Sub-Saharan Africa',
+          text: 'Global Agreements',
         },
         {
           tag: 'caption',
-          text: 'The Law of the Sea in African waters'
-        },
-        // { tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em></em>.'
-        // },
-        {
-          tag: 'p',
-          html: 'Prior to the adoption of the United Nations Convention on the Law of the Sea (UNCLOS) in 1982, the maritime space beyond a narrow strip of coastal waters was governed not by law, but by those who had the most maritime technology and power. UNCLOS codified the growing preference among countries to have increased legal rights to govern larger maritime spaces, reducing conflict over competing claims to offshore resources.'
-        },
-        {
-          tag: 'p',
-          html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
-        },
-        {
-          tag: 'p',
-          html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
-        },
-        {
-          tag: 'p',
-          html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
-        },
-        {
-          tag: 'p',
-          html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
+          text: 'XXXXXXXXXXX'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
-              url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
-            },
-            {
-              org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
-              url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
-            },
+              org: '<sup>1</sup> “XXXX,” <em>Add citation</em>, Add date,',
+              url: '#'
+            }
           ]
         },
         //###Insert graphics, video, and blockquote
       ] // end of els array
     },
+    // { // Card 1
+    //   title: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
+    //   menu: 'UNCLOS in Africa',
+    //   metadata: {
+    //     owner: 'Jay Benson',
+    //     description: 'Discusses how the UN Law of the Sea influences maritime security in sub-Saharan Africa'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: 'card-eez-layer',
+    //     translate: [],
+    //     highlights: [],
+    //     tooltip: true,
+    //     tooltipHTML: function(iso) {
+    //       var output = "";
+    //
+    //       var vals = issueAreaData[issueArea].metadata.countryData;
+    //       //  console.log(iso,vals[iso]);
+    //
+    //       if (vals[iso].unclos == 1) {
+    //         output += "UNCLOS: Signed<br>";
+    //       } else {
+    //         output += "UNCLOS: Not signed<br>";
+    //       }
+    //
+    //       if (vals[iso].partXI == 1) {
+    //         output += "Part XI: Signed<br>";
+    //       } else {
+    //         output += "Part XI: Not signed<br>";
+    //       }
+    //
+    //       if (vals[iso]["un-fish-stocks"] == 1) {
+    //         output += "Fish Stocks: Signed";
+    //       } else {
+    //         output += "Fish Stocks: Not signed";
+    //       }
+    //       //    console.log(output);
+    //       return output;
+    //
+    //     },
+    //     load: function(index, csv) { // ### *** This only should be for the first card ...
+    //       // Class EEZ with card-0-layer to enable switch() method
+    //       var layer = 'card-' + index + '-layer';
+    //       d3.select('.card-eez-layer')
+    //         .classed(layer, true);
+    //     },
+    //     switch: function(index) {
+    //       var vals = issueAreaData[issueArea].metadata.countryData;
+    //       //    var cat;
+    //       var i = 0;
+    //       for (iso in vals) {
+    //         var unclos = vals[iso].unclos == 1 ? true : false,
+    //           partXI = vals[iso].partXI == 1 ? true : false,
+    //           fishStocks = vals[iso]["un-fish-stocks"] == 1 ? true : false;
+    //
+    //         if (unclos && partXI && fishStocks) {
+    //           cat = 0;
+    //         } else if (unclos && partXI && !fishStocks) {
+    //           cat = 1;
+    //         } else if (unclos && !partXI && !fishStocks) {
+    //           cat = 2;
+    //         } else if (unclos && !partXI && fishStocks) {
+    //           cat = 4;
+    //         } else {
+    //           cat = 3;
+    //         }
+    //
+    //         d3.selectAll('.country.' + iso)
+    //           .classed('active', true)
+    //           .attr('data-category', cat)
+    //           .attr('data-iso', iso)
+    //           .on('mouseover', function() {
+    //
+    //             if (activeCard == 1) {
+    //
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //               d3.select(this)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][1];
+    //                 })
+    //                 .style('stroke', 'black');
+    //
+    //               d3.selectAll('.eez.' + isoTmp)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 });
+    //             }
+    //           })
+    //           .on('mouseleave', function() {
+    //             if (activeCard == 1) {
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //               d3.select(this)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 })
+    //                 .style('stroke', function() {
+    //                   return colorBrew[catTmp][1];
+    //                 });
+    //
+    //               d3.selectAll('.eez.' + isoTmp)
+    //                 .style('fill', null);
+    //             }
+    //
+    //           })
+    //           //.transition().delay(10 * i)
+    //           .style('fill', function() {
+    //             return colorBrew[cat][0];
+    //           })
+    //           .style('stroke', function () {
+    //             return colorBrew[cat][1];
+    //
+    //           });
+    //
+    //
+    //
+    //         d3.selectAll('.eez.' + iso)
+    //           .classed('active', true)
+    //           //  .transition().delay(10 * i)
+    //           .style('stroke', function() {
+    //             return colorBrew[cat][1];
+    //           })
+    //           .style('stroke-width', '4px')
+    //           .attr('data-category', cat)
+    //           .attr('data-iso', iso)
+    //           .on('mouseover', function() {
+    //             if (activeCard == 1) {
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //
+    //               d3.select(this)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 });
+    //
+    //               d3.select('.country.' + isoTmp)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][1];
+    //                 })
+    //                 .style('stroke', 'black');
+    //             }
+    //
+    //           })
+    //           .on('mouseleave', function() {
+    //             if (activeCard == 1) {
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //               d3.select(this)
+    //                 .style('fill', null)
+    //                 .style('stroke-width', '4px');
+    //
+    //               d3.select('.country.' + isoTmp)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 })
+    //                 .style('stroke', colorBrew[catTmp][0]);
+    //             }
+    //           });
+    //         i++;
+    //       }
+    //
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'UNCLOS in Sub-Saharan Africa',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'The Law of the Sea in African waters'
+    //     },
+    //     // { tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<em></em>.'
+    //     // },
+    //     {
+    //       tag: 'p',
+    //       html: 'Prior to the adoption of the United Nations Convention on the Law of the Sea (UNCLOS) in 1982, the maritime space beyond a narrow strip of coastal waters was governed not by law, but by those who had the most maritime technology and power. UNCLOS codified the growing preference among countries to have increased legal rights to govern larger maritime spaces, reducing conflict over competing claims to offshore resources.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
+    //           url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
+    //         },
+    //         {
+    //           org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
+    //           url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
+    //         },
+    //       ]
+    //     },
+    //     //###Insert graphics, video, and blockquote
+    //   ] // end of els array
+    // },
     { // Card 2
       title: 'Ongoing Disputes',
       menu: 'Ongoing Disputes',
