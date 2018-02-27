@@ -12,14 +12,16 @@ var cIndex;
 var includedCountries = ['AGO', 'BEN', 'CMR', 'CPV', 'COM', 'COG', 'DJI', 'COD', 'GNQ', 'GAB', 'GMB', 'GHA', 'GIN', 'GNB', 'CIV', 'KEN', 'LBR', 'MDG', 'MUS', 'MOZ', 'NAM', 'NGA', 'STP', 'SEN', 'SYC', 'SLE', 'SOM', 'ZAF', 'TZA', 'TGO'];
 
 // Color variables
-// var colorBrew = d3.scaleOrdinal(d3.schemeCategory20);// I don't think we need this any more...
-var colorBrew = [
-  ['#a6cee3', '#1f78b4'],
-  ['#b2df8a', '#33a02c'],
-  ['#fb9a99', '#e31a1c'],
-  ['#fdbf6f', '#ff7f00'],
-  ['#cab2d6', '#6a3d9a']
-];
+var colorBrew = d3.schemeCategory20;// I don't think we need this any more...
+// var colorBrew = [
+//   ['#a6cee3', '#1f78b4'],
+//   ['#b2df8a', '#33a02c'],
+//   ['#fb9a99', '#e31a1c'],
+//   ['#fdbf6f', '#ff7f00'],
+//   ['#cab2d6', '#6a3d9a']
+// ];
+
+
 
 // Color vars and functions
 var iaColorSelection = issueAreaData[issueArea].metadata.color;
@@ -1007,14 +1009,28 @@ function pulse(iso3) {
     .classed('pulse', true);
 
   var country = d3.selectAll('.country' + a),
-    countryVal = country.attr('data-val');
+    eez = d3.selectAll('.eez' + a),
+    val = country.attr('data-val');
 
-  if (countryVal) {
+  var isInt = (Math.round(val) == val),
+    isFloat = (Math.round(val) != val);
+
+  if (isFloat) {
     country.classed('active', true)
       .style('fill', function () {
         console.log(countryVal);
         return d3.interpolateLab('white',rampColor(countryVal))(0.5);
       });
+  } else if (isInt) {
+    country.classed('active', true)
+      .style('fill', function () {
+        return colorBrew[(val -1) * 2];
+      });
+
+    eez.classed('active', true)
+      .style('fill', function () {
+        return colorBrew[(val * 2) - 1];
+      })
   }
 
 
@@ -1029,14 +1045,31 @@ function classEEZ (layer) {
     .classed(layer, true);
 }
 function unpulse(iso3) {
+  var dataVal = d3.selectAll('.country.' + iso3).attr('data-val');
+  var isInt = (Math.round(dataVal) == dataVal),
+    isFloat = (Math.round(dataVal) != dataVal);
 
+  //  console.log('int', isInt, 'float', isFloat);
   d3.selectAll('.pulse')
     .classed('pulse', false);
 
-  if (d3.selectAll('.country.' + iso3).attr('data-val')) {
+  if (isFloat) {
     d3.selectAll('.country.' + iso3)
       .attr('style', null)
       .classed('active', false);
+  } else if (isInt) {
+    d3.selectAll('.country.' + iso3)
+      .style('fill', function () {
+        if (dataVal == 0) {
+          return null;
+        } else {
+          return colorBrew[(dataVal * 2) - 1];
+        }
+      });
+
+    d3.selectAll('.eez.' + iso3)
+      .style('fill', null);
+
   }
 
 }
@@ -1444,29 +1477,60 @@ function choropleth(cardIndex, order, key) {
   //console.log(ssiValues);
   var i = 0;
   for (iso3 in vals) {
-    var highlightedCountry = d3.selectAll('.eez.' + iso3);
+    var highlightedEEZ = d3.selectAll('.eez.' + iso3);
+    var highlightedCountry = d3.selectAll('.country.' + iso3);
+
     var val = vals[iso3][key];
 
-    // First convert 0 - 100 range into 0 - 1.
-    if (!(val < 1 && val != 0)) {
-      val = val / 100;
+
+    // Check if val is float; if so highlight on continuous scale
+    if (Math.round(val) != val) {
+
+      // First make sure that 0 - 100 range is converted into 0 - 1.
+      console.log('FLOAT');
+      if (!(val <= 1 && val != 0)) {
+          val = val / 100;
+      }
+
+      highlightedEEZ.classed('active', true)
+        .transition()
+        .delay(i * 10)
+        .style('fill', function() {
+          if (order == -1) {
+            return rampColor(1 - val);
+          } else {
+            return rampColor(val);
+          }
+        });
+
+      d3.selectAll('.country.' + iso3)
+        .attr('data-val', val);
+      i++;
+    } else if (Math.round(val) == val) { // val is an integer
+      // This is getting closer ..... !!!
+  //    console.log('int!!!');
+      highlightedCountry.classed('active', true)
+        .transition()
+        .delay(i * 10)
+        .style('fill', function () {
+        //  console.log('fill', colorBrew[(val * 2) - 1]);
+        if (val == 0) {
+          return null;
+        } else {
+          return colorBrew[(val * 2) - 1];
+        }
+        } );
+
+      d3.selectAll('.country.' + iso3)
+        .attr('data-val', val);
+      i++;
     }
 
-    highlightedCountry.classed('active', true)
-      .transition()
-      .delay(i * 10)
-      .style('fill', function() {
-        if (order == -1) {
-          return rampColor(1 - val);
-        } else {
-          return rampColor(val);
-        }
-      });
 
-    d3.selectAll('.country.' + iso3)
-      .attr('data-val', val);
-    i++;
+
   }
+
+  // This is where we'd put the title of the legend
 
   d3.select('.legend-g')
     .classed('hidden', false);
