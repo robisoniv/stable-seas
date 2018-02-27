@@ -46,8 +46,11 @@ var fonts = ["font-family: 'Slabo 27px', serif;",
 d3.select('body')
   .attr('style',fonts[Math.round(Math.random() * 10) % 5] );
 
+
 d3.selectAll('h2')
   .on('click', function (d) {
+
+    // count interactions ...
     clicks += 1;
     var col = d3.select(this).attr('data-col');
 
@@ -62,30 +65,47 @@ d3.selectAll('h2')
 
     // then toggle your column
     if (invisible) {
+
       d3.selectAll('.invisible.' + col )
         .classed('invisible', false)
         .classed('visible', true);
 
     } else {
+
       d3.selectAll('.visible.' + col )
         .classed('invisible', true)
         .classed('visible', false);
+
     }
+
   });
 
 
-// count interactions ...
 // set conditions to unlock more of the site if you interact with it more ....
 
 d3.select('h1')
   .on('click', function () {
     if (clicks > 4) {
+      
       var a = d3.select('#about'),
       i = a.classed('invisible'),
       v = a.classed('visible');
 
       a.classed('invisible', !i)
         .classed('visible', !v);
+
+      if (!v) {
+
+        a.style('height', null)
+
+      } else {
+
+        a.style('height', 0)
+
+      }
     }
     console.log(clicks);
-  })
+  });
+
+d3.select('#about')
+  .style('height', 0);
