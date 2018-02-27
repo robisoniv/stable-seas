@@ -627,29 +627,32 @@ var internationalCooperationData = {
         tooltip: true,
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];
+          // leverage some map.legend array? replace switch statement with
+          // return "Yaounde " + legend[zoneIndex] ...
+          // Also would enable us to build the legend lower left corner ...
 
           switch (zone.yaounde) {
             case 1:
-              return "Zone A";
+              return "Yaounde Zone A";
               break;
             case 2:
-              return "Zone D";
+              return "Yaounde Zone D";
               break;
             case 3:
-              return "Zone E";
+              return "Yaounde Zone E";
               break;
             case 4:
-              return "Zone F";
+              return "Yaounde Zone F";
               break;
             case 5:
-              return "Zone G";
+              return "Yaounde Zone G";
               break;
             case 0:
               if (zone.djibouti == 1) {
                 return "Party to Djibouti Code of Conduct"
               }
             default:
-              return "Neither a member of the Lome Charter nor the Djibouti Code of Conduct";
+              return "Neither a member of the Yaounde Code of Conduct nor the Djibouti Code of Conduct";
           }
 
 
@@ -806,9 +809,15 @@ var internationalCooperationData = {
         classes: 'card-eez-layer',
         path: '../../data/international-cooperation/maritime-border-disputes.csv',
         translate: [],
-        tooltip: false,
+        tooltip: true,
         tooltipHTML: function(iso) {
-
+          var val = issueAreaData[issueArea].metadata.countryData[iso].disputes;
+          if (val != 0) {
+            return "Ongoing disputes with " + val;
+          } else {
+            return "No ongoing disputes."
+          }
+//console.log(val);
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
           // Class EEZ with card-0-layer to enable switch() method
@@ -885,7 +894,7 @@ var internationalCooperationData = {
           var disputes = issueAreaData[issueArea].metadata.countryData;
 
           for (iso in disputes) {
-            console.log(disputes[iso]);
+        //    console.log(disputes[iso]);
             if (disputes[iso].disputes != 0) {
           //    console.log('i', iso);
 

@@ -56,9 +56,12 @@ var maritimeEnforcementData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
+        tooltipHTML: function (iso) {
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "Maritime Enforcement:<br />" + tooltipVal + " / 100";
+
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
           // Class EEZ with card-0-layer to enable switch() method
@@ -68,25 +71,27 @@ var maritimeEnforcementData = {
         },
         switch: function(index) {
 
-          var values = issueAreaData[issueArea].metadata.countryData;
-          var valsArr = [];
+          choropleth(index, 1, 'index');
 
-          values.forEach(function(row, i) {
-            valsArr.push(row.ia4c0);
-          });
-
-          var max = d3.max(valsArr),
-            min = d3.min(valsArr),
-            range = max - min;
-
-          values.forEach(function(row, i) {
-            d3.selectAll('.eez.' + row.iso3)
-              .classed('active', true)
-              .style('fill', function() {
-                return rampColor(1 - ((row.ia4c0 - min) / range));
-              });
-
-          })
+          // var values = issueAreaData[issueArea].metadata.countryData;
+          // var valsArr = [];
+          //
+          // values.forEach(function(row, i) {
+          //   valsArr.push(row.ia4c0);
+          // });
+          //
+          // var max = d3.max(valsArr),
+          //   min = d3.min(valsArr),
+          //   range = max - min;
+          //
+          // values.forEach(function(row, i) {
+          //   d3.selectAll('.eez.' + row.iso3)
+          //     .classed('active', true)
+          //     .style('fill', function() {
+          //       return rampColor(1 - ((row.ia4c0 - min) / range));
+          //     });
+          //
+          // })
         }
       },
       els: [{
@@ -262,57 +267,67 @@ var maritimeEnforcementData = {
         scale: [],
         classes: 'card-2-layer',
         translate: [],
+        tooltip: true,
+        tooltipHTML: function (iso) {
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].mda;
+          tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "Maritime Domain Awareness:<br />" + tooltipVal + " / 100";
+
+        },
         highlights: null,
         load: function(index, file) {
+          var layer = 'card-' + index + '-layer';
+          classEEZ(layer);
           // Location and capability estimates of
           // information sharing centers across Africa.
-          var layer = 'card-' + index + '-layer';
-          d3.json(file, function(error, locations) {
-
-            var centers = mapg.append('g')
-              .classed('card-layer invisible ' + layer, true);
-
-            centers.selectAll('.centers')
-              .data(locations).enter()
-              .append('circle')
-              .attr('cx', function(d) {
-                return projection([d.lon, d.lat])[0];
-              })
-              .attr('cy', function(d) {
-                return projection([d.lon, d.lat])[1];
-              })
-              .attr('r', function(d) {
-                return d.names.length * 6 + 'px';
-              })
-              .attr('class', function(d) {
-                return d.type;
-              })
-              .classed('center-location', true)
-              .style('fill', function(d) {
-                if (d.type == 'national') {
-                  return colorBrew[0][0];
-                } else if (d.type == 'regional') {
-                  return colorBrew[1][0];
-
-                } else if (d.type == 'both') {
-                  return colorBrew[2][0];
-
-                }
-              })
-              .style('stroke', function(d) {
-                if (d.type == 'national') {
-                  return colorBrew[0][1];
-                } else if (d.type == 'regional') {
-                  return colorBrew[1][1];
-
-                } else if (d.type == 'both') {
-                  return colorBrew[2][1];
-
-                }
-              });
-
-
-          })
+          // var layer = 'card-' + index + '-layer';
+          // d3.json(file, function(error, locations) {
+          //
+          //   var centers = mapg.append('g')
+          //     .classed('card-layer invisible ' + layer, true);
+          //
+          //   centers.selectAll('.centers')
+          //     .data(locations).enter()
+          //     .append('circle')
+          //     .attr('cx', function(d) {
+          //       return projection([d.lon, d.lat])[0];
+          //     })
+          //     .attr('cy', function(d) {
+          //       return projection([d.lon, d.lat])[1];
+          //     })
+          //     .attr('r', function(d) {
+          //       return d.names.length * 6 + 'px';
+          //     })
+          //     .attr('class', function(d) {
+          //       return d.type;
+          //     })
+          //     .classed('center-location', true)
+          //     .style('fill', function(d) {
+          //       if (d.type == 'national') {
+          //         return colorBrew[0][0];
+          //       } else if (d.type == 'regional') {
+          //         return colorBrew[1][0];
+          //
+          //       } else if (d.type == 'both') {
+          //         return colorBrew[2][0];
+          //
+          //       }
+          //     })
+          //     .style('stroke', function(d) {
+          //       if (d.type == 'national') {
+          //         return colorBrew[0][1];
+          //       } else if (d.type == 'regional') {
+          //         return colorBrew[1][1];
+          //
+          //       } else if (d.type == 'both') {
+          //         return colorBrew[2][1];
+          //
+          //       }
+          //     });
+          //
+          //
+          // })
 
           // Load file
 
@@ -321,9 +336,8 @@ var maritimeEnforcementData = {
         },
         switch: function(index) {
           // Show loaded GIS layer
-          var target = 'card-' + index + '-layer';
+          choropleth(index,1,'mda')
 
-          d3.select('.' + target).classed('invisible', false);
         }
       },
       els: [{
@@ -334,11 +348,11 @@ var maritimeEnforcementData = {
           tag: 'caption',
           text: 'A prerequisite for effective maritime governance'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<div class="brew-00">National information sharing centres.</div><br /><div class="brew-10">Regional information sharing centres.</div><br /><div class="brew-20">Both national and regional information sharing centres.</div><br />Circle diameter represents the number of centres present in a location.'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<div class="brew-00">National information sharing centres.</div><br /><div class="brew-10">Regional information sharing centres.</div><br /><div class="brew-20">Both national and regional information sharing centres.</div><br />Circle diameter represents the number of centres present in a location.'
+        // },
         {
           tag: 'p',
           html: 'Maritime domain awareness (MDA) is the ability to collect, analyze, and disseminate information on a variety of activities in the maritime domain which may affect safety, security, the environment, and economic activity. The sheer size of the maritime space (Mozambique, for example, has an EEZ larger than the land area of Metropolitan France), the limited resources, and the high level of activity makes having even a basic level of MDA incredibly challenging.'
@@ -534,6 +548,17 @@ var maritimeEnforcementData = {
         classes: 'card-4-layer',
         translate: [],
         highlights: null,
+        legend: ['a Navy', 'Law Enforcement', 'both a Navy and Law Enforcement'],
+        tooltip: true,
+        tooltipHTML: function (iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].naviesLawEnf - 1;
+          var legend = issueAreaData[issueArea].cards[activeCard].map.legend;
+          console.log(legend);
+        //  tooltipVal = Math.round((tooltipVal * 100));
+        //  updatePointer(tooltipVal);
+          return "This country has " + legend[tooltipVal];
+        },
         load: function(index, file) {
           // Color map with vessel score chloropleth ...
           var layer = 'card-' + index + '-layer';
@@ -541,7 +566,7 @@ var maritimeEnforcementData = {
         },
         switch: function(index) {
 
-          choropleth(/*params*/);
+          choropleth(index, 1, 'naviesLawEnf');
           // var layer = 'card-' + index + '-layer';
           // // Class countries per .xls 4.5 sheet
           //
@@ -597,11 +622,11 @@ var maritimeEnforcementData = {
           tag: 'caption',
           text: 'Policing African Waters'
         },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<div class="brew-00 legend-entries">Countries with a navy.</div><br /><div class="brew-20 legend-entries">Countries that have a coast guard.</div><br /><div class="brew-40 legend-entries">Countries with both a navy and a coast guard.</div><br /> <br> Source: <a href=\'https://www.iiss.org/-/media/documents/publications/the%20military%20balance/military%20balance%202016/mb2016%20further%20assessments.pdf?la=en.\' target=\'_blank\'>2016 Military Balance report</a>'
-        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<div class="brew-00 legend-entries">Countries with a navy.</div><br /><div class="brew-20 legend-entries">Countries that have a coast guard.</div><br /><div class="brew-40 legend-entries">Countries with both a navy and a coast guard.</div><br /> <br> Source: <a href=\'https://www.iiss.org/-/media/documents/publications/the%20military%20balance/military%20balance%202016/mb2016%20further%20assessments.pdf?la=en.\' target=\'_blank\'>2016 Military Balance report</a>'
+        // },
         {
           tag: 'p',
           html: 'Most states in sub-Saharan Africa have navies, but relatively few have forces such as coast guards dedicated to maritime law enforcement. While navies are built primarily for national defense and warfighting, maritime law enforcement is intended to counter a variety of illicit activities at sea, including but not limited to <a href="../../piracy" class="piracy inline">piracy</a>, <a href="../../human-trafficking" class="maritime-mixed-migration inline"> maritime mixed migration</a>, <a href="../../fisheries" class="fisheries inline">IUU fishing</a>, and transport of drugs, arms, and wildlife.<sup>9</sup>'
@@ -962,6 +987,14 @@ var maritimeEnforcementData = {
         classes: 'card-7-layer',
         translate: [],
         highlights: null,
+        tooltip: true,
+        tooltipHTML: function (iso) {
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "Maritime Enforcement:<br />" + tooltipVal + " / 100";
+
+        },
         load: function (index, file) {  // ### *** This only should be for the first card ...
           // Color EEZ according to master Stable Seas index
           var layer = 'card-'+index+'-layer';
@@ -970,7 +1003,7 @@ var maritimeEnforcementData = {
             .classed(layer, true);
         },
         switch: function (index) {
-          switchMainIndexInverse(0);
+          choropleth(index, 1, 'index');
         }
       },
       els: [
