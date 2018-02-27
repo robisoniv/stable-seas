@@ -61,7 +61,7 @@ var overviewData = {
         highlights: [],
         tooltip: true,
         tooltipHTML: function(tooltipVal) {
-          return 'Greatest strength: <br />' + issueAreaData[issueArea]
+          return 'Relative strength: <br />' + issueAreaData[issueArea]
             .metadata.countryData[tooltipVal].Strength;
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -310,12 +310,14 @@ var overviewData = {
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
+        extent: [[0, -65],
+          [140, 42]],
         tooltip: true,
         tooltipHTML: function(tooltipVal) {
           var val = issueAreaData[issueArea]
             .metadata.countryData[tooltipVal]["Weakness Djibouti"];
           if (val != 0) {
-            return 'Greatest Weakness: <br />' + val;
+            return 'Relative Weakness: <br />' + val;
           } else {
             return null;
           }
@@ -465,12 +467,14 @@ var overviewData = {
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
+        extent: [[-25, -45],
+          [110, 32]],
         tooltip: true,
         tooltipHTML: function(tooltipVal) {
           var val = issueAreaData[issueArea]
             .metadata.countryData[tooltipVal]["Weakness Yaounde"];
           if (val != 0) {
-            return 'Greatest Weakness: <br />' + val;
+            return 'Relative Weakness: <br />' + val;
           } else {
             return null;
           }
@@ -783,7 +787,9 @@ var overviewData = {
         tooltipHTML: function (iso) {
         //  console.log(iso);
           var val = issueAreaData[issueArea].metadata.countryData[iso].Average;
-          return "Average of Stable Seas Maritime Security Index sub-scores:<br />" + Math.round(val * 100) + " / 100";
+          val = Math.round(val * 100);
+          updatePointer(val);
+          return "Average Score:<br />" + val + " / 100";
         //  updatePointer(val);
         //  console.log(val);
         },
