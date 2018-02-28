@@ -51,11 +51,13 @@ var maritimeEnforcementData = {
         description: 'Introduce the issue.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'Maritime Enforcement Score',
         tooltipHTML: function (iso) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
           tooltipVal = Math.round((tooltipVal * 100));
@@ -263,11 +265,13 @@ var maritimeEnforcementData = {
         description: 'Importance of not only vessels, but communications and monitoring equipment.'
       },
       map: {
+        type: 'continuous',
         path: '../../data/maritime-enforcement/information-sharing-centers.js',
         scale: [],
         classes: 'card-2-layer',
         translate: [],
         tooltip: true,
+        legend: 'Maritime Domain Awareness Score ####?',
         tooltipHTML: function (iso) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].mda;
           tooltipVal = Math.round((tooltipVal * 100));
@@ -543,18 +547,20 @@ var maritimeEnforcementData = {
         description: 'Most states lack committed coast guards.'
       },
       map: {
+        type: 'categorical',
         path: '',
         scale: [],
         classes: 'card-4-layer',
         translate: [],
         highlights: null,
-        legend: ['a Navy', 'Law Enforcement', 'both a Navy and Law Enforcement'],
+        legend: 'Types of maritime capacity',
+        categories: ['a Navy', 'Law Enforcement', 'both a Navy and Law Enforcement'],
         tooltip: true,
         tooltipHTML: function (iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].naviesLawEnf - 1;
-          var legend = issueAreaData[issueArea].cards[activeCard].map.legend;
-          console.log(legend);
+          var legend = issueAreaData[issueArea].cards[activeCard].map.categories;
+        //  console.log(legend);
         //  tooltipVal = Math.round((tooltipVal * 100));
         //  updatePointer(tooltipVal);
           return "This country has " + legend[tooltipVal];
@@ -983,6 +989,7 @@ var maritimeEnforcementData = {
         description: 'Methods.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-7-layer',
         translate: [],
