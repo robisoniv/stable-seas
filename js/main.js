@@ -109,7 +109,7 @@ function buildLegendContinuous() {
 
   var legendG = d3.select('#map-svg')
     .append('g')
-    .classed('legend-g ', true)
+    .classed('legend continuous invisible', true)
     .attr('width', 300)
     .attr('height', 50)
     .attr('transform', translateG)
@@ -130,6 +130,13 @@ function buildLegendContinuous() {
     .attr('y', 25)
     .attr('x', '270');
 
+  legendG.append('text')
+    .classed('legend-title', true)
+    .attr('font-size', 20)
+    .attr('y', -25)
+    .attr('x', 0)
+    .text('HAIIII');
+
   legendG.append('polygon')
     .classed('legend-pointer hidden', true)
     .attr('points', '0 0, 16 0, 8 15')
@@ -141,7 +148,73 @@ function buildLegendContinuous() {
 buildLegendContinuous();
 
 
+function buildLegendCategorical () {
 
+  var numCats = 10;
+
+  var translateG = 'translate(' + margins.bottom + ', ' + (h - (55 * numCats)) + ')';
+
+  var legendG = d3.select('#map-svg')
+    .append('g')
+    .classed('legend categorical ', true)
+    .attr('transform', translateG);
+
+  for (var c = 0; c < numCats; c++) {
+
+    var g = legendG.append('g')
+      .classed('legend-cat invisible cat-'+ (numCats - c - 1), true);
+      //.attr('transform', 'translate(0,0)')
+
+    g.append('rect')
+      .classed('cat-' + (numCats - c - 1), true)
+      .attr('width', 20)
+      .attr('height', 20)
+      .attr('transform', 'translate(0,' + (c * 50) + ')')
+      .attr('fill', colorBrew[ (2 * (numCats - c - 1)) ]);
+
+    g.append('text')
+      .classed('cat-' + (numCats - c - 1), true)
+      .attr('font-size', 18)
+      .attr('transform', 'translate(30,' + (c * 50 + 15) + ')')
+      .text(null);
+  }
+
+  legendG.append('text')
+    .classed('legend-categorical-title', true)
+    .attr('font-size', 24)
+    .text('TITLELELEELE');
+
+  // legendG.append('rect')
+  //   .attr('width', 300)
+  //   .attr('height', 10)
+  //   .style('fill', 'url(#linear-gradient)');
+  //
+  // legendG.append('text')
+  //   .text('Worse')
+  //   .attr('font-size', 10)
+  //   .attr('y', 25);
+  //
+  // legendG.append('text')
+  //   .text('Better')
+  //   .attr('font-size', 10)
+  //   .attr('y', 25)
+  //   .attr('x', '270');
+  //
+  // legendG.append('text')
+  //   .classed('legend-title', true)
+  //   .attr('font-size', 20)
+  //   .attr('y', -25)
+  //   .attr('x', 0)
+  //   .text('HAIIII');
+  //
+  // legendG.append('polygon')
+  //   .classed('legend-pointer hidden', true)
+  //   .attr('points', '0 0, 16 0, 8 15')
+  //   .attr('fill', 'black')
+  //   .attr('transform', 'translate(0, -15)');
+}
+
+buildLegendCategorical();
 
 // Set up the tooltip:
 var tooltip = d3.select('body').append('div')
@@ -1480,13 +1553,23 @@ function choropleth(cardIndex, order, key) {
 
   var target = 'card-' + cardIndex + '-layer';
   var vals = issueAreaData[issueArea].metadata.countryData;
-  var mapType = issueAreaData[issueArea].cards[cardIndex].map.type;
+  var mapData = issueAreaData[issueArea].cards[cardIndex].map;
+  var mapType = mapData.type;
 
-  console.log(mapType);
+  //console.log(mapType);
+
+  d3.selectAll('.legend')
+    .classed('invisible', true);
+
+  d3.selectAll('.legend-cat')
+    .classed('invisible', true);
 
   if (mapType == 'continuous') {
     // First set up the legend
-    d3.select('.legend-continuous')
+    d3.select('.legend.continuous')
+    .classed('invisible', false)
+      .select('.legend-title')
+      .text(mapData.legend ? mapData.legend : null);
 
     var i = 0;
     for (iso3 in vals) {
@@ -1499,7 +1582,7 @@ function choropleth(cardIndex, order, key) {
 
 
       // First make sure that 0 - 100 range is converted into 0 - 1.
-      console.log('FLOAT');
+    //  console.log('FLOAT');
       if (!(val <= 1 && val != 0)) {
         val = val / 100;
       }
@@ -1522,23 +1605,62 @@ function choropleth(cardIndex, order, key) {
     }
 
   } else if (mapType == 'categorical') { // val is an integer
-    // This is getting closer ..... !!!
-    //    console.log('int!!!');
-    highlightedCountry.classed('active', true)
-      .transition()
-      .delay(i * 10)
-      .style('fill', function() {
-        //  console.log('fill', colorBrew[(val * 2) - 1]);
-        if (val == 0) {
-          return null;
-        } else {
-          return colorBrew[(val * 2) - 1];
-        }
-      });
 
-    d3.selectAll('.country.' + iso3)
-      .attr('data-val', val);
-    i++;
+    var i = 0;
+    var legendCategories = mapData.categories;
+    var legendTitle = mapData.legend;
+
+    // This is hard coded at a 433px tall categorical legend ... which i don't like. but it works for now.
+    var translateTitle = 'translate(0, ' + (450 - (55 * legendCategories.length)) + ')';
+
+    d3.select('.legend-categorical-title')
+      .attr('transform', translateTitle)
+      .text(legendTitle);
+
+    //console.log(legendCategories);
+
+    d3.select('.legend.categorical')
+      .classed('invisible', false);
+      // .select('.legend-title')
+      // .text(mapData.legend ? mapData.legend : null);
+    //
+    legendCategories.forEach(function (category, i)  {
+
+      d3.select('.legend-cat text.cat-' + i)
+        .text(category);
+      d3.select('.legend-cat.cat-' + i)
+        .classed('invisible', false);
+
+
+      console.log(category, i);
+    })
+
+    for (iso3 in vals) {
+      var highlightedEEZ = d3.selectAll('.eez.' + iso3);
+      var highlightedCountry = d3.selectAll('.country.' + iso3);
+
+      var val = vals[iso3][key];
+
+      highlightedCountry.classed('active', true)
+        .transition()
+        .delay(i * 10)
+        .style('fill', function() {
+          //  console.log('fill', colorBrew[(val * 2) - 1]);
+          if (val == 0) {
+            return null;
+          } else {
+            return colorBrew[(val * 2) - 1];
+          }
+        });
+
+      d3.selectAll('.country.' + iso3)
+        .attr('data-val', val);
+      i++;
+
+    }
+
+
+
 
 
   } else if (mapType == 'boolean') {

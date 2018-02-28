@@ -554,7 +554,7 @@ var maritimeEnforcementData = {
         translate: [],
         highlights: null,
         legend: 'Types of maritime capacity',
-        categories: ['a Navy', 'Law Enforcement', 'both a Navy and Law Enforcement'],
+        categories: ['Navy', 'Law Enforcement', 'Navy & Law Enforcement'],
         tooltip: true,
         tooltipHTML: function (iso) {
 
@@ -995,6 +995,7 @@ var maritimeEnforcementData = {
         translate: [],
         highlights: null,
         tooltip: true,
+        legend: 'Maritime Enforcement Score',
         tooltipHTML: function (iso) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
           tooltipVal = Math.round((tooltipVal * 100));
