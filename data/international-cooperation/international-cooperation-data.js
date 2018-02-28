@@ -28,6 +28,7 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'International Cooperation Score',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;

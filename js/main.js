@@ -12,7 +12,7 @@ var cIndex;
 var includedCountries = ['AGO', 'BEN', 'CMR', 'CPV', 'COM', 'COG', 'DJI', 'COD', 'GNQ', 'GAB', 'GMB', 'GHA', 'GIN', 'GNB', 'CIV', 'KEN', 'LBR', 'MDG', 'MUS', 'MOZ', 'NAM', 'NGA', 'STP', 'SEN', 'SYC', 'SLE', 'SOM', 'ZAF', 'TZA', 'TGO'];
 
 // Color variables
-var colorBrew = d3.schemeCategory20;// I don't think we need this any more...
+var colorBrew = d3.schemeCategory20; // I don't think we need this any more...
 // var colorBrew = [
 //   ['#a6cee3', '#1f78b4'],
 //   ['#b2df8a', '#33a02c'],
@@ -102,38 +102,44 @@ var mapg = d3.select('.map-g');
 
 // Add color gradient rectangle on top of map-g...
 //console.log((h - 100).toString());
-var translateG = 'translate(20, ' + (h - 80).toString() + ')';
 
-// console.log(translateG);
-var legendG = d3.select('#map-svg')
-  .append('g')
-  .classed('legend-g ', true)
-  .attr('width', 300)
-  .attr('height', 50)
-  .attr('transform', translateG)
+function buildLegendContinuous() {
 
-legendG.append('rect')
-  .attr('width', 300)
-  .attr('height', 10)
-  .style('fill', 'url(#linear-gradient)');
+  var translateG = 'translate(20, ' + (h - 80).toString() + ')';
 
-legendG.append('text')
-  .text('Worse')
-  .attr('font-size', 10)
-  .attr('y', 25);
+  var legendG = d3.select('#map-svg')
+    .append('g')
+    .classed('legend-g ', true)
+    .attr('width', 300)
+    .attr('height', 50)
+    .attr('transform', translateG)
 
-legendG.append('text')
-  .text('Better')
-  .attr('font-size', 10)
-  .attr('y', 25)
-  .attr('x', '270');
+  legendG.append('rect')
+    .attr('width', 300)
+    .attr('height', 10)
+    .style('fill', 'url(#linear-gradient)');
 
-legendG.append('polygon')
-  .classed('legend-pointer hidden', true)
-  .attr('points', '0 0, 16 0, 8 15')
-  .attr('fill', 'black')
-  .attr('transform', 'translate(0, -15)');
-//.attr('stroke-width',5);
+  legendG.append('text')
+    .text('Worse')
+    .attr('font-size', 10)
+    .attr('y', 25);
+
+  legendG.append('text')
+    .text('Better')
+    .attr('font-size', 10)
+    .attr('y', 25)
+    .attr('x', '270');
+
+  legendG.append('polygon')
+    .classed('legend-pointer hidden', true)
+    .attr('points', '0 0, 16 0, 8 15')
+    .attr('fill', 'black')
+    .attr('transform', 'translate(0, -15)');
+
+}
+
+buildLegendContinuous();
+
 
 
 
@@ -1017,18 +1023,18 @@ function pulse(iso3) {
 
   if (isFloat) {
     country.classed('active', true)
-      .style('fill', function () {
-        console.log(countryVal);
-        return d3.interpolateLab('white',rampColor(countryVal))(0.5);
+      .style('fill', function() {
+        console.log(val);
+        return d3.interpolateLab('white', rampColor(val))(0.5);
       });
   } else if (isInt) {
     country.classed('active', true)
-      .style('fill', function () {
-        return colorBrew[(val -1) * 2];
+      .style('fill', function() {
+        return colorBrew[(val - 1) * 2];
       });
 
     eez.classed('active', true)
-      .style('fill', function () {
+      .style('fill', function() {
         return colorBrew[(val * 2) - 1];
       })
   }
@@ -1040,10 +1046,11 @@ function pulse(iso3) {
   //   })
 }
 
-function classEEZ (layer) {
+function classEEZ(layer) {
   d3.select('.card-eez-layer')
     .classed(layer, true);
 }
+
 function unpulse(iso3) {
   var dataVal = d3.selectAll('.country.' + iso3).attr('data-val');
   var isInt = (Math.round(dataVal) == dataVal),
@@ -1059,7 +1066,7 @@ function unpulse(iso3) {
       .classed('active', false);
   } else if (isInt) {
     d3.selectAll('.country.' + iso3)
-      .style('fill', function () {
+      .style('fill', function() {
         if (dataVal == 0) {
           return null;
         } else {
@@ -1182,12 +1189,12 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           d3.select('div.tooltip').classed('hidden', true);
           d3.select('.legend-pointer').classed('hidden', true);
         });
-        // Hide tooltip on click
-        // .on('click', function () {
-        //   var t = d3.select('.tooltip');
-        //   console.log(t.classed('tooltip'));
-        //   t.classed('hidden', !t.classed('hidden'));
-        // });
+      // Hide tooltip on click
+      // .on('click', function () {
+      //   var t = d3.select('.tooltip');
+      //   console.log(t.classed('tooltip'));
+      //   t.classed('hidden', !t.classed('hidden'));
+      // });
 
       // Countries
       var countries = topojson.feature(geoData, geoData.objects.countries).features,
@@ -1473,23 +1480,28 @@ function choropleth(cardIndex, order, key) {
 
   var target = 'card-' + cardIndex + '-layer';
   var vals = issueAreaData[issueArea].metadata.countryData;
+  var mapType = issueAreaData[issueArea].cards[cardIndex].map.type;
 
-  //console.log(ssiValues);
-  var i = 0;
-  for (iso3 in vals) {
-    var highlightedEEZ = d3.selectAll('.eez.' + iso3);
-    var highlightedCountry = d3.selectAll('.country.' + iso3);
+  console.log(mapType);
 
-    var val = vals[iso3][key];
+  if (mapType == 'continuous') {
+    // First set up the legend
+    d3.select('.legend-continuous')
 
+    var i = 0;
+    for (iso3 in vals) {
+      var highlightedEEZ = d3.selectAll('.eez.' + iso3);
+      var highlightedCountry = d3.selectAll('.country.' + iso3);
 
-    // Check if val is float; if so highlight on continuous scale
-    if (Math.round(val) != val) {
+      var val = vals[iso3][key];
+
+      // Check if val is float; if so highlight on continuous scale
+
 
       // First make sure that 0 - 100 range is converted into 0 - 1.
       console.log('FLOAT');
       if (!(val <= 1 && val != 0)) {
-          val = val / 100;
+        val = val / 100;
       }
 
       highlightedEEZ.classed('active', true)
@@ -1506,29 +1518,36 @@ function choropleth(cardIndex, order, key) {
       d3.selectAll('.country.' + iso3)
         .attr('data-val', val);
       i++;
-    } else if (Math.round(val) == val) { // val is an integer
-      // This is getting closer ..... !!!
-  //    console.log('int!!!');
-      highlightedCountry.classed('active', true)
-        .transition()
-        .delay(i * 10)
-        .style('fill', function () {
+
+    }
+
+  } else if (mapType == 'categorical') { // val is an integer
+    // This is getting closer ..... !!!
+    //    console.log('int!!!');
+    highlightedCountry.classed('active', true)
+      .transition()
+      .delay(i * 10)
+      .style('fill', function() {
         //  console.log('fill', colorBrew[(val * 2) - 1]);
         if (val == 0) {
           return null;
         } else {
           return colorBrew[(val * 2) - 1];
         }
-        } );
+      });
 
-      d3.selectAll('.country.' + iso3)
-        .attr('data-val', val);
-      i++;
-    }
+    d3.selectAll('.country.' + iso3)
+      .attr('data-val', val);
+    i++;
 
 
+  } else if (mapType == 'boolean') {
+    // single highlight option ...
 
   }
+  //console.log(ssiValues);
+
+
 
   // This is where we'd put the title of the legend
 
