@@ -622,8 +622,8 @@ tr:nth-child(odd) {
   /*stroke-width: 1px*/
 }
 .pulse.eez {
-  fill: 'white';
-  opacity: 0.1;
+  /* fill: 'white';
+  opacity: 0.1; */
 }
 tr.pulse {
   background-color: #FC4C02;

@@ -148,7 +148,7 @@ function buildLegendContinuous() {
 buildLegendContinuous();
 
 
-function buildLegendCategorical () {
+function buildLegendCategorical() {
 
   var numCats = 10;
 
@@ -162,15 +162,15 @@ function buildLegendCategorical () {
   for (var c = 0; c < numCats; c++) {
 
     var g = legendG.append('g')
-      .classed('legend-cat invisible cat-'+ (numCats - c - 1), true);
-      //.attr('transform', 'translate(0,0)')
+      .classed('legend-cat invisible cat-' + (numCats - c - 1), true);
+    //.attr('transform', 'translate(0,0)')
 
     g.append('rect')
       .classed('cat-' + (numCats - c - 1), true)
       .attr('width', 30)
       .attr('height', 30)
       .attr('transform', 'translate(0,' + (c * 50) + ')')
-      .attr('fill', colorBrew[ (2 * (numCats - c - 1)) ])
+      .attr('fill', colorBrew[(2 * (numCats - c - 1))])
       .style('opacity', 0.3);
 
     g.append('rect')
@@ -178,8 +178,8 @@ function buildLegendCategorical () {
       .attr('width', 15)
       .attr('height', 15)
       .attr('transform', 'translate(7.5,' + (c * 50 + 7.5) + ')')
-      .attr('fill', d3.interpolateLab('white',colorBrew[ (2 * (numCats - c - 1)) ])(0.5));
-//      .style('stroke', 'white');
+      .attr('fill', d3.interpolateLab('white', colorBrew[(2 * (numCats - c - 1))])(0.5));
+    //      .style('stroke', 'white');
 
 
     g.append('text')
@@ -226,7 +226,7 @@ function buildLegendCategorical () {
 
 buildLegendCategorical();
 
-function buildLegendBoolean () {
+function buildLegendBoolean() {
   var translateG = 'translate(20, ' + (h - 80).toString() + ')';
 
   var legendG = d3.select('#map-svg')
@@ -235,24 +235,24 @@ function buildLegendBoolean () {
     .attr('transform', translateG);
 
 
-    var g = legendG.append('g')
-      .classed('legend-bool ', true);
-      //.attr('transform', 'translate(0,0)')
+  var g = legendG.append('g')
+    .classed('legend-bool ', true);
+  //.attr('transform', 'translate(0,0)')
 
-    g.append('rect')
-      .classed('bool', true)
-      .attr('width', 50)
-      .attr('height', 50)
-      .attr('transform', 'translate(0,-50)')
-      .attr('fill', themeColor(1))
-      .style('opacity', 0.3);
+  g.append('rect')
+    .classed('bool', true)
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('transform', 'translate(0,-50)')
+    .attr('fill', themeColor(1))
+    .style('opacity', 0.3);
 
-    g.append('rect')
-      .classed('bool', true)
-      .attr('width', 20)
-      .attr('height', 20)
-      .attr('transform', 'translate(15,-35)')
-      .attr('fill', themeColor(0.5));
+  g.append('rect')
+    .classed('bool', true)
+    .attr('width', 20)
+    .attr('height', 20)
+    .attr('transform', 'translate(15,-35)')
+    .attr('fill', themeColor(0.5));
 
   legendG.append('text')
     .classed('legend-boolean-title', true)
@@ -1142,13 +1142,13 @@ function pulse(iso3) {
     val = country.attr('data-val');
 
   var isInt = mapType == 'categorical' ? true : false,
-      isFloat = mapType == 'continuous' ? true : false,
-      isBool = mapType == 'boolean' ? true : false;
+    isFloat = mapType == 'continuous' ? true : false,
+    isBool = mapType == 'boolean' ? true : false;
 
   if (isFloat) {
     country.classed('active', true)
       .style('fill', function() {
-        console.log(val);
+  //      console.log(val);
         return d3.interpolateLab('white', rampColor(val))(0.5);
       });
   } else if (isInt) {
@@ -1160,10 +1160,10 @@ function pulse(iso3) {
     eez.classed('active', true)
       .style('opacity', 0.7);
   } else if (isBool) {
-    console.log('bool', isBool);
+//    console.log('bool', isBool);
 
     if (eval(val)) {
-      console.log('val', val);
+  //    console.log('val', val);
 
       country.classed('active', true)
         .style('fill', function() {
@@ -1174,7 +1174,7 @@ function pulse(iso3) {
         .style('opacity', function() {
           return 0.5;
         });
-      console.log('isBool', isBool);
+    //  console.log('isBool', isBool);
     }
 
   }
@@ -1196,8 +1196,8 @@ function unpulse(iso3) {
   var mapType = issueAreaData[issueArea].cards[activeCard].map.type;
 
   var isInt = mapType == 'categorical' ? true : false,
-      isFloat = mapType == 'continuous' ? true : false,
-      isBool = mapType == 'boolean' ? true : false;
+    isFloat = mapType == 'continuous' ? true : false,
+    isBool = mapType == 'boolean' ? true : false;
 
   //  console.log('int', isInt, 'float', isFloat);
   d3.selectAll('.pulse')
@@ -1222,17 +1222,17 @@ function unpulse(iso3) {
 
   } else if (isBool) {
     dataVal = eval(dataVal);
-    console.log('bool', (dataVal))
+  //  console.log('bool', (dataVal))
 
     d3.selectAll('.country.' + iso3).classed('active', true)
-      .style('fill', function () {
-        console.log(dataVal ? themeColor(0.5) : null);
+      .style('fill', function() {
+  //      console.log(dataVal ? themeColor(0.5) : null);
         return dataVal ? themeColor(0.5) : null;
       });
 
     d3.selectAll('.eez.' + iso3).classed('active', true)
-  //    .transition()
-    //  .delay(i * 10)
+      //    .transition()
+      //  .delay(i * 10)
       .style('opacity', function() {
         //  console.log('fill', colorBrew[(val * 2) - 1]);
         if (eval(dataVal) != true) {
@@ -1658,41 +1658,43 @@ function choropleth(cardIndex, order, key) {
   if (mapType == 'continuous') {
     // First set up the legend
     d3.select('.legend.continuous')
-    .classed('invisible', false)
+      .classed('invisible', false)
       .select('.legend-title')
       .text(mapData.legend ? mapData.legend : null);
 
     var i = 0;
     for (iso3 in vals) {
-      var highlightedEEZ = d3.selectAll('.eez.' + iso3);
-      var highlightedCountry = d3.selectAll('.country.' + iso3);
+      if ($.inArray(iso3, includedCountries) != -1) {
+        var highlightedEEZ = d3.selectAll('.eez.' + iso3);
+        var highlightedCountry = d3.selectAll('.country.' + iso3);
 
-      var val = vals[iso3][key];
+        var val = vals[iso3][key];
 
-      // Check if val is float; if so highlight on continuous scale
+        // Check if val is float; if so highlight on continuous scale
 
 
-      // First make sure that 0 - 100 range is converted into 0 - 1.
-    //  console.log('FLOAT');
-      if (!(val <= 1 && val != 0)) {
-        val = val / 100;
+        // First make sure that 0 - 100 range is converted into 0 - 1.
+        //  console.log('FLOAT');
+        if (!(val <= 1 && val != 0)) {
+          val = val / 100;
+        }
+
+        highlightedEEZ.classed('active', true)
+          .transition()
+          .delay(i * 10)
+          .style('fill', function() {
+            if (order == -1) {
+              return rampColor(1 - val);
+            } else {
+              return rampColor(val);
+            }
+          });
+
+        d3.selectAll('.country.' + iso3)
+          .attr('data-val', val);
+        i++;
+
       }
-
-      highlightedEEZ.classed('active', true)
-        .transition()
-        .delay(i * 10)
-        .style('fill', function() {
-          if (order == -1) {
-            return rampColor(1 - val);
-          } else {
-            return rampColor(val);
-          }
-        });
-
-      d3.selectAll('.country.' + iso3)
-        .attr('data-val', val);
-      i++;
-
     }
 
   } else if (mapType == 'categorical') { // val is an integer
@@ -1712,10 +1714,10 @@ function choropleth(cardIndex, order, key) {
 
     d3.select('.legend.categorical')
       .classed('invisible', false);
-      // .select('.legend-title')
-      // .text(mapData.legend ? mapData.legend : null);
+    // .select('.legend-title')
+    // .text(mapData.legend ? mapData.legend : null);
     //
-    legendCategories.forEach(function (category, i)  {
+    legendCategories.forEach(function(category, i) {
 
       d3.select('.legend-cat text.cat-' + i)
         .text(category);
@@ -1784,18 +1786,20 @@ function choropleth(cardIndex, order, key) {
       .classed('invisible', false);
 
     for (iso3 in vals) {
-
       var highlightedEEZ = d3.selectAll('.eez.' + iso3);
       var highlightedCountry = d3.selectAll('.country.' + iso3);
+      console.log(vals[iso3])
+      if (vals[iso3][key]) {
+        var val = eval(vals[iso3][key].toLowerCase());
 
-      var val = vals[iso3][key];
+      }
 
       highlightedCountry.classed('active', true)
         .transition()
         .delay(i * 10)
         .style('fill', function() {
           //  console.log('fill', colorBrew[(val * 2) - 1]);
-          if (val != 'true') {
+          if (!val) {
             return null;
           } else {
             return themeColor(0.5);
@@ -1807,7 +1811,7 @@ function choropleth(cardIndex, order, key) {
         .delay(i * 10)
         .style('fill', function() {
           //  console.log('fill', colorBrew[(val * 2) - 1]);
-          if (val != 'true') {
+          if (!val) {
             return null;
           } else {
             return themeColor(1);
@@ -1816,14 +1820,11 @@ function choropleth(cardIndex, order, key) {
         .style('opacity', val ? 0.3 : null);
 
       d3.selectAll('.country.' + iso3)
-        .attr('data-val', val);
+        .attr('data-val', val.toString());
       i++;
 
     }
   }
-  //console.log(ssiValues);
-
-
 
   // This is where we'd put the title of the legend
 
