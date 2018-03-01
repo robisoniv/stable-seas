@@ -1,31 +1,38 @@
-country,iso3,SSI_RANK,SSI_FINAL,index,unclos,unclos-ratified,partXI,partXI-ratified,un-fish-stocks,un-fish-stocks-ratified,disputes,yaounde,djibouti,lome,port-state-measures,port-state-measures-ratified
-Angola,AGO,20,0.490126905,0.623015873,1,1,1,1,0,0,DRC,1,0,1,1,0
-Benin,BEN,27,0.4592792029,0.6706349206,1,1,1,1,0,0,,3,0,,1,0
-Cote d'Ivoire,CIV,18,0.5085200334,0.8373015873,1,1,1,1,1,0,Ghana,4,0,1,0,0
-Cameroon,CMR,25,0.4714257177,0.8571428571,1,1,1,1,0,0,,2,0,,0,0
-DRC,COD,29,0.3685434168,0.5595238095,1,1,0,0,0,0,Angola,1,0,1,0,0
-Congo,COG,24,0.4761275469,0.7896825397,1,1,1,1,0,0,,1,0,1,0,0
-Comoros,COM,21,0.488154703,0.5238095238,1,1,0,0,0,0,France,0,1,,0,0
-Cabo Verde,CPV,1,0.7110351183,0.869047619,1,1,1,1,0,0,France,5,0,1,1,1
-Djibouti,DJI,17,0.519448662,0.5238095238,1,1,0,0,0,0,Eritrea and Somalia,0,1,,0,0
-Gabon,GAB,10,0.5597258799,0.753968254,1,1,1,1,1,0,Equatorial Guinea,2,0,1,1,0
-Ghana,GHA,14,0.5447041186,0.9166666667,1,1,0,0,0,0,Cote d'Ivoire,4,0,1,1,1
-Guinea,GIN,23,0.4804675213,0.9166666667,1,1,1,1,1,1,,4,0,1,1,1
-The Gambia,GMB,11,0.558995121,0.8214285714,1,1,0,0,0,0,,5,0,,1,1
-Guinea-Bissau,GNB,16,0.5296173006,0.7896825397,1,1,0,0,1,0,,5,0,,0,0
-Equatorial Guinea,GNQ,19,0.4997853804,0.6904761905,1,1,1,1,0,0,Gabon,2,0,,0,0
-Kenya,KEN,13,0.5458448128,0.6666666667,1,1,1,1,1,1,Somalia,0,1,1,1,0
-Liberia,LBR,22,0.4825642607,0.7023809524,1,1,1,1,1,1,,4,0,1,0,0
-Madagascar,MDG,15,0.538422647,0.619047619,1,1,1,1,0,0,France,0,1,1,1,1
-Mozambique,MOZ,12,0.5548385542,0.8333333333,1,1,1,1,1,1,,0,1,,1,1
-Mauritus,MUS,5,0.6756409784,0.6666666667,1,1,1,1,1,1,Seychelles and the United Kingdom,0,1,,1,1
-Namibia,NAM,2,0.7025909926,0.8333333333,1,1,1,1,1,1,,0,0,,0,0
-Nigeria,NGA,26,0.4658652976,0.869047619,1,1,1,1,1,1,,3,0,1,0,0
-Senegal,SEN,6,0.6198442159,0.9166666667,1,1,1,1,1,1,,5,0,,1,1
-Sierra Leone,SLE,9,0.5832834853,0.7896825397,1,1,1,1,0,0,,4,0,1,1,0
-Somalia,SOM,30,0.3456019379,0.2619047619,1,1,0,0,0,0,Djibouti and Yemen,0,1,1,1,1
-Sao Tome and Principe,STP,8,0.5925240784,0.9047619048,1,1,0,0,0,0,,2,0,1,1,1
-Seychelles,SYC,4,0.685140651,0.6666666667,1,1,1,1,1,1,Mauritius,0,1,1,1,1
-Togo,TGO,28,0.4524106256,0.7023809524,1,1,1,1,0,0,,3,0,1,1,1
-Tanzania,TZA,7,0.6029491316,0.7380952381,1,1,1,1,0,0,,0,1,1,0,0
-South Africa,ZAF,3,0.6973205843,0.8333333333,1,1,1,1,1,1,,0,1,,1,1
+country,iso3,SSI_RANK,SSI_FINAL,international-cooperation-index,IC_AGREEMENTS,disputes,yaounde,,djibouti,lome,port-state-measures,port-state-measures-ratified
+Angola,AGO,20,0.490126905,62,62,DRC,1,,0,true,1,0
+Benin,BEN,27,0.4592792029,72,90,,3,,0,false,1,0
+Cote d'Ivoire,CIV,18,0.5085200334,84,76,Ghana,4,,0,true,0,0
+Cameroon,CMR,25,0.4714257177,86,57,,2,,0,false,0,0
+DRC,COD,29,0.3685434168,56,43,Angola,1,,0,true,0,0
+Congo,COG,24,0.4761275469,79,62,,1,,0,true,0,0
+Comoros,COM,21,0.488154703,52,57,France,6,,1,false,0,0
+Cabo Verde,CPV,1,0.7110351183,87,86,France,5,,0,true,1,1
+Djibouti,DJI,17,0.519448662,52,57,Eritrea and Somalia,7,,1,false,0,0
+Gabon,GAB,10,0.5597258799,75,76,Equatorial Guinea,2,,0,true,1,0
+Ghana,GHA,14,0.5447041186,92,100,Cote d'Ivoire,4,,0,true,1,1
+Guinea,GIN,23,0.4804675213,92,100,,4,,0,true,1,1
+The Gambia,GMB,11,0.558995121,82,71,,5,,0,false,1,1
+Guinea-Bissau,GNB,16,0.5296173006,79,62,,5,,0,false,0,0
+Equatorial Guinea,GNQ,19,0.4997853804,69,57,Gabon,2,,0,false,0,0
+Kenya,KEN,13,0.5458448128,67,100,Somalia,7,,1,true,1,0
+Liberia,LBR,22,0.4825642607,70,86,,4,,0,true,0,0
+Madagascar,MDG,15,0.538422647,62,86,France,7,,1,true,1,1
+Mozambique,MOZ,12,0.5548385542,83,100,,7,,1,false,1,1
+Mauritus,MUS,5,0.6756409784,83,100,Seychelles and the United Kingdom,7,,1,false,1,1
+Namibia,NAM,2,0.7025909926,83,100,,0,,0,false,0,0
+Nigeria,NGA,26,0.4658652976,87,86,,3,,0,true,0,0
+Senegal,SEN,6,0.6198442159,92,100,,5,,0,false,1,1
+Sierra Leone,SLE,9,0.5832834853,79,62,,4,,0,true,1,0
+Somalia,SOM,30,0.3456019379,26,29,Djibouti and Yemen,7,,1,true,1,1
+Sao Tome and Principe,STP,8,0.5925240784,90,71,,2,,0,true,1,1
+Seychelles,SYC,4,0.685140651,83,100,Mauritius,7,,1,true,1,1
+Togo,TGO,28,0.4524106256,70,86,,3,,0,true,1,1
+Tanzania,TZA,7,0.6029491316,74,71,,7,,1,true,0,0
+South Africa,ZAF,3,0.6973205843,83,100,,7,,1,false,1,1
+,ETH,,,,,,7,,,,,
+,ERI,,,,,,7,,,,,
+,CAF,,,,,,6,,,,,
+,TCD,,,,,,6,,,,,
+,NER,,,,,,6,,,,,
+,BFA,,,,,,6,,,,,
+,BDI,,,,,,6,,,,,
