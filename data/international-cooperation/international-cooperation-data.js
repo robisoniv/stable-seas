@@ -32,7 +32,7 @@ var internationalCooperationData = {
         legend: 'International Cooperation Score',
         tooltipHTML: function(iso) {
 
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['international-cooperation-index'];
           tooltipVal = Math.round((tooltipVal * 100));
           updatePointer(tooltipVal);
           return "International Cooperation:<br />" + tooltipVal + " / 100";
@@ -46,7 +46,7 @@ var internationalCooperationData = {
         },
         switch: function(index) {
           // Choropleth of scores
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'international-cooperation-index');
         }
       },
       els: [{
@@ -140,9 +140,11 @@ var internationalCooperationData = {
         tooltip: true,
         legend: '### Global Agreements Scores',
         tooltipHTML: function(iso) {
-          var output = "";
 
-          return output;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['ic_agreements'];
+          tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "Global Agreements:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -152,122 +154,7 @@ var internationalCooperationData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          choropleth(index,1,'#');
-          console.log('we still need the data for this map');
-          // var vals = issueAreaData[issueArea].metadata.countryData;
-          // //    var cat;
-          // var i = 0;
-          // for (iso in vals) {
-          //   var unclos = vals[iso].unclos == 1 ? true : false,
-          //     partXI = vals[iso].partXI == 1 ? true : false,
-          //     fishStocks = vals[iso]["un-fish-stocks"] == 1 ? true : false;
-          //
-          //   if (unclos && partXI && fishStocks) {
-          //     cat = 0;
-          //   } else if (unclos && partXI && !fishStocks) {
-          //     cat = 1;
-          //   } else if (unclos && !partXI && !fishStocks) {
-          //     cat = 2;
-          //   } else if (unclos && !partXI && fishStocks) {
-          //     cat = 4;
-          //   } else {
-          //     cat = 3;
-          //   }
-          //
-          //   d3.selectAll('.country.' + iso)
-          //     .classed('active', true)
-          //     .attr('data-category', cat)
-          //     .attr('data-iso', iso)
-          //     .on('mouseover', function() {
-          //
-          //       if (activeCard == 1) {
-          //
-          //         var catTmp = d3.select(this).attr('data-category');
-          //         var isoTmp = d3.select(this).attr('data-iso');
-          //         d3.select(this)
-          //           .style('fill', function() {
-          //             return colorBrew[catTmp][1];
-          //           })
-          //           .style('stroke', 'black');
-          //
-          //         d3.selectAll('.eez.' + isoTmp)
-          //           .style('fill', function() {
-          //             return colorBrew[catTmp][0];
-          //           });
-          //       }
-          //     })
-          //     .on('mouseleave', function() {
-          //       if (activeCard == 1) {
-          //         var catTmp = d3.select(this).attr('data-category');
-          //         var isoTmp = d3.select(this).attr('data-iso');
-          //         d3.select(this)
-          //           .style('fill', function() {
-          //             return colorBrew[catTmp][0];
-          //           })
-          //           .style('stroke', function() {
-          //             return colorBrew[catTmp][1];
-          //           });
-          //
-          //         d3.selectAll('.eez.' + isoTmp)
-          //           .style('fill', null);
-          //       }
-          //
-          //     })
-          //     //.transition().delay(10 * i)
-          //     .style('fill', function() {
-          //       return colorBrew[cat][0];
-          //     })
-          //     .style('stroke', function () {
-          //       return colorBrew[cat][1];
-          //
-          //     });
-          //
-          //
-          //
-          //   d3.selectAll('.eez.' + iso)
-          //     .classed('active', true)
-          //     //  .transition().delay(10 * i)
-          //     .style('stroke', function() {
-          //       return colorBrew[cat][1];
-          //     })
-          //     .style('stroke-width', '4px')
-          //     .attr('data-category', cat)
-          //     .attr('data-iso', iso)
-          //     .on('mouseover', function() {
-          //       if (activeCard == 1) {
-          //         var catTmp = d3.select(this).attr('data-category');
-          //         var isoTmp = d3.select(this).attr('data-iso');
-          //
-          //         d3.select(this)
-          //           .style('fill', function() {
-          //             return colorBrew[catTmp][0];
-          //           });
-          //
-          //         d3.select('.country.' + isoTmp)
-          //           .style('fill', function() {
-          //             return colorBrew[catTmp][1];
-          //           })
-          //           .style('stroke', 'black');
-          //       }
-          //
-          //     })
-          //     .on('mouseleave', function() {
-          //       if (activeCard == 1) {
-          //         var catTmp = d3.select(this).attr('data-category');
-          //         var isoTmp = d3.select(this).attr('data-iso');
-          //         d3.select(this)
-          //           .style('fill', null)
-          //           .style('stroke-width', '4px');
-          //
-          //         d3.select('.country.' + isoTmp)
-          //           .style('fill', function() {
-          //             return colorBrew[catTmp][0];
-          //           })
-          //           .style('stroke', colorBrew[catTmp][0]);
-          //       }
-          //     });
-          //   i++;
-          // }
+          choropleth(index,1,'ic_agreements');
 
         }
       },
@@ -287,7 +174,6 @@ var internationalCooperationData = {
             }
           ]
         },
-        //###Insert graphics, video, and blockquote
       ] // end of els array
     },
     // { // Card 1
@@ -501,7 +387,6 @@ var internationalCooperationData = {
     //     //###Insert graphics, video, and blockquote
     //   ] // end of els array
     // },
-
     { // Card 2
       title: 'Who has signed the Lome Charter?',
       menu: 'AU Efforts',
@@ -604,7 +489,7 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        categories: ['Yaounde Zone A', 'Yaounde Zone D', 'Yaounde Zone E', 'Yaounde Zone F', 'Yaounde Zone G', 'Inland Yaounde Member (??)', 'Djibouti Code of Conduct (*incomplete list)'],
+        categories: ['Yaounde Zone A', 'Yaounde Zone D', 'Yaounde Zone E', 'Yaounde Zone F', 'Yaounde Zone G', 'Inland Yaounde Member (??)', 'Djibouti Code of Conduct (*)'],
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];
           // leverage some map.legend array? replace switch statement with
@@ -637,7 +522,7 @@ var internationalCooperationData = {
             //     return "Party to Djibouti Code of Conduct"
             //   }
             default:
-              return "Neither a member of the Yaounde Code of Conduct nor the Djibouti Code of Conduct";
+              return null;
           }
 
 
@@ -792,19 +677,20 @@ var internationalCooperationData = {
         description: 'Highlight maritime disputes.'
       },
       map: {
+        type: 'boolean',
         scale: [],
         classes: 'card-eez-layer',
         path: '../../data/international-cooperation/maritime-border-disputes.csv',
         translate: [],
         tooltip: true,
+        legend: 'Countries with EEZ disputes',
         tooltipHTML: function(iso) {
-          var val = issueAreaData[issueArea].metadata.countryData[iso].disputes;
+          var val = issueAreaData[issueArea].metadata.countryData[iso]['disputes-with'];
           if (val != 0) {
             return "Ongoing disputes with " + val;
           } else {
             return "No ongoing disputes."
           }
-//console.log(val);
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
           // Class EEZ with card-0-layer to enable switch() method
@@ -877,21 +763,24 @@ var internationalCooperationData = {
           // countries.forEach(function(country, i) {
 
           // })
+          choropleth(index,i,'disputes');
+      //    var disputes = issueAreaData[issueArea].metadata.countryData;
 
-          var disputes = issueAreaData[issueArea].metadata.countryData;
-
-          for (iso in disputes) {
-        //    console.log(disputes[iso]);
-            if (disputes[iso].disputes != 0) {
-          //    console.log('i', iso);
-
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-            //    .transition().delay(i * 10)
-                .style('fill', themeColor(0.5))
-                .style('stroke', themeColor(1));
-            }
-          }
+        //   for (iso in disputes) {
+        // //    console.log(disputes[iso]);
+        //     var val = eval(disputes[iso].disputes.toLowerCase());
+        //
+        //   //  console.log(iso, eval(val.toLowerCase()));
+        //     if (val) {
+        //   //    console.log('i', iso);
+        //
+        //       d3.selectAll('.country.' + iso)
+        //         .classed('active', true)
+        //     //    .transition().delay(i * 10)
+        //         .style('fill', themeColor(0.5))
+        //         .style('stroke', themeColor(1));
+        //     }
+        //   }
       ///    console.log(disputes);
 
         }
@@ -1164,7 +1053,6 @@ var internationalCooperationData = {
     //     }
     //   ] // end of els array
     // },
-
     // { // Card 5
     //   title: 'East Africa',
     //   menu: 'East Africa',
@@ -1420,7 +1308,6 @@ var internationalCooperationData = {
     //     //###Insert Map and Graphics
     //   ] // end of els array
     // },
-
     { // Card 7
       title: 'Methodology',
       menu: 'Methodology',
@@ -1429,31 +1316,30 @@ var internationalCooperationData = {
         description: 'Card will provide basic methodology info.'
       },
       map: {
+        type: 'continuous',
         scale: [],
-        classes: '',
+        classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'International Cooperation Score',
         tooltipHTML: function(iso) {
 
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['international-cooperation-index'];
           tooltipVal = Math.round((tooltipVal * 100));
           updatePointer(tooltipVal);
           return "International Cooperation:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
-          // Load flow map layer
+          // Class EEZ with card-0-layer to enable switch() method
           var layer = 'card-' + index + '-layer';
-          // Load topoJSON of flow map
           d3.select('.card-eez-layer')
             .classed(layer, true);
-          // Class with layer
         },
         switch: function(index) {
-          // Simply show target layer
-          choropleth(index, 1, 'index');
-
+          // Choropleth of scores
+          choropleth(index, 1, 'international-cooperation-index');
         }
       },
       els: [{
