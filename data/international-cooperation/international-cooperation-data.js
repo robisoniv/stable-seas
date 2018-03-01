@@ -23,6 +23,7 @@ var internationalCooperationData = {
         description: 'Introduce the issue.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
@@ -131,11 +132,13 @@ var internationalCooperationData = {
         description: 'Global Agreements'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: '### Global Agreements Scores',
         tooltipHTML: function(iso) {
           var output = "";
 
@@ -149,6 +152,8 @@ var internationalCooperationData = {
             .classed(layer, true);
         },
         switch: function(index) {
+          choropleth(index,1,'#');
+          console.log('we still need the data for this map');
           // var vals = issueAreaData[issueArea].metadata.countryData;
           // //    var cat;
           // var i = 0;
@@ -505,14 +510,16 @@ var internationalCooperationData = {
         description: 'Move to comprehensive continental strategy.'
       },
       map: {
+        type: 'boolean',
         scale: [],
         classes: '',
         highlights: [],
         tooltip: true,
+        legend: 'Signatories of Lome Charter',
         tooltipHTML: function(iso) {
 
           var lome = issueAreaData[issueArea].metadata.countryData[iso].lome;
-          if (lome == 1) {
+          if (lome == 'true') {
             return "Signatory of the Lome Charter";
 
           } else {
@@ -527,37 +534,7 @@ var internationalCooperationData = {
 
         },
         switch: function(index) {
-          var lome = issueAreaData[issueArea].metadata.countryData;
-
-          var i = 1;
-          var card = 'lome';
-          for (iso in lome) {
-
-            if (lome[iso][card] == 1) {
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('fill', function() {
-                  return themeColor(0.5);
-                })
-                .style('stroke', function() {
-                  return themeColor(1);
-                });
-
-              d3.selectAll('.eez.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                //  .style('fill', function () {return rampColor(0.1);})
-                .style('stroke', function() {
-                  return themeColor(1);
-                })
-                .style('stroke-width', '2px');
-              i++;
-            }
-          }
-
-          d3.selectAll('.card-' + index + '-layer')
-            .classed('invisible', false);
+          choropleth(index,1,'lome');
         }
       },
       els: [{
@@ -621,11 +598,13 @@ var internationalCooperationData = {
         description: 'How the zones and regional centers are set up, describe patrols and success.'
       },
       map: {
+        type: 'categorical',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        categories: ['Yaounde Zone A', 'Yaounde Zone D', 'Yaounde Zone E', 'Yaounde Zone F', 'Yaounde Zone G', 'Inland Yaounde Member (??)', 'Djibouti Code of Conduct (*incomplete list)'],
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];
           // leverage some map.legend array? replace switch statement with
@@ -648,10 +627,15 @@ var internationalCooperationData = {
             case 5:
               return "Yaounde Zone G";
               break;
-            case 0:
-              if (zone.djibouti == 1) {
-                return "Party to Djibouti Code of Conduct"
-              }
+            case 6:
+              return 'Inland Yaounde Member'
+            case 7:
+              return "Party to Djibouti Code of Conduct";
+              break;
+            // case 0:
+            //   if (zone.djibouti == 1) {
+            //     return "Party to Djibouti Code of Conduct"
+            //   }
             default:
               return "Neither a member of the Yaounde Code of Conduct nor the Djibouti Code of Conduct";
           }
@@ -668,40 +652,42 @@ var internationalCooperationData = {
         switch: function(index) {
 
           // First highlight yaounde members .country.in
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          // ### Replace this with choropleth() function, once it is built to handle categorical data.
-          var i = 0;
-          for (iso in vals) {
-            var yaounde = vals[iso]['yaounde'] - 1;
+          choropleth(index, 1, 'yaounde');
 
-            if (yaounde >= 0) {
-              //  console.log(country.ia2c3);
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-              //  .transition().delay(i * 10)
-                .style('fill', colorBrew[yaounde][0])
-                .style('stroke', colorBrew[yaounde][1]); // ### what colors??
-              //  .style('stroke', 'white');
-
-              d3.selectAll('.eez.' + iso)
-                .classed('active', true)
-              //  .transition().delay(i * 10)
-                .style('stroke', colorBrew[yaounde][0]); // ### what colors?? Also EEZ opacity is meh ...
-
-              i++;
-
-            }
-
-            var djibouti = vals[iso]['djibouti'];
-
-            if (djibouti == 1) {
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-                .style('fill', function () {
-                  return d3.interpolateLab('white', '#fff000')(0.5);
-                });
-            //  console.log(iso);
-            }
+          // var vals = issueAreaData[issueArea].metadata.countryData;
+          // // ### Replace this with choropleth() function, once it is built to handle categorical data.
+          // var i = 0;
+          // for (iso in vals) {
+          //   var yaounde = vals[iso]['yaounde'] - 1;
+          //
+          //   if (yaounde >= 0) {
+          //     //  console.log(country.ia2c3);
+          //     d3.selectAll('.country.' + iso)
+          //       .classed('active', true)
+          //     //  .transition().delay(i * 10)
+          //       .style('fill', colorBrew[yaounde][0])
+          //       .style('stroke', colorBrew[yaounde][1]); // ### what colors??
+          //     //  .style('stroke', 'white');
+          //
+          //     d3.selectAll('.eez.' + iso)
+          //       .classed('active', true)
+          //     //  .transition().delay(i * 10)
+          //       .style('stroke', colorBrew[yaounde][0]); // ### what colors?? Also EEZ opacity is meh ...
+          //
+          //     i++;
+          //
+          //   }
+          //
+          //   var djibouti = vals[iso]['djibouti'];
+          //
+          //   if (djibouti == 1) {
+          //     d3.selectAll('.country.' + iso)
+          //       .classed('active', true)
+          //       .style('fill', function () {
+          //         return d3.interpolateLab('white', '#fff000')(0.5);
+          //       });
+          //   //  console.log(iso);
+          //   }
 
 
 
@@ -727,22 +713,22 @@ var internationalCooperationData = {
             //     .style('stroke-width', '2px');
             //     i++;
             // }
-          }
-
-          var yaoundeInland = ['BFA', 'CAF', 'MLI', 'NER', 'TCD','BDI', 'RWA'];
-          for (var j = 0; j < yaoundeInland.length; j++ ) {
-            var iso = yaoundeInland[j];
-            d3.selectAll('.country.' +  iso)
-              .classed('active', true)
-              .style('fill', themeColor(0.3));
-
-            d3.selectAll('.label.' + iso)
-              .classed('active', true)
-              .style('fill', 'black');
-          }
-
-
-
+        //   }
+        //
+        //   var yaoundeInland = ['BFA', 'CAF', 'MLI', 'NER', 'TCD','BDI', 'RWA'];
+        //   for (var j = 0; j < yaoundeInland.length; j++ ) {
+        //     var iso = yaoundeInland[j];
+        //     d3.selectAll('.country.' +  iso)
+        //       .classed('active', true)
+        //       .style('fill', themeColor(0.3));
+        //
+        //     d3.selectAll('.label.' + iso)
+        //       .classed('active', true)
+        //       .style('fill', 'black');
+        //   }
+        //
+        //
+        //
         }
       },
       els: [{

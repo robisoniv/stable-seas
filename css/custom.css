@@ -622,15 +622,15 @@ tr:nth-child(odd) {
   /*stroke-width: 1px*/
 }
 .pulse.eez {
-  stroke: #093C5C;
-  stroke-width: 3px;
+  fill: 'white';
+  opacity: 0.1;
 }
 tr.pulse {
   background-color: #FC4C02;
 
 }
 .pulse.country {
-  fill: rgb(112, 132, 154);
+  fill: #9e9e9e;
 }
 
 
@@ -845,7 +845,7 @@ footer {
 .maritime-dispute {
   fill-opacity: 1;
   stroke-width: 3px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .maritime-disputes-label {
