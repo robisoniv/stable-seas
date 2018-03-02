@@ -231,7 +231,7 @@ function buildLegendBoolean() {
 
   var legendG = d3.select('#map-svg')
     .append('g')
-    .classed('legend boolean ', true)
+    .classed('legend boolean invisible ', true)
     .attr('transform', translateG);
 
 
@@ -523,11 +523,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
 
     var iaBtn = d3.select('#ia-' + issueArea);
 
-    iaBtn.style('border-bottom', function() {
-        return "10px solid black";
-      })
-      .style('margin-bottom', '-10px')
-      .style('height', '60px');
+    iaBtn.classed('active-page', true);
 
     // Pull target card index from URL anchor:
     var hash = window.location.hash;
@@ -1556,8 +1552,8 @@ function switchCard(target) {
   d3.select('.legend-pointer')
     .classed('hidden', true);
 
-  d3.select('.legend-g')
-    .classed('hidden', true);
+  d3.selectAll('.legend')
+    .classed('invisible', true);
 
   d3.select('.card.active')
     .classed('active', false);
@@ -1979,6 +1975,7 @@ function init() {
       ia.selectAll('p')
         .classed('invisible', true);
       ia.classed('small', true);
+    //  ia.style('height', 30);
       d3.select('#map-menu-wrapper')
         .transition()
         .style('margin-top', '30px');

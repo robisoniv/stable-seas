@@ -9,7 +9,6 @@ body {
 #content-holder {
   z-index: 5;
   overflow-y: scroll;
-
 }
 
 #map-title {
@@ -28,20 +27,28 @@ body {
 }
 
 /* CSS for landing screen */
+
 /* The Overlay (background) */
+
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */
   height: 0%;
   width: 100%;
-  position: fixed; /* Stay in place */
-  z-index: 1100; /* Sit on top */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1100;
+  /* Sit on top */
   left: 0;
   top: 0;
-  background-color: rgb(0,0,0); /* Black fallback color */
-  background-color: white; /* Black w/opacity */
+  background-color: rgb(0, 0, 0);
+  /* Black fallback color */
+  background-color: white;
+  /* Black w/opacity */
   opacity: 0.9;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
   color: #0d3a58;
 }
 
@@ -50,23 +57,27 @@ body {
 }
 
 /* Position the content inside the overlay */
+
 .overlay-content {
-    position: relative;
-    top: 10%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  position: relative;
+  top: 10%;
+  /* 25% from the top */
+  width: 100%;
+  /* 100% width */
+  text-align: center;
+  /* Centered text/links */
+  margin-top: 30px;
+  /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 
 .overlay-content p {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 30px;
   margin-bottom: 20px;
-
 }
 
 .overlay-content img {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #stableseas-intro-logo {
@@ -101,49 +112,58 @@ body {
   font-weight: bold;
   font-size: 30px;
 }
+
 /* The navigation links inside the overlay */
+
 .overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  /* Display block instead of inline */
+  transition: 0.3s;
+  /* Transition effects on hover (color) */
 }
 
 /* When you mouse over the navigation links, change their color */
+
 .overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
+  color: #f1f1f1;
 }
 
 /* Position the close button (top right corner) */
+
 .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
 }
 
 .overlay-small p {
   font-size: 18px;
-
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+
 @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
+  .overlay a {
+    font-size: 20px
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }
 
-
 /* CSS for nav */
+
 nav {
   box-shadow: 0px 1px 3px black;
 }
+
 #nav-menu {
   margin-right: 100px;
   float: right;
@@ -166,9 +186,7 @@ nav {
   margin: auto;
 }
 
-
-
-  /* And for Issue Area nav */
+/* And for Issue Area nav */
 
 .ia {
   -webkit-transition: all 0.3s;
@@ -177,17 +195,16 @@ nav {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+
 .ia:hover {
   transition: all 0s;
-
   opacity: 0.7;
 }
 
 .ia-nav {
   height: 50px;
-
-
 }
+
 .ia-btn {
   height: 50px;
   display: table;
@@ -196,19 +213,25 @@ nav {
   border-right: 1px solid white; */
 }
 
+.ia-btn.active-page {
+  border-bottom: 10px solid black;
+  margin-bottom: -10px;
+  height: 60px;
+}
+
+.ia-btn.active-page.small {
+  height: 25px;
+}
+
 .ia-btn:nth-child(0) {
   /* border-left: 2px solid white; */
 }
-
 
 .ia-btn:nth-child(n) {
   /* border-right: 2px solid white; */
 }
 
-.ia-btn:hover {
-
-}
-
+.ia-btn:hover {}
 
 .ia-btn p {
   font-family: 'Open Sans 500', sans-serif;
@@ -219,6 +242,7 @@ nav {
   display: table-cell;
   vertical-align: middle;
 }
+
 .ia-buffer {
   height: 50px;
   background-color: #969696;
@@ -227,10 +251,10 @@ nav {
 .small {
   height: 15px;
 }
+
 .small p {
   display: none;
 }
-
 
 /* CSS for menu */
 
@@ -242,7 +266,6 @@ nav {
   font-size: 12px;
 }
 
-
 #map-menu-wrapper {
   width: 13%;
   float: right;
@@ -253,6 +276,7 @@ nav {
   font-size: 12px;
   margin-left: 47%;
 }
+
 #map-menu-wrapper h1 {
   font-size: 24px;
 }
@@ -280,6 +304,7 @@ nav {
 .nav li {
   background-color: whitesmoke;
 }
+
 .nav li:hover {
   background-color: lightgrey;
 }
@@ -292,7 +317,6 @@ nav {
 
 .zone-li {
   color: white;
-
 }
 
 .zone-link {
@@ -300,7 +324,7 @@ nav {
   padding-bottom: 15px;
 }
 
- .zone-li:hover {
+.zone-li:hover {
   background-color: #166598;
 }
 
@@ -315,10 +339,10 @@ nav {
 .issue-areas-body .issue-areas-zone a {
   color: white !important;
 }
+
 .regions-body .regions-zone {
   color: white !important;
 }
-
 
 #resources-dropdown {
   margin-left: 50px;
@@ -350,7 +374,6 @@ nav {
 path.active {
   /*stroke-width: 2px;*/
 }
-
 
 button {
   font-family: 'Open Sans', sans-serif;
@@ -389,9 +412,7 @@ h4.card-header {
   color: darkgrey;
 }
 
-div.card-header {
-
-}
+div.card-header {}
 
 div.card-header span {
   float: right;
@@ -405,8 +426,6 @@ div.card-header span {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
-
-
 
 h1 {
   font-family: 'Lato', serif;
@@ -434,14 +453,13 @@ h3 {
 strong {
   font-weight: bold;
 }
+
 p {
   font-family: 'Open Sans', sans-serif;
-
 }
 
 li {
   font-family: 'Open Sans', sans-serif;
-
 }
 
 h4 {
@@ -464,6 +482,7 @@ h4 {
 .big-text {
   padding: 0;
 }
+
 .big-text p {
   font-size: 18px;
   padding: 5px 0px;
@@ -476,9 +495,11 @@ h4 {
 .legend {
   margin: 0px 0px 5px 0px;
 }
+
 span.glyphicon {
   margin-left: 10px;
 }
+
 .legend-body {
   padding: 15px;
 }
@@ -491,39 +512,41 @@ h3.legend-title {
 }
 
 table {
-    font-family: 'Open Sans', sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 5px;
+  font-family: 'Open Sans', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 td, th {
-    /*border: 1px solid #dddddd;*/
-    text-align: left;
-    padding: 4px;
-    padding-left: 10px;
+  /*border: 1px solid #dddddd;*/
+  text-align: left;
+  padding: 4px;
+  padding-left: 10px;
 }
+
 tr {
   box-sizing: border-box;
 }
+
 tr:nth-child(even) {
-    background-color: white;
+  background-color: white;
 }
+
 tr:nth-child(odd) {
-    background-color: lightgrey;
+  background-color: lightgrey;
 }
 
 .table-expand {
   padding: 10px 0px 1px 15px;
   cursor: pointer;
-
 }
-
 
 .links {
   padding-left: 0px;
   margin-top: 15px;
 }
+
 .link {
   /*background-color: lightgrey;*/
   margin: 10px 0px;
@@ -533,8 +556,7 @@ tr:nth-child(odd) {
 
 .link:hover {
   background-color: darkgrey;
-  border-right:  5px solid black;
-
+  border-right: 5px solid black;
 }
 
 .link p {
@@ -544,9 +566,11 @@ tr:nth-child(odd) {
 .title {
   font-style: italic;
 }
+
 .glossary {
   margin-bottom: 15px;
 }
+
 .glossary p {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -563,6 +587,7 @@ tr:nth-child(odd) {
   padding: 0;
   cursor: pointer;
 }
+
 .background-video-image {
   filter: brightness(50%);
   position: relative;
@@ -573,7 +598,7 @@ tr:nth-child(odd) {
 }
 
 .inner-thumb {
-  position:absolute;
+  position: absolute;
   pointer-events: none;
 }
 
@@ -589,6 +614,7 @@ tr:nth-child(odd) {
   stroke-width: 0.5;
   opacity: 1;
 }
+
 /*.country:hover {
   fill: lightgrey;
 }*/
@@ -596,6 +622,7 @@ tr:nth-child(odd) {
 .country.in {
   fill: #bbbbbb;
 }
+
 .country.on {
   fill: #9c9c9c;
   stroke: darkslategrey;
@@ -615,56 +642,56 @@ tr:nth-child(odd) {
   stroke: #0d3a58;
 }*/
 
-
 .eez {
   fill: transparent;
   stroke: whitesmoke;
   /*stroke-width: 1px*/
 }
+
 .pulse.eez {
   /* fill: 'white';
   opacity: 0.1; */
 }
+
 tr.pulse {
   background-color: #FC4C02;
-
 }
+
 .pulse.country {
   fill: #9e9e9e;
 }
 
-
 .country-rank:hover {
   background-color: #FC4C02;
 }
+
 .hidden {
-    display: none;
+  display: none;
 }
+
 div.tooltip {
-    color: #222;
-    background-color: #fff;
-    padding: .5em;
-    /*text-shadow: #f5f5f5 0 1px 0;*/
-    border-radius: 2px;
-    opacity: 1;
-    width: 13%;
-    position: fixed;
-    pointer-events: none;
-    text-align: center;
-    box-shadow: 0px 2px 5px black;
+  color: #222;
+  background-color: #fff;
+  padding: .5em;
+  /*text-shadow: #f5f5f5 0 1px 0;*/
+  border-radius: 2px;
+  opacity: 1;
+  width: 13%;
+  position: fixed;
+  pointer-events: none;
+  text-align: center;
+  box-shadow: 0px 2px 5px black;
 }
 
 .tooltip-body {
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
-
   -ms-word-break: break-all;
   /* This is the dangerous one in WebKit, as it breaks things wherever */
   word-break: break-all;
   /* Instead use this non-standard one: */
   word-break: break-word;
-
   /* Adds a hyphen where the word breaks, if supported (No Blink) */
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -680,8 +707,6 @@ svg.tool {
 div.tooltip h1 {
   font-size: 14px;
 }
-
-
 
 .label {
   font-family: 'Nunito Sans', sans-serif;
@@ -705,6 +730,7 @@ div.tooltip h1 {
   fill: gray;
   border: 0.2px solid lightgrey;
 }
+
 .incident:hover {
   fill: grey;
   border: 1px solid darkgrey;
@@ -748,8 +774,6 @@ svg#map-svg {
   stroke-alignment: inner;
 }
 
-
-
 .legend-g {
   position: fixed;
   left: 20px;
@@ -760,7 +784,6 @@ svg#map-svg {
   font-size: 10;
 }
 
-
 .disputed {
   /*stroke: grey;*/
   /*stroke-width: 3px;*/
@@ -769,7 +792,6 @@ svg#map-svg {
 g {
   width: 100%;
 }
-
 
 /* CSS for footer */
 
@@ -786,14 +808,12 @@ footer {
   margin: 0 10px;
 }
 
-
-
 .col-lg-1-ss {
   width: 9.2%;
 }
 
-
 /* Issue Area-specific rules */
+
 .maritime-enforcement {
   background-color: rgb(216, 219, 238);
 }
@@ -821,7 +841,6 @@ footer {
 
 /* Card-specific rules */
 
-
 .arms-flows {
   fill: grey;
 }
@@ -837,11 +856,11 @@ footer {
 }*/
 
 /* ia1c3 - Overview: Yaounde */
-.yaounde {
 
-}
+.yaounde {}
 
 /* ia2c2 - International Cooperation: Maritime Disputes */
+
 .maritime-dispute {
   fill-opacity: 1;
   stroke-width: 3px;
@@ -863,12 +882,15 @@ footer {
 }
 
 /* ia2c6 - International Cooperation: */
+
 .copper-incident {
   stroke: lightgrey;
   stroke-opacity: 1;
   stroke-width: 0.5px;
 }
+
 /* ia4c2 - Maritime Enforcement: Maritime Domain Awareness */
+
 .center-location {
   stroke: white;
   fill-opacity: 0.8;
@@ -959,6 +981,7 @@ footer {
 }
 
 /* ia5c4 - Maritime Enforcement: Where are the Coast Guards? */
+
 div.navy {
   background-color: #1f78b4;
   color: white;
@@ -974,14 +997,13 @@ div.navy-and-maritime-law-enforcement {
   color: white;
 }
 
-
-
-
 /* ia5c3 - Coastal Welfare: War and Maritime Crimes */
+
 .coastal {
   fill: #BEA347;
   opacity: 0.2;
 }
+
 .nationwide {
   fill: #255aa8;
   opacity: 0.1;
@@ -1032,24 +1054,26 @@ div.navy-and-maritime-law-enforcement {
   font-size: 0.4px;
 }
 
-
 /* ia8c1 - Piracy: Incidents East Africa */
+
 .piracy-incident {
   fill: 0.5;
 }
 
 /* ia8c4 - Piracy: Offshore Oil Infrastructure */
+
 .offshore-oil {
   fill: blue;
-
 }
 
 /* ia9c4 - Illicit Trade: The Wildlife Trafficking Crisis */
+
 .wildlife-port {
   fill-opacity: 0.6;
 }
 
 /* ia10c1 - Maritime Mixed Migration: Beyond the Med */
+
 .migration-label {
   width: 40px;
   height: 40px;
@@ -1060,7 +1084,6 @@ div.navy-and-maritime-law-enforcement {
   font-size: 24px;
 }
 
-
 .ia10c1-1 {
   background-color: #a6cee3;
 }
@@ -1068,6 +1091,7 @@ div.navy-and-maritime-law-enforcement {
 .ia10c1-2 {
   background-color: #b2df8a;
 }
+
 .ia10c1-3 {
   background-color: #fb9a99;
 }
@@ -1085,6 +1109,7 @@ div.navy-and-maritime-law-enforcement {
 }
 
 /* ia10c3 - Maritime Mixed Migration: Closing the Canaries */
+
 .canary-routes circle {
   fill-opacity: 0.8;
   stroke: black;
