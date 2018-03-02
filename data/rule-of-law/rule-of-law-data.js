@@ -34,11 +34,13 @@ var ruleOfLawData = {
         description: 'Introduce the issue.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'Rule of Law Score',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
@@ -97,7 +99,6 @@ var ruleOfLawData = {
       ] // end of els array
     }, // End of first element of cards object
     {   // Card 1
-
       title: 'Fighting Corruption',
       menu: 'Fighting Corruption',
       metadata: {
@@ -105,27 +106,26 @@ var ruleOfLawData = {
         description: 'Corruption remains high, but efforts like EITI are making meaningful progress. Highlight Nigeria.'
       },
       map: {
+        type: 'continuous',
         path: './data/main.csv',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         tooltip: true,
+        legend: 'Corruption Perceptions Index',
         tooltipHTML: function(iso) {
-
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['corruptionPerceptions'];
           tooltipVal = (tooltipVal * 100);
           updatePointer(tooltipVal);
           return "Corruption Perceptions Index:<br />" + tooltipVal + " / 100";
-
         },
-        //  highlights: ['NGA'],
         load: function(index, js) {
           // Color EEZ according to change in Corruption Perceptions Index
           d3.select('.card-eez-layer')
             .classed('card-' + index + '-layer', true);
         },
         switch: function(index) {
-          choropleth(index, 1, 'deltaCorruptionPerceptions');
+          choropleth(index, 1, 'corruptionPerceptions'); // ### this needs updating!!
         }
       }, // end of 'map' object
       els: [{
@@ -193,12 +193,14 @@ var ruleOfLawData = {
         description: 'Why is corruption linked to bureaucratic burdens, opportunities for bribery. Highlight firm behavior report.'
       },
       map: {
+        type: 'continuous',
         path: '../../data/main.csv',
         scale: [],
         classes: 'card-2-layer',
         translate: [],
         highlights: null,
         tooltip: true,
+        legend: 'Ease of Trade Index',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['easeOfTrade'];
@@ -506,11 +508,13 @@ var ruleOfLawData = {
         description: 'Methods.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-5-layer',
         translate: [],
         highlights: null,
         tooltip: true,
+        legend: 'Rule of Law Score',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
