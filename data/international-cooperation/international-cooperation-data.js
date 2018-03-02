@@ -14,7 +14,8 @@ var internationalCooperationData = {
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
   },
-  cards: [{ // Card 0
+  cards: [
+    { // Card 0
       title: 'International Cooperation',
       menu: 'International Cooperation',
       metadata: {
@@ -22,14 +23,16 @@ var internationalCooperationData = {
         description: 'Introduce the issue.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'International Cooperation Score',
         tooltipHTML: function(iso) {
 
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['international-cooperation-index'];
           tooltipVal = Math.round((tooltipVal * 100));
           updatePointer(tooltipVal);
           return "International Cooperation:<br />" + tooltipVal + " / 100";
@@ -43,7 +46,7 @@ var internationalCooperationData = {
         },
         switch: function(index) {
           // Choropleth of scores
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'international-cooperation-index');
         }
       },
       els: [{
@@ -122,43 +125,26 @@ var internationalCooperationData = {
       ] // end of els array
     }, // End of first element of cards object
     { // Card 1
-      title: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
-      menu: 'UNCLOS in Africa',
+      title: 'Global Agreements',
+      menu: 'Global Agreements',
       metadata: {
-        owner: 'Jay Benson',
-        description: 'Discusses how the UN Law of the Sea influences maritime security in sub-Saharan Africa'
+        owner: '',
+        description: 'Global Agreements'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: '### Global Agreements Scores',
         tooltipHTML: function(iso) {
-          var output = "";
 
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          //  console.log(iso,vals[iso]);
-
-          if (vals[iso].unclos == 1) {
-            output += "UNCLOS: Signed<br>";
-          } else {
-            output += "UNCLOS: Not signed<br>";
-          }
-
-          if (vals[iso].partXI == 1) {
-            output += "Part XI: Signed<br>";
-          } else {
-            output += "Part XI: Not signed<br>";
-          }
-
-          if (vals[iso]["un-fish-stocks"] == 1) {
-            output += "Fish Stocks: Signed";
-          } else {
-            output += "Fish Stocks: Not signed";
-          }
-          //    console.log(output);
-          return output;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['ic_agreements'];
+          tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "Global Agreements:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -168,171 +154,522 @@ var internationalCooperationData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          //    var cat;
-          var i = 0;
-          for (iso in vals) {
-            var unclos = vals[iso].unclos == 1 ? true : false,
-              partXI = vals[iso].partXI == 1 ? true : false,
-              fishStocks = vals[iso]["un-fish-stocks"] == 1 ? true : false;
-
-            if (unclos && partXI && fishStocks) {
-              cat = 0;
-            } else if (unclos && partXI && !fishStocks) {
-              cat = 1;
-            } else if (unclos && !partXI && !fishStocks) {
-              cat = 2;
-            } else if (unclos && !partXI && fishStocks) {
-              cat = 4;
-            } else {
-              cat = 3;
-            }
-
-            d3.selectAll('.country.' + iso)
-              .classed('active', true)
-              .attr('data-category', cat)
-              .attr('data-iso', iso)
-              .on('mouseover', function() {
-
-                if (activeCard == 1) {
-
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-                  d3.select(this)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][1];
-                    })
-                    .style('stroke', 'black');
-
-                  d3.selectAll('.eez.' + isoTmp)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    });
-                }
-              })
-              .on('mouseleave', function() {
-                if (activeCard == 1) {
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-                  d3.select(this)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    })
-                    .style('stroke', function() {
-                      return colorBrew[catTmp][1];
-                    });
-
-                  d3.selectAll('.eez.' + isoTmp)
-                    .style('fill', null);
-                }
-
-              })
-              //.transition().delay(10 * i)
-              .style('fill', function() {
-                return colorBrew[cat][0];
-              })
-              .style('stroke', function () {
-                return colorBrew[cat][1];
-
-              });
-
-
-
-            d3.selectAll('.eez.' + iso)
-              .classed('active', true)
-              //  .transition().delay(10 * i)
-              .style('stroke', function() {
-                return colorBrew[cat][1];
-              })
-              .style('stroke-width', '4px')
-              .attr('data-category', cat)
-              .attr('data-iso', iso)
-              .on('mouseover', function() {
-                if (activeCard == 1) {
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-
-                  d3.select(this)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    });
-
-                  d3.select('.country.' + isoTmp)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][1];
-                    })
-                    .style('stroke', 'black');
-                }
-
-              })
-              .on('mouseleave', function() {
-                if (activeCard == 1) {
-                  var catTmp = d3.select(this).attr('data-category');
-                  var isoTmp = d3.select(this).attr('data-iso');
-                  d3.select(this)
-                    .style('fill', null)
-                    .style('stroke-width', '4px');
-
-                  d3.select('.country.' + isoTmp)
-                    .style('fill', function() {
-                      return colorBrew[catTmp][0];
-                    })
-                    .style('stroke', colorBrew[catTmp][0]);
-                }
-              });
-            i++;
-          }
+          choropleth(index,1,'ic_agreements');
 
         }
       },
       els: [{
           tag: 'h1',
-          text: 'UNCLOS in Sub-Saharan Africa',
+          text: 'Global Agreements',
         },
         {
           tag: 'caption',
-          text: 'The Law of the Sea in African waters'
-        },
-        // { tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em></em>.'
-        // },
-        {
-          tag: 'p',
-          html: 'Prior to the adoption of the United Nations Convention on the Law of the Sea (UNCLOS) in 1982, the maritime space beyond a narrow strip of coastal waters was governed not by law, but by those who had the most maritime technology and power. UNCLOS codified the growing preference among countries to have increased legal rights to govern larger maritime spaces, reducing conflict over competing claims to offshore resources.'
-        },
-        {
-          tag: 'p',
-          html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
-        },
-        {
-          tag: 'p',
-          html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
-        },
-        {
-          tag: 'p',
-          html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
-        },
-        {
-          tag: 'p',
-          html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
+          text: 'XXXXXXXXXXX'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
-              url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
+              org: '<sup>1</sup> “XXXX,” <em>Add citation</em>, Add date,',
+              url: '#'
+            }
+          ]
+        },
+      ] // end of els array
+    },
+    // { // Card 1
+    //   title: 'The UN Convention on the Law of the Sea and Sub-Saharan Africa',
+    //   menu: 'UNCLOS in Africa',
+    //   metadata: {
+    //     owner: 'Jay Benson',
+    //     description: 'Discusses how the UN Law of the Sea influences maritime security in sub-Saharan Africa'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: 'card-eez-layer',
+    //     translate: [],
+    //     highlights: [],
+    //     tooltip: true,
+    //     tooltipHTML: function(iso) {
+    //       var output = "";
+    //
+    //       var vals = issueAreaData[issueArea].metadata.countryData;
+    //       //  console.log(iso,vals[iso]);
+    //
+    //       if (vals[iso].unclos == 1) {
+    //         output += "UNCLOS: Signed<br>";
+    //       } else {
+    //         output += "UNCLOS: Not signed<br>";
+    //       }
+    //
+    //       if (vals[iso].partXI == 1) {
+    //         output += "Part XI: Signed<br>";
+    //       } else {
+    //         output += "Part XI: Not signed<br>";
+    //       }
+    //
+    //       if (vals[iso]["un-fish-stocks"] == 1) {
+    //         output += "Fish Stocks: Signed";
+    //       } else {
+    //         output += "Fish Stocks: Not signed";
+    //       }
+    //       //    console.log(output);
+    //       return output;
+    //
+    //     },
+    //     load: function(index, csv) { // ### *** This only should be for the first card ...
+    //       // Class EEZ with card-0-layer to enable switch() method
+    //       var layer = 'card-' + index + '-layer';
+    //       d3.select('.card-eez-layer')
+    //         .classed(layer, true);
+    //     },
+    //     switch: function(index) {
+    //       var vals = issueAreaData[issueArea].metadata.countryData;
+    //       //    var cat;
+    //       var i = 0;
+    //       for (iso in vals) {
+    //         var unclos = vals[iso].unclos == 1 ? true : false,
+    //           partXI = vals[iso].partXI == 1 ? true : false,
+    //           fishStocks = vals[iso]["un-fish-stocks"] == 1 ? true : false;
+    //
+    //         if (unclos && partXI && fishStocks) {
+    //           cat = 0;
+    //         } else if (unclos && partXI && !fishStocks) {
+    //           cat = 1;
+    //         } else if (unclos && !partXI && !fishStocks) {
+    //           cat = 2;
+    //         } else if (unclos && !partXI && fishStocks) {
+    //           cat = 4;
+    //         } else {
+    //           cat = 3;
+    //         }
+    //
+    //         d3.selectAll('.country.' + iso)
+    //           .classed('active', true)
+    //           .attr('data-category', cat)
+    //           .attr('data-iso', iso)
+    //           .on('mouseover', function() {
+    //
+    //             if (activeCard == 1) {
+    //
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //               d3.select(this)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][1];
+    //                 })
+    //                 .style('stroke', 'black');
+    //
+    //               d3.selectAll('.eez.' + isoTmp)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 });
+    //             }
+    //           })
+    //           .on('mouseleave', function() {
+    //             if (activeCard == 1) {
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //               d3.select(this)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 })
+    //                 .style('stroke', function() {
+    //                   return colorBrew[catTmp][1];
+    //                 });
+    //
+    //               d3.selectAll('.eez.' + isoTmp)
+    //                 .style('fill', null);
+    //             }
+    //
+    //           })
+    //           //.transition().delay(10 * i)
+    //           .style('fill', function() {
+    //             return colorBrew[cat][0];
+    //           })
+    //           .style('stroke', function () {
+    //             return colorBrew[cat][1];
+    //
+    //           });
+    //
+    //
+    //
+    //         d3.selectAll('.eez.' + iso)
+    //           .classed('active', true)
+    //           //  .transition().delay(10 * i)
+    //           .style('stroke', function() {
+    //             return colorBrew[cat][1];
+    //           })
+    //           .style('stroke-width', '4px')
+    //           .attr('data-category', cat)
+    //           .attr('data-iso', iso)
+    //           .on('mouseover', function() {
+    //             if (activeCard == 1) {
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //
+    //               d3.select(this)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 });
+    //
+    //               d3.select('.country.' + isoTmp)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][1];
+    //                 })
+    //                 .style('stroke', 'black');
+    //             }
+    //
+    //           })
+    //           .on('mouseleave', function() {
+    //             if (activeCard == 1) {
+    //               var catTmp = d3.select(this).attr('data-category');
+    //               var isoTmp = d3.select(this).attr('data-iso');
+    //               d3.select(this)
+    //                 .style('fill', null)
+    //                 .style('stroke-width', '4px');
+    //
+    //               d3.select('.country.' + isoTmp)
+    //                 .style('fill', function() {
+    //                   return colorBrew[catTmp][0];
+    //                 })
+    //                 .style('stroke', colorBrew[catTmp][0]);
+    //             }
+    //           });
+    //         i++;
+    //       }
+    //
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'UNCLOS in Sub-Saharan Africa',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'The Law of the Sea in African waters'
+    //     },
+    //     // { tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<em></em>.'
+    //     // },
+    //     {
+    //       tag: 'p',
+    //       html: 'Prior to the adoption of the United Nations Convention on the Law of the Sea (UNCLOS) in 1982, the maritime space beyond a narrow strip of coastal waters was governed not by law, but by those who had the most maritime technology and power. UNCLOS codified the growing preference among countries to have increased legal rights to govern larger maritime spaces, reducing conflict over competing claims to offshore resources.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'This historic advance in maritime governance was actively shaped and supported by African nations. African states were especially strong advocates for UNCLOS III and the establishment of Exclusive Economic Zones (EEZs), which grant states the right to govern space and resources up to 200 nautical miles from their shores. This expansion greatly benefited developing states that had limited capacity to exploit offshore hydrocarbons and fisheries. African support allowed this concept to be adopted into international law<sup>1</sup> despite the concerns of many developed nations that had become accustomed to having unfettered access to resources off the coasts of developing nations.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Regional support for UNCLOS remains to this day, with every maritime nation in sub-Saharan Africa having signed and ratified UNCLOS III, though a few have not yet signed on to the subsequent Part XI and UN Fish Stocks Agreement.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
+    //           url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
+    //         },
+    //         {
+    //           org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
+    //           url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
+    //         },
+    //       ]
+    //     },
+    //     //###Insert graphics, video, and blockquote
+    //   ] // end of els array
+    // },
+    { // Card 2
+      title: 'Who has signed the Lome Charter?',
+      menu: 'AU Efforts',
+      metadata: {
+        owner: 'Jay Benson',
+        description: 'Move to comprehensive continental strategy.'
+      },
+      map: {
+        type: 'boolean',
+        scale: [],
+        classes: '',
+        highlights: [],
+        tooltip: true,
+        legend: 'Signatories of Lome Charter',
+        tooltipHTML: function(iso) {
+
+          var lome = issueAreaData[issueArea].metadata.countryData[iso].lome;
+          if (lome == 'true') {
+            return "Signatory of the Lome Charter";
+
+          } else {
+            return "Not a signatory of the Lome Charter";
+          }
+        },
+        load: function(index, csv) { // ### *** This only should be for the first card ...
+
+          var layer = 'card-' + index + '-layer';
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
+
+        },
+        switch: function(index) {
+          choropleth(index,1,'lome');
+        }
+      },
+      els: [{
+          tag: 'h1',
+          text: 'Who has signed the Lome Charter?',
+        },
+        {
+          tag: 'caption',
+          text: 'An ambitious plan for governing African waters'
+        },
+        {
+          tag: 'legend',
+          text: 'Map Legend',
+          legendContent: '<em>Highlights represent sub-Saharan countries that have signed the African Union\'s Lomé Charter</em>.'
+        },
+        //###Insert Map: This one is tough. Do you think it would be possible to recalculate the scores in the enforcement section but based on the AU’s five regions (only 4 of which are relevant to SSA)? I think it could be interesting for getting an idea of what larger regions in SSA have the capacity to really improve governance towards AIMS
+        {
+          tag: 'p',
+          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS).<sup>14</sup>  AIMS was created with the goals of providing a framework for enhanced governance in Africa’s maritime domain, developing a platform for shared maritime policy, and facilitating the development of the <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>. Implementation of the ambitious strategy will be challenging, but the economic, security, and governance ramifications of its success have the potential to transform the African maritime space.'
+        },
+        {
+          tag: 'p',
+          html: 'Like maritime spaces around the world, the African maritime domain has been confronted with a variety of security and governance challenges from <a class="piracy inline" href="../../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../../fisheries#1">IUU Fishing</a>. AIMS was created as an effort to build a comprehensive, unified set of maritime policies designed to address these challenges and thereby develop the Blue Economy. AIMS is wide-ranging, addressing issues of economic development, environmental protection, maritime crime, disaster management, and maritime law, to name a few.<sup>15</sup>'
+        },
+        {
+          tag: 'p',
+          html: 'The document serves as a vision of shared policy. But if it is to become reality, there is still a tremendous amount of work to be done. Coordinated efforts will need to be made in the areas of:'
+        },
+        {
+          tag: 'ul',
+          rows: ['Developing political will. AIMS suggests several areas in which domestic laws regarding maritime governance should be synchronized and even puts forward the concept of a Combined Exclusive Maritime Zone of Africa. This level of integration on maritime policy will require substantial political will and the resolution of Africa’s ongoing maritime boundary disputes.', 'Data collection and research. There is a dearth of data and basic research on many maritime issues in Africa. AIMS identifies rectifying this gap as being key to the formation of empirically informed policies.', 'Infrastructure and equipment. In order to implement AIMS, states and other actors in the region will need to significantly upgrade equipment and infrastructure necessary for maritime governance such as patrol vessels, port facilities, and remote sensing systems which enhance maritime domain awareness.', 'In addition to having the necessary physical equipment, African actors will need to train a population of maritime professionals in skillsets such as fisheries management, navigation, and maritime law.']
+        },
+        {
+          tag: 'p',
+          html: 'Perhaps the best way to ensure the success of AIMS would be to establish an institutional home for efforts toward its implementation. The AU currently has no office or department focused exclusively on its maritime initiatives. The establishment of a well-resourced and politically influential entity to oversee these efforts would greatly improve AIMS implementation.'
+        },
+        {
+          tag: 'p',
+          html: 'The ramifications of full implementation of AIMS make tackling these formidable challenges worth the effort. Successful AIMS implementation has the potential to drastically improve maritime security and governance and unlock the potential of Africa’s Blue Economy.'
+        },
+        {
+          tag: 'links',
+          items: [{
+              org: '<sup>14</sup> “African Maritime Action Plan Adopted,” <em>Maritime Executive</em>, 2 February 2014.',
+              url: 'http://www.maritime-executive.com/article/African-Maritime-Action-Plan-Adopted-2014-02-02'
             },
             {
-              org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
-              url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
+              org: '<sup>15</sup> “2050 Africa’s Integrated Maritime Strategy,” African Union, 2012, Version 1.0.',
+              url: 'http://cggrps.org/wp-content/uploads/2050-AIM-Strategy_EN.pdf'
             },
           ]
         },
-        //###Insert graphics, video, and blockquote
+        //###Insert image, video, and quote
       ] // end of els array
     },
-    { // Card 2
+    { // Card 3
+      title: 'Yaoundé Process and the Djibouti Code',
+      menu: 'Yaoundé & Djibouti',
+      metadata: {
+        owner: 'Jay Benson',
+        description: 'How the zones and regional centers are set up, describe patrols and success.'
+      },
+      map: {
+        type: 'categorical',
+        scale: [],
+        classes: 'card-eez-layer',
+        translate: [],
+        highlights: [],
+        tooltip: true,
+        categories: ['Yaounde Zone A', 'Yaounde Zone D', 'Yaounde Zone E', 'Yaounde Zone F', 'Yaounde Zone G', 'Inland Yaounde Member (??)', 'Djibouti Code of Conduct (*)'],
+        tooltipHTML: function(iso) {
+          var zone = issueAreaData[issueArea].metadata.countryData[iso];
+          // leverage some map.legend array? replace switch statement with
+          // return "Yaounde " + legend[zoneIndex] ...
+          // Also would enable us to build the legend lower left corner ...
+
+          switch (zone.yaounde) {
+            case 1:
+              return "Yaounde Zone A";
+              break;
+            case 2:
+              return "Yaounde Zone D";
+              break;
+            case 3:
+              return "Yaounde Zone E";
+              break;
+            case 4:
+              return "Yaounde Zone F";
+              break;
+            case 5:
+              return "Yaounde Zone G";
+              break;
+            case 6:
+              return 'Inland Yaounde Member'
+            case 7:
+              return "Party to Djibouti Code of Conduct";
+              break;
+            // case 0:
+            //   if (zone.djibouti == 1) {
+            //     return "Party to Djibouti Code of Conduct"
+            //   }
+            default:
+              return null;
+          }
+
+
+        },
+        load: function(index, file) { // ### *** This only should be for the first card ...
+
+          var layer = 'card-' + index + '-layer';
+
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
+        },
+        switch: function(index) {
+
+          // First highlight yaounde members .country.in
+          choropleth(index, 1, 'yaounde');
+
+          // var vals = issueAreaData[issueArea].metadata.countryData;
+          // // ### Replace this with choropleth() function, once it is built to handle categorical data.
+          // var i = 0;
+          // for (iso in vals) {
+          //   var yaounde = vals[iso]['yaounde'] - 1;
+          //
+          //   if (yaounde >= 0) {
+          //     //  console.log(country.ia2c3);
+          //     d3.selectAll('.country.' + iso)
+          //       .classed('active', true)
+          //     //  .transition().delay(i * 10)
+          //       .style('fill', colorBrew[yaounde][0])
+          //       .style('stroke', colorBrew[yaounde][1]); // ### what colors??
+          //     //  .style('stroke', 'white');
+          //
+          //     d3.selectAll('.eez.' + iso)
+          //       .classed('active', true)
+          //     //  .transition().delay(i * 10)
+          //       .style('stroke', colorBrew[yaounde][0]); // ### what colors?? Also EEZ opacity is meh ...
+          //
+          //     i++;
+          //
+          //   }
+          //
+          //   var djibouti = vals[iso]['djibouti'];
+          //
+          //   if (djibouti == 1) {
+          //     d3.selectAll('.country.' + iso)
+          //       .classed('active', true)
+          //       .style('fill', function () {
+          //         return d3.interpolateLab('white', '#fff000')(0.5);
+          //       });
+          //   //  console.log(iso);
+          //   }
+
+
+
+            // Set up dcoc highlights too ...
+            // if (dcoc[iso].djibouti == 1) {
+            //   d3.selectAll('.country.' + iso)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     .style('fill', function() {
+            //       return themeColor(0.5);
+            //     })
+            //     .style('stroke', function() {
+            //       return themeColor(1);
+            //     });
+            //
+            //   d3.selectAll('.eez.' + iso)
+            //     .classed('active', true)
+            //     .transition().delay(i * 10)
+            //     //  .style('fill', function () {return rampColor(0.1);})
+            //     .style('stroke', function() {
+            //       return themeColor(1);
+            //     })
+            //     .style('stroke-width', '2px');
+            //     i++;
+            // }
+        //   }
+        //
+        //   var yaoundeInland = ['BFA', 'CAF', 'MLI', 'NER', 'TCD','BDI', 'RWA'];
+        //   for (var j = 0; j < yaoundeInland.length; j++ ) {
+        //     var iso = yaoundeInland[j];
+        //     d3.selectAll('.country.' +  iso)
+        //       .classed('active', true)
+        //       .style('fill', themeColor(0.3));
+        //
+        //     d3.selectAll('.label.' + iso)
+        //       .classed('active', true)
+        //       .style('fill', 'black');
+        //   }
+        //
+        //
+        //
+        }
+      },
+      els: [{
+          tag: 'h1',
+          text: 'Yaoundé Process and Djibouti Code',
+        },
+        {
+          tag: 'caption',
+          text: 'A model for regional maritime security cooperation'
+        },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<p>Yaoundé Code of Conduct multi-national level information sharing zones:</p><div class="brew-00 legend-entries light">Zone A</div><br /><div class="brew-10 legend-entries light">Zone D</div><br /><div class="brew-20 legend-entries light">Zone E</div><br /><div class="brew-30 legend-entries light">Zone F</div><br /><div class="brew-40 legend-entries light">Zone G</div><br />'
+        // },
+        //###Insert Graphic: There is a graphic below called information sharing in West Africa I would like to try and use that, but I am not sure if that is possible in the web format. If not we can use that as an image within the card. In that case I think it would be good to have a map zoomed into west/central Africa with two components. First is a shaded map with ECOWAS countries in one color and ECCAS countries in another and corresponding labels. The second would be points which show the centers for the ICC, CRESMAC and CRESMAO. All country lists, labels and GPS coordinates will be in the excel file I will send.
+        {
+          tag: 'p',
+          html: 'In response to the rising threat of piracy and other forms of maritime crime, states and regional institutions in the Gulf of Guinea (GoG) developed the Yaoundé process, a series of regional arrangements which provide for enhanced cooperation in the area of maritime security.'
+        },
+        {
+          tag: 'p',
+          html: 'The central agreement of the Yaoundé process is the Yaoundé Code of Conduct (YCoC). The YCoC was agreed to in 2013 by 25 states in West and Central Africa. The agreement outlines commitments for combating maritime crime, and proposed the creation of the Interregional Coordination Centre (ICC), the institution responsible for overseeing the implementation of the objectives laid out in the YCoC. The subsequent Yaoundé Memorandum of Understanding lays out the organizational structure of the ICC.'
+        },
+        {
+          tag: 'img',
+          src: '../../assets/international-cooperation/information-sharing-in-West-Africa.png', // This should be on the Stable Seas Deck - comments
+        },
+        {
+          tag: 'p',
+          html: 'The ICC coordinates activities for the entire GoG between two regionally based centers, the Regional Center for Maritime Security in Central Africa (CRESMAC) and the Regional Center for Maritime Security in West Africa (CRESMAO). The structure is then further divided into five zones (three in CRESMAO and two in CRESMAC) of three to five states, each with its own Multinational Maritime Coordination Center (MMCC).'
+        },
+        {
+          tag: 'p',
+          html: 'The Yaoundé process takes a comprehensive approach to maritime security, identifying 12 different forms of maritime crime in the YCoC. The process provides a structure for enhancing all-around maritime security in the GoG through regional information-sharing, capacity building, and coordination of multinational maritime security operations. By improving the sharing of information regarding emerging and ongoing threats and ensuring that regional maritime security actors have the institutional and logistical arrangements in place for multinational operations, the region can better respond to the transnational nature of maritime crime.'
+        },
+        {
+          tag: 'p',
+          html: 'The Yaoundé process is still early in its development. Key steps need to be taken to build the capacity of not only state maritime security forces, but also of CRESMAC, CRESMAO, and the MMCCs. That said, the Yaoundé process has several characteristics which may make it a valuable model for the coordination of regional maritime security.'
+        },
+        {
+          tag: 'p',
+          html: 'The first aspect is its comprehensiveness. The process recognizes the interconnected nature of various forms of maritime crime and puts forward priorities for combating each. A focus on a single, high-visibility issue risks ignoring other crimes such as maritime pollution or illegal, unreported, and unregulated fishing which have significant, long-term effects on the economic and social wellbeing of a region.'
+        },
+        {
+          tag: 'p',
+          html: 'The process also makes use of existing regional institutions such as the Economic Community of West African States (ECOWAS) and the Economic Community of Central African States (ECCAS). By building upon these established institutions, the ICC can leverage existing relationships with individual states and the larger African Union system, gaining some level of access to their resources and enhancing its sustainability beyond a period of particular insecurity or the decline of an individual maritime threat.'
+        },
+        {
+          tag: 'p',
+          html: 'Though the Yaoundé process is still young and many of the functions envisioned within it still need to be developed, it may serve as a useful model for regions that have a large number of states to coordinate to refer to in confronting a variety of transnational maritime security threats.'
+        },
+        //###Insert video, quote, and image
+      ] // end of els array
+    },
+    { // Card 4
       title: 'Ongoing Disputes',
       menu: 'Ongoing Disputes',
       metadata: {
@@ -340,17 +677,23 @@ var internationalCooperationData = {
         description: 'Highlight maritime disputes.'
       },
       map: {
+        type: 'boolean',
         scale: [],
         classes: 'card-eez-layer',
         path: '../../data/international-cooperation/maritime-border-disputes.csv',
         translate: [],
         tooltip: true,
+        legend: 'Countries with EEZ disputes',
         tooltipHTML: function(iso) {
-
+          var val = issueAreaData[issueArea].metadata.countryData[iso]['disputes-with'];
+          if (val != 0) {
+            return "Ongoing disputes with " + val;
+          } else {
+            return "No ongoing disputes."
+          }
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
           // Class EEZ with card-0-layer to enable switch() method
-
 
           var layer = 'card-' + index + '-layer';
 
@@ -360,11 +703,17 @@ var internationalCooperationData = {
               d.lon = +d.lon;
             });
 
+            issueAreaData[issueArea].cards[activeCard].map.disputes = rows;
+
             var disputes = mapg.append('g')
               .classed('card-layer maritime-disputes invisible ' + layer, true);
 
             disputes.selectAll('rect')
               .data(rows).enter()
+              .append('a')
+                .attr('href', function (d, i) {
+                  return '#dispute-' + (i + 1);
+                })
               .append('rect')
               .attr('x', function(d) {
                 return projection([d.lon, d.lat])[0] - 16;
@@ -414,21 +763,24 @@ var internationalCooperationData = {
           // countries.forEach(function(country, i) {
 
           // })
+          choropleth(index,i,'disputes');
+      //    var disputes = issueAreaData[issueArea].metadata.countryData;
 
-          var disputes = issueAreaData[issueArea].metadata.countryData;
-
-          for (iso in disputes) {
-            console.log(disputes[iso]);
-            if (disputes[iso].disputes != 0) {
-          //    console.log('i', iso);
-
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-            //    .transition().delay(i * 10)
-                .style('fill', themeColor(0.5))
-                .style('stroke', themeColor(1));
-            }
-          }
+        //   for (iso in disputes) {
+        // //    console.log(disputes[iso]);
+        //     var val = eval(disputes[iso].disputes.toLowerCase());
+        //
+        //   //  console.log(iso, eval(val.toLowerCase()));
+        //     if (val) {
+        //   //    console.log('i', iso);
+        //
+        //       d3.selectAll('.country.' + iso)
+        //         .classed('active', true)
+        //     //    .transition().delay(i * 10)
+        //         .style('fill', themeColor(0.5))
+        //         .style('stroke', themeColor(1));
+        //     }
+        //   }
       ///    console.log(disputes);
 
         }
@@ -468,6 +820,86 @@ var internationalCooperationData = {
         {
           tag: 'p',
           html: 'The region primarily uses two models for maritime dispute resolution. The first relies on international legal institutions to resolve disputes. This is the model used in the aforementioned case of Ghana and Côte d’Ivoire, which is at the international Tribunal on the Law of the Sea, as well as the case of Kenya and Somalia, whose dispute is on trial at the International Court of Justice.<sup>4</sup> Alternatively, some states have chosen to shelve issues of sovereignty and establish frameworks and institutions for joint development and governance of maritime industries in the disputed areas. As both the <a class="international-cooperation inline internal-ref" data-link="6">African Union</a> and <a class="international-cooperation inline internal-ref" data-link="3">sub-regional organizations</a> turn their attention to governance of the maritime space, there may be room for both to further develop frameworks for maritime dispute resolution which facilitate cooperative economic development and security.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a id="dispute-1" class="dispute-header">Dispute 1</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-2">Dispute 2</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-3">Dispute 3</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-4">Dispute 4</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-5">Dispute 5</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-6">Dispute 6</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-7">Dispute 7</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-8">Dispute 8</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-9">Dispute 9</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
+        },
+        {
+          tag: 'h2',
+          html: function () {return '<a class="dispute-header" id="dispute-10">Dispute 10</a>'}
+        },
+        {
+          tag: 'p',
+          html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
         },
         {
           tag: 'links',
@@ -621,187 +1053,6 @@ var internationalCooperationData = {
     //     }
     //   ] // end of els array
     // },
-    { // Card 4
-      title: 'Yaoundé Process and the Djibouti Code',
-      menu: 'Yaoundé & Djibouti',
-      metadata: {
-        owner: 'Jay Benson',
-        description: 'How the zones and regional centers are set up, describe patrols and success.'
-      },
-      map: {
-        scale: [],
-        classes: 'card-eez-layer',
-        translate: [],
-        highlights: [],
-        tooltip: true,
-        tooltipHTML: function(iso) {
-          var zone = issueAreaData[issueArea].metadata.countryData[iso];
-
-          switch (zone.yaounde) {
-            case 1:
-              return "Zone A";
-              break;
-            case 2:
-              return "Zone D";
-              break;
-            case 3:
-              return "Zone E";
-              break;
-            case 4:
-              return "Zone F";
-              break;
-            case 5:
-              return "Zone G";
-              break;
-            case 0:
-              if (zone.djibouti == 1) {
-                return "Party to Djibouti Code of Conduct"
-              }
-            default:
-              return "Neither a member of the Lome Charter nor the Djibouti Code of Conduct";
-          }
-
-
-        },
-        load: function(index, file) { // ### *** This only should be for the first card ...
-
-          var layer = 'card-' + index + '-layer';
-
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-        },
-        switch: function(index) {
-
-          // First highlight yaounde members .country.in
-          var vals = issueAreaData[issueArea].metadata.countryData;
-          var i = 0;
-          for (iso in vals) {
-            var yaounde = vals[iso]['yaounde'] - 1;
-
-            if (yaounde >= 0) {
-              //  console.log(country.ia2c3);
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-              //  .transition().delay(i * 10)
-                .style('fill', colorBrew[yaounde][0])
-                .style('stroke', colorBrew[yaounde][1]); // ### what colors??
-              //  .style('stroke', 'white');
-
-              d3.selectAll('.eez.' + iso)
-                .classed('active', true)
-              //  .transition().delay(i * 10)
-                .style('stroke', colorBrew[yaounde][0]); // ### what colors?? Also EEZ opacity is meh ...
-
-              i++;
-
-            }
-
-            var djibouti = vals[iso]['djibouti'];
-
-            if (djibouti == 1) {
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-                .style('fill', function () {
-                  return d3.interpolateLab('white', '#fff000')(0.5);
-                });
-            //  console.log(iso);
-            }
-
-
-
-            // Set up dcoc highlights too ...
-            // if (dcoc[iso].djibouti == 1) {
-            //   d3.selectAll('.country.' + iso)
-            //     .classed('active', true)
-            //     .transition().delay(i * 10)
-            //     .style('fill', function() {
-            //       return themeColor(0.5);
-            //     })
-            //     .style('stroke', function() {
-            //       return themeColor(1);
-            //     });
-            //
-            //   d3.selectAll('.eez.' + iso)
-            //     .classed('active', true)
-            //     .transition().delay(i * 10)
-            //     //  .style('fill', function () {return rampColor(0.1);})
-            //     .style('stroke', function() {
-            //       return themeColor(1);
-            //     })
-            //     .style('stroke-width', '2px');
-            //     i++;
-            // }
-          }
-
-          var yaoundeInland = ['BFA', 'CAF', 'MLI', 'NER', 'TCD','BDI', 'RWA'];
-          for (var j = 0; j < yaoundeInland.length; j++ ) {
-            var iso = yaoundeInland[j];
-            d3.selectAll('.country.' +  iso)
-              .classed('active', true)
-              .style('fill', themeColor(0.3));
-
-            d3.selectAll('.label.' + iso)
-              .classed('active', true)
-              .style('fill', 'black');
-          }
-
-
-
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'Yaoundé Process and Djibouti Code',
-        },
-        {
-          tag: 'caption',
-          text: 'A model for regional maritime security cooperation'
-        },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<p>Yaoundé Code of Conduct multi-national level information sharing zones:</p><div class="brew-00 legend-entries light">Zone A</div><br /><div class="brew-10 legend-entries light">Zone D</div><br /><div class="brew-20 legend-entries light">Zone E</div><br /><div class="brew-30 legend-entries light">Zone F</div><br /><div class="brew-40 legend-entries light">Zone G</div><br />'
-        // },
-        //###Insert Graphic: There is a graphic below called information sharing in West Africa I would like to try and use that, but I am not sure if that is possible in the web format. If not we can use that as an image within the card. In that case I think it would be good to have a map zoomed into west/central Africa with two components. First is a shaded map with ECOWAS countries in one color and ECCAS countries in another and corresponding labels. The second would be points which show the centers for the ICC, CRESMAC and CRESMAO. All country lists, labels and GPS coordinates will be in the excel file I will send.
-        {
-          tag: 'p',
-          html: 'In response to the rising threat of piracy and other forms of maritime crime, states and regional institutions in the Gulf of Guinea (GoG) developed the Yaoundé process, a series of regional arrangements which provide for enhanced cooperation in the area of maritime security.'
-        },
-        {
-          tag: 'p',
-          html: 'The central agreement of the Yaoundé process is the Yaoundé Code of Conduct (YCoC). The YCoC was agreed to in 2013 by 25 states in West and Central Africa. The agreement outlines commitments for combating maritime crime, and proposed the creation of the Interregional Coordination Centre (ICC), the institution responsible for overseeing the implementation of the objectives laid out in the YCoC. The subsequent Yaoundé Memorandum of Understanding lays out the organizational structure of the ICC.'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/international-cooperation/information-sharing-in-West-Africa.png', // This should be on the Stable Seas Deck - comments
-        },
-        {
-          tag: 'p',
-          html: 'The ICC coordinates activities for the entire GoG between two regionally based centers, the Regional Center for Maritime Security in Central Africa (CRESMAC) and the Regional Center for Maritime Security in West Africa (CRESMAO). The structure is then further divided into five zones (three in CRESMAO and two in CRESMAC) of three to five states, each with its own Multinational Maritime Coordination Center (MMCC).'
-        },
-        {
-          tag: 'p',
-          html: 'The Yaoundé process takes a comprehensive approach to maritime security, identifying 12 different forms of maritime crime in the YCoC. The process provides a structure for enhancing all-around maritime security in the GoG through regional information-sharing, capacity building, and coordination of multinational maritime security operations. By improving the sharing of information regarding emerging and ongoing threats and ensuring that regional maritime security actors have the institutional and logistical arrangements in place for multinational operations, the region can better respond to the transnational nature of maritime crime.'
-        },
-        {
-          tag: 'p',
-          html: 'The Yaoundé process is still early in its development. Key steps need to be taken to build the capacity of not only state maritime security forces, but also of CRESMAC, CRESMAO, and the MMCCs. That said, the Yaoundé process has several characteristics which may make it a valuable model for the coordination of regional maritime security.'
-        },
-        {
-          tag: 'p',
-          html: 'The first aspect is its comprehensiveness. The process recognizes the interconnected nature of various forms of maritime crime and puts forward priorities for combating each. A focus on a single, high-visibility issue risks ignoring other crimes such as maritime pollution or illegal, unreported, and unregulated fishing which have significant, long-term effects on the economic and social wellbeing of a region.'
-        },
-        {
-          tag: 'p',
-          html: 'The process also makes use of existing regional institutions such as the Economic Community of West African States (ECOWAS) and the Economic Community of Central African States (ECCAS). By building upon these established institutions, the ICC can leverage existing relationships with individual states and the larger African Union system, gaining some level of access to their resources and enhancing its sustainability beyond a period of particular insecurity or the decline of an individual maritime threat.'
-        },
-        {
-          tag: 'p',
-          html: 'Though the Yaoundé process is still young and many of the functions envisioned within it still need to be developed, it may serve as a useful model for regions that have a large number of states to coordinate to refer to in confronting a variety of transnational maritime security threats.'
-        },
-        //###Insert video, quote, and image
-      ] // end of els array
-    },
     // { // Card 5
     //   title: 'East Africa',
     //   menu: 'East Africa',
@@ -1058,122 +1309,6 @@ var internationalCooperationData = {
     //   ] // end of els array
     // },
     { // Card 7
-      title: 'African Union Efforts',
-      menu: 'AU Efforts',
-      metadata: {
-        owner: 'Jay Benson',
-        description: 'Move to comprehensive continental strategy.'
-      },
-      map: {
-        scale: [],
-        classes: '',
-        highlights: [],
-        tooltip: true,
-        tooltipHTML: function(iso) {
-
-          var lome = issueAreaData[issueArea].metadata.countryData[iso].lome;
-          if (lome == 1) {
-            return "Signatory of the Lome Charter";
-
-          } else {
-            return "Not a signatory of the Lome Charter";
-          }
-        },
-        load: function(index, csv) { // ### *** This only should be for the first card ...
-
-          var layer = 'card-' + index + '-layer';
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-
-        },
-        switch: function(index) {
-          var lome = issueAreaData[issueArea].metadata.countryData;
-
-          var i = 1;
-          var card = 'lome';
-          for (iso in lome) {
-
-            if (lome[iso][card] == 1) {
-              d3.selectAll('.country.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('fill', function() {
-                  return themeColor(0.5);
-                })
-                .style('stroke', function() {
-                  return themeColor(1);
-                });
-
-              d3.selectAll('.eez.' + iso)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                //  .style('fill', function () {return rampColor(0.1);})
-                .style('stroke', function() {
-                  return themeColor(1);
-                })
-                .style('stroke-width', '2px');
-              i++;
-            }
-          }
-
-          d3.selectAll('.card-' + index + '-layer')
-            .classed('invisible', false);
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'African Union Efforts',
-        },
-        {
-          tag: 'caption',
-          text: 'An ambitious plan for governing African waters'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Highlights represent sub-Saharan countries that have signed the African Union\'s Lomé Charter</em>.'
-        },
-        //###Insert Map: This one is tough. Do you think it would be possible to recalculate the scores in the enforcement section but based on the AU’s five regions (only 4 of which are relevant to SSA)? I think it could be interesting for getting an idea of what larger regions in SSA have the capacity to really improve governance towards AIMS
-        {
-          tag: 'p',
-          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS).<sup>14</sup>  AIMS was created with the goals of providing a framework for enhanced governance in Africa’s maritime domain, developing a platform for shared maritime policy, and facilitating the development of the <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>. Implementation of the ambitious strategy will be challenging, but the economic, security, and governance ramifications of its success have the potential to transform the African maritime space.'
-        },
-        {
-          tag: 'p',
-          html: 'Like maritime spaces around the world, the African maritime domain has been confronted with a variety of security and governance challenges from <a class="piracy inline" href="../../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../../fisheries#1">IUU Fishing</a>. AIMS was created as an effort to build a comprehensive, unified set of maritime policies designed to address these challenges and thereby develop the Blue Economy. AIMS is wide-ranging, addressing issues of economic development, environmental protection, maritime crime, disaster management, and maritime law, to name a few.<sup>15</sup>'
-        },
-        {
-          tag: 'p',
-          html: 'The document serves as a vision of shared policy. But if it is to become reality, there is still a tremendous amount of work to be done. Coordinated efforts will need to be made in the areas of:'
-        },
-        {
-          tag: 'ul',
-          rows: ['Developing political will. AIMS suggests several areas in which domestic laws regarding maritime governance should be synchronized and even puts forward the concept of a Combined Exclusive Maritime Zone of Africa. This level of integration on maritime policy will require substantial political will and the resolution of Africa’s ongoing maritime boundary disputes.', 'Data collection and research. There is a dearth of data and basic research on many maritime issues in Africa. AIMS identifies rectifying this gap as being key to the formation of empirically informed policies.', 'Infrastructure and equipment. In order to implement AIMS, states and other actors in the region will need to significantly upgrade equipment and infrastructure necessary for maritime governance such as patrol vessels, port facilities, and remote sensing systems which enhance maritime domain awareness.', 'In addition to having the necessary physical equipment, African actors will need to train a population of maritime professionals in skillsets such as fisheries management, navigation, and maritime law.']
-        },
-        {
-          tag: 'p',
-          html: 'Perhaps the best way to ensure the success of AIMS would be to establish an institutional home for efforts toward its implementation. The AU currently has no office or department focused exclusively on its maritime initiatives. The establishment of a well-resourced and politically influential entity to oversee these efforts would greatly improve AIMS implementation.'
-        },
-        {
-          tag: 'p',
-          html: 'The ramifications of full implementation of AIMS make tackling these formidable challenges worth the effort. Successful AIMS implementation has the potential to drastically improve maritime security and governance and unlock the potential of Africa’s Blue Economy.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>14</sup> “African Maritime Action Plan Adopted,” <em>Maritime Executive</em>, 2 February 2014.',
-              url: 'http://www.maritime-executive.com/article/African-Maritime-Action-Plan-Adopted-2014-02-02'
-            },
-            {
-              org: '<sup>15</sup> “2050 Africa’s Integrated Maritime Strategy,” African Union, 2012, Version 1.0.',
-              url: 'http://cggrps.org/wp-content/uploads/2050-AIM-Strategy_EN.pdf'
-            },
-          ]
-        },
-        //###Insert image, video, and quote
-      ] // end of els array
-    },
-    { // Card 7
       title: 'Methodology',
       menu: 'Methodology',
       metadata: {
@@ -1181,31 +1316,30 @@ var internationalCooperationData = {
         description: 'Card will provide basic methodology info.'
       },
       map: {
+        type: 'continuous',
         scale: [],
-        classes: '',
+        classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'International Cooperation Score',
         tooltipHTML: function(iso) {
 
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['international-cooperation-index'];
           tooltipVal = Math.round((tooltipVal * 100));
           updatePointer(tooltipVal);
           return "International Cooperation:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
-          // Load flow map layer
+          // Class EEZ with card-0-layer to enable switch() method
           var layer = 'card-' + index + '-layer';
-          // Load topoJSON of flow map
           d3.select('.card-eez-layer')
             .classed(layer, true);
-          // Class with layer
         },
         switch: function(index) {
-          // Simply show target layer
-          choropleth(index, 1, 'index');
-
+          // Choropleth of scores
+          choropleth(index, 1, 'international-cooperation-index');
         }
       },
       els: [{

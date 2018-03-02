@@ -76,7 +76,7 @@ var piracyData = {
           var day = days[date.getDay()];
           var month = months[date.getMonth()];
           var year = date.getYear() + 1900;
-          console.log(day, month, year);
+    //      console.log(day, month, year);
           tooltip.select('.tooltip-body')
             .text(d.category + ' on ' + date.getDate() + " " + month + ' ' + year);
         })
@@ -180,11 +180,13 @@ var piracyData = {
         description: 'Card will introduce the issue.'
       },
       map: {
+        type: 'continuous',
         path: '../../data/piracy/piracy-incidents.csv',
         scale: [],
         classes: '',
         translate: [],
         tooltip: true,
+        legend: 'Piracy and Armed Robbery Score',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
@@ -387,6 +389,7 @@ var piracyData = {
         description: 'Feature Somali Waters report, talk about recent uptick in Somali piracy.'
       },
       map: {
+        type: 'custom',
         path: '../../data/piracy/piracy-2017-incidents.csv',
         scale: [],
         classes: '',
@@ -912,11 +915,13 @@ var piracyData = {
         description: 'Card will provide basic methodology info.'
       },
       map: {
+        type: 'continuous',
+        path: '../../data/piracy/piracy-incidents.csv',
         scale: [],
         classes: '',
         translate: [],
-        highlights: [],
         tooltip: true,
+        legend: 'Piracy and Armed Robbery Score',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
@@ -924,15 +929,20 @@ var piracyData = {
           return "Piracy and Armed Robbery:<br />" + tooltipVal + " / 100";
 
         },
-        load: function (index, file) {  // ### *** This only should be for the first card ...
-          var layer = 'card-'+index+'-layer';
+        //    extent: [[27,-26],[94,30]],
+        //  highlights: ,
+        load: function(index, file) { // ### *** This only should be for the first card ...
 
-          d3.selectAll('.card-eez-layer')
+          var layer = 'card-' + index + '-layer';
+          d3.select('.card-eez-layer')
             .classed(layer, true);
 
+
         },
-        switch: function (index) {
+        switch: function(index) {
+
           choropleth(index, 1, 'index');
+
         }
       },
       els: [
