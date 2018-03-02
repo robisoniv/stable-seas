@@ -130,280 +130,8 @@ var coastalWelfareData = {
       ] // end of els array
 
     },
+
     { // Card 1
-      title: 'The Economic Insecurity Trap',
-      menu: 'The Economic Insecurity Trap',
-      metadata: {
-        owner: 'Sasha Egorova',
-        description: 'Feedback loop between crime and economic insecurity.'
-      },
-      map: {
-        scale: [],
-        classes: '',
-        translate: [],
-        path: '',
-        highlights: [],
-        tooltip: true,
-        tooltipHTML: function (iso3) {
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].artisanalFishing;
-          tooltipVal = tooltipVal * 100;
-          updatePointer(tooltipVal);
-
-          return "Artisanal Fishing Opportunities:<br />" + tooltipVal + " / 100<br />(Source: Ocean Health Index)";
-        },
-        load: function(index, file) {
-          var layer = 'card-' + index + '-layer';
-          var l = d3.select('.card-eez-layer')
-            .classed(layer, true);
-        },
-        switch: function(index) {
-          //  switchMainIndex(index);
-
-          choropleth(index, 1, 'artisanalFishing');
-          // var artisanalFishing = issueAreaData[issueArea].metadata.countryData;
-          //
-          // var values = [];
-          //
-          // artisanalFishing.forEach(function(row, i) {
-          //   values.push(row.ia5c1);
-          // });
-          //
-          // var max = d3.max(values),
-          //   min = d3.min(values),
-          //   range = max - min;
-          // artisanalFishing.forEach(function(row, i) {
-          //   d3.selectAll('.eez.' + row.iso3)
-          //     .classed('active', true)
-          //     .style('fill', function() {
-          //       return rampColor(1 - ((row.ia5c1 - range) / (max - min)))
-          //     })
-          //
-          // });
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'The Economic Insecurity Trap',
-        },
-        {
-          tag: 'caption',
-          text: 'How maritime crime hurts local economies'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Lighter shades indicate greater artisanal fishing opportunities.<br />Source: <a href="http://www.oceanhealthindex.org/" target="_blank">Ocean Health Index</a></em>'
-        },
-        {
-          tag: 'p',
-          html: 'Strong fisheries, tourism, and other maritime industries provide coastal populations with an opportunity to thrive in the <a class="blue-economy inline" href="../../blue-economy">legal maritime economy</a>.<sup>1</sup> When such opportunities diminish or are not available, people are more likely to join criminal networks and to exploit maritime resources through illegal means.'
-        },
-        {
-          tag: 'p',
-          html: 'The relationship between recruitment for piracy and unemployment in fisheries is a striking example. Pirates recruit from local fishing communities, among other sectors, since fishers possess the navigational knowledge, skills, and resources that pirates need to execute their attacks. Stable and abundant income opportunities in the fishing sector keep people away from criminal activity. On the other side, poor fish catches can propel more people to join pirate networks.<sup>2</sup>'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/coastal-welfare/al_faxti_fishing.jpg',
-          alt: 'Stable income opportunities in the fishing sector keep people away from criminal activity. Photo: Al Faxti Fishing, Jean-Pierre Larroque, OEF. ',
-          caption: 'Stable income opportunities in the fishing sector keep people away from criminal activity. Photo: Al Faxti Fishing, Jean-Pierre Larroque, OEF. '
-        },
-        {
-          tag: 'p',
-          html: 'However, while poor coastal economic welfare enables maritime crimes, maritime crimes also disrupt local economies. Large injections of capital acquired through illicit means have effects similar to those of the “resource curse.”<sup>3</sup> Large illicit capital inflows, such as ransom payments, lead to inflation. Inflation in turn undermines local manufacturing industries and exports. The service industry booms, and imports grow. While advantageous in the short term, this effect undermines long-term development and fosters a dependency on the illicit sectors.'
-        },
-        {
-          tag: 'blockquote',
-          html: '"Ransom revenues appear to largely fuel investment in services, real estate, finance or criminal sectors. Little appears to go into pastoral or export sectors."',
-          source: 'Authors Steven Oliver, Ryan Jablonski, and Justin V. Hastings<br />The Tortuga Disease<sup>4</sup>',
-          link: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2233959' // What about internal references?
-        },
-        {
-          tag: 'p',
-          html: 'The effect has been strong in Puntland, which has seen a significant decline in exports in comparison to Somaliland since 2005, despite having trade figures that were tracking very closely to Somaliland’s prior to the onset of piracy.<sup>5</sup>'
-        },
-        // Insert graph of Change in export volumes ###
-        {
-          tag: 'img',
-          src: '../../assets/coastal-welfare/change_export_volumes.jpg',
-        },
-        {
-          tag: 'p',
-          html: 'As a result of the effects of ransom revenues on the economy, employment opportunities in manufacturing, agriculture, and other export industries decrease. As unemployment and poverty rise, people start seeing more opportunity in the illicit economy.'
-        },
-        {
-          tag: 'p',
-          html: 'One result of these dynamics is the inception of a feedback loop between poor coastal welfare and illicit maritime activity; the more maritime crime develops, the more it can take a toll on economic development. The more economic development stagnates, the more people are inclined to move into illicit activities and crimes.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>1</sup> Ryan Jablonski and Steven Oliver, “The Political Economy of Plunder: Economic Opportunity and Modern Piracy,” <em>Journal of Conflict Resolution</em> 57, no. 4 (2012): 682–708.'
-            },
-            {
-              org: '<sup>2</sup> Mattias Fluckiger and Markus Ludwig, “Economic Shocks in the Fisheries Sector and Maritime Piracy,” <em>Journal of Development Economics</em> 114 (2015): 107–125.'
-            },
-            {
-              org: '<sup>3</sup> Steven Oliver, Ryan Jablonski, and Justin V. Hastings, “The Tortuga Disease: The Perverse Effects of Illicit Foreign Capital,” <em>International Studies Quarterly<em> (forthcoming, 2017), accessed 28 August 2017,',
-              url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2233959'
-            },
-            {
-              org: '<sup>4</sup> Ibid.'
-            },
-            {
-              org: '<sup>5</sup> Ibid.'
-            },
-          ]
-        }
-      ] // end of els array
-
-    },
-    { // Card 2
-      title: 'Somali Livelihoods',
-      menu: 'Somali Livelihoods',
-      metadata: {
-        owner: 'Sasha Egorova',
-        description: 'Focus on economic livelihoods in Somalia.'
-      },
-      map: {
-        scale: [],
-        classes: '',
-        translate: [],
-        path: '../../data/blue-economy/world-port-index.csv',
-        extent: [
-          [37, 14],
-          [76, -9]
-        ], // ### Guinea Bissau
-        //    highlights: ['SOM'],
-        load: function(index, file) {
-
-          var layer = 'card-' + index + '-layer';
-          d3.csv(file, function(vals) {
-
-
-            vals.forEach(function(d) {
-              console.log(d);
-              d.lat = +d.lat;
-              d.lon = +d.lon;
-              d.Harbor_2ize_code = +d.Harbor_2ize_code;
-            });
-
-            var wpi = mapg.append('g')
-              .classed('card-layer wpi-layer invisible ' + layer, true);
-
-            wpi.selectAll('circle')
-              .data(vals).enter()
-              .append('circle')
-              .attr('cx', function(d) {
-                return projection([d.lon, d.lat])[0];
-              })
-              .attr('cy', function(d) {
-                return projection([d.lon, d.lat])[1];
-              })
-              .attr('r', function(d) {
-                return d.Harbor_2ize_code * 2;
-              })
-              .classed('wpi-port', true)
-              .style('fill', function() {
-                return rampColor(1);
-              })
-              .on('mousemove', function (d) {
-                var coords = d3.mouse(this);
-                var y = d3.event.pageY,
-                  x = d3.event.pageX;
-
-                var tooltip = d3.select('div.tooltip');
-                tooltip.style('left', (x + 20) + 'px')
-                  .style('top', (y - 20) + 'px')
-                  .classed('hidden', false)
-                  .classed('active', true)
-                  .style('text-align', 'left');
-
-
-                var portName = d.Main_port_name.toLowerCase();
-                portName = portName.replace(/\b\w/g, function(l){ return l.toUpperCase() })
-                // console.log(portName);
-                tooltip.select('h1')
-                  .text(portName);
-                //  console.log(d);
-                tooltip.select('.tooltip-body')
-                  .text(countries[d.iso3]);
-              })
-              .on('mouseleave', function () {
-                tooltip.classed('hidden', true);
-                tooltip.select('h1').text(null);
-                tooltip.select('.tooltip-body').text(null);
-                d3.select(this).moveToBack();
-              });
-
-          });
-        },
-        switch: function(index) {
-          //  switchMainIndexInverse(0);
-          d3.select('.card-' + index + '-layer')
-            .classed('invisible', false);
-        }
-      },
-      els: [{
-          tag: 'h1',
-          text: 'Somali Livelihoods',
-        },
-        {
-          tag: 'caption',
-          text: 'Supporting coastal communities amid drought'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Larger dots indicate larger ports, smaller dots indicate smaller ports. <br> Source: World Port Index</em>'
-        },
-        // { tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>Somalis suffer from the region\'s lowest coastal welfare score <br> <a class="internal-ref inline coastal-welfare" href="#" data-link="6">Methodology</a></em>' //###Fix this map if we have time its ugly
-        // },
-        {
-          tag: 'p',
-          html: 'The 2017 drought and famine have forced many Somalis to turn to the sea to support their livelihoods. As livestock and crops died, and with the reach of humanitarian assistance limited, many turned to fishing to feed their families. Conversely, illicit maritime activities might have also been fueled by the drought.'
-        },
-        {
-          tag: 'blockquote',
-          html: '“What we\'re seeing is that migration is increasing exponentially in all directions. People are leaving the region however they can. Some are going through Libya and across the Mediterranean and some are going to Yemen.”',
-          source: 'Nichole Sobecki<sup>6</sup><br />Photojournalist',
-          link: 'http://www.npr.org/sections/goatsandsoda/2017/06/17/533050733/photos-of-somalia-surviving-in-one-of-the-worlds-driest-places' // What about internal references?
-        },
-        {
-          tag: 'p',
-          html: '<a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">Human smuggling</a>is one of the key maritime crimes associated with the deteriorating coastal welfare off the coast of Somalia. Most Somalis do not have the financial means to be smuggled abroad and feel they have to migrate internally within Somalia.<sup>7</sup> As famine conditions worsen, many who can do so choose to be smuggled to other countries from Somali ports in order to escape the drought.'
-        },
-        {
-          tag: 'p',
-          html: 'Somalia is just one example of how a change in coastal welfare and livelihoods can contribute to growing maritime insecurity. Amid crises like these, links between poor coastal welfare and maritime crimes can be addressed by supporting coastal development.'
-        },
-        { // Get this thumbnail!
-          tag: 'video',
-          videoId: '9U7fD3JkB60',
-          thumb: '../../assets/coastal-welfare/AgriFood_video.jpg' // ###
-        },
-        {
-          tag: 'p',
-          html: 'These links between poor coastal welfare and maritime crime also mean that improved coastal opportunities could improve maritime security. For example, <a href="http://shuraako.org/" target="_blank">Shuraako</a>, a program of One Earth Future, has been supporting agriculture, fishing, and other businesses across the Somali regions through investments to create livelihood opportunities and foster economic growth. By boosting the formal economy, this work provides viable alternatives to illicit activities that undermine international security.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>6</sup> Jason Beaubien, “Photos Of Somalia: The Drought, the People, the Captured Porcupine,” <em>NPR</em>, 17 July 2017,',
-              url: 'http://www.npr.org/sections/goatsandsoda/2017/06/17/533050733/photos-of-somalia-surviving-in-one-of-the-worlds-driest-places'
-            },
-            {
-              org: '<sup>7</sup> The Research and Evidence Facility Consortium, “Migration between the Horn of Africa and Yemen,” 25 July 2017,',
-              url: 'https://www.soas.ac.uk/ref-hornresearch/research-papers/file122639.pdf'
-            }
-          ]
-        }
-      ] // end of els array
-
-    },
-    { // Card 3
       title: 'War and Maritime Crimes',
       menu: 'War and Maritime Crimes',
       metadata: {
@@ -513,12 +241,12 @@ var coastalWelfareData = {
 
       ] // end of els array
     },
-    { // Card 4
-      title: 'Women and Coastal Welfare',
-      menu: 'Women and Coastal Welfare',
+    { // Card 2
+      title: 'The Economic Insecurity Trap',
+      menu: 'The Economic Insecurity Trap',
       metadata: {
         owner: 'Sasha Egorova',
-        description: 'Gender aspect of coastal welfare. Structural impediments towards women equally participating in coastal economies.'
+        description: 'Feedback loop between crime and economic insecurity.'
       },
       map: {
         scale: [],
@@ -528,108 +256,383 @@ var coastalWelfareData = {
         highlights: [],
         tooltip: true,
         tooltipHTML: function (iso3) {
-
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].womensEconomicSecurity;
-          tooltipVal = Math.round(tooltipVal * 100);
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].economicSecurity;
+          tooltipVal = tooltipVal * 100;
           updatePointer(tooltipVal);
 
-          return "Womens' Economic Security:<br />" + tooltipVal + " / 100 <br />Source: World Bank Women,<br />Business, and the Law Dataset";
-
+          return "Artisanal Fishing Opportunities:<br />" + tooltipVal + " / 100<br />(Source: Ocean Health Index)";
         },
         load: function(index, file) {
-
           var layer = 'card-' + index + '-layer';
-          d3.select('.card-eez-layer')
+          var l = d3.select('.card-eez-layer')
             .classed(layer, true);
-
         },
         switch: function(index) {
-          choropleth(index, 1, 'womensEconomicSecurity');
-         }
+          //  switchMainIndex(index);
+
+          choropleth(index, 1, 'economicSecurity');
+          // var artisanalFishing = issueAreaData[issueArea].metadata.countryData;
+          //
+          // var values = [];
+          //
+          // artisanalFishing.forEach(function(row, i) {
+          //   values.push(row.ia5c1);
+          // });
+          //
+          // var max = d3.max(values),
+          //   min = d3.min(values),
+          //   range = max - min;
+          // artisanalFishing.forEach(function(row, i) {
+          //   d3.selectAll('.eez.' + row.iso3)
+          //     .classed('active', true)
+          //     .style('fill', function() {
+          //       return rampColor(1 - ((row.ia5c1 - range) / (max - min)))
+          //     })
+          //
+          // });
+        }
       },
       els: [{
           tag: 'h1',
-          text: 'Women and Coastal Welfare',
+          text: 'The Economic Insecurity Trap',
         },
         {
           tag: 'caption',
-          text: 'Secure coastlines for all'
+          text: '***Need updated data from Curtis for choropleth<br />How maritime crime hurts local economies'
         },
         // {
         //   tag: 'legend',
         //   text: 'Map Legend',
-        //   legendContent: '<em>Lighter shades indicate greater women\'s economic security. <br> Source: <a href="http://wbl.worldbank.org/" target="_blank">World Bank Women, Business, and the Law Dataset</a></em>'
+        //   legendContent: '<em>Lighter shades indicate greater artisanal fishing opportunities.<br />Source: <a href="http://www.oceanhealthindex.org/" target="_blank">Ocean Health Index</a></em>'
         // },
         {
           tag: 'p',
-          html: 'Women’s active participation in coastal economies helps create more stable, secure, and profitable coastal areas for all. However, there are many obstacles to their full participation in the economy, and maritime industries in particular.'
-        },
-        {
-          tag: 'blockquote',
-          html: '“Women today represent about 50 percent of the world’s population and, for the past two decades, about 50 percent of the labor force. Yet there are stark differences in the outcomes they achieve: women are only half as likely as men to have a full-time wage-earning job. The women who do have paid jobs earn as much as one-third less than men. Fewer women than men are involved in trade or own registered companies. And women are more likely to work in low-productivity activities or informal employment.”',
-          source: 'Cecile Fruman, Author<br />Why Gender Equality in Doing Business Makes Good Economic Sense<sup>11</sup>',
-          link: 'http://blogs.worldbank.org/psd/why-gender-equality-doing-business-makes-good-economic-sense' // What about internal references?
+          html: 'Strong fisheries, tourism, and other maritime industries provide coastal populations with an opportunity to thrive in the <a class="blue-economy inline" href="../../blue-economy">legal maritime economy</a>.<sup>1</sup> When such opportunities diminish or are not available, people are more likely to join criminal networks and to exploit maritime resources through illegal means.'
         },
         {
           tag: 'p',
-          html: 'Maritime industries are no exception to this overall trend. There are fewer female seafarers than male ones, fewer women serving in navies and marine authorities, and fewer female members of coast guards.<sup>12</sup> Women’s participation in fisheries value chains is often limited to roles in processing and marketing, rather than fishing and resource management, which are considered to be traditionally male roles.<sup>13</sup>'
+          html: 'The relationship between recruitment for piracy and unemployment in fisheries is a striking example. Pirates recruit from local fishing communities, among other sectors, since fishers possess the navigational knowledge, skills, and resources that pirates need to execute their attacks. Stable and abundant income opportunities in the fishing sector keep people away from criminal activity. On the other side, poor fish catches can propel more people to join pirate networks.<sup>2</sup>'
         },
         {
           tag: 'img',
-          src: '../../assets/coastal-welfare/women_fisheries_west_africa.jpg', // This should be on the Stable Seas Deck - comments
-          alt: 'A woman cooks in Youpwe fishing village, Cameroon. Photo: Jean-Pierre Larroque, OEF',
-          caption: 'A woman cooks in Youpwe fishing village, Cameroon. Photo: Jean-Pierre Larroque, OEF'
+          src: '../../assets/coastal-welfare/al_faxti_fishing.jpg',
+          alt: 'Stable income opportunities in the fishing sector keep people away from criminal activity. Photo: Al Faxti Fishing, Jean-Pierre Larroque, OEF. ',
+          caption: 'Stable income opportunities in the fishing sector keep people away from criminal activity. Photo: Al Faxti Fishing, Jean-Pierre Larroque, OEF. '
         },
         {
           tag: 'p',
-          html: 'These differences in outcomes between men and women in business and the job market largely stem from the legal systems of their respective states. In sub-Saharan Africa in particular, women face multiple obstacles to equal participation in the economy:<sup>14</sup>'
+          html: 'However, while poor coastal economic welfare enables maritime crimes, maritime crimes also disrupt local economies. Large injections of capital acquired through illicit means have effects similar to those of the “resource curse.”<sup>3</sup> Large illicit capital inflows, such as ransom payments, lead to inflation. Inflation in turn undermines local manufacturing industries and exports. The service industry booms, and imports grow. While advantageous in the short term, this effect undermines long-term development and fosters a dependency on the illicit sectors.'
         },
         {
-          tag: 'ul',
-          rows: ['In 5 out of 30 countries considered in the index, there are extra procedures for women to start a business compared to the procedures required for men.<sup>15</sup>', 'In 17 out of 30 countries, equal remuneration for work of equal value is not legally mandated.', 'In 21 out of 30 countries, nondiscrimination based on gender in hiring is not legally mandated.', 'In 18 out of 30 countries, non-pregnant women can’t do the same jobs as men.', 'In 2 out of 30 countries, non-pregnant women cannot work in the same occupations as men.']
-        },
-        {
-          tag: 'p',
-          html: 'In addition to unequal legal rights in terms of employment, women also face a lack of protection against different forms of violence:<sup>16</sup>'
-        },
-        {
-          tag: 'ul',
-          rows: ['In 17 out of 30 countries, there are no clear criminal penalties for domestic violence.', 'In 8 out of 30 countries, there is no legislation that addresses sexual harassment.', 'In 20 out of 30 countries, marital rape is not criminalized.']
+          tag: 'blockquote',
+          html: '"Ransom revenues appear to largely fuel investment in services, real estate, finance or criminal sectors. Little appears to go into pastoral or export sectors."',
+          source: 'Authors Steven Oliver, Ryan Jablonski, and Justin V. Hastings<br />The Tortuga Disease<sup>4</sup>',
+          link: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2233959' // What about internal references?
         },
         {
           tag: 'p',
-          html: 'Removing obstacles to women’s participation in the economy and establishing functioning regulatory frameworks to protect women from violence are key steps toward having inclusive, sustainable, and secure coastal economies and welfare.'
+          html: 'The effect has been strong in Puntland, which has seen a significant decline in exports in comparison to Somaliland since 2005, despite having trade figures that were tracking very closely to Somaliland’s prior to the onset of piracy.<sup>5</sup>'
+        },
+        // Insert graph of Change in export volumes ###
+        {
+          tag: 'img',
+          src: '../../assets/coastal-welfare/change_export_volumes.jpg',
+        },
+        {
+          tag: 'p',
+          html: 'As a result of the effects of ransom revenues on the economy, employment opportunities in manufacturing, agriculture, and other export industries decrease. As unemployment and poverty rise, people start seeing more opportunity in the illicit economy.'
+        },
+        {
+          tag: 'p',
+          html: 'One result of these dynamics is the inception of a feedback loop between poor coastal welfare and illicit maritime activity; the more maritime crime develops, the more it can take a toll on economic development. The more economic development stagnates, the more people are inclined to move into illicit activities and crimes.'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>11</sup> Cecile Fruman, “Why Gender Equality in Doing Business Makes Good Economic Sense,” the World Bank Private Sector Development Blog, 17 November 2016,',
-              url: 'http://blogs.worldbank.org/psd/why-gender-equality-doing-business-makes-good-economic-sense'
+              org: '<sup>1</sup> Ryan Jablonski and Steven Oliver, “The Political Economy of Plunder: Economic Opportunity and Modern Piracy,” <em>Journal of Conflict Resolution</em> 57, no. 4 (2012): 682–708.'
             },
             {
-              org: '<sup>12</sup> Timothy Walker, “Why We Need More Women in Maritime Industries,” <em>World Economic Forum Agenda</em>, 4 September 2015,',
-              url: 'https://www.weforum.org/agenda/2015/09/why-we-need-more-women-in-maritime-industries/'
+              org: '<sup>2</sup> Mattias Fluckiger and Markus Ludwig, “Economic Shocks in the Fisheries Sector and Maritime Piracy,” <em>Journal of Development Economics</em> 114 (2015): 107–125.'
             },
             {
-              org: '<sup>13</sup>  Angela Lentisco and Robert Ulric Lee, <em>A Review of Women’s Access to Fish in Small-scale Fisheries</em> (Rome: Food and Agricuture Organization of the United Nations, 2015),',
-              url: 'http://www.fao.org/3/a-i4884e.pdf'
+              org: '<sup>3</sup> Steven Oliver, Ryan Jablonski, and Justin V. Hastings, “The Tortuga Disease: The Perverse Effects of Illicit Foreign Capital,” <em>International Studies Quarterly<em> (forthcoming, 2017), accessed 28 August 2017,',
+              url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2233959'
             },
             {
-              org: '<sup>14</sup> “Women, Business, and the Law 2016: Getting to Equal,” the World Bank, available at',
-              url: 'http://wbl.worldbank.org/'
+              org: '<sup>4</sup> Ibid.'
             },
             {
-              org: '<sup>15</sup> The Doing Business Project, “Starting a Business,” the World Bank, 2017, accessed 28 August 2017,',
-              url: 'http://www.doingbusiness.org/data/exploretopics/starting-a-business'
-            },
-            {
-              org: '<sup>16</sup> “Women, Business, and the Law 2016: Getting to Equal,” the World Bank, available at',
-              url: 'http://wbl.worldbank.org/'
+              org: '<sup>5</sup> Ibid.'
             },
           ]
         }
       ] // end of els array
+
     },
+
+    // { // Card 2
+    //   title: 'Somali Livelihoods',
+    //   menu: 'Somali Livelihoods',
+    //   metadata: {
+    //     owner: 'Sasha Egorova',
+    //     description: 'Focus on economic livelihoods in Somalia.'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: '',
+    //     translate: [],
+    //     path: '../../data/blue-economy/world-port-index.csv',
+    //     extent: [
+    //       [37, 14],
+    //       [76, -9]
+    //     ], // ### Guinea Bissau
+    //     //    highlights: ['SOM'],
+    //     load: function(index, file) {
+    //
+    //       var layer = 'card-' + index + '-layer';
+    //       d3.csv(file, function(vals) {
+    //
+    //
+    //         vals.forEach(function(d) {
+    //         //  console.log(d);
+    //           d.lat = +d.lat;
+    //           d.lon = +d.lon;
+    //           d.Harbor_2ize_code = +d.Harbor_2ize_code;
+    //         });
+    //
+    //         var wpi = mapg.append('g')
+    //           .classed('card-layer wpi-layer invisible ' + layer, true);
+    //
+    //         wpi.selectAll('circle')
+    //           .data(vals).enter()
+    //           .append('circle')
+    //           .attr('cx', function(d) {
+    //             return projection([d.lon, d.lat])[0];
+    //           })
+    //           .attr('cy', function(d) {
+    //             return projection([d.lon, d.lat])[1];
+    //           })
+    //           .attr('r', function(d) {
+    //             return d.Harbor_2ize_code * 2;
+    //           })
+    //           .classed('wpi-port', true)
+    //           .style('fill', function() {
+    //             return rampColor(1);
+    //           })
+    //           .on('mousemove', function (d) {
+    //             var coords = d3.mouse(this);
+    //             var y = d3.event.pageY,
+    //               x = d3.event.pageX;
+    //
+    //             var tooltip = d3.select('div.tooltip');
+    //             tooltip.style('left', (x + 20) + 'px')
+    //               .style('top', (y - 20) + 'px')
+    //               .classed('hidden', false)
+    //               .classed('active', true)
+    //               .style('text-align', 'left');
+    //
+    //
+    //             var portName = d.Main_port_name.toLowerCase();
+    //             portName = portName.replace(/\b\w/g, function(l){ return l.toUpperCase() })
+    //             // console.log(portName);
+    //             tooltip.select('h1')
+    //               .text(portName);
+    //             //  console.log(d);
+    //             tooltip.select('.tooltip-body')
+    //               .text(countries[d.iso3]);
+    //           })
+    //           .on('mouseleave', function () {
+    //             tooltip.classed('hidden', true);
+    //             tooltip.select('h1').text(null);
+    //             tooltip.select('.tooltip-body').text(null);
+    //             d3.select(this).moveToBack();
+    //           });
+    //
+    //       });
+    //     },
+    //     switch: function(index) {
+    //       //  switchMainIndexInverse(0);
+    //       d3.select('.card-' + index + '-layer')
+    //         .classed('invisible', false);
+    //     }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'Somali Livelihoods',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'Supporting coastal communities amid drought'
+    //     },
+    //     {
+    //       tag: 'legend',
+    //       text: 'Map Legend',
+    //       legendContent: '<em>Larger dots indicate larger ports, smaller dots indicate smaller ports. <br> Source: World Port Index</em>'
+    //     },
+    //     // { tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<em>Somalis suffer from the region\'s lowest coastal welfare score <br> <a class="internal-ref inline coastal-welfare" href="#" data-link="6">Methodology</a></em>' //###Fix this map if we have time its ugly
+    //     // },
+    //     {
+    //       tag: 'p',
+    //       html: 'The 2017 drought and famine have forced many Somalis to turn to the sea to support their livelihoods. As livestock and crops died, and with the reach of humanitarian assistance limited, many turned to fishing to feed their families. Conversely, illicit maritime activities might have also been fueled by the drought.'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“What we\'re seeing is that migration is increasing exponentially in all directions. People are leaving the region however they can. Some are going through Libya and across the Mediterranean and some are going to Yemen.”',
+    //       source: 'Nichole Sobecki<sup>6</sup><br />Photojournalist',
+    //       link: 'http://www.npr.org/sections/goatsandsoda/2017/06/17/533050733/photos-of-somalia-surviving-in-one-of-the-worlds-driest-places' // What about internal references?
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: '<a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">Human smuggling</a>is one of the key maritime crimes associated with the deteriorating coastal welfare off the coast of Somalia. Most Somalis do not have the financial means to be smuggled abroad and feel they have to migrate internally within Somalia.<sup>7</sup> As famine conditions worsen, many who can do so choose to be smuggled to other countries from Somali ports in order to escape the drought.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Somalia is just one example of how a change in coastal welfare and livelihoods can contribute to growing maritime insecurity. Amid crises like these, links between poor coastal welfare and maritime crimes can be addressed by supporting coastal development.'
+    //     },
+    //     { // Get this thumbnail!
+    //       tag: 'video',
+    //       videoId: '9U7fD3JkB60',
+    //       thumb: '../../assets/coastal-welfare/AgriFood_video.jpg' // ###
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'These links between poor coastal welfare and maritime crime also mean that improved coastal opportunities could improve maritime security. For example, <a href="http://shuraako.org/" target="_blank">Shuraako</a>, a program of One Earth Future, has been supporting agriculture, fishing, and other businesses across the Somali regions through investments to create livelihood opportunities and foster economic growth. By boosting the formal economy, this work provides viable alternatives to illicit activities that undermine international security.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>6</sup> Jason Beaubien, “Photos Of Somalia: The Drought, the People, the Captured Porcupine,” <em>NPR</em>, 17 July 2017,',
+    //           url: 'http://www.npr.org/sections/goatsandsoda/2017/06/17/533050733/photos-of-somalia-surviving-in-one-of-the-worlds-driest-places'
+    //         },
+    //         {
+    //           org: '<sup>7</sup> The Research and Evidence Facility Consortium, “Migration between the Horn of Africa and Yemen,” 25 July 2017,',
+    //           url: 'https://www.soas.ac.uk/ref-hornresearch/research-papers/file122639.pdf'
+    //         }
+    //       ]
+    //     }
+    //   ] // end of els array
+    //
+    // },
+
+    // { // Card 4
+    //   title: 'Women and Coastal Welfare',
+    //   menu: 'Women and Coastal Welfare',
+    //   metadata: {
+    //     owner: 'Sasha Egorova',
+    //     description: 'Gender aspect of coastal welfare. Structural impediments towards women equally participating in coastal economies.'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: '',
+    //     translate: [],
+    //     path: '',
+    //     highlights: [],
+    //     tooltip: true,
+    //     tooltipHTML: function (iso3) {
+    //
+    //       var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].womensEconomicSecurity;
+    //       tooltipVal = Math.round(tooltipVal * 100);
+    //       updatePointer(tooltipVal);
+    //
+    //       return "Womens' Economic Security:<br />" + tooltipVal + " / 100 <br />Source: World Bank Women,<br />Business, and the Law Dataset";
+    //
+    //     },
+    //     load: function(index, file) {
+    //
+    //       var layer = 'card-' + index + '-layer';
+    //       d3.select('.card-eez-layer')
+    //         .classed(layer, true);
+    //
+    //     },
+    //     switch: function(index) {
+    //       choropleth(index, 1, 'womensEconomicSecurity');
+    //      }
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'Women and Coastal Welfare',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'Secure coastlines for all'
+    //     },
+    //     // {
+    //     //   tag: 'legend',
+    //     //   text: 'Map Legend',
+    //     //   legendContent: '<em>Lighter shades indicate greater women\'s economic security. <br> Source: <a href="http://wbl.worldbank.org/" target="_blank">World Bank Women, Business, and the Law Dataset</a></em>'
+    //     // },
+    //     {
+    //       tag: 'p',
+    //       html: 'Women’s active participation in coastal economies helps create more stable, secure, and profitable coastal areas for all. However, there are many obstacles to their full participation in the economy, and maritime industries in particular.'
+    //     },
+    //     {
+    //       tag: 'blockquote',
+    //       html: '“Women today represent about 50 percent of the world’s population and, for the past two decades, about 50 percent of the labor force. Yet there are stark differences in the outcomes they achieve: women are only half as likely as men to have a full-time wage-earning job. The women who do have paid jobs earn as much as one-third less than men. Fewer women than men are involved in trade or own registered companies. And women are more likely to work in low-productivity activities or informal employment.”',
+    //       source: 'Cecile Fruman, Author<br />Why Gender Equality in Doing Business Makes Good Economic Sense<sup>11</sup>',
+    //       link: 'http://blogs.worldbank.org/psd/why-gender-equality-doing-business-makes-good-economic-sense' // What about internal references?
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Maritime industries are no exception to this overall trend. There are fewer female seafarers than male ones, fewer women serving in navies and marine authorities, and fewer female members of coast guards.<sup>12</sup> Women’s participation in fisheries value chains is often limited to roles in processing and marketing, rather than fishing and resource management, which are considered to be traditionally male roles.<sup>13</sup>'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/coastal-welfare/women_fisheries_west_africa.jpg', // This should be on the Stable Seas Deck - comments
+    //       alt: 'A woman cooks in Youpwe fishing village, Cameroon. Photo: Jean-Pierre Larroque, OEF',
+    //       caption: 'A woman cooks in Youpwe fishing village, Cameroon. Photo: Jean-Pierre Larroque, OEF'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'These differences in outcomes between men and women in business and the job market largely stem from the legal systems of their respective states. In sub-Saharan Africa in particular, women face multiple obstacles to equal participation in the economy:<sup>14</sup>'
+    //     },
+    //     {
+    //       tag: 'ul',
+    //       rows: ['In 5 out of 30 countries considered in the index, there are extra procedures for women to start a business compared to the procedures required for men.<sup>15</sup>', 'In 17 out of 30 countries, equal remuneration for work of equal value is not legally mandated.', 'In 21 out of 30 countries, nondiscrimination based on gender in hiring is not legally mandated.', 'In 18 out of 30 countries, non-pregnant women can’t do the same jobs as men.', 'In 2 out of 30 countries, non-pregnant women cannot work in the same occupations as men.']
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'In addition to unequal legal rights in terms of employment, women also face a lack of protection against different forms of violence:<sup>16</sup>'
+    //     },
+    //     {
+    //       tag: 'ul',
+    //       rows: ['In 17 out of 30 countries, there are no clear criminal penalties for domestic violence.', 'In 8 out of 30 countries, there is no legislation that addresses sexual harassment.', 'In 20 out of 30 countries, marital rape is not criminalized.']
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Removing obstacles to women’s participation in the economy and establishing functioning regulatory frameworks to protect women from violence are key steps toward having inclusive, sustainable, and secure coastal economies and welfare.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>11</sup> Cecile Fruman, “Why Gender Equality in Doing Business Makes Good Economic Sense,” the World Bank Private Sector Development Blog, 17 November 2016,',
+    //           url: 'http://blogs.worldbank.org/psd/why-gender-equality-doing-business-makes-good-economic-sense'
+    //         },
+    //         {
+    //           org: '<sup>12</sup> Timothy Walker, “Why We Need More Women in Maritime Industries,” <em>World Economic Forum Agenda</em>, 4 September 2015,',
+    //           url: 'https://www.weforum.org/agenda/2015/09/why-we-need-more-women-in-maritime-industries/'
+    //         },
+    //         {
+    //           org: '<sup>13</sup>  Angela Lentisco and Robert Ulric Lee, <em>A Review of Women’s Access to Fish in Small-scale Fisheries</em> (Rome: Food and Agricuture Organization of the United Nations, 2015),',
+    //           url: 'http://www.fao.org/3/a-i4884e.pdf'
+    //         },
+    //         {
+    //           org: '<sup>14</sup> “Women, Business, and the Law 2016: Getting to Equal,” the World Bank, available at',
+    //           url: 'http://wbl.worldbank.org/'
+    //         },
+    //         {
+    //           org: '<sup>15</sup> The Doing Business Project, “Starting a Business,” the World Bank, 2017, accessed 28 August 2017,',
+    //           url: 'http://www.doingbusiness.org/data/exploretopics/starting-a-business'
+    //         },
+    //         {
+    //           org: '<sup>16</sup> “Women, Business, and the Law 2016: Getting to Equal,” the World Bank, available at',
+    //           url: 'http://wbl.worldbank.org/'
+    //         },
+    //       ]
+    //     }
+    //   ] // end of els array
+    // },
     // { // Card 5
     //   title: 'Progress in Ghana',
     //   menu: 'Progress in Ghana',
@@ -696,7 +699,7 @@ var coastalWelfareData = {
     //     }
     //   ] // end of els array
     // },
-    { // Card 6
+    { // Card 3
     title: 'Methodology',
     menu: 'Methodology',
     metadata: {
