@@ -48,6 +48,7 @@ var coastalWelfareData = {
         description: 'Overview of the sub-index.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         path: '',
@@ -249,6 +250,7 @@ var coastalWelfareData = {
         description: 'Feedback loop between crime and economic insecurity.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: '',
         translate: [],
@@ -256,11 +258,11 @@ var coastalWelfareData = {
         highlights: [],
         tooltip: true,
         tooltipHTML: function (iso3) {
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].economicSecurity;
-          tooltipVal = tooltipVal * 100;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].womensEconomicSecurity;
+          tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
 
-          return "Artisanal Fishing Opportunities:<br />" + tooltipVal + " / 100<br />(Source: Ocean Health Index)";
+          return "Womens Economic Security:<br />" + tooltipVal + " / 100";
         },
         load: function(index, file) {
           var layer = 'card-' + index + '-layer';
@@ -270,7 +272,7 @@ var coastalWelfareData = {
         switch: function(index) {
           //  switchMainIndex(index);
 
-          choropleth(index, 1, 'economicSecurity');
+          choropleth(index, 1, 'womensEconomicSecurity');
           // var artisanalFishing = issueAreaData[issueArea].metadata.countryData;
           //
           // var values = [];
@@ -707,6 +709,7 @@ var coastalWelfareData = {
       description: 'Methods.'
     },
     map: {
+      type: 'continuous',
       scale: [],
       classes: 'card-6-layer',
       translate: [],

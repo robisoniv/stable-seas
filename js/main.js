@@ -147,12 +147,11 @@ function buildLegendContinuous() {
 
 buildLegendContinuous();
 
-
 function buildLegendCategorical() {
 
   var numCats = 10;
 
-  var translateG = 'translate(' + margins.bottom + ', ' + (h - (55 * numCats)) + ')';
+  var translateG = 'translate(' + margins.bottom + ', ' + (h - (45 * numCats)) + ')';
 
   var legendG = d3.select('#map-svg')
     .append('g')
@@ -167,17 +166,17 @@ function buildLegendCategorical() {
 
     g.append('rect')
       .classed('cat-' + (numCats - c - 1), true)
-      .attr('width', 30)
-      .attr('height', 30)
-      .attr('transform', 'translate(0,' + (c * 50) + ')')
+      .attr('width', 20)
+      .attr('height', 20)
+      .attr('transform', 'translate(0,' + (c * 40) + ')')
       .attr('fill', colorBrew[(2 * (numCats - c - 1))])
       .style('opacity', 0.3);
 
     g.append('rect')
       .classed('cat-' + (numCats - c - 1), true)
-      .attr('width', 15)
-      .attr('height', 15)
-      .attr('transform', 'translate(7.5,' + (c * 50 + 7.5) + ')')
+      .attr('width', 10)
+      .attr('height', 10)
+      .attr('transform', 'translate(5,' + (c * 40 + 5) + ')')
       .attr('fill', d3.interpolateLab('white', colorBrew[(2 * (numCats - c - 1))])(0.5));
     //      .style('stroke', 'white');
 
@@ -185,7 +184,7 @@ function buildLegendCategorical() {
     g.append('text')
       .classed('cat-' + (numCats - c - 1), true)
       .attr('font-size', 18)
-      .attr('transform', 'translate(37,' + (c * 50 + 20) + ')')
+      .attr('transform', 'translate(37,' + (c * 40 + 20) + ')')
       .text(null);
   }
 
@@ -504,6 +503,7 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
         .attr('href', function() {
           return '../issue-areas/' + iaPath;
         });
+    //    .attr('target', '_blank');
 
       var iaDiv = iaLink.append('div')
         .attr('id', function() {

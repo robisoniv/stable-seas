@@ -2,7 +2,7 @@ var illicitTradeData = {
   // PREPPED
   metadata: { // Independent data source for each page
     version: '1.0.0',
-    name: 'Illicit Trades',
+    name: '*Illicit Trades*',
     updates: true,
     /*
            added
@@ -18,21 +18,23 @@ var illicitTradeData = {
     description: 'Criminal networks leverage new technologies to deal in the markets of narcotics, weapons, wildlife, and black market pharmaceuticals.'
   },
   load: function(csv, callback) {
-    var md = issueAreaData[issueArea].metadata;
 
-    d3.csv(csv, function(vals) {
-      vals.forEach(function(d) {
-        d.ia9c0 = +d.ia9c0;
-      });
-      issueAreaData[issueArea].metadata.countryData = vals;
-      callback('illicitTrade load csv function callback');
-    });
-
-    d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-
-      issueAreaData[issueArea].metadata.indexData = vals;
-
-    });
+    loadIAcsv(csv, callback);
+    // var md = issueAreaData[issueArea].metadata;
+    //
+    // d3.csv(csv, function(vals) {
+    //   vals.forEach(function(d) {
+    //     d.ia9c0 = +d.ia9c0;
+    //   });
+    //   issueAreaData[issueArea].metadata.countryData = vals;
+    //   callback('illicitTrade load csv function callback');
+    // });
+    //
+    // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+    //
+    //   issueAreaData[issueArea].metadata.indexData = vals;
+    //
+    // });
   },
   cards: [
     { // Card 0
@@ -43,14 +45,20 @@ var illicitTradeData = {
         description: 'Introduce the issue.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         translate: [],
         highlights: [],
         tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
+        legend: 'Illicit Trades Score',
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['index'];
+          tooltipVal = Math.round(tooltipVal * 100);
+          updatePointer(tooltipVal);
+          return "Illicit Trades:<br />" + tooltipVal + " / 100";
+
         },
         load: function(index, csv) {
           // Class EEZ with card-0-layer to enable switch() method
@@ -59,7 +67,7 @@ var illicitTradeData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          switchMainIndexInverse(index);
+          choropleth(index, 1, 'index');
         }
       },
       els: [{
@@ -922,10 +930,21 @@ var illicitTradeData = {
         description: 'Card will provide basic methodology info.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: '',
         translate: [],
         highlights: [],
+        tooltip: true,
+        legend: 'Illicit Trades Score',
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['index'];
+          tooltipVal = Math.round(tooltipVal * 100);
+          updatePointer(tooltipVal);
+          return "Illicit Trades:<br />" + tooltipVal + " / 100";
+
+        },
         load: function (index, csv) {  // ### *** This only should be for the first card ...
           // Load flow map layer
           var layer = 'card-'+index+'-layer';
@@ -935,7 +954,7 @@ var illicitTradeData = {
         },
         switch: function (index) {
 
-          choropleth(/*params*/);
+          choropleth(index, 1, 'index');
 
         }
       },

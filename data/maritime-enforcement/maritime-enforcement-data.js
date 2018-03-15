@@ -139,7 +139,7 @@ var maritimeEnforcementData = {
         {
           tag: 'img',
           src: '../../assets/maritime-enforcement/global_military_spending-01.png',
-          alt: 'Pie graph'
+          alt: 'Pie graph' // ###ks have to put x img here
           //caption: 'al estimate.'
         },
         {
@@ -175,7 +175,7 @@ var maritimeEnforcementData = {
           items: [{
               org: '<sup>1</sup> Céline Pajon, “Japan’s Coast Guard and Maritime Self-Defense Force: Cooperation among Siblings,” <em>Maritime Awareness Project</em>, December 1, 2016,',
               url: 'http://maritimeawarenessproject.org/2016/12/01/japans-coast-guard-and-maritime-self-defense-force-cooperation-among-siblings/'
-            },
+            }, 
             {
               org: '<sup>2</sup> Nan Tian, Aude Fleurant, Pieter D. Wezeman and Siemont T Wezeman, “Trends in World Military Expenditure, 2016,” SIPRI, April 2017, p. 4',
               url: 'https://www.sipri.org/sites/default/files/Trends-world-military-expenditure-2016.pdf'

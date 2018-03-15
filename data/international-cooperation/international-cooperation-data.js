@@ -33,7 +33,7 @@ var internationalCooperationData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['international-cooperation-index'];
-          tooltipVal = Math.round((tooltipVal * 100));
+          tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
           return "International Cooperation:<br />" + tooltipVal + " / 100";
 
