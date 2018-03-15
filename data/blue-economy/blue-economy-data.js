@@ -22,27 +22,29 @@ var blueEconomyData = {
     description: 'The contributions ocean-based commercial sectors make to a state’s overall economic health can lead to a less violent society.'
   },
   load: function(csv, callback) {
-    var md = issueAreaData[issueArea].metadata;
-    d3.csv(csv, function(vals) {
-
-      vals.forEach(function(d) {
-        d.ia6c1 = +d.ia6c1;
-        d.ia6c2 = +d.ia6c2;
-        d.ia6c4 = +d.ia6c4;
-        d.ia6c5 = +d.ia6c5;
-        d.ia6c6 = +d.ia6c6;
-      });
-      issueAreaData[issueArea].metadata.countryData = vals;
-      callback('blueEconomy load csv function callback');
-    });
-    //    console.log('../../data/' + md.path + '/indexValues.csv');
-
-    d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-      issueAreaData[issueArea].metadata.indexData = vals;
-
-    });
+    loadIAcsv(csv, callback)
+    // var md = issueAreaData[issueArea].metadata;
+    // d3.csv(csv, function(vals) {
+    //
+    //   vals.forEach(function(d) {
+    //     d.ia6c1 = +d.ia6c1;
+    //     d.ia6c2 = +d.ia6c2;
+    //     d.ia6c4 = +d.ia6c4;
+    //     d.ia6c5 = +d.ia6c5;
+    //     d.ia6c6 = +d.ia6c6;
+    //   });
+    //   issueAreaData[issueArea].metadata.countryData = vals;
+    //   callback('blueEconomy load csv function callback');
+    // });
+    // //    console.log('../../data/' + md.path + '/indexValues.csv');
+    //
+    // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
+    //   issueAreaData[issueArea].metadata.indexData = vals;
+    //
+    // });
   },
-  cards: [{ // Card 0 //###version 1.0
+  cards: [
+    { // Card 0 //###version 1.0
       title: 'Blue Economy',
       menu: 'Blue Economy',
       metadata: {
@@ -139,6 +141,7 @@ var blueEconomyData = {
         description: 'Future potential for aquaculture and cost benefit analysis (sustainability issue).'
       },
       map: {
+        type: 'categorical',
         scale: [],
         classes: '',
         translate: [],
@@ -155,26 +158,27 @@ var blueEconomyData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          var target = 'card-' + index + '-layer';
-          var vals = issueAreaData[issueArea].metadata.countryData;
-
-          vals.forEach(function(d, i) { // ### this is a misuse of D3! or is it?!
-            if (d.ia6c1 == 1) {
-              d3.selectAll('.country.' + d.iso3)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('fill', rampColor(0.5))
-                .style('stroke', rampColor(1));
-
-              d3.selectAll('.eez.' + d.iso3)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('stroke', rampColor(1));
-            }
-          });
-
-          d3.select('.' + target)
-            .classed('invisible', false);
+          choropleth(index, 1, 'ia6c1');
+        //   var target = 'card-' + index + '-layer';
+        //   var vals = issueAreaData[issueArea].metadata.countryData;
+        //
+        //   vals.forEach(function(d, i) { // ### this is a misuse of D3! or is it?!
+        //     if (d.ia6c1 == 1) {
+        //       d3.selectAll('.country.' + d.iso3)
+        //         .classed('active', true)
+        //         .transition().delay(i * 10)
+        //         .style('fill', rampColor(0.5))
+        //         .style('stroke', rampColor(1));
+        //
+        //       d3.selectAll('.eez.' + d.iso3)
+        //         .classed('active', true)
+        //         .transition().delay(i * 10)
+        //         .style('stroke', rampColor(1));
+        //     }
+        //   });
+        //
+        //   d3.select('.' + target)
+        //     .classed('invisible', false);
         }
       },
       els: [{
@@ -261,12 +265,20 @@ var blueEconomyData = {
         description: 'The impact of maritime insecurity on tourism (Seychelles as impacted by piracy, Nigeria as impacted by insecurity).'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: '',
         translate: [],
         path: '',
         highlights: [],
         tooltip: true,
+        tooltipHTML: function (iso) {
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['ia6c2'];
+      //    tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "Marine Tourism Score:<br />" + tooltipVal + " / 100";
+
+        },
         units: {
           text: 'xo units',
           multiplier: 100
@@ -277,26 +289,28 @@ var blueEconomyData = {
             .classed('card-' + index + '-layer', true);
         },
         switch: function(index) {
+          choropleth(index, 1, 'ia6c2');
+
           // Figure out what to switch to.
-          var values = issueAreaData[issueArea].metadata.countryData;
-
-          var valsArr = [];
-
-          values.forEach(function(row, i) {
-            valsArr.push(row.ia6c2);
-          });
-
-          var max = d3.max(valsArr);
-          var min = d3.min(valsArr);
-          var range = max - min;
-
-          values.forEach(function(row, i) {
-            d3.selectAll('.eez.' + row.iso3)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', rampColor(1 - ((row.ia6c2 - min) / range)))
-              .style('stroke', rampColor(1));
-          });
+          // var values = issueAreaData[issueArea].metadata.countryData;
+          //
+          // var valsArr = [];
+          //
+          // values.forEach(function(row, i) {
+          //   valsArr.push(row.ia6c2);
+          // });
+          //
+          // var max = d3.max(valsArr);
+          // var min = d3.min(valsArr);
+          // var range = max - min;
+          //
+          // values.forEach(function(row, i) {
+          //   d3.selectAll('.eez.' + row.iso3)
+          //     .classed('active', true)
+          //     .transition().delay(i * 10)
+          //     .style('fill', rampColor(1 - ((row.ia6c2 - min) / range)))
+          //     .style('stroke', rampColor(1));
+          // });
         }
       },
       els: [{
@@ -486,134 +500,134 @@ var blueEconomyData = {
         }
       ] // end of els array
     },
-    { // Card 4
-      title: 'The Invisible Fishers',
-      menu: 'The Invisible Fishers',
-      metadata: {
-        owner: 'Laura Burroughs',
-        description: 'Women\'s work goes unrecognized in fisheries sector; highlight women\'s role in processing in Sierra Leone and related challenges.'
-      },
-      map: {
-        scale: [],
-        classes: '',
-        translate: [],
-        path: '',
-        extent: [
-          [-15, 15],
-          [8, -1]
-        ],
-        highlights: [],
-        tooltip: true,
-        units: {
-          text: 'xo units',
-          multiplier: 100
-        },
-        load: function(index, file) {
-          var layer = 'card-' + index + '-layer';
-          // Load higher resolution Sierra Leone layer
-
-          // Load point data
-
-          // Class point & GIS data with layer
-          d3.select('.card-eez-layer')
-            .classed(layer, true);
-
-        },
-        switch: function(index) {
-          // Figure out what to switch to.
-          var values = issueAreaData[issueArea].metadata.countryData;
-
-          var valsArr = [];
-
-          values.forEach(function(row, i) {
-            valsArr.push(row.ia6c4);
-          });
-
-          var max = d3.max(valsArr);
-          var min = d3.min(valsArr);
-          var range = max - min;
-
-          values.forEach(function(row, i) {
-            d3.selectAll('.eez.' + row.iso3)
-              .classed('active', true)
-              .transition().delay(i * 10)
-              .style('fill', rampColor(1 - ((row.ia6c4 - min) / range)))
-              .style('stroke', rampColor(1));
-          });
-        }
-
-      },
-      els: [{
-          tag: 'h1',
-          text: 'The Invisible Fishers',
-        },
-        {
-          tag: 'caption',
-          text: 'The overlooked role of women in fisheries supply chains'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Lighter shades indicate greater opportunities for artisanal fishing<br />\
-            Source: <a href="http://www.oceanhealthindex.org/" target="_blank">Ocean Health Index</a></em>.'
-        },
-        {
-          tag: 'bigtext',
-          html: '“[T]he extent of the damage to the ocean is many decades shy of the impact of industrialisation on land, and there is still time, if we act now, to get the principles and the framework for the development of the ocean economy right. Business as usual is clearly not an option.” - The Economist Intelligence Unit Limited, 2015'
-        },
-        //###<<<The map complementing this section will be a zoom in on Sierra Leone>>>
-        {
-          tag: 'p',
-          html: 'Imagine a person who makes their living from fisheries. The picture is likely of a “fisherman” traveling out to sea in a boat to catch fish. However, the fisheries value chain consists of many important links, from the mending of nets to the drying of fish for sale, and women make up a large and vital portion of this sector. In fisheries, women comprise the majority of processing and post-harvest workers worldwide; the Food and Agriculture Organization of the United Nations (FAO) estimates over 90 percent of this sector is women.<sup>19</sup>'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/blue-economy/Youpwe_Fishing_Village8S6A6034_JP.jpg',
-          alt: 'Women play a key role in the fisheries value chain. Photo: Jean-Pierre Larroque',
-          caption: 'Women play a key role in the fisheries value chain. Photo: Jean-Pierre Larroque'
-        },
-        {
-          tag: 'p',
-          html: 'Despite the vital roles women play in the fisheries value chain, fishing is most often perceived to be men’s work. Women’s work in the fisheries sector often goes unrecognized by creditors, policymakers, development programs, and in research, resulting in a lack of support for their work, lack of access to markets, and exclusion from fisheries management and policy decisions. This is problematic for women’s livelihoods and empowerment, and it distorts fisheries data and results in misinformed management measures. Women’s work in the fisheries sector must be understood and supported in order to advance gender equity, food security, and effective fisheries management.'
-        },
-        //###<<<photo of women fishers in Sierra Leone>>>
-        {
-          tag: 'p',
-          html: 'In Sierra Leone, the fisheries sector provides substantial revenue and employment, supporting over 500,000 people.<sup>20</sup> Around 85 percent of those employed in fisheries processing are women.<sup>21</sup> Women and men generally occupy complementary roles in the value chain. Men catch fish from canoes or work from shore in groups to pull in nets of fish.<sup>22</sup> Once they come into port, they sell their catch to women who then perform the post-harvest activities, such as cleaning and drying the fish or bringing it directly to markets for sale. Much of the fish is obtained from family members and most of the processing work is conducted within the home rather than in formal facilities.'
-        },
-        {
-          tag: 'p',
-          html: 'Beyond post-harvest work, some women also catch fish directly, using nets to catch small fish in rivers and other small water bodies. Some women even lease boats and own fishing companies.<sup>23</sup> The fisheries sector and processing in particular provide important livelihood opportunities for women. However, their incomes are still much lower than those of their male counterparts,<sup>24</sup> and many women report struggling with other restrictive factors.'
-        },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>19</sup> Food and Agriculture Organization of the United Nations, “Promoting Gender in Fisheries Activities in Somalia,” <em>Blue Growth Blog</em>, 5 June 2016,',
-              url: 'http://www.fao.org/blogs/blue-growth-blog/promoting-gender-in-fisheries-activities-in-somalia/en/'
-            },
-            {
-              org: '<sup>20</sup> “Sierra Leone News: Revitalizing the Fishing Sector,” <em>Awoko Newspaper</em>, 22 June 2017,',
-              url: 'http://awoko.org/2017/06/22/sierra-leone-news-revitalizing-the-fishing-sector/'
-            },
-            {
-              org: '<sup>21</sup> Andy Thorpe, Nicky Pouw, Andrew Baio, Ranita Sandi, Ernest Ndomahina, and Thomas Lebbie, “\'Fishing Na Everybody Business\’: Women\’s Work and Gender Relations in Sierra Leone\’s Fisheries,” <em>Feminist Economics</em> 20, no. 3 (April 2014): 53–77,',
-              url: 'http://dx.doi.org/10.1080/13545701.2014.895403'
-            },
-            {
-              org: '<sup>22</sup> Larry Tucker, “What We Can Learn from Artisanal Fishermen, Fish-women in Sierra Leone,” SwitSalone, 15 February 2017,',
-              url: 'http://www.switsalone.com/24920_what-we-can-learn-from-artisanal-fishermen-fish-women-in-sierra-leone/'
-            },
-            {
-              org: '<sup>23</sup> P.B. Browne, “Women Do Fish: A Case Study on Gender and the Fishing Industry in Sierra Leone” in <em>Global Symposium on Women in Fisheries</em>, eds. M.J. Williams, N.H. Chao-Liao, P.S. Choo, K. Matics, M.C. Nandeesha, M. Shariff, I. Saison, E. Tech, J.M.C Wong (Penang, Malaysia: ICLARM—The World Fish Centre, 2002): 169–172,',
-              url: 'http://pubs.iclarm.net/resource_centre/WF_328.pdf'
-            },
-            {
-              org: '<sup>24</sup> Ibid.'
-            },
-          ]
-        }
-      ] // end of els array
-    },
+    // { // Card 4 #### This card will be included !!!!
+    //   title: 'The Invisible Fishers',
+    //   menu: 'The Invisible Fishers',
+    //   metadata: {
+    //     owner: 'Laura Burroughs',
+    //     description: 'Women\'s work goes unrecognized in fisheries sector; highlight women\'s role in processing in Sierra Leone and related challenges.'
+    //   },
+    //   map: {
+    //     scale: [],
+    //     classes: '',
+    //     translate: [],
+    //     path: '',
+    //     extent: [
+    //       // [-15, 15],
+    //       // [8, -1]
+    //     ],
+    //     highlights: [],
+    //     tooltip: true,
+    //     units: {
+    //       text: 'xo units',
+    //       multiplier: 100
+    //     },
+    //     load: function(index, file) {
+    //       var layer = 'card-' + index + '-layer';
+    //       // Load higher resolution Sierra Leone layer
+    //
+    //       // Load point data
+    //
+    //       // Class point & GIS data with layer
+    //       d3.select('.card-eez-layer')
+    //         .classed(layer, true);
+    //
+    //     },
+    //     switch: function(index) {
+    //       // Figure out what to switch to.
+    //       var values = issueAreaData[issueArea].metadata.countryData;
+    //
+    //       var valsArr = [];
+    //
+    //       values.forEach(function(row, i) {
+    //         valsArr.push(row.ia6c4);
+    //       });
+    //
+    //       var max = d3.max(valsArr);
+    //       var min = d3.min(valsArr);
+    //       var range = max - min;
+    //
+    //       values.forEach(function(row, i) {
+    //         d3.selectAll('.eez.' + row.iso3)
+    //           .classed('active', true)
+    //           .transition().delay(i * 10)
+    //           .style('fill', rampColor(1 - ((row.ia6c4 - min) / range)))
+    //           .style('stroke', rampColor(1));
+    //       });
+    //     }
+    //
+    //   },
+    //   els: [{
+    //       tag: 'h1',
+    //       text: 'The Invisible Fishers',
+    //     },
+    //     {
+    //       tag: 'caption',
+    //       text: 'The overlooked role of women in fisheries supply chains'
+    //     },
+    //     {
+    //       tag: 'legend',
+    //       text: 'Map Legend',
+    //       legendContent: '<em>Lighter shades indicate greater opportunities for artisanal fishing<br />\
+    //         Source: <a href="http://www.oceanhealthindex.org/" target="_blank">Ocean Health Index</a></em>.'
+    //     },
+    //     {
+    //       tag: 'bigtext',
+    //       html: '“[T]he extent of the damage to the ocean is many decades shy of the impact of industrialisation on land, and there is still time, if we act now, to get the principles and the framework for the development of the ocean economy right. Business as usual is clearly not an option.” - The Economist Intelligence Unit Limited, 2015'
+    //     },
+    //     //###<<<The map complementing this section will be a zoom in on Sierra Leone>>>
+    //     {
+    //       tag: 'p',
+    //       html: 'Imagine a person who makes their living from fisheries. The picture is likely of a “fisherman” traveling out to sea in a boat to catch fish. However, the fisheries value chain consists of many important links, from the mending of nets to the drying of fish for sale, and women make up a large and vital portion of this sector. In fisheries, women comprise the majority of processing and post-harvest workers worldwide; the Food and Agriculture Organization of the United Nations (FAO) estimates over 90 percent of this sector is women.<sup>19</sup>'
+    //     },
+    //     {
+    //       tag: 'img',
+    //       src: '../../assets/blue-economy/Youpwe_Fishing_Village8S6A6034_JP.jpg',
+    //       alt: 'Women play a key role in the fisheries value chain. Photo: Jean-Pierre Larroque',
+    //       caption: 'Women play a key role in the fisheries value chain. Photo: Jean-Pierre Larroque'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Despite the vital roles women play in the fisheries value chain, fishing is most often perceived to be men’s work. Women’s work in the fisheries sector often goes unrecognized by creditors, policymakers, development programs, and in research, resulting in a lack of support for their work, lack of access to markets, and exclusion from fisheries management and policy decisions. This is problematic for women’s livelihoods and empowerment, and it distorts fisheries data and results in misinformed management measures. Women’s work in the fisheries sector must be understood and supported in order to advance gender equity, food security, and effective fisheries management.'
+    //     },
+    //     //###<<<photo of women fishers in Sierra Leone>>>
+    //     {
+    //       tag: 'p',
+    //       html: 'In Sierra Leone, the fisheries sector provides substantial revenue and employment, supporting over 500,000 people.<sup>20</sup> Around 85 percent of those employed in fisheries processing are women.<sup>21</sup> Women and men generally occupy complementary roles in the value chain. Men catch fish from canoes or work from shore in groups to pull in nets of fish.<sup>22</sup> Once they come into port, they sell their catch to women who then perform the post-harvest activities, such as cleaning and drying the fish or bringing it directly to markets for sale. Much of the fish is obtained from family members and most of the processing work is conducted within the home rather than in formal facilities.'
+    //     },
+    //     {
+    //       tag: 'p',
+    //       html: 'Beyond post-harvest work, some women also catch fish directly, using nets to catch small fish in rivers and other small water bodies. Some women even lease boats and own fishing companies.<sup>23</sup> The fisheries sector and processing in particular provide important livelihood opportunities for women. However, their incomes are still much lower than those of their male counterparts,<sup>24</sup> and many women report struggling with other restrictive factors.'
+    //     },
+    //     {
+    //       tag: 'links',
+    //       items: [{
+    //           org: '<sup>19</sup> Food and Agriculture Organization of the United Nations, “Promoting Gender in Fisheries Activities in Somalia,” <em>Blue Growth Blog</em>, 5 June 2016,',
+    //           url: 'http://www.fao.org/blogs/blue-growth-blog/promoting-gender-in-fisheries-activities-in-somalia/en/'
+    //         },
+    //         {
+    //           org: '<sup>20</sup> “Sierra Leone News: Revitalizing the Fishing Sector,” <em>Awoko Newspaper</em>, 22 June 2017,',
+    //           url: 'http://awoko.org/2017/06/22/sierra-leone-news-revitalizing-the-fishing-sector/'
+    //         },
+    //         {
+    //           org: '<sup>21</sup> Andy Thorpe, Nicky Pouw, Andrew Baio, Ranita Sandi, Ernest Ndomahina, and Thomas Lebbie, “\'Fishing Na Everybody Business\’: Women\’s Work and Gender Relations in Sierra Leone\’s Fisheries,” <em>Feminist Economics</em> 20, no. 3 (April 2014): 53–77,',
+    //           url: 'http://dx.doi.org/10.1080/13545701.2014.895403'
+    //         },
+    //         {
+    //           org: '<sup>22</sup> Larry Tucker, “What We Can Learn from Artisanal Fishermen, Fish-women in Sierra Leone,” SwitSalone, 15 February 2017,',
+    //           url: 'http://www.switsalone.com/24920_what-we-can-learn-from-artisanal-fishermen-fish-women-in-sierra-leone/'
+    //         },
+    //         {
+    //           org: '<sup>23</sup> P.B. Browne, “Women Do Fish: A Case Study on Gender and the Fishing Industry in Sierra Leone” in <em>Global Symposium on Women in Fisheries</em>, eds. M.J. Williams, N.H. Chao-Liao, P.S. Choo, K. Matics, M.C. Nandeesha, M. Shariff, I. Saison, E. Tech, J.M.C Wong (Penang, Malaysia: ICLARM—The World Fish Centre, 2002): 169–172,',
+    //           url: 'http://pubs.iclarm.net/resource_centre/WF_328.pdf'
+    //         },
+    //         {
+    //           org: '<sup>24</sup> Ibid.'
+    //         },
+    //       ]
+    //     }
+    //   ] // end of els array
+    // },
     { // Card 5
       title: 'Sustainability in the Blue Economy',
       menu: 'Sustainability in the Blue Economy',
@@ -622,12 +636,22 @@ var blueEconomyData = {
         description: 'Sustainable vs unsustainable economic growth, focus on Cabo Verde, Namibia, Guinea, Liberia.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: '',
         translate: [],
         path: '',
         highlights: [],
         tooltip: true,
+        legend: "Measure of Sustainability***",
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['ia6c5'];
+        //  tooltipVal = Math.round((tooltipVal * 100));
+          updatePointer(tooltipVal);
+          return "Measures of Sustainability **:<br />" + tooltipVal + " / 100";
+
+        },
         units: {
           text: 'xo units',
           multiplier: 100
@@ -638,28 +662,29 @@ var blueEconomyData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          var values = issueAreaData[issueArea].metadata.countryData;
-
-          var valsArr = [];
-
-          values.forEach(function(row, i) {
-            valsArr.push(row.ia6c4);
-          });
-
-          var max = d3.max(valsArr);
-          var min = d3.min(valsArr);
-          var range = max - min;
-
-          values.forEach(function(row, i) {
-            if (row.ia6c5 > 0) {
-
-              d3.selectAll('.eez.' + row.iso3)
-                .classed('active', true)
-                .transition().delay(i * 10)
-                .style('fill', rampColor(1 - ((row.ia6c5 - min) / range)))
-                .style('stroke', rampColor(1));
-            }
-          });
+          choropleth(index, 1, 'ia6c5')
+        //   var values = issueAreaData[issueArea].metadata.countryData;
+        //
+        //   var valsArr = [];
+        //
+        //   values.forEach(function(row, i) {
+        //     valsArr.push(row.ia6c4);
+        //   });
+        //
+        //   var max = d3.max(valsArr);
+        //   var min = d3.min(valsArr);
+        //   var range = max - min;
+        //
+        //   values.forEach(function(row, i) {
+        //     if (row.ia6c5 > 0) {
+        //
+        //       d3.selectAll('.eez.' + row.iso3)
+        //         .classed('active', true)
+        //         .transition().delay(i * 10)
+        //         .style('fill', rampColor(1 - ((row.ia6c5 - min) / range)))
+        //         .style('stroke', rampColor(1));
+        //     }
+        //   });
         }
 
       },
@@ -740,7 +765,7 @@ var blueEconomyData = {
         ],
         translate: [],
         highlights: [],
-        tooltip: true,
+        tooltip: false,
         units: {
           text: 'xo units',
           multiplier: 100

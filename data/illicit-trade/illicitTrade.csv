@@ -1,31 +1,31 @@
-country,iso3,ia9c0
-Angola,AGO,50.00
-Benin,BEN,50.00
-Cameroon,CMR,27.00
-Cape Verde,CPV,
-Comoros,COM,30.00
-Congo (Rep),COG,40.00
-Djibouti,DJI,
-DRC,COD,37.00
-Equatorial Guinea,GNQ,41.00
-Gabon,GAB,50.00
-Gambia,GMB,
-Ghana,GHA,39.00
-Guinea,GIN,38.00
-Guinea-Bissau,GNB,38.00
-Ivory Coast,CIV,35.00
-Kenya,KEN,32.00
-Liberia,LBR,37.00
-Madagascar,MDG,38.00
-Mauritius,MUS,21.00
-Mozambique,MOZ,36.00
-Namibia,NAM,27.00
-Nigeria,NGA,65.00
-Sao Tome,STP,
-Senegal,SEN,41.00
-Seychelles,SYC,
-Sierra Leone,SLE,42.00
-Somalia,SOM,
-South Africa,ZAF,24.00
-Tanzania,TZA,53.00
-Togo,TGO,29.00
+country,iso3,index
+Angola,AGO,0.5660416667
+Benin,BEN,0.02604166667
+Cote d'Ivoire,CIV,0.08952380952
+Cameroon,CMR,0.07708333333
+DRC,COD,0.4083333333
+Congo,COG,0.3480555556
+Comoros,COM,0.09805555556
+Cabo Verde,CPV,0.40375
+Djibouti,DJI,0.535
+Gabon,GAB,0.615
+Ghana,GHA,0.03571428571
+Guinea,GIN,0.09666666667
+The Gambia,GMB,0.3866666667
+Guinea-Bissau,GNB,0.4083333333
+Equatorial Guinea,GNQ,0.5183333333
+Kenya,KEN,0.04277777778
+Liberia,LBR,0.2627777778
+Madagascar,MDG,0.01388888889
+Mozambique,MOZ,0.03571428571
+Mauritus,MUS,0.36
+Namibia,NAM,0.725952381
+Nigeria,NGA,0.01785714286
+Senegal,SEN,0.05261904762
+Sierra Leone,SLE,0.4238095238
+Somalia,SOM,0.2897222222
+Sao Tome and Principe,STP,0.6538888889
+Seychelles,SYC,0.4438095238
+Togo,TGO,0.1305555556
+Tanzania,TZA,0.2075
+South Africa,ZAF,0.3928571429
