@@ -1784,11 +1784,24 @@ function choropleth(cardIndex, order, key) {
     for (iso3 in vals) {
       var highlightedEEZ = d3.selectAll('.eez.' + iso3);
       var highlightedCountry = d3.selectAll('.country.' + iso3);
-      console.log(vals[iso3])
-      if (vals[iso3][key]) {
-        var val = eval(vals[iso3][key].toLowerCase());
+  //    console.log(vals[iso3])
+    //  console.log(':::', iso3, typeof vals[iso3][key]);
+
+      // Convert numeric into boolean:
+      var val = vals[iso3][key];
+      if (typeof val == 'number') {
+        if (val > 0) {
+          val = true;
+        } else {
+          val = false;
+        }
+
+      } else {
+        val = eval(vals[iso3][key].toLowerCase());
 
       }
+      console.log(':::', iso3, typeof val);
+
 
       highlightedCountry.classed('active', true)
         .transition()
