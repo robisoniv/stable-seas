@@ -250,12 +250,15 @@ function RadarChart(id, data, options) {
         .attr("cy", function(d, i) {
             return rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2);
         })
-        .style("fill", function(d, i, j) {
+        .style("fill",
+        function(d, i, j) {
           // for (k in j) {
           //   console.log('k',k);
           // }
-            return cfg.color[j];
-        })
+          console.log('circles!', d, i, j, cfg.color[1]);
+            return cfg.color[1];
+        }
+      )
         .style("fill-opacity", 0.8);
 
     /////////////////////////////////////////////////////////
