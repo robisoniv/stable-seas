@@ -888,7 +888,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
             left: 80
         },
     // We should get width of "card" div
-    cardWidth = 450;
+    cardWidth = 470;
     width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
     var color = d3.scaleOrdinal() // setup color for lines
@@ -898,11 +898,13 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
         w: width,
         h: height,
         margin: margin,
-        maxValue: 0.5, // max value in data
+        maxValue: 99, // max value in data
+        wrapWidth: 8,
         levels: 4, // number of circles in chart
+        dotRadius: 3,
         roundStrokes: true,
         color: color,
-        formatValue: '.4f', // value will be displayed as: 0.0000
+        formatValue: '.2', // value will be displayed as: xx
     };
     //Call function to draw the Radar chart
     RadarChart(".radarChart-" + chartIndex, cardRadarData, radarChartOptions);

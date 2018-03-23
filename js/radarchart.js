@@ -312,6 +312,7 @@ function RadarChart(id, data, options) {
             var text = d3.select(this),
                 words = text.text().split(/\s+/).reverse(),
                 word,
+                newWord,
                 line = [],
                 lineNumber = 0,
                 lineHeight = 1.4, // ems
@@ -319,11 +320,12 @@ function RadarChart(id, data, options) {
                 x = text.attr("x"),
                 dy = parseFloat(text.attr("dy")),
                 tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
-
+            //console.log(words);
             while (word = words.pop()) {
                 line.push(word);
                 tspan.text(line.join(" "));
-                if (tspan.node().getComputedTextLength() > width) {
+                newWord = line.join(" "); // added by Lex to compare with @width
+                if (newWord.length > width) {
                     line.pop();
                     tspan.text(line.join(" "));
                     line = [word];

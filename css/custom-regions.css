@@ -1121,3 +1121,11 @@ div.navy-and-maritime-law-enforcement {
 .southerly {
   stroke: black;
 }
+
+/**
+ * Radar Chart
+ */
+.radarChart {
+  width: 450px;
+  margin: 0 auto;
+}
