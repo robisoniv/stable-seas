@@ -75,6 +75,8 @@ var overviewData = {
 
           var vals = issueAreaData[issueArea].metadata.countryData;
           var i = 0;
+
+
           for (iso in vals) {
             var issue = vals[iso].strength;
 
@@ -87,15 +89,53 @@ var overviewData = {
               // .on('mouseleave', function () {
               //   // ??
               // })
+              .attr('data-ia', issue)
+              .on('mouseenter', function () {
+                var ia = d3.select(this).attr('data-ia');
+                var isoLocal = d3.select(this).attr('data-iso3');
+                console.log(isoLocal);
+
+                  d3.select(this)
+                    .style('fill', function () {
+                    return d3.interpolateLab('white',issueAreaData[ia].metadata.color)(1);
+                  });
+              })
+              .on('mouseleave', function () {
+                var ia = d3.select(this).attr('data-ia');
+
+                d3.select(this)
+                  .style('fill', function () {
+                    return d3.interpolateLab('white',issueAreaData[ia].metadata.color)(0.7);
+
+                  });
+              })
               .transition().delay(10 * i)
               .style('fill', function() {
-                return issueAreaData[issue]
-                  .metadata.color;
-              });
+                return d3.interpolateLab('white',issueAreaData[issue].metadata.color)(0.7);
+              })
+              ;
 
             d3.selectAll('.eez.' + iso)
               .classed('active', true)
           //    .style('stroke-width', '4px')
+              .attr('data-ia', issue)
+              .on('mouseenter', function () {
+                var ia = d3.select(this).attr('data-ia');
+
+                  d3.select(this)
+                    .style('fill', function () {
+                    return d3.interpolateLab('white',issueAreaData[ia].metadata.color)(1);
+                  });
+              })
+              .on('mouseleave', function () {
+                var ia = d3.select(this).attr('data-ia');
+
+                d3.select(this)
+                  .style('fill', function () {
+                    return d3.interpolateLab('white',issueAreaData[ia].metadata.color)(0.7);
+
+                  });
+              })
               .transition().delay(10 * i)
               .style('fill', function() {
                 return issueAreaData[issue]

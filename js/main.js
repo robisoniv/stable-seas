@@ -5,7 +5,7 @@
 // Define global variables
 // Issue Area
 var iaIndex = issueAreaData[issueArea].metadata.index;
-
+var filtered;
 // Card
 var cIndex;
 // Included Countries
@@ -1513,6 +1513,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 
 
 d3.selection.prototype.moveToFront = function() {
+  console.log('front!');
   return this.each(function() {
     this.parentNode.appendChild(this);
   });
@@ -1643,7 +1644,7 @@ function choropleth(cardIndex, order, key) {
   var mapData = issueAreaData[issueArea].cards[cardIndex].map;
   var mapType = mapData.type;
 
-  //console.log(mapType);
+//  console.log(mapType);
 
   d3.selectAll('.legend')
     .classed('invisible', true);
@@ -1973,6 +1974,9 @@ function reset() {
     .duration(750)
     .style("stroke-width", null)
     .attr("transform", "");
+
+  d3.selectAll('.map-overlay')
+    .classed('invisible', true);
 }
 
 
