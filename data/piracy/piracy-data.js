@@ -1037,7 +1037,7 @@ var piracyData = {
               .attr('cy', function(d) {
                 return projection([d.lon, d.lat])[1];
               })
-              .attr('r', '0.5px')
+              .attr('r', '3px')
               .attr('fill', function() {
                 return rampColor(0.2);
               })
@@ -1047,6 +1047,48 @@ var piracyData = {
               .classed('political-incident', true);
 
           });
+
+          d3.csv('../../data/piracy/bam-terror-data.csv', function(incidents) {
+            incidents.forEach(function(d) {
+              d.lat = +d.lat;
+              d.lon = +d.lon;
+              d.count = +d.count;
+            });
+
+            var incidentsLayer = mapg.append('g')
+              .classed('card-layer bam-terror-incidents invisible ' + layer, true);
+
+            incidentsLayer.selectAll('circle')
+              .data(incidents).enter()
+              .append('circle')
+              .attr('cx', function(d) {
+                return projection([d.lon, d.lat])[0];
+              })
+              .attr('cy', function(d) {
+                return projection([d.lon, d.lat])[1];
+              })
+              .attr('r', function (d) {
+                return Math.sqrt(d.count) + 'px';
+              })
+              .attr('fill', function(d) {
+                if (d.actor == 'Al-Shabaab') {
+                  return colorBrew[0];
+                } else if (d.actor == 'Houthi extremists (Ansar Allah)') {
+                  return colorBrew[2];
+                } else {
+                  return colorBrew[4];
+                }
+              //  return themeColor(1);
+              })
+            //  .attr('stroke', 'black')
+            //  .attr('stroke-width', 0.3)
+              .style('opacity', 0.5)
+              .classed('bam-terror-incident', true);
+
+          });
+
+
+
         },
         switch: function(index) {
           d3.selectAll('.card-' + index + '-layer')
