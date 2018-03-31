@@ -1,0 +1,856 @@
+country,provstate,city,lat,lon,actor,count
+Ethiopia,Gambela,Jakawa,7.919334,33.166788,Murle Tribe,10
+Ethiopia,Gambela,Fugnido,7.750254,34.500114,Murle Tribe,1
+Ethiopia,Southern Nations,Arba Minch,6.035774,37.550187,Patriotic Ginbot 7 Movement for Unity and Democracy (PGMUD),1
+Ethiopia,Amhara,Bure,10.698659,37.06085,Tigray Peoples Liberation Front (TPLF),1
+Kenya,Garissa,Unknown,-1.565047,41.366985,Al-Shabaab,1
+Kenya,Garissa,Liboi,0.352957,40.870275,Al-Shabaab,1
+Kenya,Garissa,Owane,-0.457561,40.336841,Al-Shabaab,1
+Kenya,Garissa,Basuba,-1.593373,41.432715,Al-Shabaab,1
+Kenya,Garissa,Hameyi,-0.061944,39.010556,Al-Shabaab,2
+Kenya,Garissa,Tumtish,-1.181667,40.900833,Al-Shabaab,1
+Kenya,Garissa,Kabasalo,-1.595,40.514444,Al-Shabaab,1
+Kenya,Garissa,Hulugho,-1.151667,41.064167,Al-Shabaab,2
+Kenya,Kilifi,Malindi,-3.217051,40.116653,Unknown,1
+Kenya,Kirinyaga,Sagana,-0.669342,37.208016,Al-Shabaab,1
+Kenya,Kisumu,Sinyolo,-0.03404,34.667651,Unknown,1
+Kenya,Kwale,Kwale,-4.173348,39.446944,Al-Shabaab,3
+Kenya,Kwale,Kibuguni,-4.499999,39.349948,Unknown,1
+Kenya,Kwale,Kombani,-4.194504,39.58704,Al-Shabaab,1
+Kenya,Lamu,Lamu,-2.269558,40.900641,Al-Shabaab,1
+Kenya,Lamu,Pandanguo,-2.235741,40.469372,Al-Shabaab,1
+Kenya,Lamu,Mbwajumwali,-2.078974,41.133837,Unknown,1
+Kenya,Lamu,Lamu,-2.269558,40.900641,Al-Shabaab,1
+Kenya,Lamu,Kiunga,-1.74546,41.488779,Al-Shabaab,1
+Kenya,Lamu,Ishakani,-1.732149,41.457339,Al-Shabaab,1
+Kenya,Mandera,Alunga,3.935639,41.855116,Al-Shabaab,1
+Kenya,Mandera,Mansa,3.560843,41.507043,Al-Shabaab,1
+Kenya,Mandera,Mandera,3.935639,41.855116,Al-Shabaab,1
+Kenya,Mandera,El Wak,2.807002,40.92839,Al-Shabaab,1
+Kenya,Mandera,Damasa,3.159835,41.32566,Al-Shabaab,2
+Kenya,Mandera,El Wak district,3.053793,40.903086,Al-Shabaab,1
+Kenya,Mandera,El Wak district,3.029994,40.909152,Al-Shabaab,1
+Kenya,Mandera,Fino,3.349728,41.398462,Al-Shabaab,1
+Kenya,Mandera,Fino,3.382029,41.415798,Al-Shabaab,1
+Kenya,Mandera,Sheikh Barrow,3.153661,41.185406,Al-Shabaab,1
+Kenya,Mandera,Mandera,3.935639,41.855116,Al-Shabaab,6
+Kenya,Mandera,El Wak,2.807002,40.92839,Al-Shabaab,1
+Kenya,Mandera,El Wak,2.807002,40.92839,Unknown,1
+Kenya,Mandera,El Wak,2.6515,40.887844,Al-Shabaab,2
+Kenya,Mombasa,Mombasa,-4.043477,39.668207,Al-Shabaab,1
+Kenya,Trans-Nzoia,Kitale,0.991656,35.025246,Unknown,1
+Kenya,Wajir,Dif,0.99515,40.96147,Al-Shabaab,1
+Kenya,Wajir,Diff,0.994829,40.961331,Al-Shabaab,1
+Kenya,Wajir,Tarba,2.207744,40.103599,Al-Shabaab,1
+Saudi Arabia,Eastern,Hofuf,25.40711,49.544237,Bahrain Province of the Islamic State,1
+Saudi Arabia,Madinah,Medina,24.840398,39.320624,Hijaz Province of the Islamic State,1
+Saudi Arabia,Makkah,Jeddah,21.525071,39.165189,Hijaz Province of the Islamic State,1
+Saudi Arabia,Makkah,Jeddah,21.543333,39.172778,Hijaz Province of the Islamic State,1
+Saudi Arabia,Tabuk,Tabuk,28.383333,36.583333,Hijaz Province of the Islamic State,1
+Saudi Arabia,Asir,Abha,18.21272,42.493693,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Asir,Al-Tawal,17.916769,43.361625,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Asir,Dhahran al-Janub,17.665225,43.517421,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Asir,Khamis Mushait,18.299971,42.733284,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Asir,Khamis Mushayt,18.30891,42.766093,Houthi extremists (Ansar Allah),2
+Saudi Arabia,Jazan,Ad Dafinah,17.25564,42.727309,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Ad Dawad,16.889359,42.570567,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Ad Dukhan,16.74667,43.217305,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Al-Abadiyah,16.756625,43.230939,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Al-Ayn Al-Hara,16.76068,43.212107,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Al-Mahruq,16.764359,43.252999,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Al-Qarn,16.552261,42.953253,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Al-Tuwal,16.528083,42.968333,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Al-Tuwal,16.529444,42.9675,Houthi extremists (Ansar Allah),2
+Saudi Arabia,Jazan,Al-Tuwal,16.530284,42.968645,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Ar Ramdah,16.450608,42.905192,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,As Sudays,16.759295,43.184751,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Ghawiyah,16.762467,43.22816,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Hurrath,16.800296,43.150341,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Jalah,16.889214,42.57228,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Jazan,16.889167,42.561111,Houthi extremists (Ansar Allah),2
+Saudi Arabia,Jazan,Jazan,16.890726,42.567442,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Khorajah,16.529372,43.013416,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Samtah,16.595833,42.944167,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Samtah,16.597318,42.939272,Houthi extremists (Ansar Allah),2
+Saudi Arabia,Jazan,Shab Adh Dhib,16.546944,42.979444,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Unknown,16.576665,42.920508,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Unknown,16.889359,42.570567,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Jazan,Unknown,16.890726,42.567442,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Makkah,Mecca,21.416667,39.816667,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Makkah,Taif,21.437273,40.512714,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Najran,Ad Dabah,17.565604,44.228944,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Najran,Al-Khadra,17.447464,44.718525,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Najran,Najran,17.490911,44.131759,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Najran,Najran,17.564271,44.231715,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Najran,Najran,17.565386,44.229628,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Najran,Najran,17.565604,44.228944,Houthi extremists (Ansar Allah),5
+Saudi Arabia,Najran,Najran,17.566041,44.228656,Houthi extremists (Ansar Allah),6
+Saudi Arabia,Najran,Unknown,17.56582,44.229171,Houthi extremists (Ansar Allah),2
+Saudi Arabia,Najran,Unknown,17.658138,45.261024,Houthi extremists (Ansar Allah),1
+Saudi Arabia,Asir,Bisha,20.000058,42.599969,Islamic State of Iraq and the Levant (ISIL),1
+Saudi Arabia,Eastern,Mahasen,21.957183,50.754611,Islamic State of Iraq and the Levant (ISIL),1
+Saudi Arabia,Eastern,Qatif,26.576492,49.998236,Islamic State of Iraq and the Levant (ISIL),1
+Saudi Arabia,Eastern,Tarout,26.573522,50.038563,Islamic State of Iraq and the Levant (ISIL),1
+Saudi Arabia,Eastern,Umm al-Hamam,26.005919,48.817216,Islamic State of Iraq and the Levant (ISIL),1
+Saudi Arabia,Jazan,Abu Arish,16.968555,42.830765,Islamic State of Iraq and the Levant (ISIL),1
+Saudi Arabia,Riyadh,Al-Kharj,24.14996,47.300525,Najd Province of the Islamic State,1
+Saudi Arabia,Riyadh,Dawadimi,24.509822,44.392777,Najd Province of the Islamic State,1
+Saudi Arabia,Riyadh,Riyadh,24.593432,46.757546,Najd Province of the Islamic State,1
+Saudi Arabia,Jazan,Samtah,16.597263,42.939158,Popular Resistance Committees (Yemen),1
+Saudi Arabia,Najran,Najran,17.566041,44.228656,Popular Resistance Committees (Yemen),1
+Saudi Arabia,Asir,Abha,18.20109,42.631306,Unknown,1
+Saudi Arabia,Asir,Abha,18.219809,42.505304,Unknown,1
+Saudi Arabia,Asir,Bisha,20.004327,42.591505,Unknown,1
+Saudi Arabia,Asir,Unknown,19.096906,42.863788,Unknown,1
+Saudi Arabia,Eastern,Awamiyah,26.583456,49.983074,Unknown,2
+Saudi Arabia,Eastern,Awamiyah,26.586343,49.983506,Unknown,1
+Saudi Arabia,Eastern,Dammam,26.423823,50.069892,Unknown,1
+Saudi Arabia,Eastern,Dammam,26.475,50.041667,Unknown,1
+Saudi Arabia,Eastern,Qatif,26.542522,50.025182,Unknown,1
+Saudi Arabia,Eastern,Qatif,26.554865,49.995568,Unknown,1
+Saudi Arabia,Eastern,Qatif,26.556032,49.996228,Unknown,1
+Saudi Arabia,Eastern,Qatif,26.556239,49.995937,Unknown,1
+Saudi Arabia,Eastern,Qatif,26.566631,49.996312,Unknown,1
+Saudi Arabia,Eastern,Qatif,26.576492,49.998236,Unknown,1
+Saudi Arabia,Eastern,Saihat,26.49151,50.008725,Unknown,1
+Saudi Arabia,Eastern,Tarout,26.577352,50.075286,Unknown,1
+Saudi Arabia,Eastern,Tarout,26.577736,50.075257,Unknown,1
+Saudi Arabia,Jazan,Al-Harth,17.465111,42.757008,Unknown,1
+Saudi Arabia,Jazan,Al-Tuwal,16.529444,42.9675,Unknown,1
+Saudi Arabia,Jazan,Harth,16.801231,43.150663,Unknown,1
+Saudi Arabia,Jazan,Jazan,16.889154,42.570316,Unknown,1
+Saudi Arabia,Jazan,Samtah,16.597263,42.939158,Unknown,1
+Saudi Arabia,Jazan,Samtah,16.598163,42.939563,Unknown,1
+Saudi Arabia,Jazan,Samtah district,16.596515,42.939034,Unknown,1
+Saudi Arabia,Jazan,Unknown,16.889167,42.561111,Unknown,1
+Saudi Arabia,Jazan,Unknown,16.889379,42.570553,Unknown,1
+Saudi Arabia,Jazan,Unknown,17.25564,42.727309,Unknown,1
+Saudi Arabia,Jazan,Unknown,17.294844,42.695584,Unknown,1
+Saudi Arabia,Makkah,Haddad Beni Malek,20.599112,41.053593,Unknown,1
+Saudi Arabia,Makkah,Jeddah,21.503571,39.179195,Unknown,1
+Saudi Arabia,Makkah,Mecca,21.523558,41.919647,Unknown,1
+Saudi Arabia,Najran,Khubash district,17.665621,45.250109,Unknown,1
+Saudi Arabia,Najran,Najran,17.565604,44.228944,Unknown,2
+Saudi Arabia,Najran,Unknown,18.284561,45.511309,Unknown,1
+Saudi Arabia,Najran,Unknown,18.351466,45.600711,Unknown,1
+Somalia,Galguduud,Guriceel,5.308889,45.881944,Ahlu-sunah Wal-jamea (Somalia),2
+Somalia,Bakool,Garasweyne,4.264994,43.484289,Al-Shabaab,1
+Somalia,Bakool,Tayeeglow district,4.015436,44.510127,Al-Shabaab,1
+Somalia,Bakool,Wajid,3.809294,43.246105,Al-Shabaab,1
+Somalia,Bakool,Buur Dhuxunle,4.054722,43.245833,Al-Shabaab,1
+Somalia,Bakool,Tayeeglow,4.015436,44.510127,Al-Shabaab,1
+Somalia,Bakool,Tayeeglow district,4.015624,44.510157,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.084603,45.379503,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.00785,45.290331,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.016311,45.303537,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.019038,45.304366,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.019756,45.30525,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.020916,45.294657,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.021261,45.294693,Al-Shabaab,2
+Somalia,Banaadir,Mogadishu,2.022409,45.288495,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.024731,45.303019,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.026727,45.32038,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.027333,45.320562,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.027701,45.275927,Al-Shabaab,2
+Somalia,Banaadir,Mogadishu,2.02802,45.275681,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.028108,45.274517,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.028218,45.332256,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.029141,45.317271,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.029944,45.317805,Al-Shabaab,3
+Somalia,Banaadir,Mogadishu,2.03153,45.334598,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.032336,45.310585,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.032343,45.313861,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.032601,45.340536,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.032623,45.340417,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.032623,45.340469,Al-Shabaab,6
+Somalia,Banaadir,Mogadishu,2.032638,45.340558,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.032685,45.31839,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.033529,45.338013,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.034201,45.319822,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.03448,45.338538,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.034682,45.29912,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.035136,45.334916,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.035821,45.334581,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.035918,45.325576,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.035984,45.334496,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.037083,45.358211,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.03724,45.346502,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.038128,45.348583,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.038217,45.332342,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.038335,45.360283,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.038907,45.359129,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.039096,45.3419,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.04013,45.336808,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.040587,45.323581,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.040639,45.356858,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.040748,45.301261,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.041008,45.336704,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.041022,45.336584,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.041036,45.336776,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.041709,45.299675,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.042886,45.30408,Al-Shabaab,2
+Somalia,Banaadir,Mogadishu,2.043013,45.303617,Al-Shabaab,2
+Somalia,Banaadir,Mogadishu,2.043122,45.30405,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.043441,45.340402,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.043679,45.35041,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.044582,45.339542,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.045308,45.319774,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.045732,45.354007,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.045904,45.339294,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.045937,45.320357,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.046152,45.321453,Al-Shabaab,2
+Somalia,Banaadir,Mogadishu,2.046497,45.331098,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.0466,45.318431,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.046871,45.318141,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.046934,45.318162,Al-Shabaab,4
+Somalia,Banaadir,Mogadishu,2.047278,45.322511,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.04874,45.330563,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.048741,45.330547,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.049125,45.329901,Al-Shabaab,3
+Somalia,Banaadir,Mogadishu,2.049469,45.321345,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.049588,45.331424,Al-Shabaab,2
+Somalia,Banaadir,Mogadishu,2.049649,45.320644,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.049654,45.330431,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.049756,45.319777,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.049789,45.34869,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.051613,45.324333,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.051866,45.321933,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.051986,45.292343,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.052044,45.292278,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.055338,45.294335,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.055489,45.330825,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.055635,45.343223,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.055666,45.370989,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.055762,45.331167,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.055778,45.364794,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.056702,45.356865,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.058818,45.351009,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.063409,45.34592,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.067404,45.342654,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.067519,45.351187,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.072289,45.222872,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.085211,45.402806,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.085781,45.402717,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.086333,45.376351,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.08797,45.375162,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu,2.090853,45.378492,Al-Shabaab,1
+Somalia,Banaadir,Mogadishu district,1.991702,45.257345,Al-Shabaab,1
+Somalia,Bari,Bosaso,11.276661,49.182981,Al-Shabaab,1
+Somalia,Bari,Bosaso,11.284722,49.1825,Al-Shabaab,3
+Somalia,Bari,Galgala,10.99,49.056667,Al-Shabaab,1
+Somalia,Bay,Baidoa,3.113192,43.649482,Al-Shabaab,1
+Somalia,Bay,Baidoa,3.11381,43.650633,Al-Shabaab,1
+Somalia,Bay,Baidoa,3.11405,43.651925,Al-Shabaab,4
+Somalia,Bay,Baidoa,3.115304,43.65135,Al-Shabaab,1
+Somalia,Bay,Baidoa,3.115613,43.64723,Al-Shabaab,1
+Somalia,Bay,Baidoa,3.116667,43.65,Al-Shabaab,1
+Somalia,Bay,Baidoa,3.120111,43.647914,Al-Shabaab,1
+Somalia,Bay,Berdaale,3.256557,43.915719,Al-Shabaab,1
+Somalia,Bay,Bulofay,2.110506,43.523099,Al-Shabaab,2
+Somalia,Bay,Burhakaba,2.799087,44.07937,Al-Shabaab,1
+Somalia,Bay,Burhakaba,2.799108,44.079391,Al-Shabaab,2
+Somalia,Bay,Burhakaba,2.799138,44.079271,Al-Shabaab,1
+Somalia,Bay,Burhakaba,2.79956,44.079144,Al-Shabaab,1
+Somalia,Bay,Daynunay,3.037608,43.798601,Al-Shabaab,1
+Somalia,Bay,Dinsor,2.406333,42.975827,Al-Shabaab,1
+Somalia,Bay,Goof Gaduud,3.312467,43.471703,Al-Shabaab,1
+Somalia,Bay,Goof Gaduud,3.315661,43.46886,Al-Shabaab,1
+Somalia,Bay,Leego,2.715599,44.511324,Al-Shabaab,1
+Somalia,Bay,Leego,2.715882,44.511228,Al-Shabaab,1
+Somalia,Bay,Qansax Dheere,2.868636,43.003663,Al-Shabaab,1
+Somalia,Galguduud,Bud Bud,4.192855,46.473203,Al-Shabaab,1
+Somalia,Galguduud,Bud Bud,4.193056,46.472816,Al-Shabaab,1
+Somalia,Galguduud,Ceel Dhere,5.369848,46.191212,Al-Shabaab,1
+Somalia,Galguduud,Ceel Hareeri,5.177332,46.827662,Al-Shabaab,1
+Somalia,Galguduud,CeelShiil,4.649988,46.544292,Al-Shabaab,1
+Somalia,Galguduud,Ceelshiil,4.685335,46.622317,Al-Shabaab,1
+Somalia,Galguduud,Gal Hareeri,4.529786,47.145101,Al-Shabaab,1
+Somalia,Galguduud,Gal Hareeri,4.53,47.145278,Al-Shabaab,1
+Somalia,Galguduud,Galcad,4.023983,46.618129,Al-Shabaab,2
+Somalia,Galguduud,Galcad,4.024578,46.617098,Al-Shabaab,1
+Somalia,Galguduud,Unknown,5.351784,46.904989,Al-Shabaab,1
+Somalia,Gedo,Bardere,2.337708,42.28561,Al-Shabaab,1
+Somalia,Gedo,Bardere,2.338245,42.284011,Al-Shabaab,1
+Somalia,Gedo,Bardere,2.338699,42.284094,Al-Shabaab,1
+Somalia,Gedo,Bardere,2.339047,42.288006,Al-Shabaab,4
+Somalia,Gedo,Beled Hawo,3.923925,41.874976,Al-Shabaab,1
+Somalia,Gedo,Beled Hawo,3.92882,41.874202,Al-Shabaab,1
+Somalia,Gedo,Beled Hawo,3.929118,41.874184,Al-Shabaab,1
+Somalia,Gedo,Ceel Waaq,2.793143,41.012222,Al-Shabaab,1
+Somalia,Gedo,Garbahaareey,3.329303,42.219464,Al-Shabaab,1
+Somalia,Gedo,Garbahaareey,3.330407,42.218978,Al-Shabaab,2
+Somalia,Gedo,Luq,3.813225,42.546301,Al-Shabaab,1
+Somalia,Gedo,Sidimo,2.447875,41.967904,Al-Shabaab,1
+Somalia,Gedo,Unknown,3.503923,42.236244,Al-Shabaab,1
+Somalia,Hiiraan,Adan Yabaal,3.778146,46.246641,Al-Shabaab,2
+Somalia,Hiiraan,Beledweyne,4.727523,45.192413,Al-Shabaab,1
+Somalia,Hiiraan,Beledweyne,4.728125,45.191724,Al-Shabaab,1
+Somalia,Hiiraan,Beledweyne,4.729907,45.208271,Al-Shabaab,1
+Somalia,Hiiraan,Beledweyne,4.73577,45.203017,Al-Shabaab,1
+Somalia,Hiiraan,Beledweyne,4.753118,45.240475,Al-Shabaab,1
+Somalia,Hiiraan,Bulobarde,3.855562,45.570019,Al-Shabaab,2
+Somalia,Hiiraan,Ceel Cali,4.194722,44.988333,Al-Shabaab,1
+Somalia,Hiiraan,Ceel Warre,4.2362,45.490409,Al-Shabaab,1
+Somalia,Hiiraan,Hajub,4.742519,45.253186,Al-Shabaab,1
+Somalia,Hiiraan,Halgan,4.210833,45.563056,Al-Shabaab,1
+Somalia,Hiiraan,Halgan,4.21095,45.562957,Al-Shabaab,1
+Somalia,Hiiraan,Jalalaqsi,3.385083,45.595988,Al-Shabaab,1
+Somalia,Hiiraan,Jameo Mubarak,3.924791,45.58461,Al-Shabaab,1
+Somalia,Hiiraan,Luuq Jeelow,4.555031,45.251503,Al-Shabaab,1
+Somalia,Hiiraan,Luuq Jeelow,4.555363,45.248357,Al-Shabaab,1
+Somalia,Hiiraan,Qarincad,4.231511,45.545749,Al-Shabaab,1
+Somalia,Hiiraan,Raaso,3.82433,45.226,Al-Shabaab,1
+Somalia,Lower Juba,Afmadow,0.515075,42.075706,Al-Shabaab,2
+Somalia,Lower Juba,Badhadhe,-1.034735,41.497553,Al-Shabaab,1
+Somalia,Lower Juba,Badhadhe district,-1.034931,41.501889,Al-Shabaab,1
+Somalia,Lower Juba,Berhani,-0.100079,42.369244,Al-Shabaab,1
+Somalia,Lower Juba,Bulo Xaaji,-0.63186,41.984336,Al-Shabaab,1
+Somalia,Lower Juba,Burgabo,-1.21933,41.83736,Al-Shabaab,1
+Somalia,Lower Juba,Dhobley,0.410645,41.010163,Al-Shabaab,1
+Somalia,Lower Juba,Feer Sagaaro,-0.629828,41.982869,Al-Shabaab,1
+Somalia,Lower Juba,Kismayo,-0.379485,42.461986,Al-Shabaab,1
+Somalia,Lower Juba,Kismayo,-0.360154,42.535719,Al-Shabaab,1
+Somalia,Lower Juba,Kismayo,-0.359476,42.544463,Al-Shabaab,1
+Somalia,Lower Juba,Kismayo,-0.358056,42.545278,Al-Shabaab,7
+Somalia,Lower Juba,Kismayo,-0.35641,42.546239,Al-Shabaab,1
+Somalia,Lower Juba,Kismayo,-0.356045,42.546057,Al-Shabaab,1
+Somalia,Lower Juba,Kismayo,-0.344078,42.552288,Al-Shabaab,1
+Somalia,Lower Shebelle,Afgoye,2.136908,45.120821,Al-Shabaab,1
+Somalia,Lower Shebelle,Afgoye,2.140696,45.118102,Al-Shabaab,1
+Somalia,Lower Shebelle,Afgoye,2.141958,45.11642,Al-Shabaab,1
+Somalia,Lower Shebelle,Afgoye,2.141994,45.116916,Al-Shabaab,1
+Somalia,Lower Shebelle,Afgoye,2.142593,45.116479,Al-Shabaab,1
+Somalia,Lower Shebelle,Afgoye,2.142623,45.116717,Al-Shabaab,2
+Somalia,Lower Shebelle,Afgoye,2.142704,45.116726,Al-Shabaab,1
+Somalia,Lower Shebelle,Afgoye district,2.1906,45.085501,Al-Shabaab,1
+Somalia,Lower Shebelle,Awdheegle,1.978972,44.83239,Al-Shabaab,1
+Somalia,Lower Shebelle,Baar Ismail,2.141759,45.084984,Al-Shabaab,1
+Somalia,Lower Shebelle,Barawe,1.11191,44.028636,Al-Shabaab,1
+Somalia,Lower Shebelle,Barawe,1.113976,44.028892,Al-Shabaab,1
+Somalia,Lower Shebelle,Barawe district,1.116195,44.031816,Al-Shabaab,1
+Somalia,Lower Shebelle,Barire,2.0475,44.897222,Al-Shabaab,1
+Somalia,Lower Shebelle,Buufow,1.750535,44.745381,Al-Shabaab,1
+Somalia,Lower Shebelle,Ceel Jaalle,1.680886,44.722311,Al-Shabaab,1
+Somalia,Lower Shebelle,Ceel Wareegow,1.778206,44.460184,Al-Shabaab,1
+Somalia,Lower Shebelle,Ceelasha Biyaha,2.08362,45.207353,Al-Shabaab,1
+Somalia,Lower Shebelle,Galoole,2.043832,44.834958,Al-Shabaab,1
+Somalia,Lower Shebelle,Gambole,2.784001,45.075144,Al-Shabaab,1
+Somalia,Lower Shebelle,Golweyn,1.657564,44.580562,Al-Shabaab,1
+Somalia,Lower Shebelle,Hawo Abdi,2.160046,45.117694,Al-Shabaab,1
+Somalia,Lower Shebelle,Lafoole,2.107967,45.155391,Al-Shabaab,1
+Somalia,Lower Shebelle,Lafoole,2.10995,45.156359,Al-Shabaab,1
+Somalia,Lower Shebelle,Mareerey,2.133569,45.058935,Al-Shabaab,1
+Somalia,Lower Shebelle,Merca,1.715679,44.770378,Al-Shabaab,1
+Somalia,Lower Shebelle,Merca,1.716082,44.770644,Al-Shabaab,1
+Somalia,Lower Shebelle,Merca,1.717466,44.768614,Al-Shabaab,1
+Somalia,Lower Shebelle,Muuri,2.034152,45.026934,Al-Shabaab,1
+Somalia,Lower Shebelle,Qoryoley,1.78748,44.527792,Al-Shabaab,1
+Somalia,Lower Shebelle,Qoryoley,1.787646,44.530061,Al-Shabaab,1
+Somalia,Lower Shebelle,Qoryoley,1.78767,44.528149,Al-Shabaab,1
+Somalia,Lower Shebelle,Qoryoley,1.788087,44.529002,Al-Shabaab,3
+Somalia,Lower Shebelle,Qoryoley,1.788622,44.529662,Al-Shabaab,1
+Somalia,Lower Shebelle,Qoryoley district,1.913091,44.552719,Al-Shabaab,1
+Somalia,Lower Shebelle,Unknown,1.876646,44.247902,Al-Shabaab,1
+Somalia,Lower Shebelle,War Maxan,2.397074,45.019459,Al-Shabaab,1
+Somalia,Middle Juba,Buale district,1.157334,42.572955,Al-Shabaab,1
+Somalia,Middle Juba,Jilib,0.49192,42.778437,Al-Shabaab,1
+Somalia,Middle Juba,Jilib,0.491964,42.778407,Al-Shabaab,1
+Somalia,Middle Juba,Saakow,1.636685,42.451654,Al-Shabaab,1
+Somalia,Middle Juba,Saakow,1.642952,42.450358,Al-Shabaab,1
+Somalia,Middle Juba,Unknown,1.249456,42.722909,Al-Shabaab,2
+Somalia,Middle Shebelle,Biyo Cadde,2.935572,45.791427,Al-Shabaab,1
+Somalia,Middle Shebelle,Biyo Cadde,2.935907,45.79211,Al-Shabaab,1
+Somalia,Middle Shebelle,Cadale,2.760427,46.321467,Al-Shabaab,3
+Somalia,Middle Shebelle,Jowhar,2.777423,45.501625,Al-Shabaab,1
+Somalia,Middle Shebelle,Jowhar,2.78,45.5008,Al-Shabaab,1
+Somalia,Middle Shebelle,Wargaadhi,3.205594,46.569542,Al-Shabaab,1
+Somalia,Mudug,Dumaye,4.866965,47.618458,Al-Shabaab,1
+Somalia,Mudug,El-Abdi,5.196882,47.836901,Al-Shabaab,2
+Somalia,Mudug,Galkayo,6.770262,47.429064,Al-Shabaab,1
+Somalia,Mudug,Galkayo,6.770972,47.429957,Al-Shabaab,1
+Somalia,Mudug,Galkayo,6.771207,47.428826,Al-Shabaab,1
+Somalia,Mudug,Galkayo,6.772537,47.427498,Al-Shabaab,1
+Somalia,Mudug,Garsoor,6.770279,47.431191,Al-Shabaab,2
+Somalia,Mudug,Harardhere,4.655952,47.856315,Al-Shabaab,3
+Somalia,Mudug,Harardhere,4.656795,47.855703,Al-Shabaab,1
+Somalia,Mudug,Harardhere district,4.656364,47.855993,Al-Shabaab,1
+Somalia,Mudug,Harardhere district,4.74097,47.866564,Al-Shabaab,1
+Somalia,Nugaal,Garmal,7.964226,49.845517,Al-Shabaab,1
+Somalia,Nugaal,Suuj,7.968031,49.821148,Al-Shabaab,1
+Somalia,Banaadir,Kahda,2.039349,45.241826,Unknown,1
+Somalia,Banaadir,Mogadishu,2.020214,45.293921,Unknown,1
+Somalia,Banaadir,Mogadishu,2.024731,45.303019,Unknown,1
+Somalia,Banaadir,Mogadishu,2.024956,45.308514,Unknown,1
+Somalia,Banaadir,Mogadishu,2.028218,45.332256,Unknown,1
+Somalia,Banaadir,Mogadishu,2.030653,45.271236,Unknown,1
+Somalia,Banaadir,Mogadishu,2.032623,45.340469,Unknown,1
+Somalia,Banaadir,Mogadishu,2.033483,45.320154,Unknown,1
+Somalia,Banaadir,Mogadishu,2.033847,45.338282,Unknown,1
+Somalia,Banaadir,Mogadishu,2.034592,45.338547,Unknown,1
+Somalia,Banaadir,Mogadishu,2.03472,45.300869,Unknown,1
+Somalia,Banaadir,Mogadishu,2.036717,45.354693,Unknown,1
+Somalia,Banaadir,Mogadishu,2.038609,45.34162,Unknown,1
+Somalia,Banaadir,Mogadishu,2.040054,45.334242,Unknown,1
+Somalia,Banaadir,Mogadishu,2.040587,45.323581,Unknown,1
+Somalia,Banaadir,Mogadishu,2.040903,45.331927,Unknown,1
+Somalia,Banaadir,Mogadishu,2.042264,45.298835,Unknown,1
+Somalia,Banaadir,Mogadishu,2.042886,45.30408,Unknown,1
+Somalia,Banaadir,Mogadishu,2.042947,45.304096,Unknown,1
+Somalia,Banaadir,Mogadishu,2.044366,45.340875,Unknown,1
+Somalia,Banaadir,Mogadishu,2.046152,45.321453,Unknown,1
+Somalia,Banaadir,Mogadishu,2.046152,45.321453,Unknown,3
+Somalia,Banaadir,Mogadishu,2.046538,45.318129,Unknown,1
+Somalia,Banaadir,Mogadishu,2.046934,45.318162,Unknown,1
+Somalia,Banaadir,Mogadishu,2.048746,45.331238,Unknown,1
+Somalia,Banaadir,Mogadishu,2.052285,45.318477,Unknown,1
+Somalia,Banaadir,Mogadishu,2.055345,45.361713,Unknown,1
+Somalia,Banaadir,Mogadishu,2.055762,45.331167,Unknown,1
+Somalia,Banaadir,Mogadishu,2.067076,45.343258,Unknown,1
+Somalia,Banaadir,Mogadishu,2.067404,45.342654,Unknown,2
+Somalia,Banaadir,Mogadishu,2.076336,45.34878,Unknown,1
+Somalia,Bari,Galgala,10.988328,49.055555,Unknown,1
+Somalia,Galguduud,Abud Wak,6.148197,46.396218,Unknown,1
+Somalia,Galguduud,Cadaado,6.136944,46.625833,Unknown,1
+Somalia,Gedo,Bardere,2.33646,42.28199,Unknown,1
+Somalia,Gedo,Bardere,2.336548,42.281923,Unknown,1
+Somalia,Gedo,Bardere,2.339047,42.288006,Unknown,2
+Somalia,Gedo,Bardere,2.339136,42.287738,Unknown,1
+Somalia,Gedo,Beled Hawo,3.92796,41.874054,Unknown,1
+Somalia,Gedo,Likoley,3.073691,41.554414,Unknown,1
+Somalia,Hiiraan,Beledweyne,4.771181,45.24276,Unknown,1
+Somalia,Hiiraan,Nuur Fanah,4.402884,45.393067,Unknown,1
+Somalia,Lower Juba,Kismayo,-0.359361,42.543361,Unknown,1
+Somalia,Lower Juba,Kismayo,-0.358356,42.538689,Unknown,1
+Somalia,Lower Juba,Kismayo,-0.345423,42.551469,Unknown,1
+Somalia,Lower Shebelle,Afgoye,2.140614,45.119516,Unknown,1
+Somalia,Lower Shebelle,Afgoye,2.140692,45.116942,Unknown,1
+Somalia,Lower Shebelle,Afgoye,2.142623,45.116717,Unknown,2
+Somalia,Lower Shebelle,Bulo Marer,1.629798,44.51958,Unknown,1
+Somalia,Lower Shebelle,Bulo Marer,1.645504,44.559471,Unknown,1
+Somalia,Lower Shebelle,Ceelasha Biyaha,2.082938,45.209153,Unknown,1
+Somalia,Lower Shebelle,Lambar 50,1.986688,44.99076,Unknown,1
+Somalia,Lower Shebelle,Merca,1.715682,44.768949,Unknown,1
+Somalia,Lower Shebelle,Merca,1.717466,44.768614,Unknown,1
+Somalia,Lower Shebelle,Shalan Bood,1.704855,44.691793,Unknown,1
+Somalia,Lower Shebelle,Unknown,1.936431,44.942783,Unknown,1
+Somalia,Middle Shebelle,Ceel Baraf,3.206583,45.759302,Unknown,1
+Somalia,Middle Shebelle,Jowhar,2.777423,45.501625,Unknown,1
+Somalia,Middle Shebelle,Mahaday,2.971374,45.533545,Unknown,1
+Somalia,Middle Shebelle,Mahaday,2.971624,45.533452,Unknown,1
+Somalia,Middle Shebelle,Warsheekh,2.298653,45.798429,Unknown,1
+Somalia,Mudug,Bacaadweyn,7.19065,47.531307,Unknown,1
+Somalia,Mudug,Galkayo,6.770957,47.418756,Unknown,1
+Somalia,Togdheer,Buhodle,8.237364,46.325939,Unknown,1
+Somalia,Woqooyi Galbeed,Hargeysa,9.559281,44.065324,Unknown,1
+Sudan,Central Darfur,Bella,12.542222,23.345556,Abbala extremists,1
+Sudan,South Darfur,Unknown,11.648864,24.904221,Abbala extremists,1
+Sudan,South Darfur,Mershing,12.717293,24.89782,Abbala extremists,1
+Sudan,South Darfur,Lippe,11.648864,24.90422,Abbala extremists,1
+Sudan,Central Darfur,Deleig,12.478596,23.259849,Janjaweed,1
+Sudan,Central Darfur,Jebel Marra,13.018568,23.864354,Janjaweed,1
+Sudan,Central Darfur,Nertiti district,12.949609,24.113285,Janjaweed,1
+Sudan,Central Darfur,Nierteti,12.977884,23.358972,Janjaweed,1
+Sudan,Central Darfur,Samra,12.95587,24.173023,Janjaweed,1
+Sudan,Central Darfur,Unknown,12.3367,23.418867,Janjaweed,1
+Sudan,Central Darfur,Unknown,12.950886,24.266064,Janjaweed,1
+Sudan,Central Darfur,Zalingei,12.899737,23.476973,Janjaweed,1
+Sudan,North Darfur,Bardi,13.970826,24.641444,Janjaweed,1
+Sudan,North Darfur,El Rayyan,13.648446,24.07967,Janjaweed,1
+Sudan,North Darfur,Kabkabiya,13.651143,24.090425,Janjaweed,4
+Sudan,North Darfur,Konj,12.874482,24.295667,Janjaweed,1
+Sudan,North Darfur,Konj,13.136304,24.466277,Janjaweed,1
+Sudan,North Darfur,Kutum,14.202517,24.663825,Janjaweed,1
+Sudan,North Darfur,Saraf Jidad,14.233333,24.016667,Janjaweed,2
+Sudan,North Darfur,Serif Omar,13.445815,23.265564,Janjaweed,1
+Sudan,North Darfur,Tawilah,13.507741,24.869862,Janjaweed,1
+Sudan,North Darfur,Tawilah,13.514231,24.86034,Janjaweed,1
+Sudan,North Darfur,Tur,13.133459,24.483331,Janjaweed,1
+Sudan,South Darfur,Fanga,12.913359,24.436115,Janjaweed,1
+Sudan,South Darfur,Feina,12.883087,24.486988,Janjaweed,1
+Sudan,South Darfur,Gereida,11.278134,25.144449,Janjaweed,1
+Sudan,South Darfur,Safia,11.276934,25.144072,Janjaweed,1
+Sudan,South Darfur,Shanga,11.228326,25.137076,Janjaweed,1
+Sudan,South Darfur,Unknown,11.653388,24.898905,Janjaweed,1
+Sudan,South Kordofan,Abbasiya,12.167309,31.303206,Janjaweed,1
+Sudan,Central Darfur,Nertiti,12.961401,24.044116,Sudan Liberation Movement,1
+Sudan,North Darfur,Tawilah,13.514925,24.866033,Sudan Liberation Movement,1
+Sudan,South Kordofan,Kadugli,11.010252,29.712516,Sudan People's Liberation Movement - North,1
+Sudan,South Kordofan,Kadugli,11.010428,29.712634,Sudan People's Liberation Movement - North,1
+Sudan,South Kordofan,Kadugli,11.010544,29.713051,Sudan People's Liberation Movement - North,1
+Sudan,South Kordofan,Salara district,12.045016,29.652051,Sudan People's Liberation Movement - North,1
+Sudan,East Darfur,Ed Daein,11.460964,26.123769,Tribesmen,1
+Sudan,North Darfur,Kabkabiya district,13.651143,24.090425,Tribesmen,2
+Sudan,South Darfur,Nyala,12.051801,24.879653,Tribesmen,1
+Sudan,Central Darfur,Abata,13.159722,23.635,Unknown,1
+Sudan,Central Darfur,Bergi,11.956389,23.210556,Unknown,1
+Sudan,Central Darfur,Golo,13.176401,23.536787,Unknown,1
+Sudan,Central Darfur,Mukjar,11.291012,23.191802,Unknown,2
+Sudan,Central Darfur,Nertiti,12.961401,24.044116,Unknown,2
+Sudan,Central Darfur,Nertiti district,12.936116,24.053249,Unknown,1
+Sudan,Central Darfur,Nertiti district,12.963939,24.041672,Unknown,1
+Sudan,Central Darfur,Nierteti district,13.024813,23.856324,Unknown,1
+Sudan,Central Darfur,Rokoro,13.237732,24.435099,Unknown,1
+Sudan,Central Darfur,Ronga Ronga,13.185236,23.862729,Unknown,1
+Sudan,Central Darfur,Um Tireitir,13.018546,23.856894,Unknown,1
+Sudan,Central Darfur,Unknown,12.346032,23.416464,Unknown,1
+Sudan,Central Darfur,Unknown,12.835924,23.073446,Unknown,1
+Sudan,Central Darfur,Unknown,13.018303,23.864212,Unknown,1
+Sudan,Central Darfur,Unknown,13.023418,23.858474,Unknown,1
+Sudan,Central Darfur,Unknown,13.273964,24.381811,Unknown,1
+Sudan,Central Darfur,Zalingei district,12.89985,23.47687,Unknown,1
+Sudan,East Darfur,Ed Daein,11.460844,26.128049,Unknown,1
+Sudan,East Darfur,Ed Daein,11.461667,26.125833,Unknown,2
+Sudan,Kassala,Kassala,15.458132,36.403383,Unknown,1
+Sudan,North Darfur,Anka,14.685051,24.849351,Unknown,1
+Sudan,North Darfur,Bala Firash,13.570195,23.442392,Unknown,1
+Sudan,North Darfur,Beilei,13.651502,24.090632,Unknown,1
+Sudan,North Darfur,Debba Naira,13.630469,25.350101,Unknown,1
+Sudan,North Darfur,Dubbo El Omda,13.50555,24.888187,Unknown,1
+Sudan,North Darfur,El Fashir,13.619507,25.354657,Unknown,1
+Sudan,North Darfur,El Fashir,13.61975,25.355336,Unknown,1
+Sudan,North Darfur,El Shuhada district,13.649666,24.083459,Unknown,1
+Sudan,North Darfur,Galab,13.474859,25.395805,Unknown,1
+Sudan,North Darfur,Jugojugo,13.624555,25.492967,Unknown,1
+Sudan,North Darfur,Kabkabiya,13.651143,24.090425,Unknown,10
+Sudan,North Darfur,Kator,13.322686,24.895122,Unknown,2
+Sudan,North Darfur,Kator,15.766197,24.904221,Unknown,1
+Sudan,North Darfur,Korgo,13.965858,23.677052,Unknown,1
+Sudan,North Darfur,Kottom district,13.968888,24.407121,Unknown,1
+Sudan,North Darfur,Kutum,14.209571,24.646893,Unknown,3
+Sudan,North Darfur,Kutum district,14.209671,24.659645,Unknown,1
+Sudan,North Darfur,Mellit,14.140236,25.55283,Unknown,1
+Sudan,North Darfur,Sali Sala,13.612317,25.350678,Unknown,1
+Sudan,North Darfur,Saluma,13.630331,25.349977,Unknown,1
+Sudan,North Darfur,Serif Omar,13.445672,23.266189,Unknown,1
+Sudan,North Darfur,Siro,13.518086,23.896832,Unknown,1
+Sudan,North Darfur,Tabit,13.315559,25.088358,Unknown,3
+Sudan,North Darfur,Tawilah,13.29729,25.106959,Unknown,1
+Sudan,North Darfur,Tawilah,13.500154,24.900055,Unknown,1
+Sudan,North Darfur,Tawilah,13.505243,24.891506,Unknown,1
+Sudan,North Darfur,Tawilah,13.514197,24.872607,Unknown,1
+Sudan,North Darfur,Tawilah,13.514231,24.86034,Unknown,2
+Sudan,North Darfur,Tawilah,13.514231,24.860632,Unknown,1
+Sudan,North Darfur,Tawilah,13.514925,24.866033,Unknown,1
+Sudan,North Darfur,Tawilah,13.518366,24.886644,Unknown,1
+Sudan,North Darfur,Um Baru,15.049758,23.716814,Unknown,1
+Sudan,North Darfur,Um Gaji,15.56932,24.80118,Unknown,1
+Sudan,North Darfur,Unknown,13.140737,24.490568,Unknown,1
+Sudan,North Darfur,Unknown,13.630484,25.350085,Unknown,1
+Sudan,North Darfur,Unknown,15.770442,24.889758,Unknown,1
+Sudan,South Darfur,Areekum,11.648864,24.904221,Unknown,1
+Sudan,South Darfur,Dahab Sharro,11.115651,25.294909,Unknown,1
+Sudan,South Darfur,Dalal Angar,11.648864,24.904221,Unknown,1
+Sudan,South Darfur,Dendora,11.115736,25.294896,Unknown,1
+Sudan,South Darfur,Donki Kheir,11.451127,25.154544,Unknown,1
+Sudan,South Darfur,Fantaga,12.921007,24.318324,Unknown,1
+Sudan,South Darfur,Feina,12.883087,24.486988,Unknown,1
+Sudan,South Darfur,Gereida,11.2761,25.153156,Unknown,1
+Sudan,South Darfur,Gereida,11.278134,25.144449,Unknown,1
+Sudan,South Darfur,Gereida,11.278269,25.143985,Unknown,1
+Sudan,South Darfur,Gereida,11.278418,25.14425,Unknown,1
+Sudan,South Darfur,Ghibaish,10.716749,25.168265,Unknown,1
+Sudan,South Darfur,Haraza,11.114688,25.294221,Unknown,1
+Sudan,South Darfur,Kafla,11.114752,25.294691,Unknown,1
+Sudan,South Darfur,Kalma,12.017943,24.9923,Unknown,1
+Sudan,South Darfur,Kalokitting,12.73327,24.266681,Unknown,1
+Sudan,South Darfur,Mashrou Abu Zeid,12.928787,24.472365,Unknown,1
+Sudan,South Darfur,Matiya,11.113587,25.294738,Unknown,2
+Sudan,South Darfur,Mershing,12.717293,24.89782,Unknown,1
+Sudan,South Darfur,Nabagaya,11.258062,25.22453,Unknown,1
+Sudan,South Darfur,Nierteti North,11.648864,24.904221,Unknown,1
+Sudan,South Darfur,Nyala,12.013656,24.876456,Unknown,1
+Sudan,South Darfur,Nyala,12.026047,24.869859,Unknown,1
+Sudan,South Darfur,Nyala,12.035331,24.879667,Unknown,1
+Sudan,South Darfur,Nyala,12.050504,24.883403,Unknown,1
+Sudan,South Darfur,Nyala,12.051224,24.88208,Unknown,1
+Sudan,South Darfur,Nyala,12.051801,24.880485,Unknown,6
+Sudan,South Darfur,Nyala,12.051915,24.880253,Unknown,1
+Sudan,South Darfur,Nyalla North district,12.963262,24.506722,Unknown,1
+Sudan,South Darfur,Nyalla North district,12.998624,24.567474,Unknown,1
+Sudan,South Darfur,Rowena,10.476111,24.981667,Unknown,1
+Sudan,South Darfur,Tagga,12.466667,25.266667,Unknown,1
+Sudan,South Darfur,Unknown,11.648864,24.904221,Unknown,1
+Sudan,South Darfur,Unknown,11.680196,24.915637,Unknown,1
+Sudan,South Darfur,Wadi Kella,11.648864,24.904221,Unknown,1
+Sudan,West Darfur,El Geneina,13.449472,22.435927,Unknown,1
+Sudan,West Darfur,El Geneina,13.449805,22.449829,Unknown,1
+Sudan,West Darfur,Unknown,12.955936,22.863823,Unknown,1
+Sudan,West Kordofan,Al-Malam,9.81,28.75,Unknown,1
+Sudan,West Kordofan,El Tirain,10.809591,28.60882,Unknown,1
+Yemen,Adan,Aden,12.773026,45.038053,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.799478,45.032803,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Unknown,12.752948,44.881515,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.800404,45.03353,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.772974,45.038006,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Shaykh Uthman,12.860152,44.961665,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Buraiqeh,12.756197,44.892628,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Buraiqeh,12.756209,44.89262,Adan-Abyan Province of the Islamic State,2
+Yemen,Adan,Aden,12.807967,45.035389,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.810784,45.035028,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.831467,45.027985,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.799439,45.034095,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.800127,45.032512,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Aden,12.799966,45.033289,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Shaykh Uthman,12.849057,44.972015,Adan-Abyan Province of the Islamic State,1
+Yemen,Adan,Shaykh Uthman,12.852305,44.972372,Adan-Abyan Province of the Islamic State,1
+Yemen,Al Bayda,Bayda,13.988915,45.5771,Al Bayda Province of the Islamic State,1
+Yemen,Abyan,Ahwar,13.520237,46.712001,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Musaymir,13.119546,45.350285,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Jaar,13.21657,45.306369,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Wadea,13.76857,46.011871,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Al-Wadea,13.634341,46.056321,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Lawdar district,13.879274,45.869519,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Mahfad district,14.061619,46.914966,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Lawdar,13.883333,45.866667,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Abyan,Al-Ayn,13.79985,45.886147,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Aden,12.783242,44.979116,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.850235,44.970811,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.914286,45.010881,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.860712,44.977503,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.863444,44.979908,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.884278,44.971641,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.867826,44.983825,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.8603,44.965022,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Aden,12.78455,44.980019,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.849039,44.972076,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Aden,12.78572,45.018998,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Aden,12.78585,45.019602,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Aden,12.799423,45.033753,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Adan,Shaykh Uthman,12.85652,44.988321,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Al Hudaydah,Az Zuhrah,15.723243,42.997228,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.542247,49.123178,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.540772,49.128688,Al-Qaida in the Arabian Peninsula (AQAP),3
+Yemen,Hadramawt,Unknown,16.902582,49.36381,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Qatan,16.902568,49.328913,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.542255,49.12424,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.538927,49.121662,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.538306,49.121251,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.542336,49.124197,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.540433,49.127197,Al-Qaida in the Arabian Peninsula (AQAP),2
+Yemen,Hadramawt,Shibam,15.921968,48.634305,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Lahij,Lahij,13.062679,44.881568,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Lahij,Lahij,13.062845,44.87518,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Lahij,Lahij,13.062222,44.881389,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Lahij,Lahij,13.062451,44.88164,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Lahij,Murfid,13.834537,45.244948,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Shabwah,Azzan,14.324326,47.44575,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Shabwah,Ar Raydah,14.360278,47.341944,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Shabwah,Uqlah,15.379444,46.900833,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Shabwah,Unknown,14.75463,46.516262,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Taizz,Taizz,13.590456,44.033978,Al-Qaida in the Arabian Peninsula (AQAP),1
+Yemen,Hadramawt,Mukalla,14.539683,49.125708,Hadramawt Province of the Islamic State,4
+Yemen,Hadramawt,Mukalla,14.540433,49.127197,Hadramawt Province of the Islamic State,2
+Yemen,Hadramawt,Mukalla,14.540598,49.127083,Hadramawt Province of the Islamic State,1
+Yemen,Ad Dali,Al-Haqab,14.047778,44.681389,Houthi extremists (Ansar Allah),1
+Yemen,Ad Dali,Dali,13.696553,44.731504,Houthi extremists (Ansar Allah),1
+Yemen,Ad Dali,Dali,13.703256,44.733454,Houthi extremists (Ansar Allah),4
+Yemen,Ad Dali,Dali,13.704855,44.733462,Houthi extremists (Ansar Allah),1
+Yemen,Ad Dali,Damt,14.088895,44.669208,Houthi extremists (Ansar Allah),1
+Yemen,Ad Dali,Murays,13.903266,44.746556,Houthi extremists (Ansar Allah),1
+Yemen,Ad Dali,Rahbah,13.900345,44.750501,Houthi extremists (Ansar Allah),1
+Yemen,Adan,Aden,12.785497,45.018655,Houthi extremists (Ansar Allah),1
+Yemen,Adan,Aden,12.785684,45.018562,Houthi extremists (Ansar Allah),1
+Yemen,Adan,Aden,12.8,45.033333,Houthi extremists (Ansar Allah),1
+Yemen,Adan,Unknown,12.799745,45.033788,Houthi extremists (Ansar Allah),1
+Yemen,Al Bayda,Dhi Naim district,14.111254,45.464143,Houthi extremists (Ansar Allah),1
+Yemen,Al Bayda,Radaa district,14.327928,44.90665,Houthi extremists (Ansar Allah),1
+Yemen,Al Bayda,Yafan,14.068333,45.421667,Houthi extremists (Ansar Allah),1
+Yemen,Al Hudaydah,Unknown,14.790797,42.970765,Houthi extremists (Ansar Allah),1
+Yemen,Al Hudaydah,Unknown,15.071613,43.012262,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Al-Ghurfa,16.1825,44.626111,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Al-Haija,16.1825,44.626111,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Al-Oqda,16.1825,44.626111,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Hazm,16.164029,44.776703,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Hazm,16.164171,44.776663,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Maslub district,16.1825,44.626111,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Maton district,16.286969,44.638967,Houthi extremists (Ansar Allah),1
+Yemen,Al Jawf,Sadah,16.088413,44.524008,Houthi extremists (Ansar Allah),1
+Yemen,Amanat Al Asimah,Sanaa,15.355873,44.213536,Houthi extremists (Ansar Allah),1
+Yemen,Amanat Al Asimah,Sanaa,15.366158,44.190896,Houthi extremists (Ansar Allah),1
+Yemen,Amanat Al Asimah,Sanaa,15.369445,44.191007,Houthi extremists (Ansar Allah),9
+Yemen,Amanat Al Asimah,Sanaa,15.370763,44.191006,Houthi extremists (Ansar Allah),1
+Yemen,Amanat Al Asimah,Sanaa,15.482072,44.222742,Houthi extremists (Ansar Allah),1
+Yemen,Dhamar,Mabar,14.795338,44.290723,Houthi extremists (Ansar Allah),1
+Yemen,Hajjah,Unknown,15.695,43.5975,Houthi extremists (Ansar Allah),1
+Yemen,Ibb,Al-Ahmul,14.181738,43.988298,Houthi extremists (Ansar Allah),1
+Yemen,Ibb,An Nadirah district,14.074127,44.498986,Houthi extremists (Ansar Allah),1
+Yemen,Ibb,As Sahul,14.027351,44.176772,Houthi extremists (Ansar Allah),2
+Yemen,Ibb,Ibb,13.968555,44.167544,Houthi extremists (Ansar Allah),1
+Yemen,Ibb,Sahul,14.09207,44.173076,Houthi extremists (Ansar Allah),1
+Yemen,Ibb,Shiwar,14.188971,44.002315,Houthi extremists (Ansar Allah),1
+Yemen,Ibb,Unknown,14.137917,44.246682,Houthi extremists (Ansar Allah),1
+Yemen,Ibb,Unknown,14.141572,44.247902,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Marib,15.460579,45.323333,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Marib,15.460769,45.321906,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Marib,15.461259,45.321251,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Marib,15.461879,45.320309,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Marib,15.462089,45.320842,Houthi extremists (Ansar Allah),2
+Yemen,Marib,Marib,15.462777,45.321985,Houthi extremists (Ansar Allah),3
+Yemen,Marib,Marib,15.463611,45.322802,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Marib,15.46539,45.319417,Houthi extremists (Ansar Allah),3
+Yemen,Marib,Marib,15.470031,45.322857,Houthi extremists (Ansar Allah),5
+Yemen,Marib,Marib,15.515888,45.449807,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Sirwah,15.449571,45.018785,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Unknown,15.460342,45.323692,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Unknown,15.470031,45.322857,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Unknown,15.538618,45.432851,Houthi extremists (Ansar Allah),1
+Yemen,Marib,Unknown,15.734395,45.773805,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Al-Manarah,15.3875,44.836667,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Hazm,16.164167,44.776667,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Nihm district,15.633333,44.583333,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Nihm district,15.649785,44.56722,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Nihm district,15.749972,44.499986,Houthi extremists (Ansar Allah),5
+Yemen,Sanaa,Sahar,15.633333,44.583333,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Sanaa,15.369445,44.191007,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Unknown,15.316891,44.474802,Houthi extremists (Ansar Allah),1
+Yemen,Sanaa,Yam,15.628584,44.587434,Houthi extremists (Ansar Allah),1
+Yemen,Shabwah,Unknown,14.735377,46.527424,Houthi extremists (Ansar Allah),1
+Yemen,Shabwah,Unknown,14.75463,46.516262,Houthi extremists (Ansar Allah),1
+Yemen,Shabwah,Usaylan district,15.031965,45.82837,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Ad Damgha,13.413117,43.637531,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Al-Bawkirah,13.168248,43.742406,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Al-Hasib,13.245877,43.779088,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Al-Manatrah,13.810833,43.698056,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Anin,13.693602,44.342472,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Ar Rabi,13.599058,43.88771,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,At Taiziyah district,13.606114,43.927647,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,At Taiziyah district,13.629895,43.964956,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Azraf,13.57836,44.018173,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Damghah,13.534493,44.033469,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Dhubab district,12.765967,43.5174,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Hadhran,13.611111,43.932778,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Maqbanah district,13.731754,43.72051,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Maylat,13.573504,44.018877,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Mount Sabr district,13.51507,44.051651,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.560251,44.030639,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.560593,44.029431,Houthi extremists (Ansar Allah),3
+Yemen,Taizz,Taizz,13.562878,44.03192,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.563019,43.997702,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.563472,44.032416,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.570048,44.030781,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.572429,44.02962,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Taizz,13.573242,44.030691,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.573702,44.011191,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.574255,44.008676,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Taizz,13.574698,44.010392,Houthi extremists (Ansar Allah),10
+Yemen,Taizz,Taizz,13.57481,44.009816,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.575771,44.016802,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.575776,44.014583,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Taizz,13.575855,44.019918,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.577589,44.017799,Houthi extremists (Ansar Allah),11
+Yemen,Taizz,Taizz,13.577733,44.018676,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Taizz,13.577914,44.01029,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.578038,44.022298,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.578264,44.02042,Houthi extremists (Ansar Allah),3
+Yemen,Taizz,Taizz,13.57829,44.029367,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.578889,44.021944,Houthi extremists (Ansar Allah),13
+Yemen,Taizz,Taizz,13.5792,44.02235,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.5792,44.022356,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.579257,44.022814,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.579753,44.016027,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.579796,44.033626,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.579981,44.037908,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.580444,44.017709,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Taizz,13.580853,44.020297,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.580991,44.013685,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.58182,43.993843,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.582904,44.02564,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.582964,44.016325,Houthi extremists (Ansar Allah),4
+Yemen,Taizz,Taizz,13.583123,44.015598,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Taizz,13.583565,44.026545,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Taizz,13.585095,44.039921,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.585877,43.995817,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.586364,44.006315,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.58679,44.033602,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.587286,44.036831,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.587834,43.995619,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.589094,44.034942,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.592445,43.996048,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.60295,44.009496,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Taizz,13.681905,44.13692,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Unknown,13.412932,43.630114,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Unknown,13.413117,43.637531,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Unknown,13.432827,43.993898,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Unknown,13.432837,43.689155,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Unknown,13.577589,44.017799,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Unknown,13.582964,44.016325,Houthi extremists (Ansar Allah),2
+Yemen,Taizz,Wahir,13.552249,43.969786,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Waziiyah district,13.151046,43.738775,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Waziiyah district,13.168694,43.741907,Houthi extremists (Ansar Allah),1
+Yemen,Taizz,Waziiyah district,13.170047,43.732746,Houthi extremists (Ansar Allah),1
+Yemen,Adan,Shaykh Uthman,12.874447,44.988072,Muslim Extremists,1
+Yemen,Sanaa,Bani Bahlol,15.235331,44.334139,Muslim Extremists,1
+Yemen,Taizz,Taizz,13.578889,44.021944,Popular Resistance Committees (Yemen),1
+Yemen,Amanat Al Asimah,Sanaa,15.370748,44.190947,Sanaa Province of the Islamic State,1
+Yemen,Marib,Jadan,15.491946,45.351998,Supporters of Abd Rabbuh Mansur Hadi,1
+Yemen,Taizz,Taizz,13.578889,44.021944,Supporters of Abd Rabbuh Mansur Hadi,1
+Yemen,Abyan,Jaar,13.21657,45.306369,Unknown,2
+Yemen,Abyan,Lawdar,13.879317,45.869474,Unknown,1
+Yemen,Abyan,Mudiyah district,13.933002,46.083264,Unknown,1
+Yemen,Abyan,Shoqra,13.355774,45.699741,Unknown,1
+Yemen,Ad Dali,Dali,13.699723,44.730685,Unknown,2
+Yemen,Ad Dali,Dali,13.699976,44.730628,Unknown,1
+Yemen,Ad Dali,Yabar,13.71123,44.721627,Unknown,1
+Yemen,Ad Dali,Zafar,13.714057,44.723055,Unknown,1
+Yemen,Adan,Aden,12.772974,45.038006,Unknown,2
+Yemen,Adan,Aden,12.784081,45.002255,Unknown,1
+Yemen,Adan,Aden,12.785497,45.018655,Unknown,1
+Yemen,Adan,Aden,12.785831,45.019224,Unknown,1
+Yemen,Adan,Aden,12.790352,45.021208,Unknown,1
+Yemen,Adan,Aden,12.791551,45.008561,Unknown,1
+Yemen,Adan,Aden,12.79889,45.033145,Unknown,1
+Yemen,Adan,Aden,12.799061,45.034995,Unknown,1
+Yemen,Adan,Aden,12.799683,45.033201,Unknown,1
+Yemen,Adan,Aden,12.799926,45.033239,Unknown,1
+Yemen,Adan,Aden,12.815998,45.031046,Unknown,1
+Yemen,Adan,Aden,12.830539,45.028698,Unknown,1
+Yemen,Adan,Aden,12.831467,45.027985,Unknown,1
+Yemen,Adan,Aden,12.831471,45.027995,Unknown,1
+Yemen,Adan,Aden,12.832175,45.028811,Unknown,1
+Yemen,Adan,Aden,12.897255,45.049686,Unknown,1
+Yemen,Adan,Buraiqeh district,12.751054,44.880714,Unknown,1
+Yemen,Adan,Buraiqeh district,12.814073,44.728992,Unknown,1
+Yemen,Adan,Mansura district,12.853567,44.972876,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.849039,44.972076,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.849057,44.972015,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.852516,44.971906,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.852838,44.971211,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.853411,44.971045,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.85987,44.982468,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.860915,44.98191,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.864025,44.978221,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.865287,44.971357,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.879449,45.001656,Unknown,1
+Yemen,Adan,Shaykh Uthman,12.884247,44.972015,Unknown,1
+Yemen,Adan,Sirah district,12.775551,45.032369,Unknown,1
+Yemen,Al Bayda,Bayda,13.988915,45.5771,Unknown,1
+Yemen,Al Bayda,Unknown,14.358866,45.449807,Unknown,1
+Yemen,Al Hudaydah,Hudaydah,14.79896,42.939226,Unknown,1
+Yemen,Al Hudaydah,Unknown,15.274008,43.142265,Unknown,1
+Yemen,Al Hudaydah,Zabid,14.200123,43.322248,Unknown,1
+Yemen,Al Jawf,Unknown,16.755931,45.721743,Unknown,1
+Yemen,Amanat Al Asimah,Sanaa,15.366011,44.182635,Unknown,1
+Yemen,Amanat Al Asimah,Sanaa,15.369445,44.191007,Unknown,2
+Yemen,Amanat Al Asimah,Sanaa,15.371169,44.191525,Unknown,1
+Yemen,Dhamar,Dhamar,14.550776,44.403631,Unknown,1
+Yemen,Hadramawt,Mukalla,14.540411,49.127083,Unknown,1
+Yemen,Hadramawt,Qatn,15.846746,48.46075,Unknown,1
+Yemen,Hadramawt,Seiyun,15.940315,48.791904,Unknown,1
+Yemen,Lahij,Al-Maqatirah,13.185451,44.18408,Unknown,1
+Yemen,Lahij,Lahij,13.057842,44.883283,Unknown,1
+Yemen,Lahij,Lahij,13.05893,44.880529,Unknown,1
+Yemen,Lahij,Lahij,13.062222,44.881389,Unknown,2
+Yemen,Marib,Majzar district,15.833638,44.829639,Unknown,1
+Yemen,Marib,Marib,15.460769,45.321906,Unknown,1
+Yemen,Marib,Marib,15.46539,45.319417,Unknown,1
+Yemen,Marib,Marib,15.515888,45.449807,Unknown,1
+Yemen,Marib,Unknown,15.511777,45.402452,Unknown,1
+Yemen,Shabwah,Ataq,14.529744,46.82955,Unknown,2
+Yemen,Shabwah,Ataq,14.536389,46.833056,Unknown,1
+Yemen,Taizz,Taizz,13.566674,44.033333,Unknown,1
+Yemen,Taizz,Taizz,13.575855,44.019918,Unknown,1
+Yemen,Taizz,Taizz,13.577589,44.017571,Unknown,1
+Yemen,Taizz,Taizz,13.577589,44.017799,Unknown,2
+Yemen,Taizz,Taizz,13.578264,44.02042,Unknown,1
+Yemen,Taizz,Taizz,13.582366,44.021638,Unknown,1
+Yemen,Taizz,Unknown,13.578889,44.021944,Unknown,1
