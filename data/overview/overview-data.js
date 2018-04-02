@@ -160,25 +160,33 @@ var overviewData = {
         // },
         {
           tag: 'p',
-          html: 'The Stable Seas Maritime Security Index is a first-of-its-kind effort to measure and map a range of threats to maritime governance. By bringing diverse challenges like <a class="piracy inline" href="../../piracy">piracy</a>, <a class="illicit-trade inline" href="../../illicit-trade">smuggling</a>, and <a class="maritime-enforcement inline" href="../../maritime-enforcement">capacity-building</a> into one comprehensive analysis, we can better understand how these issues intersect to affect maritime security.'
-        },
-        {
-          tag: 'video',
-          videoId: 'AXQHK213mFA',
-          thumb: '../../assets/overview/stable-seas-main-video-thumb.png' // ###
-        },
-        {
-          tag: 'caption',
-          text: '<em>Introducing the Stable Seas Maritime Security Index.</em>'
+          html: 'The Stable Seas Maritime Security Index is a new effort to measure and map nine facets of good maritime governance: 1) international cooperation, 2) the rule of law, 3) maritime enforcement capacity, 4) coastal welfare, 5) development of the blue economy, 6) fisheries, 7) piracy and armed robbery at sea, 8) illicit maritime trades, and 9) maritime mixed migration. By bringing these nine issues into one comprehensive analysis, we can better understand how they intersect to affect maritime security. This improved understanding can then inform stronger maritime security policy.'
         },
         {
           tag: 'p',
-          html: 'The inaugural edition of our report covers the 30 exclusive economic zones (EEZs) that envelop sub-Saharan Africa from the mid-Atlantic to the Gulf of Aden. Countries in this region face unique maritime security challenges and overcoming them will require   <a class="international-cooperation inline" href="../../international-cooperation">international coordination</a> and careful consideration of the interdependencies linking these maritime threats. This site highlights these linkages by combining quantitative measures with close examinations of important case studies from across the region.'
+          html: '<em>***Image of issue area cloud here***</em>'
+        },
+        // {
+        //   tag: 'video',
+        //   videoId: 'AXQHK213mFA',
+        //   thumb: '../../assets/overview/stable-seas-main-video-thumb.png' // ###
+        // },
+        // {
+        //   tag: 'caption',
+        //   text: '<em>Introducing the Stable Seas Maritime Security Index.</em>'
+        // },
+        {
+          tag: 'p',
+          html: 'The inaugural edition of our report covers the 30 exclusive economic zones (EEZs) that envelop sub-Saharan Africa from the mid-Atlantic to the Gulf of Aden. Countries in this region face unique maritime security challenges and overcoming them will require international coordination and careful consideration of the interdependencies linking these maritime threats. This site highlights these linkages by combining quantitative measures with important case studies from across the region.'
         },
         {
           tag: 'p',
-          html: 'Through new maritime security strategies like the Yaoundé and Djibouti Codes of Conduct, African states have redefined maritime security as a constellation of complicated and intersecting issues. To support efforts to disentangle these activities and bring sustainable maritime security, our team is working toward a new index that will measure progress toward each of these related goals. We are creating these measures by partnering with African governments, international organizations, non-governmental organizations, and other stakeholders with an intimate understanding of the African maritime security environment. We plan to release the inaugural report in late 2017.'
+          html: 'This interactive data feature is organized around the nine core themes that emerge in the region’s major maritime security strategies, including the Yaounde Code of Conduct, Djibouti Code of Conduct, Lome Charter, and African Integrated Maritime Strategy (AIMS) 2050. We are creating these measures to support progress toward their objectives. Scores reflect publicly available data, as well as extensive collaboration with African militaries and governments, international organizations, African and Western non-governmental organizations, and other stakeholders with an intimate understanding of the African maritime security environment.'
         },
+        {
+          tag: 'p',
+          html: 'Please browse the site by using the colored toolbar across the top of the screen to view different issue areas. The blue toggle button at the top of the page will allow you to view information country-by-country, rather than issue-by-issue.'
+        }
         // { tag: 'overviewIndexTable',
         //   col: 'weakness'
         // },
@@ -399,11 +407,11 @@ var overviewData = {
       },
       els: [{
           tag: 'h1',
-          text: 'Gulf of Guinea  Overview',
+          text: 'Indian Ocean Overview',
         },
         {
           tag: 'caption',
-          text: 'The global hotspot for piracy, armed robbery, and extractives crime'
+          text: 'Piracy has declined but challenges remain'
         },
         // {
         //   tag: 'legend',
@@ -422,7 +430,7 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'From the Gulf of Aden to South Africa, <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">maritime mixed migration</a> is nearly omnipresent. Some of those seeking better socioeconomic conditions head south along the Tanzanian and Mozambican coasts for South Africa. Many more take the dangerous journey north through Somalia or Djibouti toward the Arabian Peninsula. At all stages, they are vulnerable to forced labor, sex trafficking, and other forms of degradation.'
+          html: 'From the Gulf of Aden to South Africa, <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">maritime mixed migration</a> is nearly omnipresent.  Some of those seeking better socioeconomic conditions head south along the Tanzanian and Mozambican coasts for South Africa. Many more take the dangerous journey north through Somalia or Djibouti toward the Arabian Peninsula. At all stages, they are vulnerable to forced labor, sex trafficking, and other forms of degradation.'
         },
         {
           tag: 'bigtext',
@@ -438,20 +446,20 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'The waters in the north, in the Gulf of Aden and around Somalia, are possibly some of the most unstable on the planet. Besides the latent threat of <a class="piracy inline" href="../../piracy">Somali pirates,</a> several military vessels have been targeted and hit by anti-ship missiles supposedly from militants in Yemen. Seaborne improvised explosive devices resembling sea mines have been spotted, and there have been incidents of <a class="piracy inline" href="../../piracy#5">attempted maritime terrorism</a> against shipping and oil terminals in the region. These events have the potential to affect international shipping traffic through the Red Sea, which is among the world’s most important global transportation chokepoints.'
+          html: 'The waters in the north, in the Gulf of Aden and around Somalia, are among the least stable on the planet. Besides the latent threat of <a class="piracy inline" href="../../piracy">Somali pirates,</a>, several military vessels have been targeted and hit by anti-ship missiles by militants in Yemen. Seaborne improvised explosive devices resembling sea mines have been spotted, and there have been incidents of <a class="piracy inline" href="../../piracy#5">attempted maritime terrorism</a> against shipping and oil terminals in the region. These events have the potential to affect international shipping traffic through the Red Sea, which is among the world’s most important global transportation chokepoints.'
         },
 
         {
           tag: 'p',
-          html: 'Throughout the island nations off the east coast of Africa,   <a class="fisheries inline" href="../../fisheries#1">illegal, unreported, and unregulated (IUU) fishing</a> is one of the primary concerns. These islands have operated as tax havens, which attracts so-called “white-collar crime” and provides money-laundering services for the area’s transnational criminal networks. Many of these states have taken significant measures to combat money laundering and other financial crimes, and in the process have strengthened their banking sectors.'
+          html: 'Throughout the island nations off the east coast of Africa, <a class="fisheries inline" href="../../fisheries#1">illegal, unreported, and unregulated (IUU) fishing</a> is one of the primary concerns. These islands have operated as tax havens, attracting “white-collar crime” and providing money-laundering services for the area’s transnational criminal networks. Many of these states have taken significant measures to combat money laundering and other financial crimes, and in the process have strengthened their banking sectors.'
         },
         {
           tag: 'p',
-          html: 'Farther south, the waters are calmer and more stable. Criminals exploit weak maritime enforcement capacity and engage in smuggling out of some of Africa’s largest ports, but the problems are less severe than they are in the northwest Indian Ocean. With the recent reduction in size of the piracy High Risk Area, some of the private security contractors employed to protect vessels and oil rigs are going out of business.'
+          html: 'Farther south, the waters are calmer and more stable. Criminals exploit weak maritime enforcement capacity and engage in smuggling out of some of Africa’s largest ports, but the problems are less severe than they are in the northwest Indian Ocean. With the recent reduction to the size of the High Risk Area for piracy, some of the private security contractors employed to protect vessels and oil rigs are going out of business.'
         },
         {
           tag: 'p',
-          html: 'Many gaps exist in combating these threats primarily due to the lack of effective governance over the maritime space and the underdeveloped capacities of maritime law enforcement and the supporting agencies. But new developments, including the 2017 Jeddah Amendment to the Djibouti Code of Conduct, will enhance regional cooperation and increase the likelihood that multinational efforts to improve maritime security will be successful.'
+          html: 'Maritime enforcement capacity remains low throughout the region, but new developments, including the 2017 Jeddah Amendment to the Djibouti Code of Conduct, will enhance regional cooperation and increase the likelihood that multinational efforts to improve maritime security will be successful.'
         }
       ] // end of els array
     },
@@ -582,11 +590,11 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'There have been repeated attacks against shipping and oil infrastructure both at sea and on shore within the Niger Delta. These events have the potential to affect international shipping traffic. Even more worrisome for the workers who either transit the Gulf of Guinea as seafarers or as employees of extractive industries is the highly efficient system of kidnapping for ransom that has developed over the last few years. The frequency and violence of these kidnappings have earned the Gulf of Guinea the reputation of being some of the world’s most dangerous waters.'
+          html: 'There have been repeated attacks against shipping and oil infrastructure both at sea and on shore within the Niger Delta. These events have the potential to affect international shipping traffic. Even more worrisome for the workers who either transit the Gulf of Guinea as seafarers or as employees of extractive industries is the highly efficient system of kidnapping for ransom that has developed over the last few years. The frequency and violence of these kidnappings have earned the Gulf of Guinea the distinction of being the world’s most violent maritime space.'
         },
         {
           tag: 'p',
-          html: 'For many coastal states in West Africa,   <a class="fisheries inline" href="../../fisheries#1">illegal, unregulated, and unreported (IUU) fishing</a> is threatening the long-term sustainability of the <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>. IUU fishing reduces the catch available for local artisanal fishers and threatens local food security while allowing foreign fishing vessels to profit through what is in effect resource theft. Though extensive legal regimes are in place, enforcement capacity varies and in too many areas proves to be insufficient.'
+          html: 'For many coastal states in West Africa, <a class="fisheries inline" href="../../fisheries#1">illegal, unregulated, and unreported (IUU) fishing</a> is threatening the long-term sustainability of the <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>. IUU fishing reduces the catch available for local artisanal fishers and threatens local food security while allowing foreign fishing vessels to profit through resource theft. Though extensive legal regimes are in place, the region’s coast guards and maritime domain awareness are proving insufficient.'
         },
         {
           tag: 'p',
@@ -781,6 +789,7 @@ var overviewData = {
         description: 'Briefly introduce the three organizations.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         tooltip: true,
@@ -811,8 +820,24 @@ var overviewData = {
         },
         {
           tag: 'caption',
-          text: 'Informing evidence-based maritime security strategies'
+          text: 'Informing improved maritime security strategies'
         },
+        {
+          tag: 'p',
+          html: 'The Stable Seas Maritime Security Index combines original research with information from external stakeholders and secondary sources to create country-by-country scores on nine maritime security issues: 1) international cooperation, 2) the rule of law, 3) maritime enforcement capacity, 4) coastal welfare, 5) development of the blue economy, 6) fisheries, 7) piracy and armed robbery at sea, 8) illicit maritime trades, and 9) maritime mixed migration.'
+        },
+        {
+          tag: 'p',
+          html: 'Each score has a possible range of 0 to 100, with higher scores always representing more desirable outcomes. Issues that have become more localized, like piracy and armed robbery, are very high for much of the region but acutely low in concentrated hotspots. More pervasive problems, like illicit maritime trades, are represented by very low scores nearly everywhere.'
+        },
+        {
+          tag: 'p',
+          html: 'The measures presented here reflect the best available information about complex and under-reported issues occurring in expansive remote areas. Some issue scores necessarily reflect best faith estimates rather than exact and verifiable figures. Readers can find methodology summaries throughout the website, along with complete datasets and technical notes from our main page at www.stableseas.org.'
+        },
+        {
+          tag: 'p',
+          html: 'We plan to update these scores annually as new information becomes available.'
+        }
 
       ] // end of els array
     }
