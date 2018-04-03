@@ -14,7 +14,10 @@
   // Color variables
   // var colorBrew = d3.scaleOrdinal(d3.schemeCategory20);// I don't think we need this any more...
   var colorBrew = [['#a6cee3', '#1f78b4'],['#b2df8a', '#33a02c'],['#fb9a99', '#e31a1c'],['#fdbf6f', '#ff7f00'], ['#cab2d6', '#6a3d9a']];
-  var regionsColor = d3.schemeCategory10;
+  var regionsColor = [];
+  for (key in regionsData) {
+    regionsColor.push(regionsData[key].metadata.color);
+  }
   var regionsColorSelection = regionsColor[regionsIndex];
   var rampColor = d3.interpolateLab('white', regionsColorSelection);
 
@@ -867,6 +870,9 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
       // africa average data
       radarData.africa
     ];
+
+    var color = [regionsData[region].metadata.color, '#0d3a58']
+
   } else {
     var cardRadarData = [
       // region average data
@@ -874,6 +880,8 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
       // africa average data
       radarData[region]
     ];
+
+    color = ['pink', regionsData[region].metadata.color];
   }
   {
     // setup a div with class called "radarChart" so that we can put chart to this div.
@@ -891,9 +899,9 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
     cardWidth = 470;
     width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-    var color = d3.scaleOrdinal() // setup color for lines
-        .range(["#EDC951", "#CC333F", "#00A0B0"]);
-
+    // var color = d3.scaleOrdinal() // setup color for lines
+    //     .range(["#EDC951", "#CC333F", "#00A0B0"]);
+    console.log(color);
     var radarChartOptions = {
         w: width,
         h: height,

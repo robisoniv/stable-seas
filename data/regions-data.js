@@ -1384,7 +1384,7 @@ var regionsData = {
       countryData: "",
       regionalCountries: [],
       csv: '../../data/regions/overview/overview.csv',
-      color: '',
+      color: '#0d3a58',
       //  order: -1,
       description: ''
     },
@@ -1392,7 +1392,8 @@ var regionsData = {
       callback('Overview load csv function callback');
 
     },
-    cards: [{ // Card 0
+    cards: [
+      { // Card 0
         title: 'Overview: The African Maritime Space',
         menu: 'Regions Overview',
         metadata: {
@@ -1562,7 +1563,7 @@ var regionsData = {
       countryData: "",
       regionalCountries: ['CPV', 'SEN', 'GNB', 'GMB', 'GIN', 'SLE', 'LBR'],
       csv: '../../data/regions/western-coast/western-coast.csv',
-      color: '',
+      color: '#0DE002',
       csv: '',
       radarData: [{}],
       //  order: -1,
@@ -1571,7 +1572,8 @@ var regionsData = {
     load: function(csv, callback) {
       callback('Western Coast load csv function callback');
     },
-    cards: [{ // Card 0
+    cards: [
+      { // Card 0
         title: 'Africa\'s Western Coast',
         menu: 'The Western Coast',
         metadata: {
@@ -1702,6 +1704,9 @@ var regionsData = {
                 the regional average.'
           },
           {
+            tag: 'radar'
+          },
+          {
             tag: 'p',
             html: 'Across the nine issues covered by the Stable Seas Maritime Security Index, COUNTRY ranks highest in BEST ISSUE. \
                 COUNTRY’s score of NUMBER in this area is high relative to its other issue scores, due in part to SOMETHING RELEVANT \
@@ -1768,6 +1773,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -1858,6 +1866,9 @@ var regionsData = {
                 the regional average.'
           },
           {
+            tag: 'radar'
+          },
+          {
             tag: 'p',
             html: 'Across the nine issues covered by the Stable Seas Maritime Security Index, COUNTRY ranks highest in BEST ISSUE. \
                 COUNTRY’s score of NUMBER in this area is high relative to its other issue scores, due in part to SOMETHING RELEVANT \
@@ -1944,6 +1955,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -2034,6 +2048,9 @@ var regionsData = {
                 the regional average.'
           },
           {
+            tag: 'radar'
+          },
+          {
             tag: 'p',
             html: 'Across the nine issues covered by the Stable Seas Maritime Security Index, COUNTRY ranks highest in BEST ISSUE. \
                 COUNTRY’s score of NUMBER in this area is high relative to its other issue scores, due in part to SOMETHING RELEVANT \
@@ -2120,6 +2137,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -2210,6 +2230,9 @@ var regionsData = {
                 the regional average.'
           },
           {
+            tag: 'radar'
+          },
+          {
             tag: 'p',
             html: 'Across the nine issues covered by the Stable Seas Maritime Security Index, COUNTRY ranks highest in BEST ISSUE. \
                 COUNTRY’s score of NUMBER in this area is high relative to its other issue scores, due in part to SOMETHING RELEVANT \
@@ -2270,7 +2293,7 @@ var regionsData = {
       countryData: [],
       regionalCountries: ['CIV', 'GHA', 'TGO', 'BEN', 'NGA'],
       csv: '../../data/regions/northern-gulf/northern-gulf.csv',
-      color: '',
+      color: '#960CED',
       //  order: -1,
       description: ''
     },
@@ -2706,7 +2729,7 @@ var regionsData = {
       countryData: [],
       regionalCountries: ['CMR', 'GNQ', 'GAB', 'COG', 'COD', 'STP'],
       csv: '../../data/regions/southern-gulf/southern-gulf.csv',
-      color: '',
+      color: '#0AADF7',
       //  order: -1,
       description: ''
     },
@@ -3206,7 +3229,7 @@ var regionsData = {
       countryData: [],
       regionalCountries: ['AGO', 'NAM', 'ZAF'],
       csv: '../../data/regions/southern-coast/southern-coast.csv',
-      color: '',
+      color: '#F7C40A',
       //  order: -1,
       description: ''
     },
@@ -3508,7 +3531,7 @@ var regionsData = {
       countryData: [],
       regionalCountries: ['MDG', 'MUS', 'SYC', 'COM'],
       csv: '../../data/regions/west-indian-ocean/west-indian-ocean.csv',
-      color: '',
+      color: '#ED2F0A',
       //  order: -1,
       description: ''
     },
@@ -3879,7 +3902,7 @@ var regionsData = {
       countryData: [],
       regionalCountries: ['SOM', 'KEN', 'TZA', 'DJI', 'MOZ'],
       csv: '../../data/regions/eastern-coast/eastern-coast.csv',
-      color: '',
+      color: '#f161b8',
       //  order: -1,
       description: ''
     },
