@@ -294,8 +294,9 @@ $('#content-holder').on('click', '.table-expand', function () {
       regionIABtn.style('background-color', function () {
           return rampColor(0.6);
         })
+        //.style('margin-bottom', 5)
         .style('border-bottom', function() {
-          return "5px solid " + regionsColorSelection;
+          return "5px solid black";
         });
 
       // Pull target card index from URL anchor:
@@ -861,10 +862,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
   var iso3 = regionsData[region].cards[cardIndex].map.highlights;
 
   // Lex - this is how you access the radar data
-<<<<<<< HEAD
-  if (cardIndex == 0) {
-    var cardRadarData = [
-=======
+
 
   if (region == 'overview') {
     cardRadarData = [
@@ -874,7 +872,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
     var color = regionsData[region].metadata.color;
   } else if (cardIndex == 0 && region != 'overview') {
     cardRadarData = [
->>>>>>> radar-lex
+// >>>>>>> radar-lex
       // region average data
       radarData[region],
       // africa average data
@@ -893,10 +891,10 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
 
     color = ['pink', regionsData[region].metadata.color];
   }
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
   console.log(cardRadarData);
-=======
+//=======
 //  console.log(cardRadarData, 'hi there you');
 
 
@@ -946,7 +944,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
     }
 
 //console.log(cardRadarData);
->>>>>>> radar-lex
+//>>>>>>> radar-lex
 
 }
 
