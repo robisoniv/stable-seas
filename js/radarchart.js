@@ -201,7 +201,7 @@ function RadarChart(id, data, options) {
             return radarLine(d);
         })
         .style("fill", function(d, i) {
-            console.log(i,cfg.color);
+            console.log('iiii', i,cfg.color);
             return cfg.color[i];
         })
         .style("fill-opacity", cfg.opacityArea)
