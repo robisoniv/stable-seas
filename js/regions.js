@@ -115,7 +115,7 @@
         setTimeout(switchCard(activeCard), 1000);
       })
       .catch(function (error){
-         console.log(error);
+         console.log('error',error);
       });
 
   } else {  // redirect to PDF if on a small screen !
@@ -340,7 +340,7 @@ $('#content-holder').on('click', '.table-expand', function () {
                  })
               .on('click', function () { switchCard(parseInt(this.getAttribute('data-card'))); }); // ### click handler menu item ...
           }
-
+          console.log(card);
           // Load map data...
           var mapDataPath = card.map.path;
           if (card.map.load) {card.map.load(cardIndex, mapDataPath);}
@@ -780,7 +780,6 @@ function buildIndexTable ( obj, container, cardIndex, elIndex ) {
     .text('Expand to see more...');
 }
 
-
 function buildOverviewIndexTable ( obj, container, cardIndex, elIndex ) {
   // Set variable equal to data pulled in from CSV in regionsData[region].load();
   var metadata = regionsData[region].metadata;
@@ -853,6 +852,7 @@ function buildOverviewIndexTable ( obj, container, cardIndex, elIndex ) {
     .text('Expand to see more...');
 }
 
+var cardRadarData = [];
 function buildRadar ( obj, container, cardIndex, elIndex ) {
   //console.log('obj', obj);
   //console.log(container);
@@ -862,9 +862,14 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
 
   // Lex - this is how you access the radar data
 
-
-  if (cardIndex == 0) {
-    var cardRadarData = [
+  if (region == 'overview') {
+    cardRadarData = [
+      // africa average data
+      radarData.africa
+    ];
+    var color = regionsData[region].metadata.color;
+  } else if (cardIndex == 0 && region != 'overview') {
+    cardRadarData = [
       // region average data
       radarData[region],
       // africa average data
@@ -874,7 +879,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
     var color = [regionsData[region].metadata.color, '#0d3a58']
 
   } else {
-    var cardRadarData = [
+    cardRadarData = [
       // region average data
       radarData[iso3],
       // africa average data
@@ -883,6 +888,9 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
 
     color = ['pink', regionsData[region].metadata.color];
   }
+//  console.log(cardRadarData, 'hi there you');
+
+
   {
     // setup a div with class called "radarChart" so that we can put chart to this div.
     var chartIndex = Math.random().toString(36).substring(5); // random chart index so that it won't add 2 charts into 1 div.
@@ -915,6 +923,7 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
         formatValue: '.2', // value will be displayed as: xx
     };
     //Call function to draw the Radar chart
+    console.log('hiiiiiiii', chartIndex, cardRadarData, radarChartOptions);
     RadarChart(".radarChart-" + chartIndex, cardRadarData, radarChartOptions);
 
     var aspect = width / height,
@@ -1087,7 +1096,7 @@ function buildMap (json) {  // ### Need some way to attach EEZ layer to specific
 
           })
           .on('click', function (d) {
-
+            console.log(d);
             //console.log(d3.geoBounds(d));
 
           //   if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
@@ -1244,6 +1253,7 @@ function switchCard ( target ) {
   d3.selectAll('.card-' + target + '-layer')
     .classed('invisible', false);
 
+    console.log('t', target);
   if (mapObj.switch) {mapObj.switch(target);} // ### This has to be on every card - no 'if' statement needed??
 
   // And turn on target card's data layers
@@ -1281,6 +1291,7 @@ function switchCard ( target ) {
       d3.selectAll('.eez.' + highlight)
         .classed('active', true)
         .transition().delay(10 * i)
+        .style('opacity', 0.4)
         .style('fill', function () {
           return rampColor(0.2);
         })

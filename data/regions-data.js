@@ -1367,6 +1367,43 @@ var radarData = {
     "value": 96,
     "axis": "Maritime Mixed Migration",
     "color": '#AA9872'
+  }],
+  "overview": [{
+    "value": 52,
+    "axis": "Rule of Law",
+    "color": '#6E497E'
+  }, {
+    "value": 32,
+    "axis": "International Cooperation",
+    "color": '#3CB2C1'
+  }, {
+    "value": 58,
+    "axis": "Maritime Enforcement",
+    "color": '#354EA1'
+  }, {
+    "value": 80,
+    "axis": "Coastal Welfare",
+    "color": '#B89E42'
+  }, {
+    "value": 45,
+    "axis": "Blue Economy",
+    "color": '#307ABD'
+  }, {
+    "value": 52,
+    "axis": "Fisheries",
+    "color": '#06A89D'
+  }, {
+    "value": 18,
+    "axis": "Piracy",
+    "color": '#B6782A'
+  }, {
+    "value": 33,
+    "axis": "Illicit Trades",
+    "color": '#098895'
+  }, {
+    "value": 96,
+    "axis": "Maritime Mixed Migration",
+    "color": '#AA9872'
   }]
 } // end radarData
 
@@ -1392,8 +1429,7 @@ var regionsData = {
       callback('Overview load csv function callback');
 
     },
-    cards: [
-      { // Card 0
+    cards: [{ // Card 0
         title: 'Overview: The African Maritime Space',
         menu: 'Regions Overview',
         metadata: {
@@ -1407,6 +1443,7 @@ var regionsData = {
             [],
             []
           ],
+          path: '',
           //  highlights: ['CPV', 'SEN', 'GNB', 'GMB', 'GIN', 'SLE', 'LBR'],
           iso3: '',
           load: function(index, csv) {
@@ -1419,16 +1456,35 @@ var regionsData = {
             var i = 0;
             for (key in regionsData) {
               var md = regionsData[key].metadata;
-              md.regionalCountries.forEach(function(iso) {
+              md.regionalCountries.forEach(function(iso, j) {
+                console.log(iso, j);
                 d3.selectAll('.country.' + iso)
                   .style('fill', function() {
+                  //  console.log('white', j);
                     return d3.interpolateLab('white', regionsColor[md.index])(0.6);
                   })
-                  .classed(key, true);
+                  .style('stroke', 'white')
+                  .classed(key, true)
+                  .attr('data-region', md.path)
+                  .on('click', function (d) {
+                    var path = d3.select(this).attr('data-region');
+                    console.log(path);
+
+                    window.location.href = './' + path;
+                  });
 
                 d3.selectAll('.eez.' + iso)
                   .style('stroke', regionsColor[md.index])
-                  .classed(key, true);
+                  .style('fill', regionsColor[md.index])
+                  .style('opacity', 0.4)
+                  .classed(key, true)
+                  .attr('data-region', md.path)
+                  .on('click', function (d) {
+                    var path = d3.select(this).attr('data-region');
+                    console.log(path);
+
+                    window.location.href = './' + path;
+                  });;
 
 
               });
@@ -1448,7 +1504,7 @@ var regionsData = {
           },
           {
             tag: 'p',
-            html: 'The first paragraph will introduce the country in the context of the region.'
+            html: 'The first paragraph will introduce the country in the context of the region and lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. '
           },
           {
             tag: 'radar'
@@ -1480,76 +1536,76 @@ var regionsData = {
           }
         ]
       },
-      { // Card 1
-        title: 'Region 1',
-        menu: 'Region 1',
-        metadata: {
-          owner: '',
-          description: ''
-        },
-        map: {
-          scale: [],
-          translate: [],
-          extent: [
-            [],
-            []
-          ],
-          highlights: [],
-          iso3: '',
-          load: function(index, csv) {
-            var layer = 'card-' + index + '-layer';
-            d3.select('.card-eez-layer')
-              .classed(layer, true);
-          },
-          switch: function(index) {
-            var hl = ['CPV', 'SEN', 'GNB', 'GMB', 'GIN', 'SLE', 'LBR'];
-            hl.forEach(function(iso) {
-              //d3.selectAl
-            });
-          }
-        },
-        els: [{
-            tag: 'h1',
-            text: ''
-          },
-          {
-            tag: 'caption',
-            text: '<em>A subheading line on the country\'s greatest strength</em>'
-          },
-          {
-            tag: 'p',
-            html: 'The first paragraph will introduce the country in the context of the region.'
-          },
-          {
-            tag: 'radar'
-          },
-          {
-            tag: 'video',
-            videoId: 'AXQHK213mFA',
-            thumb: '../../assets/overview/stable-seas-main-video-thumb.png'
-          },
-          {
-            tag: 'caption',
-            text: '<em>Do we want videos in this ? Well we can have them anyway ...</em>'
-          },
-          {
-            tag: 'h2',
-            html: 'Country 1\'s Strengths'
-          },
-          {
-            tag: 'p',
-            html: 'A paragraph on the country\'s strengths, and where it might serve as an example elsewhere in Africa.'
-          },
-          {
-            tag: 'h2',
-            html: 'Challenges Facing Country 1'
-          },
-          {
-            tag: 'p',
-            html: 'A paragraph on the nature of the subject country\'s weaknesses, and where it might learn some lessons on how to improve.'
-          }
-        ]
-      }
+      // { // Card 1
+      //   title: 'Region 1',
+      //   menu: 'Region 1',
+      //   metadata: {
+      //     owner: '',
+      //     description: ''
+      //   },
+      //   map: {
+      //     scale: [],
+      //     translate: [],
+      //     extent: [
+      //       [],
+      //       []
+      //     ],
+      //     highlights: [],
+      //     iso3: '',
+      //     load: function(index, csv) {
+      //       var layer = 'card-' + index + '-layer';
+      //       d3.select('.card-eez-layer')
+      //         .classed(layer, true);
+      //     },
+      //     switch: function(index) {
+      //       var hl = ['CPV', 'SEN', 'GNB', 'GMB', 'GIN', 'SLE', 'LBR'];
+      //       hl.forEach(function(iso) {
+      //         //d3.selectAl
+      //       });
+      //     }
+      //   },
+      //   els: [{
+      //       tag: 'h1',
+      //       text: ''
+      //     },
+      //     {
+      //       tag: 'caption',
+      //       text: '<em>A subheading line on the country\'s greatest strength</em>'
+      //     },
+      //     {
+      //       tag: 'p',
+      //       html: 'The first paragraph will introduce the country in the context of the region.'
+      //     },
+      //     // {
+      //     //   tag: 'radar'
+      //     // },
+      //     {
+      //       tag: 'video',
+      //       videoId: 'AXQHK213mFA',
+      //       thumb: '../../assets/overview/stable-seas-main-video-thumb.png'
+      //     },
+      //     {
+      //       tag: 'caption',
+      //       text: '<em>Do we want videos in this ? Well we can have them anyway ...</em>'
+      //     },
+      //     {
+      //       tag: 'h2',
+      //       html: 'Country 1\'s Strengths'
+      //     },
+      //     {
+      //       tag: 'p',
+      //       html: 'A paragraph on the country\'s strengths, and where it might serve as an example elsewhere in Africa.'
+      //     },
+      //     {
+      //       tag: 'h2',
+      //       html: 'Challenges Facing Country 1'
+      //     },
+      //     {
+      //       tag: 'p',
+      //       html: 'A paragraph on the nature of the subject country\'s weaknesses, and where it might learn some lessons on how to improve.'
+      //     }
+      //   ]
+      // }
     ]
   },
   westernCoast: {
@@ -1572,8 +1628,7 @@ var regionsData = {
     load: function(csv, callback) {
       callback('Western Coast load csv function callback');
     },
-    cards: [
-      { // Card 0
+    cards: [{ // Card 0
         title: 'Africa\'s Western Coast',
         menu: 'The Western Coast',
         metadata: {
@@ -1584,8 +1639,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: [],
           iso3: '',
@@ -1674,8 +1729,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: ['CPV'],
           iso3: '',
@@ -1745,8 +1800,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: ['SEN'],
           iso3: '',
@@ -1836,8 +1891,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: ['GMB'],
           iso3: '',
@@ -1927,8 +1982,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: ['GNB'],
           iso3: '',
@@ -2018,8 +2073,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: ['GIN'],
           iso3: '',
@@ -2109,8 +2164,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: ['SLE'],
           iso3: '',
@@ -2200,8 +2255,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-33, -20],
-            [14.5, 35]
+            [-35, 0],
+            [-25, 35]
           ],
           highlights: ['LBR'],
           iso3: '',
@@ -2313,8 +2368,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-10, -33],
-            [50, 43]
+            [-20, 0],
+            [-10, 35]
           ],
           // highlights: ['CIV', 'GHA', 'TGO', 'BEN', 'NGA'],
           iso3: '',
@@ -2382,8 +2437,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-10, -33],
-            [50, 43]
+            [-20, 0],
+            [-10, 35]
           ],
           highlights: ['CIV'],
           iso3: '',
@@ -2451,8 +2506,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-10, -33],
-            [50, 43]
+            [-20, 0],
+            [-10, 35]
           ],
           highlights: ['GHA'],
           iso3: '',
@@ -2520,8 +2575,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-10, -33],
-            [50, 43]
+            [-20, 0],
+            [-10, 35]
           ],
           highlights: ['TGO'],
           iso3: '',
@@ -2589,8 +2644,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-10, -33],
-            [50, 43]
+            [-20, 0],
+            [-10, 35]
           ],
           highlights: ['BEN'],
           iso3: '',
@@ -2658,8 +2713,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [-10, -33],
-            [50, 43]
+            [-20, 0],
+            [-10, 35]
           ],
           highlights: ['NGA'],
           iso3: '',
@@ -2749,8 +2804,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -3],
-            [80, 3]
+            [0, -5],
+            [10, 25]
           ],
           highlights: [],
           iso3: '',
@@ -2817,8 +2872,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -3],
-            [80, 3]
+            [0, -5],
+            [10, 25]
           ],
           highlights: ['STP'],
           iso3: '',
@@ -2884,8 +2939,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -3],
-            [80, 3]
+            [0, -5],
+            [10, 25]
           ],
           highlights: ['CMR'],
           iso3: '',
@@ -2952,8 +3007,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -3],
-            [80, 3]
+            [0, -5],
+            [10, 25]
           ],
           highlights: ['GNQ'],
           iso3: '',
@@ -3022,8 +3077,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -3],
-            [80, 3]
+            [0, -5],
+            [10, 25]
           ],
           highlights: ['GAB'],
           iso3: '',
@@ -3090,8 +3145,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -3],
-            [80, 3]
+            [0, -5],
+            [10, 25]
           ],
           highlights: ['COG'],
           iso3: '',
@@ -3160,8 +3215,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -3],
-            [80, 3]
+            [0, -5],
+            [10, 25]
           ],
           highlights: ['COD'],
           iso3: '',
@@ -3249,8 +3304,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -60],
-            [110, 25]
+            [-5, -25],
+            [15, 5]
           ],
           highlights: [],
           iso3: '',
@@ -3319,8 +3374,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -60],
-            [110, 25]
+            [-5, -25],
+            [15, 5]
           ],
           highlights: ['AGO'],
           iso3: '',
@@ -3389,8 +3444,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -60],
-            [110, 25]
+            [-5, -25],
+            [15, 5]
           ],
           highlights: ['NAM'],
           iso3: '',
@@ -3459,8 +3514,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [0, -60],
-            [110, 25]
+            [-5, -25],
+            [15, 5]
           ],
           highlights: ['ZAF'],
           iso3: '',
@@ -3550,8 +3605,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [30, -65],
-            [110, 45]
+            [24, -22],
+            [36, 15]
           ],
           highlights: [],
           iso3: '',
@@ -3620,8 +3675,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [30, -65],
-            [110, 45]
+            [24, -22],
+            [36, 15]
           ],
           highlights: ['MDG'],
           iso3: '',
@@ -3690,8 +3745,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [30, -65],
-            [110, 45]
+            [24, -22],
+            [36, 15]
           ],
           highlights: ['MUS'],
           iso3: '',
@@ -3760,8 +3815,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [30, -65],
-            [110, 45]
+            [24, -22],
+            [36, 15]
           ],
           highlights: ['SYC'],
           iso3: '',
@@ -3830,8 +3885,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [30, -65],
-            [110, 45]
+            [24, -22],
+            [36, 15]
           ],
           highlights: ['COM'],
           iso3: '',
@@ -3910,7 +3965,8 @@ var regionsData = {
       callback('Eastern Coast load csv function callback');
 
     },
-    cards: [{ // Card 0
+    cards: [
+      { // Card 0
         title: 'Africa\'s Eastern Coast',
         menu: 'The Eastern Coast',
         metadata: {
@@ -3921,8 +3977,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [10, -60],
-            [130, 45]
+            [5, -18],
+            [25, 35]
           ],
           highlights: [],
           iso3: '',
@@ -3950,6 +4006,9 @@ var regionsData = {
               jThis gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
               Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
               the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -4008,8 +4067,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [10, -60],
-            [130, 45]
+            [5, -18],
+            [25, 35]
           ],
           highlights: ['MOZ'],
           iso3: '',
@@ -4036,6 +4095,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -4096,8 +4158,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [10, -60],
-            [130, 45]
+            [5, -18],
+            [25, 35]
           ],
           highlights: ['TZA'],
           iso3: '',
@@ -4124,6 +4186,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -4184,8 +4249,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [10, -60],
-            [130, 45]
+            [5, -18],
+            [25, 35]
           ],
           highlights: ['KEN'],
           iso3: '',
@@ -4212,6 +4277,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -4272,8 +4340,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [10, -60],
-            [130, 45]
+            [5, -18],
+            [25, 35]
           ],
           highlights: ['SOM'],
           iso3: '',
@@ -4300,6 +4368,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
@@ -4360,8 +4431,8 @@ var regionsData = {
           scale: [],
           translate: [],
           extent: [
-            [10, -60],
-            [130, 45]
+            [5, -18],
+            [25, 35]
           ],
           highlights: ['DJI'],
           iso3: '',
@@ -4388,6 +4459,9 @@ var regionsData = {
                 . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
                 Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
                 the regional average.'
+          },
+          {
+            tag: 'radar'
           },
           {
             tag: 'p',
