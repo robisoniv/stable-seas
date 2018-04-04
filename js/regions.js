@@ -14,7 +14,10 @@
   // Color variables
   // var colorBrew = d3.scaleOrdinal(d3.schemeCategory20);// I don't think we need this any more...
   var colorBrew = [['#a6cee3', '#1f78b4'],['#b2df8a', '#33a02c'],['#fb9a99', '#e31a1c'],['#fdbf6f', '#ff7f00'], ['#cab2d6', '#6a3d9a']];
-  var regionsColor = d3.schemeCategory10;
+  var regionsColor = [];
+  for (key in regionsData) {
+    regionsColor.push(regionsData[key].metadata.color);
+  }
   var regionsColorSelection = regionsColor[regionsIndex];
   var rampColor = d3.interpolateLab('white', regionsColorSelection);
 
@@ -112,7 +115,7 @@
         setTimeout(switchCard(activeCard), 1000);
       })
       .catch(function (error){
-         console.log(error);
+         console.log('error',error);
       });
 
   } else {  // redirect to PDF if on a small screen !
@@ -337,7 +340,7 @@ $('#content-holder').on('click', '.table-expand', function () {
                  })
               .on('click', function () { switchCard(parseInt(this.getAttribute('data-card'))); }); // ### click handler menu item ...
           }
-
+          console.log(card);
           // Load map data...
           var mapDataPath = card.map.path;
           if (card.map.load) {card.map.load(cardIndex, mapDataPath);}
@@ -777,7 +780,6 @@ function buildIndexTable ( obj, container, cardIndex, elIndex ) {
     .text('Expand to see more...');
 }
 
-
 function buildOverviewIndexTable ( obj, container, cardIndex, elIndex ) {
   // Set variable equal to data pulled in from CSV in regionsData[region].load();
   var metadata = regionsData[region].metadata;
@@ -850,6 +852,7 @@ function buildOverviewIndexTable ( obj, container, cardIndex, elIndex ) {
     .text('Expand to see more...');
 }
 
+var cardRadarData = [];
 function buildRadar ( obj, container, cardIndex, elIndex ) {
   //console.log('obj', obj);
   //console.log(container);
@@ -858,23 +861,92 @@ function buildRadar ( obj, container, cardIndex, elIndex ) {
   var iso3 = regionsData[region].cards[cardIndex].map.highlights;
 
   // Lex - this is how you access the radar data
+<<<<<<< HEAD
   if (cardIndex == 0) {
     var cardRadarData = [
+=======
+
+  if (region == 'overview') {
+    cardRadarData = [
+      // africa average data
+      radarData.africa
+    ];
+    var color = regionsData[region].metadata.color;
+  } else if (cardIndex == 0 && region != 'overview') {
+    cardRadarData = [
+>>>>>>> radar-lex
       // region average data
       radarData[region],
       // africa average data
       radarData.africa
     ];
+
+    var color = [regionsData[region].metadata.color, '#0d3a58']
+
   } else {
-    var cardRadarData = [
+    cardRadarData = [
       // region average data
       radarData[iso3],
       // africa average data
       radarData[region]
     ];
+
+    color = ['pink', regionsData[region].metadata.color];
   }
+<<<<<<< HEAD
 
   console.log(cardRadarData);
+=======
+//  console.log(cardRadarData, 'hi there you');
+
+
+  {
+    // setup a div with class called "radarChart" so that we can put chart to this div.
+    var chartIndex = Math.random().toString(36).substring(5); // random chart index so that it won't add 2 charts into 1 div.
+    d3.select('#card' + cardIndex).append('div')
+      .classed('radarChart radarChart-' + chartIndex, true);
+    // setup all need for chart
+    var margin = {
+            top: 50,
+            right: 80,
+            bottom: 50,
+            left: 80
+        },
+    // We should get width of "card" div
+    cardWidth = 470;
+    width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
+    height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+    // var color = d3.scaleOrdinal() // setup color for lines
+    //     .range(["#EDC951", "#CC333F", "#00A0B0"]);
+    console.log(color);
+    var radarChartOptions = {
+        w: width,
+        h: height,
+        margin: margin,
+        maxValue: 99, // max value in data
+        wrapWidth: 8,
+        levels: 4, // number of circles in chart
+        dotRadius: 3,
+        roundStrokes: true,
+        color: color,
+        formatValue: '.2', // value will be displayed as: xx
+    };
+    //Call function to draw the Radar chart
+    console.log('hiiiiiiii', chartIndex, cardRadarData, radarChartOptions);
+    RadarChart(".radarChart-" + chartIndex, cardRadarData, radarChartOptions);
+
+    var aspect = width / height,
+        chart = d3.select('.radarChart');
+    d3.select(window)
+        .on("resize", function() {
+            var targetWidth = chart.node().getBoundingClientRect().width;
+            chart.attr("width", targetWidth);
+            chart.attr("height", targetWidth / aspect);
+        });
+    }
+
+//console.log(cardRadarData);
+>>>>>>> radar-lex
 
 }
 
@@ -969,7 +1041,7 @@ function buildMap (json) {  // ### Need some way to attach EEZ layer to specific
               .classed('invisible', true);
           })
           .on('click', function (d) {
-            console.log(d3.geoBounds(d));
+            //console.log(d3.geoBounds(d));
 
           //  console.log(d);
           //  console.log(path.bounds(d));
@@ -1034,8 +1106,8 @@ function buildMap (json) {  // ### Need some way to attach EEZ layer to specific
 
           })
           .on('click', function (d) {
-
-            console.log(d3.geoBounds(d));
+            console.log(d);
+            //console.log(d3.geoBounds(d));
 
           //   if ($.inArray(d.properties.ISO_A3_EH, includedCountries) != -1) {
           //     var coords = path.bounds(d);
@@ -1191,6 +1263,7 @@ function switchCard ( target ) {
   d3.selectAll('.card-' + target + '-layer')
     .classed('invisible', false);
 
+    console.log('t', target);
   if (mapObj.switch) {mapObj.switch(target);} // ### This has to be on every card - no 'if' statement needed??
 
   // And turn on target card's data layers
@@ -1228,6 +1301,7 @@ function switchCard ( target ) {
       d3.selectAll('.eez.' + highlight)
         .classed('active', true)
         .transition().delay(10 * i)
+        .style('opacity', 0.4)
         .style('fill', function () {
           return rampColor(0.2);
         })
