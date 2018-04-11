@@ -963,37 +963,13 @@ var illicitTradeData = {
           text: 'Methodology',
         },
         { tag: 'p',
-          html: 'We created an Illicit Trade Score for each of the 30 coastal countries by asking experts to evaluate the severity of illegal trades in arms, drugs, contraband, and wildlife. For each issue and country, respondents assessed the severity of the problem, the extent to which each trade is a maritime issue (rather than land-based or air-based), and the likely trajectory of the problem over the next three to five years. In this way, these scores reflect the median answer to 360 response items spanning three aspects of four issues across 30 countries.'
+          html: 'Illicit trades are a problem nearly everywhere, but the goods being trafficked vary by region. To capture the breadth of the maritime illicit trades, we created scorecards evaluating each country’s participation in the illicit maritime movement of the following products: coca and its derivatives, opiates, cannabis, synthetic narcotics, small arms and light weapons, wildlife products, and miscellaneous contraband. The nature of the shadow economy means precise estimates of the scale of these trades are impossible to obtain. However, we can evaluate the relative severity of each trade and the diversity of illicit goods moving through each country’s waters.'
         },
         { tag: 'p',
-           html: 'We weight all answers equally, so in effect countries with higher scores have more kinds of illegal trades, those trades are occurring primarily at sea, and the problems are getting worse. Beyond the expert assessment of the severity of the problem, these scores do not reflect any estimates of or assumptions about the volume or value of these trades. These data are impossible to obtain due to the nature of black markets and the irregularity of major seizures.'
+           html: 'For each of the seven illicit trades and 30 countries, in-house respondents assessed the severity of the problem and the extent to which each trade is a maritime issue (rather than land-based or air-based). Respondents worked together to identify the most reliable and recent sources, and each assessment is linked to sources in the scorecards available for download.'
         },
         { tag: 'p',
-           html: 'We provide more information about each survey item, including disaggregated data about each illicit trade, in the data documentation available for download.' //### insert link
-        },
-        { tag: 'h3',
-          text: 'Arms',
-        },
-        { tag: 'p',
-           html: 'The first issue area analyzed, arms trafficking, focuses on illegal transfers of weapons and ammunition across state borders. It does not cover legal arms sales between governments, but instead aims to capture illegal flows that primarily involve non-state actors. Most of these arms are categorized as small arms and light weapons. The buyers are often—though not always— violent non-state actors operating in the region in question.'
-        },
-        { tag: 'h3',
-          text: 'Drugs',
-        },
-        { tag: 'p',
-           html: 'Drug trafficking analysis highlights international transfers of illegal narcotics and other banned substances, primarily heroin, cocaine, and methamphetamines. Sections of the report show that sub-Saharan Africa has recently transitioned from being not only a transcontinental transport hub, but also a major consumer of these drugs and, increasingly, a producer of methamphetamines.'
-        },
-        { tag: 'h3',
-          text: 'Contraband',
-        },
-        { tag: 'p',
-           html: 'Contraband trafficking is a diverse set of activities described as the illegal trade or movement of legal substances. These substances vary widely around the continent, but include pharmaceuticals, sugar, charcoal, and electronics. The quantitative scores show the severity of any one of these trades in a country’s maritime space, but the report also discusses several discrete problems that are specific to particular countries or subregions.'
-        },
-        { tag: 'h3',
-          text: 'Wildlife',
-        },
-        { tag: 'p',
-           html: 'The final issue area analyzed, wildlife trafficking, covers poaching of protected species and illicit transfers of animals (e.g., exotic pets) as well as animal products (e.g., ivory and pelts) acquired through illegal means. Though the illegal trade in rhinoceros and elephant ivory is the best-known outside of Africa, the score also reflects lesser-known issues like the poaching of abalone in southern Africa and of pangolins in central and western Africa.'
+           html: 'More details about all of these scores are available on our data page.' //### insert link
         }
       ] // end of els array
     }
