@@ -293,6 +293,10 @@ nav {
   margin: 0px;
 }
 
+.muted {
+  opacity: 0.5;
+}
+
 .country-score {
   font-size: 18px;
 }
@@ -644,8 +648,12 @@ tr:nth-child(odd) {
 
 .eez {
   fill: transparent;
-  stroke: whitesmoke;
+  stroke: grey;
   /*stroke-width: 1px*/
+}
+
+.eez.active {
+  stroke: whitesmoke;
 }
 
 .pulse.eez {
@@ -1060,6 +1068,13 @@ div.navy-and-maritime-law-enforcement {
   fill: 0.5;
 }
 
+.pie-segment-label {
+  pointer-events: none;
+}
+
+.pie-chart-label {
+  font-size: 22px;
+}
 /* ia8c4 - Piracy: Offshore Oil Infrastructure */
 
 .offshore-oil {
