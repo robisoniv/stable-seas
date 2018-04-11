@@ -175,7 +175,7 @@ var maritimeEnforcementData = {
           items: [{
               org: '<sup>1</sup> Céline Pajon, “Japan’s Coast Guard and Maritime Self-Defense Force: Cooperation among Siblings,” <em>Maritime Awareness Project</em>, December 1, 2016,',
               url: 'http://maritimeawarenessproject.org/2016/12/01/japans-coast-guard-and-maritime-self-defense-force-cooperation-among-siblings/'
-            }, 
+            },
             {
               org: '<sup>2</sup> Nan Tian, Aude Fleurant, Pieter D. Wezeman and Siemont T Wezeman, “Trends in World Military Expenditure, 2016,” SIPRI, April 2017, p. 4',
               url: 'https://www.sipri.org/sites/default/files/Trends-world-military-expenditure-2016.pdf'
@@ -1015,58 +1015,51 @@ var maritimeEnforcementData = {
         }
       },
       els: [
-        { tag: 'h3',
+        { tag: 'h1',
           text: 'Methodology'
         },
         // { tag: 'legend',
         //   text: 'Map Legend',
         //   legendContent: '<em>Lighter shades indicate greater maritiime enforcement capability</em>'
         // },
-        // { tag: 'p',
-        //    text: 'The Maritime Enforcement score consists of three equally weighted parts: the difficulty of governing the specific maritime space, a quantitative measure of capability based on fleet size, and a qualitative expert assessment of enforcement capacity and international assistance received. Each of these parts is briefly introduced below, with more detailed technical notes in the data documentation available for download.'
-        // },
-        // { tag: 'h4',
-        //   text: 'Geography'
-        // },
-        // { tag: 'p',
-        //    text: 'We score the effect of EEZ geography on a state’s capacity to govern by considering two equally weighted factors: EEZ size and coastline length. Though these two concepts are correlated, they can diverge based on the shape of the coastline and the arrangement of neighboring EEZs. Cameroon, for example, has a very low EEZ-to-coastline ratio because its offshore claims quickly meet those of island neighbors like Equatorial Guinea. Conversely, Cabo Verde’s relative isolation in the mid-Atlantic means it has an EEZ that extends many nautical miles in all directions.'
-        // },
-        // { tag: 'p',
-        //    html: 'Data on EEZ size is drawn from <a href="www.maritimeregions.org" target="_blank">www.maritimeregions.org</a>, an online gazetteer produced by the Flanders Maritime Institute. This resource contains comprehensive geospatial and legal information about maritime spaces around the world. Coastline lengths are taken from the CIA World Factbook.'
-        // },
-        // { tag: 'p',
-        //    text: 'The difficulty score also accounts for the effect poor maritime relations can have on making EEZs more difficult to govern. Two factors inform relations with maritime neighbors: the number of EEZ neighbors and the proportion of those neighbors a state has come to a formal mutual agreement with about the placement of maritime boundaries. We draw both measures from data from the Flanders Maritime Institute. We argue that the difficulty of patrolling a maritime space increases with the number of direct maritime neighbors and further argue that it is even more difficult when borders are disputed or unestablished.'
-        // },
-        // { tag: 'h4',
-        //   text: 'Fleet Size'
-        // },
-        // { tag: 'p',
-        //    html: 'We include data about the number of significant vessels available to federal forces, which may include a navy, coast guard, port police, and/or maritime division of another branch of the armed forces. We derive these ship counts from <i>Military Balance</i>, which is an annual global report from the International Institute for Strategic Studies.'
-        // },
-        // { tag: 'p',
-        //    text: 'We separate two types of vessels to measure two types of naval capacity: coastal patrol vessels, which provide countries with the ability to monitor activity near the coast, and surface warfare craft, which allow for a stronger enforcement presence farther offshore into a state’s exclusive economic zone and beyond.'
-        // },
-        // { tag: 'p',
-        //    text: 'As opposed to other naval power measures that focus on weaponry and the ability to exert force well into neighboring ocean basins, this count of vessels focuses on two skills that help states govern their EEZs: the ability to patrol the coasts and the ability to project force across the deeper waters of an EEZ.'
-        // },
-        // { tag: 'p',
-        //    text: 'Both measures are simple vessel counts that do not take into account age, working condition, or funding, but we address these factors in the expert assessments of capability and international assistance.'
-        // },
-        // { tag: 'h4',
-        //    text: 'Expert Assessment of Capability'
-        // },
-        // { tag: 'p',
-        //    text: 'Counts of vessels and displacement tonnage miss some aspects of naval capability. Equipment can be outdated, support vessels may hinder naval effectiveness, and insufficient ongoing commitments may mean navies are underfunded and undertrained. We use an expert assessment to gauge what activities fall within and beyond the capabilities of African navies.'
-        // },
-        // { tag: 'p',
-        //    html: 'We adopt the Typology for Navies provided by <i>Leadmark: The Navy’s Strategy for 2020</i>, which was completed by the Canadian Navy. Using this 10-tier rating system, we asked four experts to independently evaluate and score the 30 African littoral states. The ratings were correlated at well over 0.90, so the ratings were averaged into a single capability score ranging from 4 (South Africa) to 10 (Somalia). For the purpose of patrolling an EEZ, further developments above “Medium Regional Force Projection” are unnecessary, as levels above that describe the ability to project power out into an ocean basin.'
-        // },
-        // { tag: 'p',
-        //    text: 'Finally, many navies receive substantial international assistance with governing their maritime spaces. This assistance ranges from multilateral naval patrols to donations of training, vessels, and communications equipment. We asked four experts to assess the extent of four kinds of international assistance to each African navy: (1) training, (2) equipment, (3) exercises, and (4) patrols.'
-        // },
-        // { tag: 'p',
-        //    text: 'Respondents classified each of these aspects of international assistance according to the following scale: (0) no evidence of assistance, (1) evidence of infrequent/limited assistance, (2) recipient of minor assistance, (3) recipient of consistent and significant assistance, and (4) major recipient of formalized and large-scale assistance.'
-        // }
+        { tag: 'p',
+           text: 'We measure and define Maritime Enforcement as each country’s capacity to effectively patrol its territorial waters and EEZ for the purposes of investigating illicit activity and enforcing maritime law. The score is not concerned with legal regimes or naval warfighting efforts, though both of these related concepts are greatly affected by Maritime Enforcement. Rather, this score focuses on the difficulty of managing a state’s specific maritime space, its capacity to perform constabulary duties in that space, and the development and regional integration of its maritime domain awareness systems.'
+        },
+
+        { tag: 'p',
+           text: 'We measure the Maritime Enforcement Score with four components:'
+        },
+        { tag: 'h4',
+          text: 'Difficulty'
+        },
+        { tag: 'p',
+           html: 'States face unique challenges depending on the geography of their maritime space. Our difficult score captures this variation by considering factors like coastline length, EEZ size, and relations between each country and its immediate maritime neighbors.'
+        },
+        { tag: 'h4',
+          text: 'Coastal Patrol Assets'
+        },
+        { tag: 'p',
+           text: 'We measure the number of coastal patrol vessels available to federal forces, which may include a navy, coast guard, port police, and/or other maritime enforcement division. We derive these vessel counts from The Military Balance 2016, an annual global report from the International Institute for Strategic Studies (IISS). This report did not include information for Sao Tome and Principe or Comoros, so we supplemented these data with in-house research and inquiries to regional stakeholders. We adopt the coastal patrol vessel definition from the Military Balance report:'
+        },
+        {
+          tag: 'blockquote',
+          html: 'Patrol and Coast Combatants: “surface vessels designed for coastal or inshore operations. These include corvettes... offshore patrol ships…, patrol craft…, and patrol boats.”'
+        },
+        { tag: 'h4',
+          text: 'Expert Assessment of Naval Capacity'
+        },
+        { tag: 'p',
+           html: 'Counts of vessels miss some important aspects of naval capability. Equipment can be outdated and navies can be underfunded or inadequately trained. To address this reality and complement our Coastal Patrol Vessels Component, we use an in-house expert assessment to measure naval capability by gauging what activities fall within and beyond the capabilities of African navies.'
+        },
+        { tag: 'h4',
+          text: 'Expert Assessment of Maritime Domain Awareness (MDA)'
+        },
+        { tag: 'p',
+           html: 'Finally, we assess the extent to which a country has made a deliberate commitment to establishing the onshore infrastructure needed to develop maritime domain awareness. It takes into account the establishment of Maritime Operations Centers (MOCs), the information gathering, processing and sharing capabilities of those MOCs, and the county\'s level of integration into multinational MSA constructs, such as participation in regional MOCs or Zone information sharing arrangements.'
+        },
+        { tag: 'p',
+           text: 'More details about all of these scores are available on our data page.'
+        }
       ]
     } // End of eighth  object in cards array
   ] // End of cards array
