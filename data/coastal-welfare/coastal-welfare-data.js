@@ -48,7 +48,6 @@ var coastalWelfareData = {
         description: 'Overview of the sub-index.'
       },
       map: {
-        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         path: '',
@@ -257,12 +256,13 @@ var coastalWelfareData = {
         path: '',
         highlights: [],
         tooltip: true,
+        legend: 'Artisanal Fishing Opportunities Score',
         tooltipHTML: function (iso3) {
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].womensEconomicSecurity;
-          tooltipVal = Math.round(tooltipVal * 100);
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].artisanalFishing;
+          tooltipVal = tooltipVal * 100;
           updatePointer(tooltipVal);
 
-          return "Womens Economic Security:<br />" + tooltipVal + " / 100";
+          return "Artisanal Fishing Opportunities:<br />" + tooltipVal + " / 100<br />(Source: Ocean Health Index)";
         },
         load: function(index, file) {
           var layer = 'card-' + index + '-layer';
@@ -272,7 +272,7 @@ var coastalWelfareData = {
         switch: function(index) {
           //  switchMainIndex(index);
 
-          choropleth(index, 1, 'womensEconomicSecurity');
+          choropleth(index, 1, 'artisanalFishing');
           // var artisanalFishing = issueAreaData[issueArea].metadata.countryData;
           //
           // var values = [];
@@ -300,7 +300,7 @@ var coastalWelfareData = {
         },
         {
           tag: 'caption',
-          text: '***Need updated data from Curtis for choropleth<br />How maritime crime hurts local economies'
+          text: '***DO WE need updated data from Curtis for choropleth<br />How maritime crime hurts local economies??'
         },
         // {
         //   tag: 'legend',
@@ -309,11 +309,11 @@ var coastalWelfareData = {
         // },
         {
           tag: 'p',
-          html: 'Strong fisheries, tourism, and other maritime industries provide coastal populations with an opportunity to thrive in the <a class="blue-economy inline" href="../../blue-economy">legal maritime economy</a>.<sup>1</sup> When such opportunities diminish or are not available, people are more likely to join criminal networks and to exploit maritime resources through illegal means.'
+          html: 'Fisheries, tourism, and other maritime industries provide coastal populations with opportunities to thrive in the <a class="blue-economy inline" href="../../blue-economy">legal maritime economy</a>. When such opportunities diminish or are not available, workers are more likely to join criminal networks and to exploit maritime resources through illegal means.'
         },
         {
           tag: 'p',
-          html: 'The relationship between recruitment for piracy and unemployment in fisheries is a striking example. Pirates recruit from local fishing communities, among other sectors, since fishers possess the navigational knowledge, skills, and resources that pirates need to execute their attacks. Stable and abundant income opportunities in the fishing sector keep people away from criminal activity. On the other side, poor fish catches can propel more people to join pirate networks.<sup>2</sup>'
+          html: 'The relationship between recruitment for piracy and unemployment in fisheries is a striking example. Pirates recruit from local fishing communities, among other sectors, since fishers possess the navigational knowledge, skills, and resources that pirates need to execute their attacks. Stable and abundant income opportunities in the fishing sector keep people away from criminal activity, while poor fish catches can propel more people to join pirate networks.'
         },
         {
           tag: 'img',
@@ -323,7 +323,7 @@ var coastalWelfareData = {
         },
         {
           tag: 'p',
-          html: 'However, while poor coastal economic welfare enables maritime crimes, maritime crimes also disrupt local economies. Large injections of capital acquired through illicit means have effects similar to those of the “resource curse.”<sup>3</sup> Large illicit capital inflows, such as ransom payments, lead to inflation. Inflation in turn undermines local manufacturing industries and exports. The service industry booms, and imports grow. While advantageous in the short term, this effect undermines long-term development and fosters a dependency on the illicit sectors.'
+          html: 'While poor coastal economic welfare enables maritime crimes, maritime crimes also disrupt local economies. Large injections of capital acquired through illicit means have effects similar to those of the “resource curse.” Large illicit capital inflows, such as ransom payments, lead to inflation. Inflation in turn undermines local manufacturing industries and exports. The service industry booms, and imports grow. While advantageous in the short term, this effect undermines long-term development and fosters dependency on the illicit sectors.'
         },
         {
           tag: 'blockquote',
@@ -333,25 +333,25 @@ var coastalWelfareData = {
         },
         {
           tag: 'p',
-          html: 'The effect has been strong in Puntland, which has seen a significant decline in exports in comparison to Somaliland since 2005, despite having trade figures that were tracking very closely to Somaliland’s prior to the onset of piracy.<sup>5</sup>'
+          html: 'The result of these dynamics is a feedback loop between poor coastal welfare and illicit maritime activity. As the illicit maritime economy develops to the detriment of the legitimate economy, workers are increasingly drawn to participate in the illicit economy.'
         },
         // Insert graph of Change in export volumes ###
         {
           tag: 'img',
           src: '../../assets/coastal-welfare/change_export_volumes.jpg',
         },
-        {
-          tag: 'p',
-          html: 'As a result of the effects of ransom revenues on the economy, employment opportunities in manufacturing, agriculture, and other export industries decrease. As unemployment and poverty rise, people start seeing more opportunity in the illicit economy.'
-        },
-        {
-          tag: 'p',
-          html: 'One result of these dynamics is the inception of a feedback loop between poor coastal welfare and illicit maritime activity; the more maritime crime develops, the more it can take a toll on economic development. The more economic development stagnates, the more people are inclined to move into illicit activities and crimes.'
-        },
+        // {
+        //   tag: 'p',
+        //   html: 'As a result of the effects of ransom revenues on the economy, employment opportunities in manufacturing, agriculture, and other export industries decrease. As unemployment and poverty rise, people start seeing more opportunity in the illicit economy.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'One result of these dynamics is the inception of a feedback loop between poor coastal welfare and illicit maritime activity; the more maritime crime develops, the more it can take a toll on economic development. The more economic development stagnates, the more people are inclined to move into illicit activities and crimes.'
+        // },
         {
           tag: 'links',
           items: [{
-              org: '<sup>1</sup> Ryan Jablonski and Steven Oliver, “The Political Economy of Plunder: Economic Opportunity and Modern Piracy,” <em>Journal of Conflict Resolution</em> 57, no. 4 (2012): 682–708.'
+              org: '<sup>1</sup> ***###??? Ryan Jablonski and Steven Oliver, “The Political Economy of Plunder: Economic Opportunity and Modern Piracy,” <em>Journal of Conflict Resolution</em> 57, no. 4 (2012): 682–708.'
             },
             {
               org: '<sup>2</sup> Mattias Fluckiger and Markus Ludwig, “Economic Shocks in the Fisheries Sector and Maritime Piracy,” <em>Journal of Development Economics</em> 114 (2015): 107–125.'
@@ -715,6 +715,7 @@ var coastalWelfareData = {
       translate: [],
       highlights: null,
       tooltip: true,
+      legend: 'Coastal Welfare Score',
       tooltipHTML: function (iso3) {
         var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
         tooltipVal = Math.round(tooltipVal * 100);
@@ -734,58 +735,50 @@ var coastalWelfareData = {
       }
     },
     els: [
-    { tag: 'h3',
+    { tag: 'h1',
       text: 'Methodology'
     },
-    { tag: 'legend',
-      text: 'Map Legend',
-      legendContent: '<em>Lighter shades indicate higher coastal welfare scores.</em>'
-    },
+    // { tag: 'legend',
+    //   text: 'Map Legend',
+    //   legendContent: '<em>Lighter shades indicate higher coastal welfare scores.</em>'
+    // },
     { tag: 'p',
-       html: 'The Coastal Welfare Score gauges physical security and economic security, both throughout a country and specifically along the coast. This section briefly summarizes how each concept is measured. More technical details are included in the data documentation available for download.'
+       html: 'We conceptualize coastal welfare as a function of a population’s physical and economic security, both on the coast and in a country more generally. We calculate the Coastal Welfare Score with four equally weighted components:'
     },
     { tag: 'h4',
-      text: 'Physical Security'
+      text: 'Country-wide Physical Security'
     },
     { tag: 'p',
-       html: 'We use four inputs to measure physical security: the severity of coastal armed conflicts, the severity of nationwide armed conflicts, nationwide homicide rates, and an analysis of women’s physical security.'
+       html: 'We used two indicators to measure the Country-wide Physical Security Component: country-wide armed conflict events and homicide rates. The first indicator was derived from the Georeferenced Event Dataset (GED) produced by a joint initiative of the Uppsala Conflict Data Program (UCDP) and the Peace Research Institute of Oslo (PRIO). The dataset includes geocoded information about specific lethal instances of armed conflict, such as battles between governments and rebels or uses of violence against civilians worldwide. Homicide rate is taken from the United Nations Office on Drugs and Crime (UNODC).'
+    },
+    {
+      tag: 'h4',
+      html: 'Coastal Physical Security'
     },
     { tag: 'p',
-       html: 'The first two of these inputs are derived from data from a joint initiative of the Uppsala Conflict Data Program and the Peace Research Institute of Oslo. The georeferenced event dataset produced by this initiative includes geocoded information about specific lethal instances of armed conflict, such as battles between governments and rebels or use of violence against civilians.<sup>19</sup> The project codebook defines a qualifying event as: “An incident where armed force was used by an organized actor against another organized actor, or against civilians, resulting in at least one direct death at a specific location and a specific date.”<sup>20</sup>'
+       html: 'To isolate armed conflict occurring near the coastline, we identified armed conflict events within 50 kilometers of a country’s coast using the same Georeferenced Event Dataset (GED) from UCDP. The 256 qualifying events are spread across six countries: Somalia, Nigeria, Kenya, Angola, Mozambique, and Côte d’Ivoire.'
+    },
+    {
+      tag: 'h4',
+      html: 'Coastal Economic Security Component'
     },
     { tag: 'p',
-       html: 'Counts of nationwide events by country were used to create the nationwide armed-conflict severity measure for each state. In 2016 the 30 coastal sub-Saharan countries collectively experienced 1,039 qualifying events. To isolate political violence occurring near the coastline, we used geographic event data to identify events occurring within 50 kilometers of a country’s coastline. This reduced the number of events to 256, and those are spread across six countries. Some countries, like Somalia and Angola, experienced most of their lethal conflict events near the coast. Others, like the Democratic Republic of the Congo and Cameroon, suffered conflict in interior regions but not in coastal areas.'
+       html: 'We use two indicators to measure coastal economic security. The first is the Artisanal Fishing Opportunities goal from the Ocean Health Index (OHI), which captures whether the demand for fishing opportunities is met on the coast in a lawful and sustainable manner. The second is the Coastal Livelihoods and Economies measure from OHI. This score measures the relative economic-well being of coastal areas in comparisonE to the rest of the country. This score is weighted by the Human Development Index (HDI) produced by the United Nations Development Program (UNDP).'
+    },
+    {
+      tag: 'h4',
+      html: 'Country-wide Economic Security'
     },
     { tag: 'p',
-       html: 'The third measure of physical security is the nationwide homicide rate as recorded by the United Nations Office on Drugs and Crime. Homicide data was taken for the most recent available year for each country. In most cases, 2015 was the most recent year used.'
+       html: 'We measure country-wide economic security using two indicators: the Human Development Index (HDI) from the the UNDP and infant mortality data from the World Bank. The Human Development Index is perhaps the world’s most influential score of social well-being. The HDI seeks to capture well-being by looking at three key measures of economic and human development: life expectancy, education provision, and gross national income. Infant mortality is commonly viewed as one of the best single indicators of social welfare. To improve infant mortality rates, countries must invest in health care, transportation infrastructure, nutrition, and women’s education across all socioeconomic classes and social groups.'
     },
     { tag: 'p',
-       html: 'The fourth measure is an analysis of women’s physical security, derived from the Women, Business, and the Law data from the World Bank. To create this measure, we used the data from the Protecting Women indicator in the dataset, which “examines the existence of legislation on domestic violence and sexual harassment”<sup>21</sup> in each country. '
+       html: 'More details about all of these scores are available on our data page.'
     },
-    { tag: 'h4',
-      text: 'Economic Security'
-    },
-    { tag: 'p',
-       html: 'We use five inputs to measure economic security on the coast and nationwide: artisanal fishing opportunities, coastal livelihoods and economies, the Human Development Index, infant mortality rate, and women’s economic security. We use three data sources to measure economic security: the Ocean Health Index (OHI) for coastal livelihoods and economies and artisanal fishing opportunities, the United Nations Development Programme for the Human Development Index, and the World Bank for infant mortality rate data and the Women, Business, and the Law dataset.'
-    },
-    { tag: 'p',
-       html: 'The first measure is the <a href="http://www.oceanhealthindex.org/methodology/components/artisanal-fishing-need" target="_blank">Artisanal Fishing Opportunities Index</a> collected by OHI. The index measures “whether people who need to fish on a small, local scale have the opportunity to do so.”<sup>22</sup> In other words, it captures whether the demand for fishing opportunities is met on the coast in a lawful and sustainable manner.'
-    },
-    { tag: 'p',
-       html: 'Second, the “Livelihoods and Economies” measure from OHI, weighted by the Human Development Index, assesses jobs and revenue produced from marine-related industries relative to national trends in employment and GDP. The score thus captures the relative economic well-being of coastal areas in comparison to the rest of the country. The industries considered in the measure are: (1) commercial fishing, (2) mariculture, (3) tourism and recreation, (4) shipping and transportation, (5) whale watching, (6) ports and harbors, (7) ship and boat building, and (8) renewable energy production (wind and wave).'
-    },
-    { tag: 'p',
-       html: 'Third, the Human Development Index (HDI) is a composite measure of the overall social well-being of citizens in each country and includes data on life expectancy, education, and per capita income. This measure is an excellent indicator for economic welfare across a country. We multiply it by the Livelihoods and Economies score to proxy coastal development.'
-    },
-    { tag: 'p',
-       html: 'Fourth, infant mortality rate is an ideal measure of social welfare because it reflects the state of healthcare, women’s education, and the availability of sufficient nutrition, transportation infrastructure, and shelter. These data are used with the HDI to gauge economic security at the country level.'
-    },
-    { tag: 'p',
-       html: 'Finally, the fifth measure is an analysis of women’s economic security derived from the Women, Business, and the Law data from the World Bank. To create this measure, we use the data from the “Getting a Job” indicator in the dataset, which “assesses restrictions on women’s work, such as prohibitions on working at night or in certain jobs. This indicator also covers laws on work-related maternity, paternity, parental benefits, retirement ages, equal remuneration for work of equal value and nondiscrimination in hiring.”<sup>23</sup>'
-    },
+
     { tag: 'links',
       items: [
-        {org: '<sup>19</sup> Sundberg and Melander, “Introducing the UCDP Georeferenced Event Dataset.'},
+        {org: '<sup>19</sup> ***###??? Sundberg and Melander, “Introducing the UCDP Georeferenced Event Dataset.'},
         {org: '<sup>20</sup> Ibid., pg. 2'},
         {org: '<sup>21</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,', url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'},
         {org: '<sup>22</sup> “Artisanal Fishing Opportunities,” the Ocean Health Index, accessed 1 September 2017,', url: 'http://www.oceanhealthindex.org/methodology/goals/artisanal-fishing-opportunities'},
