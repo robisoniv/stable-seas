@@ -16,6 +16,7 @@ var piracyData = {
     code: 'piracy',
     path: 'piracy',
     countryData: {},
+    incidents: [],
     csv: '../../data/piracy/piracy.csv',
     color: '#B6782A',
     order: -1,
@@ -24,17 +25,36 @@ var piracyData = {
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
     // We should probably also load incidents here instead of on card 0 ?
+    d3.select('body')
+      .append('script')
+      .attr('src', 'https://d3js.org/d3-hexbin.v0.2.min.js');
+
+
     d3.csv('../../data/piracy/piracy-incidents.csv', function(incidents) {
       incidents.forEach(function(d) {
         d.lat = +d.lat;
         d.lon = +d.lon;
       });
 
+      issueAreaData[issueArea].metadata.incidents = incidents;
+
       var incidentsLayer = mapg.append('g')
-        .classed('card-layer piracy-incidents card-1-layer card-2-layer card-3-layer', true);
+        .classed('card-layer piracy-incidents card-1-layer card-2-layer', true);
+
+      var incidentsColor = ['rgb(64, 194, 94)', 'rgb(54, 19, 105)', 'blue']
+
+      function inModel(d) {
+        if (d.category == 'Robbery' || d.category == 'Armed robbery' || d.category == 'Unarmed robbery' || d.category == 'Hijack for cargo theft' || d.category == 'Kidnapping') {
+          return true;
+        }
+      }
+
+      filtered = incidents.filter(inModel);
+
+
 
       incidentsLayer.selectAll('circle')
-        .data(incidents).enter()
+        .data(filtered).enter()
         .append('circle')
         .attr('cx', function(d) {
           return projection([d.lon, d.lat])[0];
@@ -43,19 +63,37 @@ var piracyData = {
           return projection([d.lon, d.lat])[1];
         })
         .attr('class', function(d, i) {
-          return 'a' + i
+          return 'incident-' + d.category.split(' ')[0].toLowerCase();
         })
+        .style('opacity', 0.5)
         .classed('piracy-incident', true)
-        .on('mousemove', function (d) {
+        .on('mouseenter', function (d) {
+        //  var category = d['category-code'];
+
+          var pieSegment = d3.select('.pie-segment-' + d.category.split(' ')[0].toLowerCase());
+
+          pieSegment.moveToFront();
+          pieSegment.style('stroke', 'white')
+            .style('stroke-width', '3px');
+
+          // pieSegment.select(function () {
+          //   console.log('node', this.parentNode)
+          //   return this.parentNode;
+          //
+          // }).moveToFront();
+
+        })
+        .on('mousemove', function(d) {
+
           d3.select(this)
-            .attr('opacity', 1)
+            .style('opacity', 1)
             .attr('r', '4px');
 
           d3.select(this).moveToFront();
           var coords = d3.mouse(this);
           var y = d3.event.pageY,
             x = d3.event.pageX;
-      //    console.log(d3.event);
+          //    console.log(d3.event);
 
           var tooltip = d3.select('div.tooltip');
           tooltip.style('left', (x + 20) + 'px')
@@ -63,27 +101,30 @@ var piracyData = {
             .classed('hidden', false)
             .classed('active', true)
             .style('text-align', 'left');
-        //  console.log(d);
+          //  console.log(d);
           tooltip.select('h1')
             .text(null);
 
           var format = d3.timeParse('%m/%d/%y %h:%M');
 
-      //    console.log(Date(d.date));
-          var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          //    console.log(Date(d.date));
+          var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
           var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
           var date = new Date(Date.parse(d.date));
           var day = days[date.getDay()];
           var month = months[date.getMonth()];
           var year = date.getYear() + 1900;
-    //      console.log(day, month, year);
+          //      console.log(day, month, year);
           tooltip.select('.tooltip-body')
             .text(d.category + ' on ' + date.getDate() + " " + month + ' ' + year);
+
+      //    d3.select()
+
         })
-        .on('mouseleave', function () {
+        .on('mouseleave', function(d) {
           d3.select(this)
             .transition().delay(2)
-            .attr('opacity', 0.5)
+            .style('opacity', 0.5)
             .attr('r', '3px');
 
           d3.select(this).moveToBack();
@@ -94,82 +135,210 @@ var piracyData = {
           d3.selectAll('.tooltip.active')
             .attr('style', null) // what did this just break??
             .classed('active', false);
+
+          var pieSegment = d3.select('.pie-segment-' + d.category.split(' ')[0].toLowerCase());
+        //  console.log();
+
+          pieSegment.style('stroke', null)
+            .style('stroke-width', null);
         })
         .transition().delay(10)
         .attr('r', '3px')
-        .attr('opacity', 0.5)
+        //    .attr('opacity', 0.5)
         .attr('fill', function(d) {
           //console.log(d.category);
           var i;
-          switch (d.category.toLowerCase()) {
+          var c;
+          switch (d['category'].toLowerCase()) {
             case 'armed robbery':
-              i = 1;
+              i = 0;
               break;
-            case 'failed attack':
+              // case 'failed attack':
+              //   i = 2;
+              //   break;
+              // case 'failed boarding':
+              //   i = 3;
+              //   break;
+            case 'hijack for cargo theft':
               i = 2;
               break;
-            case 'failed boarding':
-              i = 3;
-              break;
-            case 'hijack for cargo theft':
-              i = 4;
-              break;
             case 'kidnapping':
-              i = 5;
+              i = 1;
               break;
             case 'robbery':
-              i = 6;
+              i = 0;
               break;
-            case 'suspicious activity':
-              i = 7;
-              break;
+              // case 'suspicious activity':
+              //   i = 7;
+              //   break;
             case 'unarmed robbery':
-              i = 8;
+              i = 0;
               break;
             default:
-            //  console.log('error building piracy attack type:');
-            //  console.log('[' + d.category + ']');
+              //  console.log('error building piracy attack type:');
+              //  console.log('[' + d.category + ']');
           }
 
-        //  console.log('{' + d.category + '}', i);
+          //  console.log('{' + d.category + '}', i);
 
-          return d3.schemeCategory20[(i * 2)];
+          return incidentsColor[i];
         })
         .attr('stroke', function(d) {
           var i;
           switch (d.category.toLowerCase()) {
             case 'armed robbery':
-              i = 1;
+              i = 0;
               break;
-            case 'failed attack':
+              // case 'failed attack':
+              //   i = 2;
+              //   break;
+              // case 'failed boarding':
+              //   i = 3;
+              //   break;
+            case 'hijack for cargo theft':
               i = 2;
               break;
-            case 'failed boarding':
-              i = 3;
-              break;
-            case 'hijack for cargo theft':
-              i = 4;
-              break;
             case 'kidnapping':
-              i = 5;
+              i = 1;
               break;
             case 'robbery':
-              i = 6;
+              i = 0;
               break;
-            case 'suspicious activity':
-              i = 7;
-              break;
+              // case 'suspicious activity':
+              //   i = 7;
+              //   break;
             case 'unarmed robbery':
-              i = 8;
+              i = 0;
               break;
             default:
               // console.log('error building piracy attack type:');
               // console.log('[' + d.category + ']');
           }
-          return d3.schemeCategory20[(i * 2) + 1];
+          return incidents[i];
         });
 
+      //  console.log(filtered);
+      var rolled = d3.nest()
+        .key(function(d) {
+          return d.category
+        })
+        .rollup(function(v) {
+          return v.length
+        })
+        .entries(filtered);
+
+    //  console.log(rolled);
+
+      var svg = d3.select('#map-svg'),
+        radius = Math.min(width, height) / 10;
+    //    console.log('r', radius);
+
+      var pieG = svg.append("g")
+        .classed('pie-g gog-incidents-pie map-overlay invisible', true)
+        .attr("transform", "translate(" + ((width / 2) - 500) + "," + ((height / 2) + 100) + ")");
+
+      var pie = d3.pie()
+        .sort(null)
+        .value(function(d) {
+        //  console.log(d);
+          return d.value;
+        });
+
+      var pathPie = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+      var labelPie = d3.arc()
+        .outerRadius(radius - 40)
+        .innerRadius(radius - 40);
+
+
+      var arc = pieG.selectAll(".arc")
+        .data(pie(rolled))
+        .enter().append("g")
+        .attr("class", function (d, i) {
+          var cat = d.data.key.split(' ')[0].toLowerCase();
+
+          return "arc pie-segment-" + cat;
+        });
+
+      arc.append("path")
+        .attr("d", pathPie)
+        .attr("fill", function(d,i) {
+          return incidentsColor[i];
+        })
+        .on('mouseenter', function (d, i) {
+
+          d3.select(this.parentNode).moveToFront();
+
+          d3.select(this)
+            .style('stroke', 'white')
+            .style('stroke-width', '3px');
+
+          d3.select('#pie-label-' + i)
+            .classed('invisible', false);
+
+          d3.selectAll('.incident-' + d.data.key.split(' ')[0].toLowerCase())
+            .moveToFront()
+          //  .transition().duration(100)
+            .style('r', 4)
+            .style('opacity', 1)
+            .style('stroke-width', '1px')
+            .style('stroke', 'white');
+
+        })
+        .on('mouseleave', function (d,i) {
+          d3.select(this)
+            .style('stroke', null)
+            .style('stroke-width', null);
+
+          d3.select('#pie-label-' + i)
+            .classed('invisible', true);
+
+          d3.selectAll('.incident-' + d.data.key.split(' ')[0].toLowerCase())
+          //  .moveToFront()
+            .style('r', 3)
+            .style('opacity', 0.5)
+            .style('stroke-width', null)
+            .style('stroke', null);
+
+        });
+
+      arc.append("text")
+        .attr('id', function (d, i) {
+          return 'pie-label-' + i;
+        })
+        .classed('pie-segment-label invisible', true)
+        .attr("transform", function(d) {
+          console.log('label', labelPie.centroid(d));
+          var pos = labelPie.centroid(d);
+          pos[0] = pos[0] - 50;
+          return "translate(" + pos + ")";
+        })
+        .attr("dy", "0.35em")
+        .text(function(d, i) {
+          console.log(d);
+          return d.data.key;
+        });
+
+      var pieChartLabel = pieG.append('text')
+        .attr('id', 'gog-incidents-pie-label')
+        .classed('pie-chart-label', true)
+        .attr('transform', 'translate(' + (radius * -1) + ',' + (radius * -1 - 30) +')');
+
+        pieChartLabel.append('tspan')
+          .attr('x', 0)
+          .attr('dy', '0em')
+          .text('Piracy Incidents');
+        pieChartLabel.append('tspan')
+          .attr('x', 0)
+          .attr('dy', '1.5em')
+          .text('by Type');
+
     });
+
+
+
   },
   cards: [
     { // Card 0
@@ -223,55 +392,67 @@ var piracyData = {
           tag: 'caption',
           text: 'An evolving threat on both coasts'
         },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Dots represent known piracy and armed robbery incidents in 2016. <br> Source: <a href="http://obp.ngo/" target="_blank">Oceans Beyond Piracy</a></em>'
+        // },
         {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Dots represent known piracy and armed robbery incidents in 2016. <br> Source: <a href="http://obp.ngo/" target="_blank">Oceans Beyond Piracy</a></em>'
+          tag: 'p',
+          html: 'Though terrorism is a growing concern in some regions, the most significant challenge to effective maritime governance and security across sub-Saharan Africa is piracy and armed robbery at sea. Piracy and armed robbery are distinguished by geography. Attacks beyond a state’s territorial sea are classified as piracy, those within are armed robbery. In either case, these crimes endanger seafarers, threaten commerce, fund violent actors, and enable transnational criminal networks. The piracy and armed robbery score measures a country’s proximity to piracy and armed robbery incidents using data from Oceans Beyond Piracy’s annual State of Piracy report.'
+        },
+        {
+          tag: 'caption',
+          text: '*** Can we find a picture to put here?? ***'
         },
         {
           tag: 'p',
-          html: 'The threat of violence from non-state actors constitutes the clearest challenge to effective maritime governance and security. Though terrorism is a growing concern in some regions, the majority of violent maritime crime continues to be acts of piracy and armed robbery. These violent crimes endanger seafarers, threaten commerce, and can even fund violent political actors and transnational criminal networks.'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/piracy/piracy_models-01.png',
-        },
-        {
-          tag: 'h3',
-          html: 'Kidnap for Ransom'
+          html: 'High scores for rule of law and coastal welfare are related to low incidence of piracy and armed robbery. Waters with the least piracy and armed robbery also have the highest fisheries scores.'
         },
         {
           tag: 'p',
-          html: 'In kidnap-for-ransom attacks, perpetrators aim to capture a vessel and its crew and hold them— sometimes onshore—until a ransom payment is received. Historically, kidnap-for-ransom attacks are most closely associated with East African pirate groups, but a considerable increase in the number of these attacks was observed in West Africa in 2016.<sup>1</sup>'
+          html: 'This section is divided into four parts. The first will discuss the three primary models of piracy: kidnap for ransom, hijacking for cargo theft, and robbery. The second and third will provide overviews of violence at sea in the Gulf of Guinea and the Horn of Africa, respectively. Finally, the section concludes with a summary of the methodology.'
         },
-        {
-          tag: 'p',
-          html: 'Kidnapping for ransom entails less risk to the criminal groups than some of the other models of piracy and can result in substantial returns to the perpetrators. The rise in attacks of this kind is clearly a troubling development as kidnappings typically involve greater violence to the crews held hostage.'
-        },
-        {
-          tag: 'p',
-          html: 'Some regional variations of this model exist: in East Africa, pirate groups generally take the entire crew and their vessel hostage, whereas in West Africa, kidnappers tend to target high-ranking members of the crew, such as the captain or other officers. The durations of the kidnappings also vary; West African kidnappers normally only hold their hostages for a few weeks, though the victims are often subjected to considerable amounts of cruel treatment in that time.'
-        },
-        {
-          tag: 'h3',
-          html: 'Hijacking for Cargo Theft'
-        },
-        {
-          tag: 'p',
-          html: 'Hijacking for cargo theft entails perpetrators attacking a tanker and siphoning its oil while the crew is temporarily held captive onboard. Typically, the oil is then sold through black market channels. This form of piracy has been especially prevalent in the Gulf of Guinea.'
-        },
-        {
-          tag: 'h3',
-          html: 'Robberies'
-        },
-        {
-          tag: 'p',
-          html: 'Robberies occur when perpetrators steal ship stores, equipment, and personal effects from the crew. Robberies of this kind most often take place in port or at anchorage and differ from kidnappings in that profits come from the sale of stolen goods rather than the ransoming of a ship, its crew, or its cargo.'
-        },
-        {
-          tag: 'p',
-          html: 'As with other crimes perpetrated at sea, piracy and armed robbery are quite challenging to address. To date in West Africa, no prosecutions for piracy or armed robbery have occurred. This is further complicated by the fact that vast underreporting of this set of crimes is suspected because there are a multitude of disincentives to reporting, meaning that the full scope of the problem is not yet understood.'
-        },
+        // {
+        //   tag: 'img',
+        //   src: '../../assets/piracy/piracy_models-01.png',
+        // },
+        // {
+        //   tag: 'h3',
+        //   html: 'Kidnap for Ransom'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'In kidnap-for-ransom attacks, perpetrators aim to capture a vessel and its crew and hold them— sometimes onshore—until a ransom payment is received. Historically, kidnap-for-ransom attacks are most closely associated with East African pirate groups, but a considerable increase in the number of these attacks was observed in West Africa in 2016.<sup>1</sup>'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Kidnapping for ransom entails less risk to the criminal groups than some of the other models of piracy and can result in substantial returns to the perpetrators. The rise in attacks of this kind is clearly a troubling development as kidnappings typically involve greater violence to the crews held hostage.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Some regional variations of this model exist: in East Africa, pirate groups generally take the entire crew and their vessel hostage, whereas in West Africa, kidnappers tend to target high-ranking members of the crew, such as the captain or other officers. The durations of the kidnappings also vary; West African kidnappers normally only hold their hostages for a few weeks, though the victims are often subjected to considerable amounts of cruel treatment in that time.'
+        // },
+        // {
+        //   tag: 'h3',
+        //   html: 'Hijacking for Cargo Theft'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Hijacking for cargo theft entails perpetrators attacking a tanker and siphoning its oil while the crew is temporarily held captive onboard. Typically, the oil is then sold through black market channels. This form of piracy has been especially prevalent in the Gulf of Guinea.'
+        // },
+        // {
+        //   tag: 'h3',
+        //   html: 'Robberies'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Robberies occur when perpetrators steal ship stores, equipment, and personal effects from the crew. Robberies of this kind most often take place in port or at anchorage and differ from kidnappings in that profits come from the sale of stolen goods rather than the ransoming of a ship, its crew, or its cargo.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'As with other crimes perpetrated at sea, piracy and armed robbery are quite challenging to address. To date in West Africa, no prosecutions for piracy or armed robbery have occurred. This is further complicated by the fact that vast underreporting of this set of crimes is suspected because there are a multitude of disincentives to reporting, meaning that the full scope of the problem is not yet understood.'
+        // },
         {
           tag: 'links',
           items: [{
@@ -389,7 +570,7 @@ var piracyData = {
         description: 'Feature Somali Waters report, talk about recent uptick in Somali piracy.'
       },
       map: {
-        type: 'custom',
+        //  type: 'continuous',
         path: '../../data/piracy/piracy-2017-incidents.csv',
         scale: [],
         classes: '',
@@ -400,6 +581,8 @@ var piracyData = {
             .classed(layer, true);
         },
         switch: function(index) {
+          choropleth(index, 1, 'index');
+
           d3.selectAll('.card' + index + '-layer')
             .classed('invisible', false);
         }
@@ -410,6 +593,38 @@ var piracyData = {
           tag: 'h1',
           text: 'Three Models of Piracy'
         },
+        {
+          tag: 'p',
+          html: 'As with other crimes perpetrated at sea, piracy and armed robbery are challenging to address. This is compounded by disincentives to reporting that have led to massive underreporting, such that the scope of the problem is not fully understood. Regardless of the true scale of piracy and armed robbery at sea, there are three dominant models for successful attacks.'
+        },
+        {
+          tag: 'h3',
+          html: 'Kidnap for Ransom'
+        },
+        {
+          tag: 'p',
+          html: 'In kidnap for ransom attacks, perpetrators aim to capture a vessel and its crew and hold them— sometimes onshore—until a ransom payment is received. Historically, kidnap for ransom attacks are most closely associated with East African pirate groups, but a considerable increase in the number of these attacks was observed in West Africa in 2016.'
+        },
+        {
+          tag: 'p',
+          html: 'Some regional variations of this model exist. In East Africa, pirate groups generally take the entire crew and their vessel hostage. In West Africa, kidnappers tend to target high-ranking members of the crew, such as the captain or other officers. These crew members are then removed from the vessel and held onshore. The duration of captivity also varies. West African kidnappers typically hold their hostages between two and four weeks, compared to months or years in East Africa. In either case, the victims are subjected to considerable amounts of cruel treatment.'
+        },
+        {
+          tag: 'h3',
+          html: 'Hijacking for Cargo Theft'
+        },
+        {
+          tag: 'p',
+          html: 'Hijacking for cargo theft entails perpetrators attacking a tanker and siphoning its oil while the crew is temporarily held captive onboard. The oil is then sold through black market channels. This form of piracy has been especially prevalent in the Gulf of Guinea, though the rise in kidnap for ransom attacks has corresponded with a decline in hijackings for cargo theft.'
+        },
+        {
+          tag: 'h3',
+          html: 'Robbery'
+        },
+        {
+          tag: 'p',
+          html: 'Robberies occur when perpetrators board a vessel and steal ship stores, equipment, and/or personal effects from the crew. They most often take place in port or at anchorage and differ from kidnappings in that profits come from the sale of stolen goods rather than the ransoming of a ship, its crew or cargo.'
+        }
         // {
         //   tag: 'caption',
         //   text: 'An unusually active 2017'
@@ -556,6 +771,7 @@ var piracyData = {
         description: 'Track rise of piracy in GoG, feature State of Piracy report.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: '',
         translate: [],
@@ -565,16 +781,20 @@ var piracyData = {
         ],
         highlights: [],
         tooltip: false,
-        units: {
-          text: 'xo units',
-          multiplier: 100
+        legend: 'Piracy and Armed Robbery Score',
+        tooltipHTML: function(iso) {
+
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].index;
+          updatePointer(tooltipVal);
+          return "Piracy and Armed Robbery:<br />" + tooltipVal + " / 100";
+
         },
         load: function(index, file) { // ### *** This only should be for the first card ...
           var layer = 'card-' + index + '-layer';
-        //  console.log('load load load', layer);
+          //  console.log('load load load', layer);
 
           d3.select('piracy-incidents')
-            .classed(layer,true);
+            .classed(layer, true);
           d3.select('.card-eez-layer')
             .classed(layer, true);
           // Load up point map GIS layer - geojson
@@ -584,9 +804,16 @@ var piracyData = {
           //.classed(layer, true);
         },
         switch: function(index) {
+          choropleth(index, 1, 'index');
+
 
           d3.selectAll('.card' + index + '-layer')
+            .classed('invisible', false)
+
+          setTimeout( function () {
+            d3.select('.gog-incidents-pie')
             .classed('invisible', false);
+          }, 1500);
 
         }
       },
@@ -598,47 +825,47 @@ var piracyData = {
           tag: 'caption',
           text: 'Piracy and Armed Robbery in the Gulf of Guinea'
         },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Known piracy and armed robbery incidents during 2016. <br> Source: <a href="http://obp.ngo/" target="_blank">Oceans Beyond Piracy</a></em>'
+        // },
         {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Known piracy and armed robbery incidents during 2016. <br> Source: <a href="http://obp.ngo/" target="_blank">Oceans Beyond Piracy</a></em>'
+          tag: 'p',
+          html: 'The Gulf of Guinea has earned its reputation for being the most dangerous area of transit in the world for seafarers. Since 2013, attacks in West Africa have occurred at much higher frequency than in East Africa. There were 100 estimated attacks in the Gulf of Guinea in 2013 compared to 23 off the Somali coast. In 2016, 95 attacks were reported in the Gulf of Guinea compared to 27 attacks in the Horn of Africa. This difference is particularly significant in terms of the human cost. Nearly 1,400 more seafarers were subjected to attacks in the Gulf of Guinea than off the coast of Somalia.3 While the number of attacks has remained high in recent years, the model of piracy has gradually shifted.'
+        },
+        // {
+        //   tag: 'img',
+        //   src: '../../assets/piracy/piracy_costs-01.png', // This should be on the Stable Seas Deck - comments
+        // },
+        {
+          tag: 'p',
+          html: 'The Niger Delta has an abundance of oil wealth, and criminal networks have historically turned to hijacking for cargo theft for a cut of the region’s riches. This takes place when a vessel is commandeered, its tracking devices disabled, its crew held captive, and its cargo siphoned off onto a smaller ship and sold on the black market. This process is time-consuming and logistically complex. As naval activity has increased since 2013, and Nigerian president Muhammadu Buhari made cracking down on oil theft a hallmark of his administration since 2015, the number of hijackings for cargo theft has fallen drastically while kidnap for ransom attacks, a much faster and less resource-intensive crime, have been on the rise.'
+        },
+        // {
+        //   tag: 'img',
+        //   src: '../../assets/piracy/piracy_incidents_west_africa-01.png', // This should be on the Stable Seas Deck - comments
+        // },
+        {
+          tag: 'p',
+          html: 'In 2014, there were 5 incidents of hijacking for cargo theft and 15 kidnap for ransom attacks. By 2016, hijacking for cargo theft incidents had dropped by 80 percent while kidnap for ransom attacks rose by nearly 30 percent from 2015. Though captured crew members spend relatively little time in captivity compared to East Africa, the high turnover of hostages and the frequency of armed attacks results in a high level of violence.'
         },
         {
           tag: 'p',
-          html: 'Modern-day piracy burst into the public consciousness in the late 2000s when large merchant vessels were attacked off the coast of Somalia. The vessels and their crews were taken ashore and held for extended periods of time in deplorable conditions while their captors awaited enormous payoffs. In response, the international community banded together to counter the activity. Through multinational military deployments, the increasing prevalence of private armed security teams, and the implementation of Best Management Practices, piracy was gradually reduced to near-zero levels around the Horn of Africa. However, just as piracy dropped off in the Western Indian Ocean, it was exploding in the Gulf of Guinea.'
+          html: 'While piracy attacks have shifted away from hijacking for cargo theft to kidnapping for ransom, oil theft in the Delta has not disappeared. Well-armed rebel groups successfully attacked several high-value, strategic targets in 2016, including Shell’s Forcados oil pipeline, Chevron’s Okan platform, and the largest export terminal in Nigeria, ExxonMobil’s Qua Iboe. These incidents reflect continued interest in disrupting the business of foreign oil companies through illicit activities.'
         },
-        {
-          tag: 'img',
-          src: '../../assets/piracy/piracy_costs-01.png', // This should be on the Stable Seas Deck - comments
-        },
-        {
-          tag: 'p',
-          html: 'Oceans Beyond Piracy’s <em>2013 State of Maritime Piracy</em> report concluded that attacks in West Africa occurred at much higher frequency than in East Africa. There were 100 estimated attacks in the Gulf of Guinea in 2013 compared to 23 off the Somali coast. Furthermore, the attacks in West Africa were more violent than those in East Africa.<sup>2</sup>  This trend has continued. In 2016, 95 attacks were reported in the Gulf of Guinea compared to 27 attacks reported in the Horn of Africa. This difference is particularly significant in terms of the human cost. Nearly 1,400 more seafarers were subjected to attacks in the Gulf of Guinea than were attacked off the coast of Somalia.<sup>3</sup>  The Gulf of Guinea has the reputation of being the most dangerous area of transit in the world for seafarers.'
-        },
-        {
-          tag: 'img',
-          src: '../../assets/piracy/piracy_incidents_west_africa-01.png', // This should be on the Stable Seas Deck - comments
-        },
-        {
-          tag: 'p',
-          html: 'While the number of attacks has remained high in recent years, the model of piracy that is most commonly used has gradually shifted. The Niger Delta is home to an abundance of oil wealth, and criminal networks have historically turned to a piracy practice known as bunkering, or oil siphoning, for a cut of the region’s riches. Bunkering is time-consuming and logistically complex. It requires spending several days at sea and having a second vessel to carry the stolen oil.'
-        },
-        {
-          tag: 'p',
-          html: 'As oil prices declined and security efforts in the region stepped up, bunkering declined and kidnap-for-ransom attacks increased. In 2014, there were 5 incidents of bunkering and 15 kidnap-for-ransom attacks. By 2016, bunkering incidents had dropped by 80 percent while kidnap-for-ransom attacks rose by nearly 30 percent.'
-        },
-        {
-          tag: 'p',
-          html: 'In the Gulf of Guinea, the model of kidnap for ransom is less complicated than in the Horn of Africa; pirates tend to capture only high-value crew members and take them ashore, abandoning the vessel. The hostages are usually released after two to four weeks. While captured crew members spend relatively little time in captivity, the high turnover of hostages and the frequency of armed attacks results in a high level of violence.'
-        },
-        {
-          tag: 'p',
-          html: 'The international community has been tremendously successful in reducing piracy off the Somali coast, but piracy in the Gulf of Guinea is proving more difficult. Through actions formalized by UN Resolution 2446, Somali waters are patrolled by multiple international navies. The littoral states of the Gulf of Guinea are all sovereign nations with the rights to patrol their own territorial waters, but naval capacity is limited and no UN resolution exists for countering piracy there.'
-        },
-        {
-          tag: 'p',
-          html: 'Private armed security teams proved to be a powerful deterrent to Somali pirates, but these teams are prohibited by law from entering Nigeria’s territorial waters (where two-thirds of piracy attacks in the Gulf of Guinea occur). These challenges all contributed to the rise of piracy in the Gulf of Guinea, and they now contribute to the extraordinary difficulty of combating it.'
-        },
+        // {
+        //   tag: 'p',
+        //   html: 'In the Gulf of Guinea, the model of kidnap for ransom is less complicated than in the Horn of Africa; pirates tend to capture only high-value crew members and take them ashore, abandoning the vessel. The hostages are usually released after two to four weeks. While captured crew members spend relatively little time in captivity, the high turnover of hostages and the frequency of armed attacks results in a high level of violence.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'The international community has been tremendously successful in reducing piracy off the Somali coast, but piracy in the Gulf of Guinea is proving more difficult. Through actions formalized by UN Resolution 2446, Somali waters are patrolled by multiple international navies. The littoral states of the Gulf of Guinea are all sovereign nations with the rights to patrol their own territorial waters, but naval capacity is limited and no UN resolution exists for countering piracy there.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Private armed security teams proved to be a powerful deterrent to Somali pirates, but these teams are prohibited by law from entering Nigeria’s territorial waters (where two-thirds of piracy attacks in the Gulf of Guinea occur). These challenges all contributed to the rise of piracy in the Gulf of Guinea, and they now contribute to the extraordinary difficulty of combating it.'
+        // },
         {
           tag: 'links',
           items: [{
@@ -810,7 +1037,7 @@ var piracyData = {
               .attr('cy', function(d) {
                 return projection([d.lon, d.lat])[1];
               })
-              .attr('r', '0.5px')
+              .attr('r', '3px')
               .attr('fill', function() {
                 return rampColor(0.2);
               })
@@ -820,6 +1047,48 @@ var piracyData = {
               .classed('political-incident', true);
 
           });
+
+          d3.csv('../../data/piracy/bam-terror-data.csv', function(incidents) {
+            incidents.forEach(function(d) {
+              d.lat = +d.lat;
+              d.lon = +d.lon;
+              d.count = +d.count;
+            });
+
+            var incidentsLayer = mapg.append('g')
+              .classed('card-layer bam-terror-incidents invisible ' + layer, true);
+
+            incidentsLayer.selectAll('circle')
+              .data(incidents).enter()
+              .append('circle')
+              .attr('cx', function(d) {
+                return projection([d.lon, d.lat])[0];
+              })
+              .attr('cy', function(d) {
+                return projection([d.lon, d.lat])[1];
+              })
+              .attr('r', function (d) {
+                return Math.sqrt(d.count) + 'px';
+              })
+              .attr('fill', function(d) {
+                if (d.actor == 'Al-Shabaab') {
+                  return colorBrew[0];
+                } else if (d.actor == 'Houthi extremists (Ansar Allah)') {
+                  return colorBrew[2];
+                } else {
+                  return colorBrew[4];
+                }
+              //  return themeColor(1);
+              })
+            //  .attr('stroke', 'black')
+            //  .attr('stroke-width', 0.3)
+              .style('opacity', 0.5)
+              .classed('bam-terror-incident', true);
+
+          });
+
+
+
         },
         switch: function(index) {
           d3.selectAll('.card-' + index + '-layer')
@@ -832,28 +1101,52 @@ var piracyData = {
         },
         {
           tag: 'caption',
-          text: 'vvv This all needs to be written / filled in vvv'
+          text: '*** This all needs to be written / filled in ***'
         },
+        // {
+        //   tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Politically motivated maritime security incidents (2016). <br> Source: <a href="http://obp.ngo/" target="_blank">Oceans Beyond Piracy</a></em>'
+        // },
         {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Politically motivated maritime security incidents (2016). <br> Source: <a href="http://obp.ngo/" target="_blank">Oceans Beyond Piracy</a></em>'
+          tag: 'p',
+          html: 'At the peak of piracy between 2008 and 2012, thousands of seafarers and their vessels were taken hostage. In response, the international community spent billions of dollars to protect vessels transiting the High Risk Area in the Western Indian Ocean: international navies deployed to the region, East African judicial systems absorbed the impact of piracy trials, and merchant vessels began to apply vessel self-protection measures, including re-routing around or increasing speeds through the High Risk Area.'
         },
         {
           tag: 'p',
-          html: 'While the Horn of Africa is often associated with Somali pirates, observers have recently noted a different emerging threat: maritime terrorism. '
+          html: 'In the spring of 2017, after almost five years without a successful attack on a merchant vessel, pirates hijacked Aris-13. In the weeks that followed, pirate groups operating off the coast of Somalia hijacked four additional vessels.'
         },
         {
           tag: 'p',
-          html: 'Attacks on five separate vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. On 1 October, an anti-ship missile fired from shore inflicted damage on HSV-2 <em>Swift</em>, a high-speed vessel operated by the United Arab Emirates and previously owned by the U.S. military. Eight days later a similar incident targeted U.S. Navy-guided missile destroyer USS <em>Mason</em> in the first of three attacks against it; another attack against the <em>Mason</em> occurred later that day, and there was a final attack against it three days later.'
+          html: 'While the Horn of Africa is often associated with Somali pirates, maritime terrorism is an emerging threat'
         },
         {
           tag: 'p',
-          html: 'On 25 October, a small skiff loaded with explosives reportedly attacked <em>Galicia Spirit</em>. Saudi coalition forces reported responding to an attack against tanker vessel <em>Melati Satu</em> on 26 October. Finally, in December of 2016, an unconfirmed attack in the lower Red Sea against Iranian freighter MV <em>Joya 8</em> left six crewmembers missing and presumed dead.'
+          html: 'Attacks on five vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. On 1 October, an anti-ship missile fired from shore inflicted damage on HSV-2 Swift, a high-speed vessel operated by the United Arab Emirates and previously owned by the U.S. military. Eight days later a similar incident targeted U.S. Navy-guided missile destroyer USS Mason in the first of three attacks against it; another attack against the Mason occurred later that day, and there was a final attack against it three days later.'
         },
         {
           tag: 'p',
-          html: 'The trend continues into 2017; Oceans Beyond Piracy has recorded an increase in suspicious activity in the Bab el-Mandeb over the first half of the year, including sightings of naval mines and marine-borne improvised explosive devices.<sup>5</sup>'
+          html: 'On 25 October, a small skiff loaded with explosives reportedly attacked Galicia Spirit. Saudi coalition forces reported responding to an attack against tanker vessel Melati Satu on 26 October. Finally, in December of 2016, an unconfirmed attack against Iranian freighter MV Joya 8 left six crewmembers missing and presumed dead.'
+        },
+        {
+          tag: 'p',
+          html: 'The attack against HSV-2 Swift was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are most likely attributable to spillover from the conflict in Yemen.'
+        },
+        {
+          tag: 'p',
+          html: 'First, many naval operations deployed to address piracy are currently winding down or have ended already: EU NAVFOR’s Operation Atalanta was extended through the end of 2018, but NATO’s Operation Ocean Shield concluded its mission at the end of 20166 leaving limited naval forces in the area available for response. Complicating this further is the fact that the Combined Maritime Forces operations in the region are the only ones with a mandate that explicitly includes combating these evolving maritime terrorism threats.7'
+        },
+        {
+          tag: 'p',
+          html: 'Second, the response required to counter an attack of this nature differs considerably from the response necessary to protect a vessel from a pirate attack. Oceans Beyond Piracy asks if recommendations established to counter piracy in Best Management Practices (Version 4) need to be reevaluated to fit an evolving threat, and similarly, if private security teams require training to combat an array of risks in addition to piracy.'
+        },
+        {
+          tag: 'p',
+          html: 'Finally, vessels may decide to re-route around the Bab el-Mandeb strait entirely in order to avoid any potential dangers—a decidedly expensive and difficult option for the shipping industry to take.'
+        },
+        {
+          tag: 'p',
+          html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
         },
         {
           gif: true,
@@ -865,26 +1158,26 @@ var piracyData = {
           tag: 'caption',
           html: 'Note - this is not the correct video, just wanted to indicate functionality of the gif. Try clicking on it ;) ###'
         },
-        {
-          tag: 'p',
-          html: 'The attack against HSV-2 <em>Swift</em> was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are therefore most likely attributable to spillover from the conflict in Yemen. As discussed in the <em>Stable Seas: Somali Waters</em>  report, this has myriad implications for shipping traffic in the region.' //### add hyperlink to somali waters report
-        },
-        {
-          tag: 'p',
-          html: 'First, many naval operations deployed to address piracy are currently winding down or have ended already: EU NAVFOR’s Operation Atalanta was extended through the end of 2018, but NATO’s Operation Ocean Shield concluded its mission at the end of 2016<sup>6</sup> leaving limited naval forces in the area available for response. Complicating this further is the fact that the Combined Maritime Forces operations in the region are the only ones with a mandate that explicitly includes combating these evolving maritime terrorism threats.<sup>7</sup>'
-        },
-        {
-          tag: 'p',
-          html: 'Second, the response required to counter an attack of this nature differs considerably from the response necessary to protect a vessel from a pirate attack. Oceans Beyond Piracy asks if recommendations established to counter piracy in <em>Best Management Practices (Version 4)</em> need to be reevaluated to fit an evolving threat, and similarly, if private security teams require training to combat an array of risks in addition to piracy.<sup>8</sup>'
-        },
-        {
-          tag: 'p',
-          html: 'Finally, vessels may decide to re-route around the Bab el-Mandeb strait entirely in order to avoid any potential dangers—a decidedly expensive and difficult option for the shipping industry to take.'
-        },
-        {
-          tag: 'p',
-          html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
-        },
+        // {
+        //   tag: 'p',
+        //   html: 'The attack against HSV-2 <em>Swift</em> was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are therefore most likely attributable to spillover from the conflict in Yemen. As discussed in the <em>Stable Seas: Somali Waters</em>  report, this has myriad implications for shipping traffic in the region.' //### add hyperlink to somali waters report
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'First, many naval operations deployed to address piracy are currently winding down or have ended already: EU NAVFOR’s Operation Atalanta was extended through the end of 2018, but NATO’s Operation Ocean Shield concluded its mission at the end of 2016<sup>6</sup> leaving limited naval forces in the area available for response. Complicating this further is the fact that the Combined Maritime Forces operations in the region are the only ones with a mandate that explicitly includes combating these evolving maritime terrorism threats.<sup>7</sup>'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Second, the response required to counter an attack of this nature differs considerably from the response necessary to protect a vessel from a pirate attack. Oceans Beyond Piracy asks if recommendations established to counter piracy in <em>Best Management Practices (Version 4)</em> need to be reevaluated to fit an evolving threat, and similarly, if private security teams require training to combat an array of risks in addition to piracy.<sup>8</sup>'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Finally, vessels may decide to re-route around the Bab el-Mandeb strait entirely in order to avoid any potential dangers—a decidedly expensive and difficult option for the shipping industry to take.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
+        // },
         {
           tag: 'links',
           items: [{
@@ -907,7 +1200,7 @@ var piracyData = {
         }
       ] // end of els array
     },
-    {  // Card 6
+    { // Card 6
       title: 'Methodology',
       menu: 'Methodology',
       metadata: {
@@ -945,37 +1238,46 @@ var piracyData = {
 
         }
       },
-      els: [
-    { tag: 'h1',
-      text: 'Methodology',
-    },
-    { tag: 'p',
-      html: 'The Piracy and Armed Robbery Score measures instances of these events within and around each country’s exclusive economic zone (EEZ). Our definition of piracy is that established by the United Nations Convention on the Law of Sea, as follows, and our definition of armed robbery is taken from that of the International Maritime Organization, as seen below.'
-    },
-    { tag: 'p',
-      html: 'Piracy: “Any illegal acts of violence or detention, or any act of depredation, committed for private ends by the crew or the passengers of a private ship or a private aircraft, and directed:'
-    },
-    { tag: 'ul',
-       rows: ['on the high seas, against another ship or aircraft, or against persons on property on board such ship or aircraft;', 'against a ship, aircraft, persons, or property in a place outside the jurisdiction of any state.”<sup>11</sup>']
-    },
-    { tag: 'p',
-      html: 'Armed Robbery: “Unlawful act of violence or detention or any act of depredation, or threat thereof, other than an act of piracy, committed for private ends and directed against a ship or against persons or property on board such a ship, within a state’s internal waters, archipelagic waters and territorial sea.” '
-    },
-    { tag: 'p',
-      html: 'Legally, then, these activities are very similar and are mainly distinguished by where they occur. Events occurring within the territorial waters of a state, typically within 12 nautical miles of the shoreline, are acts of armed robbery at sea. Incidents occurring farther from the coast, including those occurring within an EEZ, are acts of piracy at sea.',
-    },
-    { tag: 'p',
-      html: 'The score includes two inputs. The first is the number of piracy and armed robbery incidents occurring within a state’s territorial waters or exclusive economic zone during the 2016 calendar year. We use data collected in the State of Piracy report, an annual evaluation of global piracy trends from Oceans Beyond Piracy. Using geographic information systems (GIS) methodology, we cross-reference the latitudes and longitudes of each qualifying incident with geographic shapefiles of each EEZ.'
-    },
-    { tag: 'p',
-      html: 'States can still face a threat of piracy even if events are not occurring in their own waters. Many attacks occur against international vessels operating just beyond a state’s exclusive economic zone, so we also include a measure or proximity to piracy attacks.'
-    },
-    { tag: 'p',
-      html: 'Using GIS, we calculate the minimum distance between every EEZ and every incident occurring around the African continent. Distances are measured as the minimum from the latitude and longitude of the incident to the closest border of the EEZ. Events occurring within an EEZ receive a distance score of 0. Then, we identify each country’s set of closest incidents and take the average distance of each incident in the set to the EEZ boundary. Closer events are given a higher score and we log-transform these distances so that more distant events have a much smaller influence on a state’s proximity-to-piracy score than events occurring very close to the EEZ. We measure distances in hundreds of kilometers and set a maximum distance of 1,000 kilometers, meaning anything occurring farther than that cannot count against a state’s proximity score.'
-    },
-    { tag: 'p',
-      html: 'More technical details are provided in the data documentation available for download.'
-    }, // ### add link to data downloads page
+      els: [{
+          tag: 'h1',
+          text: 'Methodology',
+        },
+        {
+          tag: 'p',
+          html: 'The Piracy and Armed Robbery Score measures instances of these events within and around each country’s exclusive economic zone (EEZ). Our definition of piracy is that established by the United Nations Convention on the Law of Sea, as follows, and our definition of armed robbery is taken from that of the International Maritime Organization, as seen below.'
+        },
+        {
+          tag: 'p',
+          html: 'Piracy: “Any illegal acts of violence or detention, or any act of depredation, committed for private ends by the crew or the passengers of a private ship or a private aircraft, and directed:'
+        },
+        {
+          tag: 'ul',
+          rows: ['on the high seas, against another ship or aircraft, or against persons on property on board such ship or aircraft;', 'against a ship, aircraft, persons, or property in a place outside the jurisdiction of any state.”<sup>11</sup>']
+        },
+        {
+          tag: 'p',
+          html: 'Armed Robbery: “Unlawful act of violence or detention or any act of depredation, or threat thereof, other than an act of piracy, committed for private ends and directed against a ship or against persons or property on board such a ship, within a state’s internal waters, archipelagic waters and territorial sea.” '
+        },
+        {
+          tag: 'p',
+          html: 'Legally, then, these activities are very similar and are mainly distinguished by where they occur. Events occurring within the territorial waters of a state, typically within 12 nautical miles of the shoreline, are acts of armed robbery at sea. Incidents occurring farther from the coast, including those occurring within an EEZ, are acts of piracy at sea.',
+        },
+        {
+          tag: 'p',
+          html: 'The score includes two inputs. The first is the number of piracy and armed robbery incidents occurring within a state’s territorial waters or exclusive economic zone during the 2016 calendar year. We use data collected in the State of Piracy report, an annual evaluation of global piracy trends from Oceans Beyond Piracy. Using geographic information systems (GIS) methodology, we cross-reference the latitudes and longitudes of each qualifying incident with geographic shapefiles of each EEZ.'
+        },
+        {
+          tag: 'p',
+          html: 'States can still face a threat of piracy even if events are not occurring in their own waters. Many attacks occur against international vessels operating just beyond a state’s exclusive economic zone, so we also include a measure or proximity to piracy attacks.'
+        },
+        {
+          tag: 'p',
+          html: 'Using GIS, we calculate the minimum distance between every EEZ and every incident occurring around the African continent. Distances are measured as the minimum from the latitude and longitude of the incident to the closest border of the EEZ. Events occurring within an EEZ receive a distance score of 0. Then, we identify each country’s set of closest incidents and take the average distance of each incident in the set to the EEZ boundary. Closer events are given a higher score and we log-transform these distances so that more distant events have a much smaller influence on a state’s proximity-to-piracy score than events occurring very close to the EEZ. We measure distances in hundreds of kilometers and set a maximum distance of 1,000 kilometers, meaning anything occurring farther than that cannot count against a state’s proximity score.'
+        },
+        {
+          tag: 'p',
+          html: 'More technical details are provided in the data documentation available for download.'
+        }, // ### add link to data downloads page
 
       ] // end of els array
     }
