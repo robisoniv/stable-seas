@@ -1110,54 +1110,54 @@ var piracyData = {
         // },
         {
           tag: 'p',
-          html: 'At the peak of piracy between 2008 and 2012, thousands of seafarers and their vessels were taken hostage. In response, the international community spent billions of dollars to protect vessels transiting the High Risk Area in the Western Indian Ocean: international navies deployed to the region, East African judicial systems absorbed the impact of piracy trials, and merchant vessels began to apply vessel self-protection measures, including re-routing around or increasing speeds through the High Risk Area.'
+          html: 'At the peak of piracy between 2008 and 2012, thousands of seafarers and their vessels were taken hostage. In response, the international community spent billions of dollars to protect vessels transiting the Western Indian Ocean: international navies deployed to the region, East African judicial systems absorbed the impact of piracy trials, and merchant vessels began to apply vessel self-protection measures, including re-routing around or increasing speeds through the High Risk Area.'
         },
         {
           tag: 'p',
-          html: 'In the spring of 2017, after almost five years without a successful attack on a merchant vessel, pirates hijacked Aris-13. In the weeks that followed, pirate groups operating off the coast of Somalia hijacked four additional vessels.'
+          html: 'While no merchant vessels were hijacked between 2012 and 2017, pirate groups took a number of smaller, more vulnerable vessels, demonstrating their continued intention to hijack ships and their crews. In the spring of 2017, after almost five years without a successful attack on a merchant vessel, pirates hijacked Aris-13. In the weeks that followed, pirate groups operating off the coast of Somalia hijacked four additional vessels.'
         },
         {
           tag: 'p',
-          html: 'While the Horn of Africa is often associated with Somali pirates, maritime terrorism is an emerging threat'
+          html: 'Though down from its peak, piracy remains a threat around the Horn of Africa. Maritime terrorism is an emerging hazard.'
         },
         {
           tag: 'p',
-          html: 'Attacks on five vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. On 1 October, an anti-ship missile fired from shore inflicted damage on HSV-2 Swift, a high-speed vessel operated by the United Arab Emirates and previously owned by the U.S. military. Eight days later a similar incident targeted U.S. Navy-guided missile destroyer USS Mason in the first of three attacks against it; another attack against the Mason occurred later that day, and there was a final attack against it three days later.'
-        },
-        {
-          tag: 'p',
-          html: 'On 25 October, a small skiff loaded with explosives reportedly attacked Galicia Spirit. Saudi coalition forces reported responding to an attack against tanker vessel Melati Satu on 26 October. Finally, in December of 2016, an unconfirmed attack against Iranian freighter MV Joya 8 left six crewmembers missing and presumed dead.'
-        },
-        {
-          tag: 'p',
-          html: 'The attack against HSV-2 Swift was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are most likely attributable to spillover from the conflict in Yemen.'
-        },
-        {
-          tag: 'p',
-          html: 'First, many naval operations deployed to address piracy are currently winding down or have ended already: EU NAVFOR’s Operation Atalanta was extended through the end of 2018, but NATO’s Operation Ocean Shield concluded its mission at the end of 20166 leaving limited naval forces in the area available for response. Complicating this further is the fact that the Combined Maritime Forces operations in the region are the only ones with a mandate that explicitly includes combating these evolving maritime terrorism threats.7'
-        },
-        {
-          tag: 'p',
-          html: 'Second, the response required to counter an attack of this nature differs considerably from the response necessary to protect a vessel from a pirate attack. Oceans Beyond Piracy asks if recommendations established to counter piracy in Best Management Practices (Version 4) need to be reevaluated to fit an evolving threat, and similarly, if private security teams require training to combat an array of risks in addition to piracy.'
-        },
-        {
-          tag: 'p',
-          html: 'Finally, vessels may decide to re-route around the Bab el-Mandeb strait entirely in order to avoid any potential dangers—a decidedly expensive and difficult option for the shipping industry to take.'
+          html: 'Attacks on five vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. The trend continued into 2017 with Oceans Beyond Piracy recording an increase in suspicious activity in the Bab el-Mandeb, including sightings of naval mines and marine-borne improvised explosive devices.'
         },
         {
           tag: 'p',
           html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
         },
-        {
-          gif: true,
-          tag: 'video',
-          videoId: 'Dscw8gv4maY',
-          thumb: '../../assets/piracy/bab-al-mandeb-attacks.gif'
-        },
-        {
-          tag: 'caption',
-          html: 'Note - this is not the correct video, just wanted to indicate functionality of the gif. Try clicking on it ;) ###'
-        },
+        // {
+        //   tag: 'p',
+        //   html: 'The attack against HSV-2 Swift was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are most likely attributable to spillover from the conflict in Yemen.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'First, many naval operations deployed to address piracy are currently winding down or have ended already: EU NAVFOR’s Operation Atalanta was extended through the end of 2018, but NATO’s Operation Ocean Shield concluded its mission at the end of 20166 leaving limited naval forces in the area available for response. Complicating this further is the fact that the Combined Maritime Forces operations in the region are the only ones with a mandate that explicitly includes combating these evolving maritime terrorism threats.7'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Second, the response required to counter an attack of this nature differs considerably from the response necessary to protect a vessel from a pirate attack. Oceans Beyond Piracy asks if recommendations established to counter piracy in Best Management Practices (Version 4) need to be reevaluated to fit an evolving threat, and similarly, if private security teams require training to combat an array of risks in addition to piracy.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'Finally, vessels may decide to re-route around the Bab el-Mandeb strait entirely in order to avoid any potential dangers—a decidedly expensive and difficult option for the shipping industry to take.'
+        // },
+        // {
+        //   tag: 'p',
+        //   html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
+        // },
+        // {
+        //   gif: true,
+        //   tag: 'video',
+        //   videoId: 'Dscw8gv4maY',
+        //   thumb: '../../assets/piracy/bab-al-mandeb-attacks.gif'
+        // },
+        // {
+        //   tag: 'caption',
+        //   html: 'Note - this is not the correct video, just wanted to indicate functionality of the gif. Try clicking on it ;) ###'
+        // },
         // {
         //   tag: 'p',
         //   html: 'The attack against HSV-2 <em>Swift</em> was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are therefore most likely attributable to spillover from the conflict in Yemen. As discussed in the <em>Stable Seas: Somali Waters</em>  report, this has myriad implications for shipping traffic in the region.' //### add hyperlink to somali waters report
@@ -1244,35 +1244,64 @@ var piracyData = {
         },
         {
           tag: 'p',
-          html: 'The Piracy and Armed Robbery Score measures instances of these events within and around each country’s exclusive economic zone (EEZ). Our definition of piracy is that established by the United Nations Convention on the Law of Sea, as follows, and our definition of armed robbery is taken from that of the International Maritime Organization, as seen below.'
+          html: 'The piracy and armed robbery score is measured by the proximity of incidents to the coastline. Incidents are classified as piracy or armed robbery using the classification system of the International Maritime Organization (IMO), which relies on the definition of piracy in the United Nations Convention on the Law of the Sea (UNCLOS). According to Article 101 of UNCLOS 1982:'
         },
         {
           tag: 'p',
-          html: 'Piracy: “Any illegal acts of violence or detention, or any act of depredation, committed for private ends by the crew or the passengers of a private ship or a private aircraft, and directed:'
-        },
-        {
-          tag: 'ul',
-          rows: ['on the high seas, against another ship or aircraft, or against persons on property on board such ship or aircraft;', 'against a ship, aircraft, persons, or property in a place outside the jurisdiction of any state.”<sup>11</sup>']
+          html: 'Piracy consists of any of the following acts:'
         },
         {
           tag: 'p',
-          html: 'Armed Robbery: “Unlawful act of violence or detention or any act of depredation, or threat thereof, other than an act of piracy, committed for private ends and directed against a ship or against persons or property on board such a ship, within a state’s internal waters, archipelagic waters and territorial sea.” '
+          classes: 'indent-1',
+          html: '(a) any illegal acts of violence or detention, or any act of depredation, committed for private ends by the crew or the passengers of a private ship or a private aircraft, and directed:'
         },
         {
           tag: 'p',
-          html: 'Legally, then, these activities are very similar and are mainly distinguished by where they occur. Events occurring within the territorial waters of a state, typically within 12 nautical miles of the shoreline, are acts of armed robbery at sea. Incidents occurring farther from the coast, including those occurring within an EEZ, are acts of piracy at sea.',
+          classes: 'indent-2',
+          html: '(i) on the high seas, against another ship or aircraft, or  against persons or property on board such ship or aircraft;'
         },
         {
           tag: 'p',
-          html: 'The score includes two inputs. The first is the number of piracy and armed robbery incidents occurring within a state’s territorial waters or exclusive economic zone during the 2016 calendar year. We use data collected in the State of Piracy report, an annual evaluation of global piracy trends from Oceans Beyond Piracy. Using geographic information systems (GIS) methodology, we cross-reference the latitudes and longitudes of each qualifying incident with geographic shapefiles of each EEZ.'
+          classes: 'indent-2',
+          html: '(ii) against a ship, aircraft, persons or property in a place outside the jurisdiction of any State;',
         },
         {
           tag: 'p',
-          html: 'States can still face a threat of piracy even if events are not occurring in their own waters. Many attacks occur against international vessels operating just beyond a state’s exclusive economic zone, so we also include a measure or proximity to piracy attacks.'
+          classes: 'indent-1',
+          html: '(b) any act of voluntary participation in the operation of a ship or of an aircraft with knowledge of facts making it a pirate ship or aircraft;'
         },
         {
           tag: 'p',
-          html: 'Using GIS, we calculate the minimum distance between every EEZ and every incident occurring around the African continent. Distances are measured as the minimum from the latitude and longitude of the incident to the closest border of the EEZ. Events occurring within an EEZ receive a distance score of 0. Then, we identify each country’s set of closest incidents and take the average distance of each incident in the set to the EEZ boundary. Closer events are given a higher score and we log-transform these distances so that more distant events have a much smaller influence on a state’s proximity-to-piracy score than events occurring very close to the EEZ. We measure distances in hundreds of kilometers and set a maximum distance of 1,000 kilometers, meaning anything occurring farther than that cannot count against a state’s proximity score.'
+          classes: 'indent-1',
+          html: '(c)        any act of inciting or of intentionally facilitating an act described in subparagraph (a) or (b).'
+        },
+        {
+          tag: 'p',
+          html: 'The IMO clarifies the definition of armed robbery as:'
+        },
+        {
+          tag: 'p',
+          classes: 'indent-1',
+
+          html: '1)    Any illegal act of violence or detention or any act of depredation, or threat thereof, other than an act of piracy, committed for private ends and directed against a ship or against persons or property on board such a ship, within a State’s internal waters, archipelagic waters and territorial sea;'
+        },
+        {
+          tag: 'p',
+          classes: 'indent-1',
+
+          html: '2)    Any act of inciting or of intentionally facilitating an act described above.'
+        },
+        {
+          tag: 'p',
+          html: 'The principal difference between piracy and armed robbery is geography. Piracy takes place in international waters, including the high seas, EEZs, and contiguous zones. Armed robbery occurs in territorial and internal waters.'
+        },
+        {
+          tag: 'p',
+          html: 'Because many attacks occur just outside a nation’s EEZ, this score is not calculated as a simple count of events within an EEZ. Rather, it measures a nation’s proximity to incidents of piracy and armed robbery.'
+        },
+        {
+          tag: 'p',
+          html: 'More details about all of these scores are available on our data page.'
         },
         {
           tag: 'p',
