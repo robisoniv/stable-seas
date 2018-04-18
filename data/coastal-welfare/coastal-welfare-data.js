@@ -48,12 +48,14 @@ var coastalWelfareData = {
         description: 'Overview of the sub-index.'
       },
       map: {
+        type: 'continuous',
         scale: [],
         classes: 'card-eez-layer',
         path: '',
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'Coastal Welfare Score',
         tooltipHTML: function (iso3) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
           tooltipVal = Math.round(tooltipVal * 100);
@@ -79,48 +81,20 @@ var coastalWelfareData = {
           text: 'The primary driver of maritime insecurity'
         },
         {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Dots represent lethal conflict incidents occurring in 2016. Gold incidents occurred within 50km of the coast. <br><a href="https://www.prio.org/Data/Armed-Conflict/UCDP-PRIO/" target="_blank">Source: UCDP/PRIO</a></em>'
-        },
-        // { tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>Lighter shades indicate higher coastal welfare scores.</em><br /><br /><a class="internal-ref coastal-welfare inline" href="#" data-link="6">Methodology</a>'
-        // },
-        {
           tag: 'p',
-          html: 'Maritime security is closely linked to the well-being of the people living in adjacent coastal areas. When coastal residents suffer from violence and poverty on or near the coast, their close proximity to the sea can draw them toward maritime crime and the illicit maritime economy.'
+          html: 'Maritime security is closely linked to the well-being of the people living in adjacent coastal areas. When coastal residents suffer from violence and poverty on or near the coast, their close proximity to the sea may draw them toward illicit maritime activities like piracy, smuggling, and trafficking. Transnational criminal networks are especially likely to establish themselves along coastlines that are weakly governed and affected by <a class="internal-ref inline coastal-welfare" href="#" data-link="3">armed conflict and other forms of violence</a>. In Nigeria, Somalia, the Philippines and elsewhere, violent non-state actors operating on shore often turn to the maritime space to smuggle in <a class="illicit-trade inline" href="../../illicit-trade">arms and illicit goods</a>.The coastal welfare score measures a population’s physical and economic security, both coastal and country-wide.'
         },
         {
           tag: 'img',
           src: '../../assets/coastal-welfare/coastal_welfare_loop-01.png', // This should be on the Stable Seas Deck - comments
         },
-
-        // { tag: 'h3',
-        //   text: 'The Coastal Welfare Scores'
-        // },
-        // {tag: 'indexTable'
-        // },
-        // { tag: 'caption',
-        //   text: 'Note: scores are rounded to the nearest whole number.'
-        // },
         {
           tag: 'p',
-          html: 'Violent non-state actors operating on shore are likely to turn to the maritime space to smuggle in <a class="illicit-trade inline" href="../../illicit-trade">arms and illicit goods</a>, as seen in Somalia, Nigeria, the Philippines, and elsewhere. Transnational criminal networks are especially likely to establish themselves along coastlines that are weakly governed and affected by <a class="internal-ref inline coastal-welfare" href="#" data-link="3">armed conflict and other forms of violence</a>.'
-        },
-        // { tag: 'p',
-        //   html: 'Our Coastal Welfare score captures the physical and economic security of coastal and nationwide populations. The highest-ranking countries are not experiencing civil war, and have lower homicide rates and lower infant mortality and higher per capita incomes, life expectancies, and levels of education attainment. They also have profitable and sustainable maritime industries.'
-        // },
-        // { tag: 'p',
-        //    html: 'In 2017, coastal welfare is highest among African island states, in the western Gulf of Guinea, and in the southern cone. High levels of violence near the coast dramatically reduce scores near the Niger River Delta and on the Horn of Africa.'
-        // },
-        {
-          tag: 'p',
-          html: 'We are only starting to learn about the complex relationships between coastal conditions and various maritime crimes. While many criminal networks flourish in situations of poor coastal welfare, the enabling conditions often vary based on the crime. For example, <a class="piracy inline" href="../../piracy">piracy activities</a> often need a semblance of stability and functioning markets, as seen in parts of Somalia. If conditions are too violent and unstable, pirates and criminal networks have difficulty operating.<a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">Human smuggling</a> benefits from civil war, as seen in Libya. However, some crimes, such as <a class="illicit-trade inline" href="../../illicit-trade">illicit trades</a>, flourish in more sophisticated economies and stable environments, such as South Africa.'
+          html: 'A high level of coastal welfare is closely linked to a well-developed blue economy, strong rule of law, low incidence of piracy and armed robbery, and a low level of maritime mixed migration.'
         },
         {
           tag: 'p',
-          html: 'The nature of maritime crime can shift depending on the changing conditions and opportunities on shore. Recognizing what these conditions are and how they might impact or be impacted by maritime crimes is important for identifying vulnerable locations, ports, and shorelines and intervening to prevent an escalation of illicit activity.'
+          html: 'This section is divided into three parts. The first will discuss the links between conflict and physical insecurity and maritime crime. The second will explore the economic insecurity trap and how illicit maritime activities undermine coastal economies. The section concludes with a discussion of methodology.'
         },
         // Insert infographic here ###
         // { tag: 'p',
@@ -132,8 +106,8 @@ var coastalWelfareData = {
     },
 
     { // Card 1
-      title: 'War and Maritime Crimes',
-      menu: 'War and Maritime Crimes',
+      title: 'Conflict and Maritime Crime',
+      menu: 'Conflict and Maritime Crime',
       metadata: {
         owner: 'Sasha Egorova',
         description: 'How maritime crime funds violent non-state actors'
@@ -206,7 +180,7 @@ var coastalWelfareData = {
         },
         {
           tag: 'p',
-          html: 'Sub-Saharan Africa is the most war-torn region of the world. Just in 2016, 10 out of 30 countries covered by our Stable Seas Maritime Security Index were affected by civil war. A total of 1,039 armed clashes occurred throughout their territories; 256 of them occurred within 50 kilometers of the coast, including in the vicinities of key coastal towns, ports, and other critical maritime infrastructure.<sup>8</sup>'
+          html: 'Sub-Saharan Africa is among the most war-torn regions of the world. In 2016, 10 of the 30 countries in the Stable Seas Maritime Security Index were affected by civil war. A total of 1,039 armed clashes occurred in these states; 256 incidents occurred within 50 kilometers of the coast and in the vicinity of key coastal towns, ports, and other critical maritime infrastructure.'
         },
         {
           tag: 'img', // Add graph ###
@@ -214,7 +188,7 @@ var coastalWelfareData = {
         },
         {
           tag: 'p',
-          html: 'There is a complex relationship between armed conflict and maritime crimes. First of all, civil war can facilitate and drive illicit activities. Active conflict creates the opportunities illicit networks need to flourish: low government penetration and weak control of insurgent territories, weak rule of law, a proliferation of arms, and ample networks that can be tapped into to support illicit activities.'
+          html: 'Armed conflict and maritime crime are linked in a cycle that perpetuates violence and insecurity. Civil war and other physically violent conflicts facilitate and drive illicit maritime activities. Active conflict creates the conditions illicit networks need to flourish: low government penetration and weak control of insurgent territories, poor rule of law, proliferation of arms, and additional networks that can be tapped into to support illicit activities.'
         },
         {
           tag: 'p',
@@ -222,12 +196,12 @@ var coastalWelfareData = {
         },
         {
           tag: 'p',
-          html: 'Conversely, criminal activities can also facilitate war by funding insurgent campaigns.<sup>9</sup> Attacking oil tankers and <a class="piracy inline" href="../../piracy">kidnapping for ransom</a> have proven to be lucrative strategies for financing insurgency in the Gulf of Guinea. The Movement for the Emancipation of the Niger Delta (MEND) has attacked oil tankers and infrastructure off the coast of Nigeria regularly since 2008. Attacks prompted the government to come to the negotiation table, but, most importantly, financed the group’s activities through ransom payments and the sale of stolen oil on the black market.<sup>10</sup>'
+          html: 'Conversely, criminal activities at sea facilitate violent conflict by funding insurgent campaigns. For example, piracy and armed robbery attacks on commercial vessels are a lucrative strategy for financing militant groups in the Gulf of Guinea. Since 2008, the Movement for the Emancipation of the Niger Delta (MEND) has attacked oil infrastructure off the coast of Nigeria. These attacks prompted the government to come to the negotiation table but also financed the group’s continued existence through ransom payments and the sale of stolen oil on the black market.'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>8</sup> Ralph Sundberg and Erik Melander, “Introducing the UCDP Georeferenced Event Dataset,” <em>Journal of Peace Research</em> 50, no.4 (2013): 523–532; Mihai Croicu and Ralph Sundberg, “UCDP GED Codebook version 17.1,” Department of Peace and Conflict Research, Uppsala University, 2017.'
+              org: ' ### Need to add these references to the text *** <sup>8</sup> Ralph Sundberg and Erik Melander, “Introducing the UCDP Georeferenced Event Dataset,” <em>Journal of Peace Research</em> 50, no.4 (2013): 523–532; Mihai Croicu and Ralph Sundberg, “UCDP GED Codebook version 17.1,” Department of Peace and Conflict Research, Uppsala University, 2017.'
             },
             {
               org: '<sup>9</sup> Ursula Daxacker and Brandon C. Prins, “Financing Rebellion: Using Piracy to Explain and Predict Conflict Intensity in Africa and Southeast Asia,” <em>Journal of Peace Research</em> 54, no. 2 (2017): 215–230.'
@@ -309,7 +283,7 @@ var coastalWelfareData = {
         // },
         {
           tag: 'p',
-          html: 'Fisheries, tourism, and other maritime industries provide coastal populations with opportunities to thrive in the <a class="blue-economy inline" href="../../blue-economy">legal maritime economy</a>. When such opportunities diminish or are not available, workers are more likely to join criminal networks and to exploit maritime resources through illegal means.'
+          html: 'Fisheries, tourism, and other maritime industries provide coastal populations with opportunities to thrive in the <a class="blue-economy inline" href="./blue-economy">legal maritime economy</a>. When such opportunities diminish or are not available, workers are more likely to join criminal networks and to exploit maritime resources through illegal means.'
         },
         {
           tag: 'p',

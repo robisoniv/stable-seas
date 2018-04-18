@@ -1,31 +1,31 @@
-country,iso3,ia10c0,ia10c4,ia10c5
-Angola,AGO,1,1,1
-Benin,BEN,3,1,
-Cameroon,CMR,3,1,
-Cape Verde,CPV,3,1,
-Comoros,COM,2,0,
-Congo (Rep),COG,2,1,1
-Djibouti,DJI,3,1,
-DRC,COD,2,1,
-Equatorial Guinea,GNQ,2,0,
-Gabon,GAB,3,1,
-Gambia,GMB,2,0,
-Ghana,GHA,3,1,
-Guinea,GIN,2,1,
-Guinea-Bissau,GNB,2,1,
-Ivory Coast,CIV,1,1,
-Kenya,KEN,1,1,
-Liberia,LBR,3,0,
-Madagascar,MDG,3,1,
-Mauritius,MUS,1,1,
-Mozambique,MOZ,3,1,
-Namibia,NAM,1,1,
-Nigeria,NGA,3,1,
-Sao Tome,STP,,0,
-Senegal,SEN,3,1,
-Seychelles,SYC,1,1,
-Sierra Leone,SLE,1,1,
-Somalia,SOM,4,0,
-South Africa,ZAF,1,1,1
-Tanzania,TZA,1,1,
-Togo,TGO,1,1,
+country,iso3,index,ilo-work-in-fishing
+Angola,AGO,0.5969362349,1
+Benin,BEN,0.5677213625,0
+Cote d'Ivoire,CIV,0.4440426906,0
+Cameroon,CMR,0.4923951575,0
+DRC,COD,0.4797748418,0
+Congo,COG,0.608182187,1
+Comoros,COM,0.4390084809,0
+Cabo Verde,CPV,0.7626302656,0
+Djibouti,DJI,0.4110688395,0
+Gabon,GAB,0.5155818846,0
+Ghana,GHA,0.5126243247,0
+Guinea,GIN,0.4134978577,0
+The Gambia,GMB,0.5522001535,0
+Guinea-Bissau,GNB,0.5673076453,0
+Equatorial Guinea,GNQ,0.548188188,0
+Kenya,KEN,0.5614312553,0
+Liberia,LBR,0.5074943685,0
+Madagascar,MDG,0.6362628069,0
+Mozambique,MOZ,0.566879048,0
+Mauritus,MUS,0.6378199273,0
+Namibia,NAM,0.6889015469,0
+Nigeria,NGA,0.4452670408,0
+Senegal,SEN,0.4783411072,0
+Sierra Leone,SLE,0.5930465057,0
+Somalia,SOM,0.2567451216,0
+Sao Tome and Principe,STP,0.5911820599,0
+Seychelles,SYC,0.6922893436,0
+Togo,TGO,0.579146941,0
+Tanzania,TZA,0.6047842481,0
+South Africa,ZAF,0.6335965362,1

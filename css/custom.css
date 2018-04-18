@@ -492,6 +492,14 @@ h4 {
   padding: 5px 0px;
 }
 
+p.indent-1 {
+  margin-left: 20px;
+}
+
+p.indent-2 {
+  margin-left: 40px;
+}
+
 .attribution {
   float: right;
 }
