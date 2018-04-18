@@ -1027,68 +1027,53 @@ var maritimeMixedMigrationData = {
           text: 'Methodology',
         },
         { tag: 'p',
-          html: 'The Maritime Mixed Migration Score characterizes the severity of human smuggling and trafficking at sea (30 percent), the prevalence of international maritime migration (30 percent), legal protections for migrants and victims of forced labor or sex trafficking (20 percent), and a population’s vulnerability to trafficking as measured by baseline socio-political conditions (20 percent). Countries with low scores have the weakest legal protections, the most vulnerable populations, and the greatest existing challenges related to maritime mixed migration.'
+          html: 'Mixed migration is a complex and rapidly evolving topic, and this complexity complicates efforts to measure it even where some data on migration, trafficking, and human smuggling are available. Our effort to measure mixed migration focuses less on raw numbers of people involved in some aspect of mixed migration and more on the variety of activities known to occur in each country, the role of the sea in these activities, each country’s international and domestic legal effort, and a population’s baseline vulnerability to exploitation based on relevant socioeconomic factors.'
         },
-        { tag: 'h3',
-          text: 'Maritime Activity (30 percent)'
+        {
+          tag: 'p',
+          html: 'We adopt a definition of mixed migration from the International Organization for Migration, which uses the following:'
         },
-        { tag: 'p',
-           html: 'The first component of the score captures the severity of the issue in each country, as well as the extent to which these problems occur in a country’s maritime space. We accomplish this by scoring the severity of various problems and then weighting these severity scores according to whether they occur predominantly at sea, predominantly on land, or both on and off shore.'
-        },
-        { tag: 'p',
-           html: 'Because these scores focus on maritime activity, they will not always align with other reports that focus on onshore smuggling, trafficking, internally displaced persons, and refugees. The Democratic Republic of the Congo, for example, has well-known challenges in these areas; however, there is very little maritime smuggling and trafficking due to the coastal area of the country being small, remote, and very far from the humanitarian challenges occurring in the distant eastern part of the country.'
+        { tag: 'blockquote',
+          html: '“The principal characteristics of mixed migration flows include the irregular nature of and the multiplicity of factors driving such movements, and the differentiated needs and profiles of the persons involved. Mixed flows have been defined as ‘complex population movements including refugees, asylum seekers, economic migrants and other migrants’. Unaccompanied minors, environmental migrants, smuggled persons, victims of trafficking and stranded migrants, among others, may also form part of a mixed flow.”<br /> <em>REFERENCE?? ###</em>'
         },
         { tag: 'p',
-          text: 'We calculate activity scores with the following five inputs.'
+           html: 'We measure the Mixed Maritime Migration Score with four equally weighted components:'
+        },
+        {
+          tag: 'h4',
+          html: 'Maritime Trafficking'
+        },
+        {
+          tag: 'p',
+          html: 'Using sources like the US State Department Trafficking in Persons report, we score the severity and breadth of forced labor and sex trafficking across men, women, boys, and girls. We also identify countries used as major international “transit hubs” for smuggled and trafficked persons, and we then weight these scores according to whether such activities occur exclusively, predominantly, or rarely at sea.'
+        },
+        {
+          tag: 'h4',
+          html: 'Maritime Transit'
+        },
+        { tag: 'p',
+           html: 'Whereas the Maritime Trafficking Score aims to capture the extent of trafficking at sea, the Maritime Transit Component focuses on the movement of people in the maritime space, rather than their exploitation. Many persons who are not being trafficked transit by sea as they pay smugglers to take them to their destinations. We approximate the extent of this kind of maritime transit by considering a country’s refugee rate, calculated from data from the United Nations High Commissioner on Refugees, and the relative prevalence of maritime routes vis-a-vis routes by land or air.'
+        },
+
+        { tag: 'h4',
+          text: 'Legal Protections'
+        },
+        { tag: 'p',
+          text: 'The legal protections portion of the score is comprised of an international agreements indicator and a domestic legislation indicator. The international portion of the score measures participation in seven agreements that are directly relevant to protecting migrants, children, and laborers from various forms of involuntary trafficking:'
+        },
+        { tag: 'ul',
+          rows: ['Optional Protocol to the Convention on the Rights of the Child on the Sale of Children, Child Prostitution, and Child Pornography', 'Optional Protocol to the Convention on the Rights of the Child on the Involvement of Children in Armed Conflict', 'International Labor Organization Forced Labor Convention of 1930', 'International Labor Organization Abolition of Forced Labor Convention of 1957', 'International Labor Organization Worst Forms of Child Labor Convention of 1999', 'International Labor Organization Domestic Workers Convention of 2011', 'International Labor Organization Work in Fishing Convention of 2007']  // HTML or text?
+        },
+        { tag: 'p',
+          text: 'The domestic portion of the score is adapted from the “3P Anti-trafficking Policy Index” by Seo-Young Cho. This index uses the Trafficking in Persons report to annually score a state’s legal efforts in the areas of prosecuting traffickers, protecting potential victims, and preventing trafficking networks.'
         },
         { tag: 'h4',
-          text: 'Types of Activity'
+        text: 'Socioeconomic Vulnerability'
         },
         { tag: 'p',
-          text: 'Rather than rely on inconsistent estimates of the number of victims, we account for the diversity in the types of trafficking occurring in a given country. More specifically, we use the Trafficking in Persons Report from the United States Department of State and other secondary sources to create eight scores. These scores capture the presence of two types of trafficking, sex and forced labor, across four populations, men, women, boys, and girls. If these sources elaborate on a specific form of trafficking against a specific population (e.g., sex trafficking of girls, boys trafficked for forced labor, etc.), then we code this as a significant activity. Possible scores range from zero (no discussion of any kind of trafficking) to eight (significant numbers of men, women, girls, and boys are all victims of both sex trafficking and forced labor).'
+        text: 'Finally, populations are more vulnerable to trafficking where political systems are ineffective, human capital is low, and socioeconomic conditions are poor. We operationalize a population’s vulnerability with two indicators: the primary-school completion rate as recorded by the World Bank, and the Vulnerability to Slavery score calculated by the Walk Free Foundation as part of its Global Slavery Index.'
         },
-        { tag: 'h4',
-          text: 'Prevalence of Forced Labor Among Men and Women'
-        },
-        { tag: 'p',
-          text: 'The Varieties of Democracy project asks expert respondents the extent to which both women and men are “free from servitude and other kinds of forced labor.” Responses are scored on a five-value scale ranging from these activities being “non-existent” to “widespread.” These scores reflect the actual practice of these activities rather than legal responses to them.'
-        },
-        { tag: 'h4',
-        text: 'Transit Country'
-        },
-        { tag: 'p',
-        text: 'Migrants are most likely to be subjected to a form of trafficking within a country if it is recognized as an important transit hub in the <em>Trafficking in Persons Report</em>. Countries are classified as “transit countries” when international migrants pass through in their journeys to be smuggled to other countries. For example, Libya is an important transit country for migrants making their way from West Africa to Europe via the Mediterranean routes. Migrants passing through a transit country are extremely vulnerable to being sold into forced labor or sex within the transit state.'
-        },
-        { tag: 'h4',
-        text: 'UNHCR Refugee Rate'
-        },
-        { tag: 'p',
-        text: 'We use data from the United Nations High Commissioner on Refugees (UNHCR) to calculate a logged per capita refugee rate. The score is higher when a greater share of a country’s population has sought refugee status in another country in the last year.'
-        },
-        { tag: 'p',
-        text: 'As a final step, we average these five scores and then multiply them by zero if there is no evidence of activity at sea, or by two if the evidence suggests these activities occur almost exclusively at sea or within maritime industries (e.g., sex trafficking to service offshore oil workers or fishers, forced labor in fishing, etc.). '
-        },
-        { tag: 'h3',
-          text: 'Maritime Transit (30 percent)'
-        },
-        { tag: 'p',
-          text: 'Accurately and consistently calculating the number of people crossing a specific maritime route is impossible due to the evasive nature of smuggling and illegal migration. However, we can create a proxy measure by using a country’s refugee rate (the number of UNHCR refugee applications divided by population) and an expert assessment of whether most migration from a country occurs by land (as in the Democratic Republic of the Congo) or by sea (as in Comoros). We multiply these scores to get a rough idea of the number of migrants transiting a country’s maritime space.'
-        },
-        { tag: 'h3',
-          text: 'Legal Protections (20 percent)'
-        },
-        { tag: 'p',
-          text: 'The legal protections portion of the score accounts for a state’s participation in several relevant international agreements (10 percent). A list of included agreements can be found in the technical notes, which are available for download on the data page. The domestic portion of the score (10 percent) is adapted from the “3P Anti-trafficking Policy Index” by Seo-Young Cho.### This index uses the <em>Trafficking in Persons Report</em> to annually score a state’s legal efforts in the areas of prosecuting traffickers, protecting potential victims, and preventing trafficking networks.  ' //link for triphashes above: http://www.economics-human-trafficking.net/anti-trafficking-3p.html
-        },
-        { tag: 'h3',
-          text: 'Vulnerability (20 percent)'
-        },
-        { tag: 'p',
-          text: 'Populations are more vulnerable to trafficking where political systems are ineffective, human capital is low, and socioeconomic conditions are poor. We proxy a population’s vulnerability with two measures: the primary-school completion rate as recorded by the World Bank, and the Vulnerability to Slavery score calculated by the Walk Free Foundation as part of its Global Slavery Index. These scores are averaged to produce the vulnerability score.'
-        },
-        { tag: 'p',
-          text: 'For more technical information, including formulae for converting these scores to the 0 to 100 scale used in this report, please see the data documentation available for download.###' //Need to link to data download page.
-        },
+        
       ] // end of els array
     }
   ] // end of cards array
