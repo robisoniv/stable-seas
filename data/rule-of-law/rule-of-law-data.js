@@ -534,10 +534,59 @@ var ruleOfLawData = {
           choropleth(index, 1, 'index');
         }
       },
-      els: [{
-          tag: 'h3',
-          text: 'Methodology'
+      els: [
+        {
+          tag: 'h1',
+          html: 'Methodology'
         },
+        {
+          tag: 'p',
+          html: 'Good maritime governance requires bureaucratic and legal structures that are capable of designing, implementing, and enforcing policy. Threats to the rule of law, including corruption, bribery, discrimination, and underdeveloped and ineffective political institutions impede a state’s capacity to provide good maritime governance. We measure the Rule of Law Score with five equally weighted components:'
+        },
+        {
+          tag: 'h4',
+          html: 'Corruption'
+        },
+        {
+          tag: 'p',
+          html: 'Corrupt officials fail to enforce policy and enable transnational crime and corruption in maritime governance. Maritime trade is especially affected because nearly all of Africa’s international trade transits the maritime space. Many organizations have created corruption measures already, so we adapt the Corruption Perceptions Index by Transparency International to create the Corruption Component[### link to reference in Drive doc?? *** https://www.transparency.org/news/feature/corruption_perceptions_index_2016]. This measure averages 13 other corruption variables, with more corrupt countries earning lower values.'
+        },
+        {
+          tag: 'h4',
+          html: 'Efficacy'
+        },
+        {
+          tag: 'p',
+          html: 'Ineffective governments cannot enforce policy, and this hinders a state’s ability to secure its maritime space and prevent illicit maritime activities. We measure efficacy by rescaling the Functioning of Government indicator from Freedom House. The Freedom House Functioning of Government indicator ranges from 0 to 12, with the most efficacious governments receiving higher scores.'
+        },
+        {
+          tag: 'h4',
+          html: 'Government Efficiency'
+        },
+        {
+          tag: 'p',
+          html: 'Governments with unnecessary administrative and bureaucratic hurdles provide more opportunities for bribery and corruption, especially as these systems relate to trade, customs, and international migration. Each year, the World Bank Doing Business report gauges government efficiency in several areas, one of which is Trading Across Borders. This indicator is computed from expert estimates of the amount of time and money required to move a standard shipping container into the country. The measure is especially relevant for efficiency in African maritime governance, as the region’s international trade transits almost exclusively through seaports.'
+        },
+        {
+          tag: 'h4',
+          html: 'Judicial Integrity'
+        },
+        {
+          tag: 'p',
+          html: 'Judicial integrity is important to the enforcement of existing laws and ensuring that the de jure regulations are de facto conditions. Where judges are bribed and laws go unenforced, the rule of law is too weak for policies aimed at the maritime domain to be effective. We create the Judicial Integrity Component using three indicators from the Varieties of Democracy Project (V-Dem), a leading dataset on the strength of governance around the world: Judicial Attacks, Judicial Accountability, and Judicial Bribery.'
+        },
+        {
+          tag: 'h4',
+          html: 'Inclusion'
+        },
+        {
+          tag: 'p',
+          html: 'We gauge political inclusion with five indicators from the Varieties of Democracy Project (V-Dem). These cover unequal treatment under the law according to social group identification, subnational region, religion, socioeconomic status, and gender. These are measures of equal treatment under the law, and not the absolute provision of liberal and transparent governance. Non-democratic states can score well if the law is equally applied across all five of these social divisions.'
+        },
+        {
+          tag: 'p',
+          html: 'More details about all of these scores are available on our data page.'
+        }
         // { tag: 'legend',
         //   text: 'Map Legend',
         //   legendContent: '<em>Lighter shades indicate higher Rule of Law scores.</em>'
