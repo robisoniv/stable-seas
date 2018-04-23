@@ -1405,10 +1405,11 @@ var radarData = {
     "axis": "Maritime Mixed Migration",
     "color": '#AA9872'
   }]
-} // end radarData
+}// end radarData
 
 
 var regionsData = {
+
   overview: {
     metadata: {
       name: 'Regions Overview',
@@ -1459,13 +1460,13 @@ var regionsData = {
                 console.log(iso, j);
                 d3.selectAll('.country.' + iso)
                   .style('fill', function() {
-                    //  console.log('white', j);
+                  //  console.log('white', j);
                     return d3.interpolateLab('white', regionsColor[md.index])(0.6);
                   })
                   .style('stroke', 'white')
                   .classed(key, true)
                   .attr('data-region', md.path)
-                  .on('click', function(d) {
+                  .on('click', function (d) {
                     var path = d3.select(this).attr('data-region');
                     console.log(path);
 
@@ -1478,7 +1479,7 @@ var regionsData = {
                   .style('opacity', 0.4)
                   .classed(key, true)
                   .attr('data-region', md.path)
-                  .on('click', function(d) {
+                  .on('click', function (d) {
                     var path = d3.select(this).attr('data-region');
                     console.log(path);
 
@@ -1627,8 +1628,7 @@ var regionsData = {
     load: function(csv, callback) {
       callback('Western Coast load csv function callback');
     },
-    cards: [
-      { // Card 0
+    cards: [{ // Card 0
         title: 'Africa\'s Western Coast',
         menu: 'The Western Coast',
         metadata: {
@@ -1718,14 +1718,22 @@ var regionsData = {
           // ...
         ]
       },
-      {
-        "title": "Cabo Verde",
-        "menu": "Cabo Verde",
-        "map": {
-          "highlights": [
-            "CPV"
+      { // Card 1
+        title: 'Cabo Verde',
+        menu: 'Cabo Verde',
+        metadata: {
+          owner: '',
+          description: ''
+        },
+        map: {
+          scale: [],
+          translate: [],
+          extent: [
+            [-35, 0],
+            [-25, 35]
           ],
-          "iso3": "CPV",
+          highlights: ['CPV'],
+          iso3: '',
           load: function(index, csv) {
             var layer = 'card-' + index + '-layer';
             d3.select('.card-eez-layer')
@@ -1735,32 +1743,49 @@ var regionsData = {
 
           }
         },
-        "els": [{
-            "tag": "h1",
-            "text": "Cabo Verde"
+        els: [{
+            tag: 'h1',
+            text: 'Cabo Verde'
           },
           {
-            "tag": "caption",
-            "text": "holder????"
+            tag: 'caption',
+            text: '<em>An island nation with strong Rule of Law</em>'
           },
           {
-            "tag": "p",
-            "html": "Cabo Verde's exclusive economic zone covers roughly 800561 square kilometers of the [### relevant body of water ###].           This gives Cabo Verde the 1 largest EEZ in sub-Saharan Africa. Meanwhile, Cabo Verde's Maritime Enforcement Score indicates Cabo Verde is [#####] the regional average."
+            tag: 'p',
+            html: 'Cabo Verde\'s exclusive economic zone covers roughly 800,561 square kilometers of the northeast Atlantic Ocean \
+                . This gives Cabo Verde the xth largest EEZ in sub-Saharan Africa. \
+                Meanwhile, Cabo Verde\'s Maritime Enforcement Capacity Score indicates Cabo Verde is slightly above \
+                the regional average.'
           },
           {
-            "tag": "radar"
+            tag: 'radar'
           },
           {
-            "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cabo Verde ranks highest in . Cabo Verde's score of [NUMBER] in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Cabo Verde can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters.."
+            tag: 'p',
+            html: 'Across the nine issues covered by the Stable Seas Maritime Security Index, COUNTRY ranks highest in BEST ISSUE. \
+                COUNTRY’s score of NUMBER in this area is high relative to its other issue scores, due in part to SOMETHING RELEVANT \
+                AND INTERESTING. COUNTRY can further improve upon this area of relative strength by SUGGESTION BACKED BY THE SUBSCORES.'
           },
           {
-            "tag": "p",
-            "html": "Cabo Verde is also above the regional average in [ list of all issues where country ranks above 16 ]."
+            tag: 'h2',
+            html: 'Cabo Verde Index Sub-scores'
           },
           {
-            "tag": "p",
-            "html": "The greatest remaining challenge for Cabo Verde is Illicit Trades. Cabo Verdescores [SCORE] in this area, [####above or below###] the regional average of [regional average]. To further             improve upon this score, Cabo Verde can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine and cannabis crossing the Atlantic Ocean from South America.. Further progress can be made by continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine and cannabis crossing the Atlantic Ocean from South America.. Through these efforts, Cabo Verde can raise its weakest score and work toward comprehensive and lasting maritime security."
+            tag: 'img',
+            src: '../../assets/western-coast/radar-sample.png'
+          },
+          {
+            tag: 'bigtext',
+            html: 'COUNTRY is also above the regional average in LIST OF ALL ISSUES WHERE COUNTRY RANKS ABOVE 16.'
+          },
+          {
+            tag: 'p',
+            html: 'The greatest remaining challenge for COUNTRY is WORST ISSUE RANKING. COUNTRY scores SCORE in this area, and this is slightly/significantly above/below the regional average of regional average for this score. To further improve upon this score, COUNTRY can SUGGESTION BACKED BY THE SUBSCORES, FOCUSED ON DOMESTIC POLICY. Further progress can be made by SUGGESTION BACKED BY THE SUBSCORES, FOCUSED ON INTERNATIONAL/REGIONAL EFFORT. Through these efforts, COUNTRY can raise its weakest score and work toward comprehensive and lasting maritime security.'
+          },
+          {
+            tag: 'p',
+            html: 'Do we want to have links to methods cards here ?'
           }
         ]
       },
@@ -3940,7 +3965,8 @@ var regionsData = {
       callback('Eastern Coast load csv function callback');
 
     },
-    cards: [{ // Card 0
+    cards: [
+      { // Card 0
         title: 'Africa\'s Eastern Coast',
         menu: 'The Eastern Coast',
         metadata: {
