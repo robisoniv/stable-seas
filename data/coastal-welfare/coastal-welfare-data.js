@@ -22,23 +22,7 @@ var coastalWelfareData = {
     description: 'Maritime security is closely linked to the well-being of the people living in adjacent coastal areas.'
   },
   load: function(csv, callback) {
-
-    // Not sure why loadIAcsv() isn't working here...
     loadIAcsv(csv, callback);
-    // var md = issueAreaData[issueArea].metadata;
-    // d3.csv(csv, function(vals) {
-    //   vals.forEach(function(d) {
-    //     for (key in d) {
-    //       if (isNaN(d[key]) != true) {
-    //         // Convert all numbers (floats and ints) to proper data type
-    //         d[key] = +d[key];
-    //       }
-    //     }
-    //     md.countryData[d.iso3] = d;
-    //   });
-    //   callback('internationalCooperation load csv function callback');
-    // });
-
   },
   cards: [
     { // Card 0
@@ -105,7 +89,6 @@ var coastalWelfareData = {
       ] // end of els array
 
     },
-
     { // Card 1
       title: 'Conflict and Maritime Crime',
       menu: 'Conflict and Maritime Crime',
@@ -259,28 +242,7 @@ var coastalWelfareData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          //  switchMainIndex(index);
-
           choropleth(index, 1, 'economic');
-          // var artisanalFishing = issueAreaData[issueArea].metadata.countryData;
-          //
-          // var values = [];
-          //
-          // artisanalFishing.forEach(function(row, i) {
-          //   values.push(row.ia5c1);
-          // });
-          //
-          // var max = d3.max(values),
-          //   min = d3.min(values),
-          //   range = max - min;
-          // artisanalFishing.forEach(function(row, i) {
-          //   d3.selectAll('.eez.' + row.iso3)
-          //     .classed('active', true)
-          //     .style('fill', function() {
-          //       return rampColor(1 - ((row.ia5c1 - range) / (max - min)))
-          //     })
-          //
-          // });
         }
       },
       els: [{
@@ -306,7 +268,7 @@ var coastalWelfareData = {
         },
         {
           tag: 'img',
-          src: '../../assets/coastal-welfare/al_faxti_fishing.jpg',
+          src: '../../assets/coastal-welfare/al_faxti_fishing.JPG',
           alt: 'Stable income opportunities in the fishing sector keep people away from criminal activity. Photo: Al Faxti Fishing, Jean-Pierre Larroque, OEF. ',
           caption: 'Stable income opportunities in the fishing sector keep people away from criminal activity. Photo: Al Faxti Fishing, Jean-Pierre Larroque, OEF. '
         },
