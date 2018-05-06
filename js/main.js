@@ -1,6 +1,6 @@
 // STABLE Seas
-// ONE EARTH FUTUREee
-// v0.0.6
+// ONE EARTH FUTURE
+// v1.0.0
 
 // Define global variables
 // Issue Area
@@ -1744,7 +1744,13 @@ function choropleth(cardIndex, order, key, animated) {
 
 
         d3.selectAll('.country.' + iso3)
-          .attr('data-val', val);
+          .attr('data-val', function (){
+            if (order == -1) {
+              return 1 - val;
+            } else {
+              return val;
+            }
+          });
         i++;
 
       }

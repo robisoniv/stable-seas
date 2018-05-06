@@ -137,7 +137,7 @@ var illicitTradeData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['opiates'];
-          tooltipVal = Math.round(tooltipVal * 100);
+          tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
           return "Measurement of opiates trade:<br />" + tooltipVal + " / 100";
 
@@ -146,45 +146,13 @@ var illicitTradeData = {
           var layer = 'card-' + index + '-layer';
 
           classEEZ(layer);
-
-          // Load flow map layer
-
-          // Load topoJSON of flow map
-          // d3.csv(csv, function(vals) {
-          //   vals.forEach(function(d) {
-          //     d.lat = +d.lat;
-          //     d.lon = +d.lon;
-          //   });
-          //
-          //   var smack = mapg.append('g')
-          //     .classed('card-layer smack-track invisible ' + layer, true);
-          //
-          //   smack.selectAll('circle')
-          //     .data(vals).enter()
-          //     .append('circle')
-          //     .attr('cx', function(d) {
-          //       return projection([d.lon, d.lat])[0];
-          //     })
-          //     .attr('cy', function(d) {
-          //       return projection([d.lon, d.lat])[1];
-          //     })
-          //     .attr('r', '5px')
-          //     //  .transition().delay(i * 10)
-          //     .style('fill', function(d, i) {
-          //       return rampColor(1 - (i / vals.length))
-          //     })
-          //     .classed('smack-track-point', true);
-          //
-          // });
-
-          // Class with layer
         },
         switch: function(index) {
           // Need to do choropleth() with opiates measure ...
 
           // d3.select('.card-' + index + '-layer')
           //   .classed('invisible', false);
-          choropleth(index, 1, 'opiates');
+          choropleth(index, -1, 'opiates');
         }
       },
       els: [{
@@ -301,7 +269,7 @@ var illicitTradeData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['cocaine'];
-          tooltipVal = Math.round(tooltipVal * 100);
+          tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
           return "Measurement of cocaine trade:<br />" + tooltipVal + " / 100";
 
@@ -311,7 +279,7 @@ var illicitTradeData = {
           classEEZ(layer);
         },
         switch: function(index) {
-          choropleth(index, 1, 'cocaine');
+          choropleth(index, -1, 'cocaine');
         }
       },
       els: [{
@@ -321,11 +289,6 @@ var illicitTradeData = {
         {
           tag: 'caption',
           text: 'From South America to West Africa and beyond'
-        },
-        {
-          tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>This map shows transit points on the West African coast and overland routes linking these ports to European consumers.</em>'
         },
         {
           tag: 'h3',
@@ -452,9 +415,9 @@ var illicitTradeData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['arms'];
-          tooltipVal = Math.round(tooltipVal * 100);
+          tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of arms trade:<br />" + tooltipVal + " / 100";
+          return "Measurement of arms trade:<br />" +  tooltipVal + " / 100";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -462,7 +425,7 @@ var illicitTradeData = {
           classEEZ(layer);
         },
         switch: function(index) {
-          choropleth(index, 1, 'arms');
+          choropleth(index, -1, 'arms');
         }
       },
       els: [{
@@ -594,7 +557,7 @@ var illicitTradeData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['wildlife'];
-          tooltipVal = Math.round(tooltipVal * 100);
+          tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
           return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100";
 
@@ -604,7 +567,7 @@ var illicitTradeData = {
           classEEZ(layer);
         },
         switch: function(index) {
-          choropleth(index, 1, 'wildlife');
+          choropleth(index, -1, 'wildlife');
         }
       },
       els: [{
@@ -712,41 +675,124 @@ var illicitTradeData = {
         description: 'Special focus on the pharmaceutical trade.'
       },
       map: {
-        type: 'boolean',
+        type: 'continuous',
         scale: [],
         classes: '',
         translate: [],
-        //highlights: ['SEN','GNB','GIN','SLE','LBR','CIV','GHA','TGO','BEN','NGA','CMR','GAB','COG','COD','AGO','NAM','ZAF','MOZ','TZA','KEN'],
         tooltip: true,
         legend: '',
+        categories: [1,2,3,4,5,6,7,8],
         tooltipHTML: function(iso) {
+          // var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['issues'];
+          // switch (tooltipVal) {
+          //   case <3:
+          //     return 'Fewer'
+          // }
+          // updatePointer(tooltipVal);
+          // return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100";
+
         },
-        load: function (index, csv) {  // ### *** This only should be for the first card ...
+        load: function (index, csv) {
           // Load points layer with boxes
           var layer = 'card-'+index+'-layer';
           classEEZ(layer);
-          // Class with layer
-
         },
         switch: function (index) {
-          // Simply show target layer
           d3.select('.card-' + index + '-layer')
             .classed('invisible', false);
 
-          // choropleth(index, 1, 'pharma_seizure')
+          var target = 'card-' + index + '-layer';
+          var vals = issueAreaData[issueArea].metadata.countryData;
+          var mapData = issueAreaData[issueArea].cards[index].map;
+          var mapType = mapData.type;
+
+          var i = 0;
+          var legendCategories = mapData.categories;
+          var legendTitle = mapData.legend;
+          var key = 'issues_normalized'
+
+          // This is hard coded at a 433px tall categorical legend ... which i don't like. but it works for now.
+          var translateTitle = 'translate(0, ' + (450 - (55 * legendCategories.length)) + ')';
+
+          d3.select('.legend-categorical-title')
+            .attr('transform', translateTitle)
+            .text(legendTitle);
+
+          //console.log(legendCategories);
+
+          d3.select('.legend.categorical')
+            .classed('invisible', false);
+          // .select('.legend-title')
+          // .text(mapData.legend ? mapData.legend : null);
+
+          var numCats = legendCategories.length;
+          legendCategories.forEach(function(category, i) {
+
+            d3.select('.legend-cat text.cat-' + i)
+              .text(category);
+            d3.select('.legend-cat.cat-' + i)
+              .classed('invisible', false)
+              .style('fill', 'black');
+
+            d3.selectAll('rect.cat-' + i)
+              .style('fill', function () {
+                console.log(i, 1 - (i / (numCats - 1)))
+                return rampColor(1 - (i / (numCats - 1)));
+              });
+
+            console.log(category, i);
+
+        });
+
+        for (iso3 in vals) {
+          var highlightedEEZ = d3.selectAll('.eez.' + iso3);
+          var highlightedCountry = d3.selectAll('.country.' + iso3);
+
+          var val = vals[iso3][key];
+          console.log(val)
+
+          // highlightedCountry.classed('active', true)
+          //   .transition()
+          //   .delay(i * 10)
+          //   .style('fill', function() {
+          //     //  console.log('fill', colorBrew[(val * 2) - 1]);
+          //     if (val == 0) {
+          //       return null;
+          //     } else {
+          //       return rampColor(val);
+          //     }
+          //   });
+
+          d3.selectAll('.eez.' + iso3).classed('active', true)
+            .transition()
+            .delay(i * 10)
+            .style('fill', function() {
+              //  console.log('fill', colorBrew[(val * 2) - 1]);
+              if (val == 0) {
+                return null;
+              } else {
+                return rampColor(val);
+              }
+            })
+            .style('opacity', 1);
+
+          d3.selectAll('.country.' + iso3)
+            .attr('data-val', val);
+
+          d3.selectAll('.eez.' + iso3)
+            .attr('data-val', val);
+          i++;
 
         }
-      },
+
+      }
+    },
       els: [
         { tag: 'h1',
           text: 'Black Market Pharmaceuticals',
         },
         { tag: 'caption',
           text: 'The health crisis of counterfeit medicines in Africa'
-        },
-        { tag: 'legend',
-          text: 'Map Legend',
-          legendContent: '<em>Highlighted countries have recorded a major seizure of black market pharmaceuticals in recent years.</em>'
         },
         { tag: 'p',
           html: 'Counterfeit and pirated goods are classified as the most valuable illicit economy subsector, with estimates of annual revenue ranging between USD$923 billion and $1.13 trillion. Counterfeit pharmaceuticals and medicines comprise approximately 25 percent of this market, and are valued at between USD$70 and $200 billion annually.<sup>68</sup> It is also the only counterfeiting sector that completely displaces original products from the market.<sup>69</sup>'
