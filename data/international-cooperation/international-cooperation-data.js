@@ -428,7 +428,7 @@ var internationalCooperationData = {
     //   ] // end of els array
     // },
     { // Card 2
-      title: 'Continental coordination',
+      title: 'Continental Coordination',
       menu: 'Continental Coordination',
       metadata: {
         owner: 'Jay Benson',
@@ -530,6 +530,7 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
+        legend: 'Regional Coordination in sub-Saharan Africa',
         categories: ['Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G', 'Djibouti Code of Conduct'],
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];

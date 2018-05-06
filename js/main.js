@@ -151,7 +151,7 @@ function buildLegendCategorical() {
 
   var numCats = 10;
 
-  var translateG = 'translate(' + margins.bottom + ', ' + (h - (45 * numCats)) + ')';
+  var translateG = 'translate(' + margins.bottom + ', ' + (h - (40 * numCats)) + ')';
 
   var legendG = d3.select('#map-svg')
     .append('g')
@@ -168,7 +168,7 @@ function buildLegendCategorical() {
       .classed('cat-' + (numCats - c - 1), true)
       .attr('width', 20)
       .attr('height', 20)
-      .attr('transform', 'translate(0,' + (c * 40) + ')')
+      .attr('transform', 'translate(0,' + (c * 30) + ')')
       .attr('fill', colorBrew[(2 * (numCats - c - 1))])
       .style('opacity', 0.3);
 
@@ -176,7 +176,7 @@ function buildLegendCategorical() {
       .classed('cat-' + (numCats - c - 1), true)
       .attr('width', 10)
       .attr('height', 10)
-      .attr('transform', 'translate(5,' + (c * 40 + 5) + ')')
+      .attr('transform', 'translate(5,' + (c * 30 + 5) + ')')
       .attr('fill', d3.interpolateLab('white', colorBrew[(2 * (numCats - c - 1))])(0.5));
     //      .style('stroke', 'white');
 
@@ -184,12 +184,13 @@ function buildLegendCategorical() {
     g.append('text')
       .classed('cat-' + (numCats - c - 1), true)
       .attr('font-size', 18)
-      .attr('transform', 'translate(37,' + (c * 40 + 20) + ')')
+      .attr('transform', 'translate(37,' + (c * 30 + 15) + ')')
       .text(null);
   }
 
   legendG.append('text')
     .classed('legend-categorical-title', true)
+    .attr('transform', 'translate(0,320)')
     .attr('font-size', 24)
     .text(null);
 
@@ -1374,7 +1375,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 
               //    var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3]["c" + activeCard];
               var tooltipHTML = issueAreaData[issueArea].cards[activeCard].map.tooltipHTML(iso3);
-
+              console.log(tooltipHTML);
               var tooltipBody = tooltip.select('.tooltip-body');
               // #### here we should work out how to not display tooltip for null values ......... though it should be upstream of this
               tooltipBody.html(null);
@@ -1557,7 +1558,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 
 
 d3.selection.prototype.moveToFront = function() {
-  console.log('front!');
+//  console.log('front!');
   return this.each(function() {
     this.parentNode.appendChild(this);
   });
@@ -1682,13 +1683,13 @@ Array.prototype.contains = function(needle) {
 }
 
 function choropleth(cardIndex, order, key, animated) {
-
+  //console.log('choro!', key);
   var target = 'card-' + cardIndex + '-layer';
   var vals = issueAreaData[issueArea].metadata.countryData;
   var mapData = issueAreaData[issueArea].cards[cardIndex].map;
   var mapType = mapData.type;
 
-//  console.log(mapType);
+  //console.log(cardIndex, mapType);
 
   d3.selectAll('.legend')
     .classed('invisible', true);
@@ -1763,7 +1764,7 @@ function choropleth(cardIndex, order, key, animated) {
     var legendTitle = mapData.legend;
 
     // This is hard coded at a 433px tall categorical legend ... which i don't like. but it works for now.
-    var translateTitle = 'translate(0, ' + (450 - (55 * legendCategories.length)) + ')';
+    var translateTitle = 'translate(0, 320)';
 
     d3.select('.legend-categorical-title')
       .attr('transform', translateTitle)
@@ -1833,6 +1834,7 @@ function choropleth(cardIndex, order, key, animated) {
 
   } else if (mapType == 'boolean') {
     // single highlight option ...
+    console.log('bool!');
     var i = 0;
     var legendTitle = mapData.legend;
 
@@ -1852,6 +1854,8 @@ function choropleth(cardIndex, order, key, animated) {
 
       // Convert numeric into boolean:
       var val = vals[iso3][key];
+      console.log('iso', iso3, 'val', val);
+
       if (typeof val == 'number') {
         if (val > 0) {
           val = true;

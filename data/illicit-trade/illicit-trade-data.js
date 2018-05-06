@@ -139,7 +139,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['opiates'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of opiates trade:<br />" + tooltipVal + " / 100";
+          return "Measurement of opiates trade:<br />" + tooltipVal + " / 100 <br />Lower scores represent more significant illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -271,7 +271,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['cocaine'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of cocaine trade:<br />" + tooltipVal + " / 100";
+          return "Measurement of cocaine trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -417,7 +417,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['arms'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of arms trade:<br />" +  tooltipVal + " / 100";
+          return "Measurement of arms trade:<br />" +  tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -559,7 +559,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['wildlife'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100";
+          return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -679,10 +679,12 @@ var illicitTradeData = {
         scale: [],
         classes: '',
         translate: [],
-        tooltip: true,
-        legend: '',
+        tooltip: false,
+        legend: 'Number of Major Maritime Illicit Trades',
         categories: [1,2,3,4,5,6,7,8],
         tooltipHTML: function(iso) {
+          console.log(issueAreaData[issueArea].metadata.countryData[iso]['significant_trades']);
+          return "Major Maritime Illicit trades in: <br />"> + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
           // var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['issues'];
           // switch (tooltipVal) {
           //   case <3:
@@ -712,7 +714,7 @@ var illicitTradeData = {
           var key = 'issues_normalized'
 
           // This is hard coded at a 433px tall categorical legend ... which i don't like. but it works for now.
-          var translateTitle = 'translate(0, ' + (450 - (55 * legendCategories.length)) + ')';
+          var translateTitle = 'translate(0, 320)';
 
           d3.select('.legend-categorical-title')
             .attr('transform', translateTitle)
@@ -771,16 +773,16 @@ var illicitTradeData = {
               if (val == 0) {
                 return null;
               } else {
-                return rampColor(val);
+                return rampColor(1 - val);
               }
             })
             .style('opacity', 1);
 
           d3.selectAll('.country.' + iso3)
-            .attr('data-val', val);
+            .attr('data-val', (1 - val));
 
           d3.selectAll('.eez.' + iso3)
-            .attr('data-val', val);
+            .attr('data-val', ( 1- val));
           i++;
 
         }
