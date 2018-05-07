@@ -139,7 +139,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['opiates'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of opiates trade:<br />" + tooltipVal + " / 100 <br />Lower scores represent more significant illicit trades.";
+          return "Measurement of opiates trade:<br />" + tooltipVal + " / 100 <br />Lower scores represent more significant <br /> illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -271,7 +271,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['cocaine'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of cocaine trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
+          return "Measurement of cocaine trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant <br /> illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -417,7 +417,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['arms'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of arms trade:<br />" +  tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
+          return "Measurement of arms trade:<br />" +  tooltipVal + " / 100<br />Lower scores represent more significant <br /> illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -559,7 +559,7 @@ var illicitTradeData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['wildlife'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
+          return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant <br /> illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -679,12 +679,12 @@ var illicitTradeData = {
         scale: [],
         classes: '',
         translate: [],
-        tooltip: false,
+        tooltip: true,
         legend: 'Number of Major Maritime Illicit Trades',
         categories: [1,2,3,4,5,6,7,8],
         tooltipHTML: function(iso) {
-          console.log(issueAreaData[issueArea].metadata.countryData[iso]['significant_trades']);
-          return "Major Maritime Illicit trades in: <br />"> + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
+        //  console.log(issueAreaData[issueArea].metadata.countryData[iso]['significant_trades']);
+          return "Major Maritime Illicit trades in: <br />" + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
           // var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['issues'];
           // switch (tooltipVal) {
           //   case <3:
@@ -738,11 +738,11 @@ var illicitTradeData = {
 
             d3.selectAll('rect.cat-' + i)
               .style('fill', function () {
-                console.log(i, 1 - (i / (numCats - 1)))
+          //      console.log(i, 1 - (i / (numCats - 1)))
                 return rampColor(1 - (i / (numCats - 1)));
               });
 
-            console.log(category, i);
+        //    console.log(category, i);
 
         });
 
@@ -751,7 +751,7 @@ var illicitTradeData = {
           var highlightedCountry = d3.selectAll('.country.' + iso3);
 
           var val = vals[iso3][key];
-          console.log(val)
+      //    console.log(val)
 
           // highlightedCountry.classed('active', true)
           //   .transition()
