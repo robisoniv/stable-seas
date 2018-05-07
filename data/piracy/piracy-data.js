@@ -235,7 +235,7 @@ var piracyData = {
 
       var pieG = svg.append("g")
         .classed('pie-g gog-incidents-pie ', true)
-        .attr("transform", "translate(" + (radius) + "," + (radius) + ")");
+        .attr("transform", "translate(" + (radius * 1.1666) + "," + (radius) + ")");
 
       var pie = d3.pie()
         .sort(null)
@@ -420,46 +420,6 @@ var piracyData = {
           tag: 'p',
           html: 'This section is divided into four parts. The first will discuss the three primary models of piracy: kidnap for ransom, hijacking for cargo theft, and robbery. The second and third will provide overviews of violence at sea in the Gulf of Guinea and the Horn of Africa, respectively. Finally, the section concludes with a summary of the methodology.'
         },
-        // {
-        //   tag: 'img',
-        //   src: '../../assets/piracy/piracy_models-01.png',
-        // },
-        // {
-        //   tag: 'h3',
-        //   html: 'Kidnap for Ransom'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'In kidnap-for-ransom attacks, perpetrators aim to capture a vessel and its crew and hold them— sometimes onshore—until a ransom payment is received. Historically, kidnap-for-ransom attacks are most closely associated with East African pirate groups, but a considerable increase in the number of these attacks was observed in West Africa in 2016.<sup>1</sup>'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Kidnapping for ransom entails less risk to the criminal groups than some of the other models of piracy and can result in substantial returns to the perpetrators. The rise in attacks of this kind is clearly a troubling development as kidnappings typically involve greater violence to the crews held hostage.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Some regional variations of this model exist: in East Africa, pirate groups generally take the entire crew and their vessel hostage, whereas in West Africa, kidnappers tend to target high-ranking members of the crew, such as the captain or other officers. The durations of the kidnappings also vary; West African kidnappers normally only hold their hostages for a few weeks, though the victims are often subjected to considerable amounts of cruel treatment in that time.'
-        // },
-        // {
-        //   tag: 'h3',
-        //   html: 'Hijacking for Cargo Theft'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Hijacking for cargo theft entails perpetrators attacking a tanker and siphoning its oil while the crew is temporarily held captive onboard. Typically, the oil is then sold through black market channels. This form of piracy has been especially prevalent in the Gulf of Guinea.'
-        // },
-        // {
-        //   tag: 'h3',
-        //   html: 'Robberies'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Robberies occur when perpetrators steal ship stores, equipment, and personal effects from the crew. Robberies of this kind most often take place in port or at anchorage and differ from kidnappings in that profits come from the sale of stolen goods rather than the ransoming of a ship, its crew, or its cargo.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'As with other crimes perpetrated at sea, piracy and armed robbery are quite challenging to address. To date in West Africa, no prosecutions for piracy or armed robbery have occurred. This is further complicated by the fact that vast underreporting of this set of crimes is suspected because there are a multitude of disincentives to reporting, meaning that the full scope of the problem is not yet understood.'
-        // },
         {
           tag: 'links',
           items: [{
@@ -808,7 +768,7 @@ var piracyData = {
           [46, 28]
         ],
         highlights: [],
-        tooltip: false,
+        tooltip: true,
         legend: 'Piracy and Armed Robbery Score',
         tooltipHTML: function(iso) {
 
@@ -868,12 +828,14 @@ var piracyData = {
         },
         {
           tag: 'svg',
-          id: 'piracy-incidents-svg'
+          id: 'piracy-incidents-svg',
+      //          class: 'col-xs-6'
         },
-        // {
-        //   tag: 'img',
-        //   src: '../../assets/piracy/piracy_costs-01.png', // This should be on the Stable Seas Deck - comments
-        // },
+        {
+          tag: 'img',
+          src: '../../assets/piracy/piracy-incident-type-symbols.png', // This should be on the Stable Seas Deck - comments
+      //      class: 'col-xs-6'
+        },
         {
           tag: 'p',
           html: 'The Niger Delta has an abundance of oil wealth, and criminal networks have historically turned to hijacking for cargo theft for a cut of the region’s riches. This takes place when a vessel is commandeered, its tracking devices disabled, its crew held captive, and its cargo siphoned off onto a smaller ship and sold on the black market. This process is time-consuming and logistically complex. As naval activity has increased since 2013, and Nigerian president Muhammadu Buhari made cracking down on oil theft a hallmark of his administration since 2015, the number of hijackings for cargo theft has fallen drastically while kidnap for ransom attacks, a much faster and less resource-intensive crime, have been on the rise.'
@@ -1158,19 +1120,36 @@ var piracyData = {
           tag: 'p',
           html: 'While no merchant vessels were hijacked between 2012 and 2017, pirate groups took a number of smaller, more vulnerable vessels, demonstrating their continued intention to hijack ships and their crews. In the spring of 2017, after almost five years without a successful attack on a merchant vessel, pirates hijacked Aris-13. In the weeks that followed, pirate groups operating off the coast of Somalia hijacked four additional vessels.'
         },
+
         {
           tag: 'p',
           html: 'Though down from its peak, piracy remains a threat around the Horn of Africa. Maritime terrorism is an emerging hazard.'
+        },
+        {
+          tag: 'hr'
+        },
+        {
+          tag: 'h3',
+          text: 'Terrorism Incidents Visualized'
+        },
+        {
+        //  gif: true,
+          tag: 'img',
+      //    videoId: 'iOrjS1qmNDk',
+          src: '../../assets/piracy/terrorism-incident-type-symbols.png'
+        },
+        {
+          tag: 'hr'
+        },
+        {
+          tag: 'p',
+          html: 'Attacks on five vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. The trend continued into 2017 with Oceans Beyond Piracy recording an increase in suspicious activity in the Bab el-Mandeb, including sightings of naval mines and marine-borne improvised explosive devices.'
         },
         {
         //  gif: true,
           tag: 'img',
       //    videoId: 'iOrjS1qmNDk',
           src: '../../assets/piracy/bab-al-mandeb-attacks.gif'
-        },
-        {
-          tag: 'p',
-          html: 'Attacks on five vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. The trend continued into 2017 with Oceans Beyond Piracy recording an increase in suspicious activity in the Bab el-Mandeb, including sightings of naval mines and marine-borne improvised explosive devices.'
         },
         {
           tag: 'p',
