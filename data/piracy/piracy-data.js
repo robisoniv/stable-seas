@@ -1001,7 +1001,7 @@ var piracyData = {
     //     }
     //   ] // end of els array
     // },
-    { // Card 5
+    { // Card 3
       title: 'The Horn of Africa and the Bab el-Mandeb',
       menu: 'HOA & the Bab el-Mandeb',
       metadata: {
