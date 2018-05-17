@@ -1434,7 +1434,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
         .attr('data-iso3', function(d) {
           return d.properties.ISO_A3_EH;
         })
-        .on('mousemove', function(d) {
+        .on('mouseenter', function(d) { // d = topojson object
           var iso3 = d.properties.ISO_A3_EH;
           if (!issueAreaData[issueArea].cards[activeCard].map.tooltip) {
             if (d.properties.Pol_type != 'Disputed') {
