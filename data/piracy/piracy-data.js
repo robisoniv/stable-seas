@@ -861,7 +861,7 @@ var piracyData = {
         },
         {
           tag: 'p',
-          html: 'In 2014, there were 5 incidents of hijacking for cargo theft and 15 kidnap for ransom attacks. By 2016, hijacking for cargo theft incidents had dropped by 80 percent while kidnap for ransom attacks rose by nearly 30 percent from 2015. Though captured crew members spend relatively little time in captivity compared to East Africa, the high turnover of hostages and the frequency of armed attacks results in a high level of violence.'
+          html: 'In 2014, there were 5 incidents of hijacking for cargo theft and 15 kidnap for ransom attacks. By 2016, hijacking for cargo theft incidents had dropped by 80 percent while kidnap for ransom attacks rose by nearly 30 percent from 2015. Though captured crew members spend relatively little time in captivity compared to historical averages in East Africa, the high turnover of hostages and the frequency of armed attacks results in a high level of violence.'
         },
         {
           tag: 'p',
