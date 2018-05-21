@@ -1927,7 +1927,7 @@ var regionsData = {
           },
           {
             tag: 'p',
-            html: 'Maritime enforcement is key to the continued development of the blue economy. The Western Coast would benefit from increasing investments in their naval capability and coastal patrol assets in order to fully take advantage of their regional security strategies and promote the blue economy.'
+            html: 'Maritime enforcement is key to the continued development of the blue economy. The Western Coast would benefit from increasing investments in their naval capability and coastal patrol assets in order to fully take advantage of their regional security strategies and promote the blue economy. The region has exceptional potential for fisheries but is plagued by IUU fishing.'
           }
           // ...
         ]
