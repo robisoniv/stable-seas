@@ -2257,7 +2257,7 @@ var regionsData = {
     },
     cards: [{ // Card 0
         title: 'The Northern Gulf of Guinea',
-        menu: 'The Northern Gulf',
+        menu: 'The Northern Gulf of Guinea',
         metadata: {
           owner: '',
           description: ''
@@ -2536,7 +2536,7 @@ var regionsData = {
     },
     cards: [{ // Card 0
         title: 'The Southern Gulf of Guinea',
-        menu: 'The Southern Gulf',
+        menu: 'The Southern Gulf of Guinea',
         metadata: {
           owner: '',
           description: ''
