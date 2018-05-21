@@ -205,7 +205,7 @@ var maritimeEnforcementData = {
         {
           tag: 'img',
           src: '../../assets/maritime-enforcement/yaounde-information-sharing.jpg',
-          alt: 'Naval officers using SeaVision, a web-based system that supports developing MDA.',
+          alt: 'Center for Maritime Coordination, Zone D, Douala, Cameroon. Photo by Jean-Pierre Larroque / OEF',
           caption: 'Naval officers using SeaVision, a web-based system that supports developing MDA.' // from http://www.crimario.eu/en/2017/02/16/visualising-maritime-data-in-madagascar/
         },
         {
