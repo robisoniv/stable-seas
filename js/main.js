@@ -30,8 +30,9 @@ var themeColor = d3.interpolateLab('white', iaColorSelection);
 var rampColor = d3.scaleQuantize()
   .domain([0, 1])
   //, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625
-  .range(["#F06A26", "#F29928", "#F6C927", "#F2EA2A", "#D7E036", "#BAD538", "#9BCB3F",
-    "#7BC144", "#6CBF56", "#6EC17A", "#6EC5A1", "#6FC9C3", "#6CC4D9", "#5BA5CE", "#4F8BC0", "#4471B3"
+  .range(["darkred","red","#F06A26", "#F29928", "#F6C927", "#F2EA2A", "#D7E036",// "#BAD538", "#9BCB3F",
+  //  "#7BC144", "#6CBF56"//, "#6EC17A", "#6EC5A1", "#6FC9C3",
+   "#6CC4D9", "#5BA5CE", "#4F8BC0", "#4471B3"
   ]);
 
 
