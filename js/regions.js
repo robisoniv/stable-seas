@@ -1134,13 +1134,13 @@ function buildRadar(obj, container, cardIndex, elIndex) {
       w: width,
       h: height,
       margin: margin,
-      maxValue: 99, // max value in data
+      maxValue: 100, // max value in data
       wrapWidth: 8,
       levels: 4, // number of circles in chart
       dotRadius: 3,
       roundStrokes: true,
       color: color,
-      formatValue: '.2', // value will be displayed as: xx
+      formatValue: '.3', // value will be displayed as: xx
     };
     //Call function to draw the Radar chart
     // console.log('hiiiiiiii', chartIndex, cardRadarData, radarChartOptions);

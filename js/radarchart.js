@@ -15,7 +15,7 @@ function RadarChart(id, data, options) {
             left: 20
         }, //The margins of the SVG
         levels: 3, //How many levels or inner circles should there be drawn
-        maxValue: 0, //What is the value that the biggest circle will represent
+        maxValue: 100, //What is the value that the biggest circle will represent
         labelFactor: 1.25, //How much farther than the radius of the outer circle should the labels be placed
         wrapWidth: 60, //The number of pixels after which a label needs to be given a new line
         opacityArea: 0.35, //The opacity of the area of the blob
@@ -44,6 +44,8 @@ function RadarChart(id, data, options) {
             return o.value;
         }))
     }));
+
+    console.log('max', maxValue, cfg.maxValue);
 
     var allAxis = (data[0].map(function(i, j) {
             return i.axis
