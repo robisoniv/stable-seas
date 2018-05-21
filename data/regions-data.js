@@ -2139,7 +2139,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Guinea is Illicit Trades. Guinea scores 10 in this area, below the regional average of 29. To further             improve upon this score, Guinea can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Guinea also sees considerable trafficking in synthetic drugs, opiates, and wildlife products.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Guinea can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Guinea is Illicit Trades. Guinea scores 10 in this area, below the regional average of 29. To further improve upon this score, Guinea can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Guinea also sees considerable trafficking in synthetic drugs, opiates, and wildlife products.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Guinea can raise its weakest score and work toward comprehensive and lasting maritime security as well as address local focus points for piracy."
           }
         ]
       },
