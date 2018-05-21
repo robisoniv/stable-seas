@@ -1971,7 +1971,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cabo Verde is Illicit Trades. Cabo Verde scores 40 in this area, above the regional average of 29. To further             improve upon this score, Cabo Verde can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine and cannabis crossing the Atlantic Ocean from South America.. Further progress can be made by working with African, European, and South American partners to undermine this major route in the global narcotics network.. Through these efforts, Cabo Verde can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Cabo Verde is Illicit Trades. Cabo Verde scores 40 in this area, above the regional average of 29. To further             improve upon this score, Cabo Verde can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America.. Further progress can be made by working with African, European, and South American partners to undermine this major route in the global narcotics network.. Through these efforts, Cabo Verde can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2013,7 +2013,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 5 in this area,  about the same as  the regional average of 29. To further             improve upon this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine and cannabis crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Senegal can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 5 in this area,  about the same as  the regional average of 29. To further             improve upon this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Senegal can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
