@@ -443,7 +443,7 @@ var illicitTradeData = {
         },
         {
           tag: 'p',
-          html: 'In a 2015 statement to the UN Security Council,<sup>30</sup> ambassador Tete Antonio noted that of the 500 million illicit small and light weapons (SALW) in circulation globally, over 100 million were in circulation in Africa.<sup>31</sup> The illicit trade for these goods fuels political violence and instability throughout the world and in Africa in particular,<sup>32</sup> with former Secretary-General of the United Nations Ban Ki-moon noting that SALW were at the center of the devastation wrought by the 250 global conflicts in the past decade.<sup>33</sup>'
+          html: 'In a 2015 statement to the UN Security Council,<sup>30</sup> Ambassador Tete Antonio, Permanent Observer of the African Union to the United Nations, noted that of the 500 million illicit small and light weapons (SALW) in circulation globally, over 100 million were in circulation in Africa.<sup>31</sup> The illicit trade for these goods fuels political violence and instability throughout the world and in Africa in particular,<sup>32</sup> with former Secretary-General of the United Nations Ban Ki-moon noting that SALW were at the center of the devastation wrought by the 250 global conflicts in the past decade.<sup>33</sup>'
         },
         {
           tag: 'img',
@@ -451,7 +451,7 @@ var illicitTradeData = {
         },
         {
           tag: 'p',
-          html: 'In Africa, the accessibility of SALW makes them “real weapons of mass destruction.”<sup>34</sup> The African Union attributes at least 5 million fatalities in Africa to SALW since 1950.<sup>35</sup> The proliferation of weapons in Africa and the associated deaths have no doubt had a significant and deleterious impact on the social, economic, and political stability of the affected countries.<sup>36</sup>'
+          html: 'In Africa, the accessibility of SALW makes them “real weapons of mass destruction.”<sup>34</sup> The African Union has attributed at least 5 million fatalities in Africa to SALW since 1950.<sup>35</sup> The proliferation of weapons in Africa and the associated deaths have no doubt had a significant and deleterious impact on the social, economic, and political stability of the affected countries.<sup>36</sup>'
         },
         {
           tag: 'p',
