@@ -1923,7 +1923,7 @@ var regionsData = {
           },
           {
             tag: 'p',
-            html: 'High scores for the Western Coast region in international cooperation are due to the high level of participation in international agreements, such as UNCLOS and the UN Fish Stocks Agreement, as well as demonstrated commitment to regional security strategies through information sharing networks and participation in naval cooperation exercises. The region also benefits from a lack of violations or disputes of maritime boundaries. In terms of piracy, the Western Coast enjoys significant distance from the target-rich environment of the Gulf of Guinea.'
+            html: 'High scores for the Western Coast region in international cooperation are due to the high level of participation in international agreements, such as UNCLOS and the UN Fish Stocks Agreement, as well as demonstrated commitment to regional security strategies through information sharing networks and participation in naval cooperation exercises. The region also benefits from a lack of violations or disputes of maritime boundaries. In terms of piracy, the Western Coast enjoys significant distance from the target-rich environment of the Gulf of Guinea. However, there is a persistent secondary center of low level piracy in this region.'
           },
           {
             tag: 'p',
