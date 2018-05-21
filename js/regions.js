@@ -1109,15 +1109,8 @@ function buildRadar(obj, container, cardIndex, elIndex) {
       radarData[region]
     ];
 
-    color = ['pink', regionsData[region].metadata.color];
+    color = ['gray', regionsData[region].metadata.color];
   }
-  //<<<<<<< HEAD
-
-  // console.log(cardRadarData);
-  //=======
-  //  console.log(cardRadarData, 'hi there you');
-
-
   {
     // setup a div with class called "radarChart" so that we can put chart to this div.
     var chartIndex = Math.random().toString(36).substring(5); // random chart index so that it won't add 2 charts into 1 div.
