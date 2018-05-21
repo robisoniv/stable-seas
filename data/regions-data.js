@@ -2181,7 +2181,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Sierra Leone is Maritime Enforcement. Sierra Leone scores 38 in this area, below the regional average of 41. To further             improve upon this score, Sierra Leone can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America.. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement.. Through these efforts, Sierra Leone can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Sierra Leone is Maritime Enforcement. Sierra Leone scores 38 in this area, below the regional average of 41. To further             improve upon this score, Sierra Leone can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America.. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement. Through these efforts, Sierra Leone can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2215,7 +2215,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Liberia ranks highest in Piracy. Liberia's score of 88 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Liberia can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Liberia ranks highest in Piracy. Liberia's score of 88 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. Liberia can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
@@ -2223,7 +2223,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Liberia is Maritime Enforcement. Liberia scores 20 in this area, below the regional average of 41. To further             improve upon this score, Liberia can developing its coastal patrol assets and naval capability, which rank among the lowest in sub-Saharan Africa.. Further progress can be made by continued participation in multilateral efforts, such as Liberian involvement in Zone F of the Yaounde Code of Conduct.. Through these efforts, Liberia can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Liberia is Maritime Enforcement. Liberia scores 20 in this area, below the regional average of 41. To further             improve upon this score, Liberia can develop its coastal patrol assets and naval capability, which rank among the lowest in sub-Saharan Africa.. Further progress can be made by continued participation in multilateral efforts, such as Liberian involvement in Zone F of the Yaounde Code of Conduct.. Through these efforts, Liberia can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
