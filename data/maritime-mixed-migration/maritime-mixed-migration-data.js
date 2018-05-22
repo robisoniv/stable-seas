@@ -443,7 +443,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'caption',
-          text: '???'
+          text: 'Local and international responses to human trafficking and smuggling'
         },
         {
           tag: 'p',
@@ -498,7 +498,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'caption',
-          text: '???'
+          text: 'Lack of opportunitiy leads to human trafficking'
         },
         {
           tag: 'p',
