@@ -946,13 +946,17 @@ function buildVideo(obj, container, elIndex) {
 
 
 function buildSVG(obj, container, cardIndex, elIndex) {
-  console.log("SVG!!!", obj);
+  console.log(d3.select('.card').node().getBoundingClientRect());
   var selector = '#' + container;
   var table = d3.select(selector)
     .append('svg')
     .attr('id', obj.id)
     .classed('col-xs-12', true)
-    .style('height', width / 4);
+    .style('height', width / 4)
+    .attr('viewBox', function() {
+     return '0 0 ' + ( w / 3.5 ) + ' ' + (w / 4);
+    }
+  );
 
 }
 function buildImg(obj, container, cardIndex, elIndex) {

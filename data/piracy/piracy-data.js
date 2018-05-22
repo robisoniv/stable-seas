@@ -84,13 +84,6 @@ var piracyData = {
           pieSegment.moveToFront();
           pieSegment.style('stroke', 'white')
             .style('stroke-width', '3px');
-
-          // pieSegment.select(function () {
-          //   console.log('node', this.parentNode)
-          //   return this.parentNode;
-          //
-          // }).moveToFront();
-
         })
         .on('mousemove', function(d) {
 
@@ -127,8 +120,6 @@ var piracyData = {
           tooltip.select('.tooltip-body')
             .text(d.category + ' on ' + date.getDate() + " " + month + ' ' + year);
 
-      //    d3.select()
-
         })
         .on('mouseleave', function(d) {
           d3.select(this)
@@ -146,10 +137,10 @@ var piracyData = {
             .classed('active', false);
 
           var pieSegment = d3.select('.pie-segment-' + d.category.split(' ')[0].toLowerCase());
-        //  console.log();
 
           pieSegment.style('stroke', null)
             .style('stroke-width', null);
+
         })
         .transition().delay(10)
         .attr('r', '3px')
@@ -239,7 +230,7 @@ var piracyData = {
     //  console.log(rolled);
 
       var svg = d3.select('#piracy-incidents-svg'),
-        radius = Math.min(width, height) / 4;
+        radius = width / 8;
     //    console.log('r', radius);
 
       var pieG = svg.append("g")
@@ -330,25 +321,7 @@ var piracyData = {
           console.log(d);
           return d.data.key;
         });
-
-      // var pieChartLabel = pieG.append('text')
-      //   .attr('id', 'gog-incidents-pie-label')
-      //   .classed('pie-chart-label', true)
-      //   .attr('transform', 'translate(' + (radius * -1) + ',' + (radius * -1 - 30) +')');
-      //
-      //   pieChartLabel.append('tspan')
-      //     .attr('x', 0)
-      //     .attr('dy', '0em')
-      //     .text('Piracy Incidents');
-      //   pieChartLabel.append('tspan')
-      //     .attr('x', 0)
-      //     .attr('dy', '1.5em')
-      //     .text('by Type');
-
     });
-
-
-
   },
   cards: [
     { // Card 0
@@ -1051,9 +1024,7 @@ var piracyData = {
                 return projection([d.lon, d.lat])[1];
               })
               .attr('r', '3px')
-              .attr('fill', function() {
-                return rampColor(0.2);
-              })
+              .attr('fill', "#f2ea29")
               .attr('stroke', function() {
                 return rampColor(1);
               })
@@ -1091,10 +1062,8 @@ var piracyData = {
                 } else {
                   return colorBrew[4];
                 }
-              //  return themeColor(1);
               })
-            //  .attr('stroke', 'black')
-            //  .attr('stroke-width', 0.3)
+              .attr('pointer-events', 'none')
               .style('opacity', 0.5)
               .classed('bam-terror-incident', true);
 
