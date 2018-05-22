@@ -2918,7 +2918,7 @@ var regionsData = {
 
           {
             tag: 'p',
-            html: 'High scores in these issue areas reflect their interconnectedness. Healthy fisheries, supported by effective management and enforcement capacity, encourage the development of the blue economy which in turn discourages maritime mixed migration. A strong blue economy is also linked to lower levels of illicit trades. This region is good example of how support to one pillar of maritime security can have positive spillover effects on other issue areas.'
+            html: 'High scores in these issue areas reflect their interconnectedness. Healthy fisheries, supported by effective management and enforcement capacity, encourage the development of the blue economy which in turn discourages maritime mixed migration. A strong blue economy is also linked to lower levels of illicit trades. This region is a good example of how support to one pillar of maritime security can have positive spillover effects on other issue areas.'
           },
 
           {

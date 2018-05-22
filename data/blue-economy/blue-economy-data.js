@@ -167,7 +167,7 @@ var blueEconomyData = {
         //###<<<insert video of Mama Winnie, aquaculture entrepreneur from Kenya>>>
         {
           tag: 'p',
-          html: 'In our study, only ten of 30 countries have reported income from mariculture activities. South Africa reported over $43 million from mariculture in 2015, while Madagascar reported over $20 million.<sup>4</sup> For Madagascar especially, this represents a significant contribution to the domestic economies. South Africa primarily grows mussels and abalone; these stocks of bivalves are typically highly sustainable in terms of growing, feeding, and harvesting. Madagascar, on the other hand, relies on shrimp aquaculture<sup>5</sup> that is implicated in significant mangrove deforestation and water pollution. The future of aquaculture in other African nations could follow the lead of South Africa in promoting sustainable approaches to high-value species if the global market will support it.'
+          html: 'In our study, only ten of 30 countries have reported income from mariculture activities. South Africa reported over $43 million from mariculture in 2015, while Madagascar reported over $20 million.<sup>4</sup> For Madagascar especially, this represents a significant contribution to the domestic economies. South Africa primarily grows mussels and abalone; these stocks of molluscs are typically highly sustainable in terms of growing, feeding, and harvesting. Madagascar, on the other hand, relies on shrimp aquaculture<sup>5</sup> that is implicated in significant mangrove deforestation and water pollution. The future of aquaculture in other African nations could follow the lead of South Africa in promoting sustainable approaches to high-value species if the global market will support it.'
         },
         {
           tag: 'links',
@@ -197,8 +197,8 @@ var blueEconomyData = {
       ] // end of els array
     },
     { // Card 2
-      title: 'Marine and Coastal Tourism',
-      menu: 'Marine and Coastal Tourism',
+      title: 'Maritime and Coastal Tourism',
+      menu: 'Maritime and Coastal Tourism',
       metadata: {
         owner: 'Sean Duncan',
         description: 'The impact of maritime insecurity on tourism (Seychelles as impacted by piracy, Nigeria as impacted by insecurity).'
@@ -231,7 +231,7 @@ var blueEconomyData = {
       },
       els: [{
           tag: 'h1',
-          text: 'Marine and Coastal Tourism',
+          text: 'Maritime and Coastal Tourism',
         },
         {
           tag: 'caption',
@@ -267,7 +267,7 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'While West Africa’s tourism potential has remained largely untapped, flourishing crime and a lack of maritime governance will only inhibit the growth and development of a thriving tourism industry in the future. As the African Development Bank group has concluded, countries in West Africa lag behind other African countries when it comes to tourism.<sup>13</sup> This is a missed opportunity, as the coastal states in West Africa have unique cultures, heritages, landscapes, and goods that would appeal to tourists coming from both inside and outside the continent. The Gambia, for instance, has 80 km of beaches and rich coastal reserves that few get the chance to enjoy. Gabon is home to beautiful white-sand beaches, and an astounding 11.25 percent of the country has been set aside as national park land. Each country has something special to offer visitors. Consequently, securing the maritime environment in the Gulf of Guinea—and the rest of sub-Saharan Africa—would bolster economic development and allow the region to function more efficiently.'
+          html: 'While the Gulf of Guinea’s tourism potential has remained largely untapped, flourishing crime and a lack of maritime governance will only inhibit the growth and development of a thriving tourism industry in the future. As the African Development Bank group has concluded, countries in West Africa lag behind other African countries when it comes to tourism.<sup>13</sup> This is a missed opportunity, as the coastal states in West Africa have unique cultures, heritages, landscapes, and goods that would appeal to tourists coming from both inside and outside the continent. The Gambia, for instance, has 80 km of beaches and rich coastal reserves that few get the chance to enjoy. Gabon is home to beautiful white-sand beaches, and an astounding 11.25 percent of the country has been set aside as national park land. Each country has something special to offer visitors. Consequently, securing the maritime environment in the Gulf of Guinea—and the rest of sub-Saharan Africa—would bolster economic development and allow the region to function more efficiently.'
         },
         {
           tag: 'links',
@@ -702,7 +702,7 @@ var blueEconomyData = {
         },
         {
           tag: 'h4',
-          text: 'Marine and Coastal tourism'
+          text: 'Maritime and Coastal tourism'
         },
         {
           tag: 'p',
@@ -710,7 +710,7 @@ var blueEconomyData = {
         },
         {
           tag: 'h4',
-          text: 'Marine Transportation and Shipping'
+          text: 'Maritime Transportation and Shipping'
         },
         {
           tag: 'p',
