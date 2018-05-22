@@ -109,7 +109,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'As fish stocks face shortages and even collapse, competition for fishing grounds and for this mobile resource is growing. At sea, fisheries conflict can include violent attacks by foreign industrial vessels on domestic artisanal vessels; illegal, unreported, and unregulated (IUU) fishing; forced labor and slavery; and territorial disputes between and within national borders. Fishing vessels can also be used to surreptitiously transport weapons, drugs, and other illicit goods. Fisheries therefore contribute directly and indirectly to maritime security by stoking territorial and resource-based conflicts and by providing food and income that produce community resilience and reduce the root causes of conflict.'
+          html: 'As fish stocks face shortages and even collapse, competition for fishing grounds and for this mobile resource is growing. At sea, fisheries conflict can include violent attacks by foreign industrial vessels on domestic artisanal vessels; illegal, unreported, and unregulated (IUU) fishing; forced labor and slavery; and territorial disputes between and within national borders. Fishing vessels can also be used to surreptitiously transport weapons, drugs, and other illicit goods. Fisheries therefore contribute directly and indirectly to maritime security by stoking territorial and resource-based conflicts and by providing food and income that support community resilience and reduce the root causes of conflict.'
         },
         {
           tag: 'links',
@@ -272,7 +272,7 @@ var fisheriesData = {
           tag: 'img',
           src: '../../assets/fisheries/fish_military.jpg',
           alt: '',
-          caption: 'Coast Guard officers approaches a suspect fishing vessel. Photo: Africom.'
+          caption: 'Coast Guard officers approach a suspect fishing vessel. Photo: Africom.'
         },
         {
           tag: 'p',
@@ -551,11 +551,11 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'While not widespread, toxic waste dumping is also a problem for African waters. The Yaoundé Agreement, the Djibouti Code of Conduct, and the Lome Charter recognize illegal toxic waste dumping as part of transnational organized crime in the maritime domain. In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high profile illegal dumping cases:'
+          html: 'While not widespread, toxic waste dumping is also a problem for African waters. The Yaoundé Agreement, the Djibouti Code of Conduct, and the Lomé Charter recognize illegal toxic waste dumping as part of transnational organized crime in the maritime domain. In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high profile illegal dumping cases:'
         },
         {
               tag: 'ul',
-              rows: ['In 2006, a ship flagged in Panama but chartered by a multinational company docked in the Port of Abidjan, Cote d’Ivoire carrying 500 tons of hazardous waste. Ultimately, 100,000 people sought medical attention, the company responsible settled a lawsuit, and several Ivoiran officials were <a href="http://www.bbc.com/news/world-africa-10735255" target="_blank">forced to resign</a>.', 'Dumping in Somalia has long been alleged but difficult to prove. A series of reports in the 1990s alleged vast inland toxic waste dumping by Italian and other European groups in Somalia. Several reports suggest waste also was dumped at sea.']
+              rows: ['In 2006, a ship flagged in Panama but chartered by a multinational company docked in the Port of Abidjan, Cote d’Ivoire carrying 500 tons of hazardous waste. Ultimately, 100,000 people sought medical attention, the company responsible settled a lawsuit, and several Ivoiran officials were <a href="http://www.bbc.com/news/world-africa-10735255" target="_blank">forced to resign</a>.', 'Dumping in Somalia has long been alleged but difficult to prove. A series of reports in the 1990s alleged vast inland toxic waste dumping by Italian and other European groups in Somalia. Several reports suggest waste also dumped at sea.']
             },
         {
           tag: 'p',
@@ -644,7 +644,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          text: 'Governments that engage and collaborate with international fisheries bodies are more likely to adopt norms around fisheries management and scientific data collection and to adopt best practices for monitoring, control, and surveillance. Regional fisheries management organizations (RMFOs) are international bodies with voluntary membership for those countries whose fishing interests fall within RFMO jurisdiction. Some RFMOs are defined solely by geographic extent, while others are defined by the scope of the fishes they manage (e.g., tuna and other highly migratory species). We use maps showing the boundaries of four RFMOs—the Indian Ocean Tuna Commission, the International Commission for the Conservation of Atlantic Tunas, the Commission for the Conservation of Southern Bluefin Tuna, and the South East Atlantic Fisheries Organisation—to identify overlap between RFMO jurisdiction and EEZs. Scores were calculated by counting the number of RFMO memberships a country had from the pool of RFMOs that had overlapping jurisdictions (i.e., countries did not get penalized for not joining RFMOs outside their EEZs).'
+          text: 'Governments that engage and collaborate with international fisheries bodies are more likely to adopt norms around fisheries management and scientific data collection. They are also more likely to adopt best practices for monitoring, control, and surveillance. Regional fisheries management organizations (RMFOs) are international bodies with voluntary membership for those countries whose fishing interests fall within RFMO jurisdiction. Some RFMOs are defined solely by geographic extent, while others are defined by the scope of the fishes they manage (e.g., tuna and other highly migratory species). We use maps showing the boundaries of four RFMOs—the Indian Ocean Tuna Commission, the International Commission for the Conservation of Atlantic Tunas, the Commission for the Conservation of Southern Bluefin Tuna, and the South East Atlantic Fisheries Organisation—to identify overlap between RFMO jurisdiction and EEZs. Scores were calculated by counting the number of RFMO memberships a country had from the pool of RFMOs that had overlapping jurisdictions (i.e., countries did not get penalized for not joining RFMOs outside their EEZs).'
         },
 
         {
