@@ -266,7 +266,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'The presence of foreign fishing vessels in EEZ waters can cause maritime insecurity and conflict. In African waters, domestic fishing fleets tend to be small-scale and artisanal, using small boats and gear. Foreign vessels, especially those from distant-water fleets that have traveled thousands of miles to fish, are larger, faster, and use larger sets of gear. This can cause direct conflict between domestic and foreign vessels. In some African countries, foreign vessels have been accused of destroying artisanal gear, crowding out smaller boats, destroying marine habitat, and depleting fisheries resources. Case studies in both East and West Africa demonstrate that illegal, unreported, and unregulated (IUU) fishing is often related to, and even caused by, the presence of foreign fishing vessels in a nation’s waters. This is not universally true, and some nations that host foreign fleets have low levels of IUU fishing. Likewise, not all foreign vessels perpetuate conflict.'
+          html: 'The presence of foreign fishing vessels in EEZ waters can cause maritime insecurity and conflict. In African waters, domestic fishing fleets tend to be small-scale and artisanal, using small boats and gear. Foreign vessels, especially those from distant-water fleets that have traveled thousands of miles to fish, are larger, faster, and use larger sets of gear. This can cause direct conflict between domestic and foreign vessels. In some African countries, foreign vessels have been accused of destroying artisanal gear, crowding out smaller boats, destroying marine habitat, and depleting fisheries resources. Case studies in both East and West and Central Africa demonstrate that illegal, unreported, and unregulated (IUU) fishing is often related to, and even caused by, the presence of foreign fishing vessels in a nation’s waters. This is not universally true, and some nations that host foreign fleets have low levels of IUU fishing. Likewise, not all foreign vessels perpetuate conflict.'
         },
         {
           tag: 'img',
@@ -459,7 +459,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'The Indian Ocean Tuna Commission (IOTC) and the International Commission for the Conservation of Atlantic Tunas (ICCAT) are the primary RFMOs managing African fisheries. Thirty-one nations belong to the IOTC, including most fishing nations in East Africa. Fifty-two nations belong to ICCAT, including most fishing nations in West Africa.'
+          html: 'The Indian Ocean Tuna Commission (IOTC) and the International Commission for the Conservation of Atlantic Tunas (ICCAT) are the primary RFMOs managing African fisheries. Thirty-one nations belong to the IOTC, including most fishing nations in East Africa. Fifty-two nations belong to ICCAT, including most fishing nations in Wes and Central Africa.'
         },
         {
           tag: 'p',

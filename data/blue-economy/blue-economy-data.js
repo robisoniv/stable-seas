@@ -231,7 +231,7 @@ var blueEconomyData = {
       },
       els: [{
           tag: 'h1',
-          text: 'Marine and Coastal Tourism',
+          text: 'Maritime and Coastal Tourism',
         },
         {
           tag: 'caption',
@@ -702,7 +702,7 @@ var blueEconomyData = {
         },
         {
           tag: 'h4',
-          text: 'Marine and Coastal tourism'
+          text: 'Maritime and Coastal tourism'
         },
         {
           tag: 'p',
@@ -710,7 +710,7 @@ var blueEconomyData = {
         },
         {
           tag: 'h4',
-          text: 'Marine Transportation and Shipping'
+          text: 'Maritime Transportation and Shipping'
         },
         {
           tag: 'p',
