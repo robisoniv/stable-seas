@@ -551,7 +551,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'While not widespread, toxic waste dumping is also a problem for African waters. The Yauonde Agreement, the Djibouti Code of Conduct, and the Lome Charter recognize illegal toxic waste dumping as part of transnational organized crime in the maritime domain. In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high profile illegal dumping cases:'
+          html: 'While not widespread, toxic waste dumping is also a problem for African waters. The Yaoundé Agreement, the Djibouti Code of Conduct, and the Lome Charter recognize illegal toxic waste dumping as part of transnational organized crime in the maritime domain. In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high profile illegal dumping cases:'
         },
         {
               tag: 'ul',
