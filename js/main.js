@@ -491,6 +491,9 @@ function loadIA(data, card) { // where data = data.js format ... so it's an obje
     // Color main ia nav ribbon:
     // console.log(iaNav);
 
+    d3.select('#regions-link').attr('target', null);
+
+
     $('head').append('<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107179985-1"></script>');
 
     d3.select('head')
@@ -1093,12 +1096,11 @@ function buildIndexTable(obj, container, cardIndex, elIndex) {
     .text('Expand to see more...');
 }
 
-function buildOverviewIndexTable(obj, container, cardIndex, elIndex) {
+function buildOverviewIndexTable(obj, container, cardIndex, elIndex) { // ### Deprecated
   // Set variable equal to data pulled in from CSV in issueAreaData[issueArea].load();
   var metadata = issueAreaData[issueArea].metadata;
   var order = metadata.order;
   var tableData = metadata.countryData;
-  //  var csvSelector = 'ia' + metadata.index + 'c' + cardIndex;
 
   tableData = tableData.sort(function(x, y) {
     return d3.ascending(x['country'], y['country']); // ### This needs to be refactored as x[cardCol], y[cardCol]
@@ -1108,12 +1110,6 @@ function buildOverviewIndexTable(obj, container, cardIndex, elIndex) {
 
   var listLength = tableData.length;
   var tableArray = [];
-
-  // tableData.forEach(function (row) {
-  //   tableArray.push(row[csvSelector]);
-  // });
-  // var tableMax = d3.max(tableArray),
-  //   tableMin = d3.min(tableArray);
 
   var table = d3.select('#' + container)
     .append('table')
@@ -1142,25 +1138,13 @@ function buildOverviewIndexTable(obj, container, cardIndex, elIndex) {
     .on('mouseleave', unpulse);
   // ^ from https://bl.ocks.org/lhoworko/7753a11efc189a936371
 
-
-  // trow.append('td')
-  //   .text(function (d, i) { return i + 1;});
-
   trow.append('td')
     .classed('country-name', true)
-    //  .classed('')  // This is where we put in the 3-digit ISO codes
     .text(function(d) {
       return d.country
     })
     .style('border-left', function(d, i) {
       return '25px solid ' + issueAreaData[d[col]].metadata.color;
-      // if (metadata.order == -1) {
-      //   return '30px solid ' + rampColor( 1 - ( ( d[csvSelector] - tableMin ) / ( tableMax - tableMin ) ) );
-      // } else {
-      //   return '30px solid ' + rampColor( ( ( d[csvSelector] - tableMin ) / ( tableMax - tableMin ) ) );
-      // }
-
-
     });
 
   trow.append('td')

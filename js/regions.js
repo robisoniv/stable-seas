@@ -398,6 +398,8 @@ function loadRegions(data, card) { // where data = data.js format ... so it's an
 
     $('head').append('<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107179985-1"></script>');
 
+    d3.select('#issue-areas-link').attr('target', null);
+
     d3.select('head')
       .append('script')
       .html("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-107179985-1');");
