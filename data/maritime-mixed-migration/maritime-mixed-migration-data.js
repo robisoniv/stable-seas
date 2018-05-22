@@ -502,7 +502,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          html: 'Conditions within a country can make a certain population particularly vulnerable to human trafficking. Children in countries with low completion rates for primary school and poor socioeconomic conditions are one example of a vulnerable population. UNICEF estimates that 24 percent of global trafficking victims are children, but for sub-Saharan Africa this estimate rises to 64 percent. Children are often vulnerable following negotiations to transport them for work, education, or formal training in another city or country. Their parents are sometimes aware of the circumstances involved. Additionally, porous borders and lax regulatory environments allow for trafficking of children to flourish.'
+          html: 'Conditions within a country can make a certain populations particularly vulnerable to human trafficking. Children in countries with low completion rates for primary school and poor socioeconomic conditions are one example of a vulnerable population. UNICEF estimates that 24 percent of global trafficking victims are children, but for sub-Saharan Africa this estimate rises to 64 percent. Children are often vulnerable following negotiations to transport them for work, education, or formal training in another city or country. Their parents are sometimes aware of the circumstances involved. Additionally, porous borders and lax regulatory environments allow for trafficking of children to flourish.'
         },
         {
           tag: 'p',
