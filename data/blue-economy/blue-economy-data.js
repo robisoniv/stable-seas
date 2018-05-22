@@ -380,7 +380,7 @@ var blueEconomyData = {
         }
       ] // end of els array
     },
-    { // Card 6
+    { // Card 4
       title: 'Oil and Gas',
       menu: 'Oil and Gas',
       metadata: {
@@ -508,7 +508,7 @@ var blueEconomyData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['BE_ANS'];
-          tooltipVal = Math.round(tooltipVal * 100);
+          tooltipVal = Math.round(tooltipVal );
           updatePointer(tooltipVal);
           return "Adjusted Net Savings:<br />" + tooltipVal + " / 100";
 
@@ -587,7 +587,7 @@ var blueEconomyData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['BE_CLIMATE'];
-          tooltipVal = Math.round(tooltipVal * 100);
+          tooltipVal = Math.round(tooltipVal);
           updatePointer(tooltipVal);
           return "Climate Vulnerability Score:<br />" + tooltipVal + " / 100";
 

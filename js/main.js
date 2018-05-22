@@ -989,7 +989,7 @@ function buildImg(obj, container, cardIndex, elIndex) {
 
   d3.select(selector)
     .append('div')
-    .classed('caption', true)
+    .classed('img-caption', true)
     .append('p')
     .html(obj.caption);
 }

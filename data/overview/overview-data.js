@@ -160,7 +160,7 @@ var overviewData = {
           tag: 'img',
           src: '../../assets/overview/maritime_instability_somalia.jpg',
           alt: 'Special protection unit in Berbera, Somaliland. Photo: Jean-Pierre Larroque, OEF.',
-          caption: 'Special protection unit in Berbera, Somaliland.<br />Photo: Jean-Pierre Larroque, OEF.'
+          caption: 'Special protection unit in Berbera, Somaliland. Photo: Jean-Pierre Larroque, OEF.'
         },
         {
           tag: 'p',
