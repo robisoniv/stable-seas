@@ -80,7 +80,7 @@ var internationalCooperationData = {
         },
         {
           tag: 'p',
-          html: 'We find the international cooperation score to be strongly linked to a stronger rule of law and greater maritime enforcement capacity. This is not surprising; sound domestic political institutions are necessary for meaningful participation in regional and global legal efforts. Countries that participate in global and regional efforts are more likely to partake in multilateral initiatives to share information, build regional maritime domain awareness, and improve a country’s maritime enforcement capacity.'
+          html: 'High scores for international cooperation are strongly linked to a stronger rule of law and greater maritime enforcement capacity. This is not surprising; sound domestic political institutions are necessary for meaningful participation in regional and global legal efforts. Countries that participate in global and regional efforts are more likely to partake in multilateral initiatives to share information, build regional maritime domain awareness, and improve a country’s maritime enforcement capacity.'
         },
         {
           tag: 'p',

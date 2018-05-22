@@ -178,7 +178,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'But this rising consumption comes at a cost: today, over 40% of all fish stocks are collapsed or overfished, and another 40% are fully exploited. Global fish stocks have little capacity to support higher catches. Notably, in 2014 aquaculture exceeded wild fish catch for the first time in history.'
+          html: 'But this rising consumption comes at a cost: today, over 40 percent of all fish stocks are collapsed or overfished, and another 40% are fully exploited. Global fish stocks have little capacity to support higher catches. Notably, in 2014 aquaculture exceeded wild fish catch for the first time in history.'
         },
         {
           tag: 'img',
@@ -455,7 +455,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'Membership in an RFMO is voluntary, and membership comes with both perks and responsibilities. Members vote on management provisions, decide how fishery quotas are allocated between countries, share information and intelligence, and work to improve the sustainability of fish in their waters. Members are bound by decisions made by the RFMO body and are required to submit annual reports documenting their compliance with regulations and detailing their catch of species covered by the RFMO’s mandate.'
+          html: 'Membership in an RFMO is voluntary, and membership comes with both benefits and responsibilities. Members vote on management provisions, decide how fishery quotas are allocated between countries, share information and intelligence, and work to improve the sustainability of fish in their waters. Members are bound by decisions made by the RFMO body and are required to submit annual reports documenting their compliance with regulations and detailing their catch of species covered by the RFMO’s mandate.'
         },
         {
           tag: 'p',
