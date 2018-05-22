@@ -1,7 +1,7 @@
 var internationalCooperationData = {
   metadata: {
     version: '1.0.0', // Independent data source for each page
-    name: '*International Cooperation*',
+    name: 'International Cooperation',
     index: 2,
     code: 'internationalCooperation',
     path: 'international-cooperation',

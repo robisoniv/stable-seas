@@ -2,7 +2,7 @@ var illicitTradeData = {
   // PREPPED
   metadata: { // Independent data source for each page
     version: '1.0.0',
-    name: '*Illicit Trades*',
+    name: 'Illicit Trades',
     updates: true,
     /*
            added

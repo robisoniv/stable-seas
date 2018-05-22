@@ -1,6 +1,6 @@
 var coastalWelfareData = {
   metadata: {
-    name: '*Coastal Welfare*',
+    name: 'Coastal Welfare',
     version: '1.0.0',
     updates: true,
     /*

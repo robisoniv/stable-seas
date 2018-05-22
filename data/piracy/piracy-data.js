@@ -11,7 +11,7 @@ var piracyData = {
   // not prepped?
   metadata: { // Independent data source for each page
     version: '1.0.0',
-    name: '*Piracy*',
+    name: 'Piracy',
     updates: true,
     /*
          0.0.2:

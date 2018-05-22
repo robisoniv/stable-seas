@@ -1,7 +1,7 @@
 var ruleOfLawData = {
   metadata: { // Independent data source for each page
     version: '1.0.0',
-    name: '*Rule of Law*',
+    name: 'Rule of Law',
     updates: true,
     /*
          here is where you write updates

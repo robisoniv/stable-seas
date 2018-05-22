@@ -1,6 +1,6 @@
 var overviewData = {
   metadata: {
-    name: '*Overview*',
+    name: 'Overview',
     updates: true,
     version: '1.0.0',
     /*
