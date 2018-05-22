@@ -354,11 +354,27 @@ $('#content-holder').on('click', '.internal-ref', function(e) {
 $('#map-svg').on('mouseenter', '.stableseas', function(e) {
   //var iso3 = e.getAttribute('data-iso3');
   var iso3 = d3.select(this).attr('data-iso3');
+  var iso = iso3.split(' ');
+//  console.log(iso);
+  //console.log(iso3);
+  if (iso.length > 1) {
+    pulse(iso[0]);
+    pulse(iso[1]);
+  //  console.log('double!');
+  }
   pulse(iso3);
 });
 
 $('#map-svg').on('mouseleave', '.stableseas', function() {
   var iso3 = d3.select(this).attr('data-iso3');
+  var iso = iso3.split(' ');
+//  console.log(iso);
+  //console.log(iso3);
+  if (iso.length > 1) {
+    unpulse(iso[0]);
+    unpulse(iso[1]);
+  //  console.log('double!');
+  }
   unpulse(iso3);
 });
 
@@ -1314,7 +1330,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           if (d.properties.Pol_type === 'Disputed' && includedCountries.contains(d.properties.ISO_Ter1)) {
             classlist += ' disputed included';
           } else if (includedCountries.contains(d.properties.ISO_Ter1)) {
-            classlist += d.properties.ISO_Ter1 + ' stableseas';
+            classlist += d.properties.ISO_Ter1 + ' ' + d.properties.ISO_Ter2 + ' stableseas';
           } else {
             classlist += d.properties.ISO_Ter1;
           }
@@ -1325,11 +1341,18 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
           if (d.properties.Pol_type === 'Disputed') {
             return null;
           } else {
-            return d.properties.ISO_Ter1;
+            if (d.properties.ISO_Ter2)
+             { return d.properties.ISO_Ter1 + ' ' + d.properties.ISO_Ter2 }
+             else {
+               return d.properties.ISO_Ter1;
+             }
           }
         })
         .on('mousemove', function(d) {
           var iso3 = d.properties.ISO_Ter1;
+          var iso3_2 = d.properties.ISO_Ter2;
+          if (!iso3_2) {
+
 
           if (!issueAreaData[issueArea].cards[activeCard].map.tooltip) {
             if (d.properties.Pol_type != 'Disputed') {
@@ -1387,6 +1410,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
                 .classed('invisible', false);
             }
           }
+        }
 
         })
         .on('mouseout', function(d) {
