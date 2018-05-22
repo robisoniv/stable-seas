@@ -107,6 +107,9 @@ var maritimeMixedMigrationData = {
         //    "highlights": ['AGO', 'ZAF', 'COG'],
         tooltipHTML: function(iso) {
           var val = issueAreaData[issueArea].metadata.countryData[iso]['MMM_MAP_ACTIVITY'];
+          tooltipVal = Math.round(val * 100);
+          updatePointer(tooltipVal);
+          return "Measure of maritime trafficking:<br />" + tooltipVal + " / 100";
 
         },
         load: function (index, csv) {
