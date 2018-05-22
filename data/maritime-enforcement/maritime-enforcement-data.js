@@ -946,7 +946,7 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          text: 'We measure the number of coastal patrol vessels available to federal forces, which may include a navy, coast guard, port police, and/or other maritime enforcement division. We derive these vessel counts from The Military Balance 2016, an annual global report from the International Institute for Strategic Studies (IISS). This report did not include information for Sao Tome and Principe or Comoros, so we supplemented these data with in-house research and inquiries to regional stakeholders. We adopt the coastal patrol vessel definition from the Military Balance report:'
+          text: 'We measure the number of coastal patrol vessels available, which may include a navy, coast guard, port police, and/or other maritime enforcement division. We derive these vessel counts from The Military Balance 2016, an annual global report from the International Institute for Strategic Studies (IISS). This report did not include information for Sao Tome and Principe or Comoros, so we supplemented these data with in-house research and inquiries to regional stakeholders. We adopt the coastal patrol vessel definition from the Military Balance report:'
         },
         {
           tag: 'blockquote',
