@@ -178,7 +178,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'But this rising consumption comes at a cost: today, over 40% of all fish stocks are collapsed or overfished, and another 40% are fully exploited. Global fish stocks have little capacity to support higher catches. Notably, in 2014 aquaculture exceeded wild fish catch for the first time in history.'
+          html: 'But this rising consumption comes at a cost: today, over 40 percent of all fish stocks are collapsed or overfished, and another 40% are fully exploited. Global fish stocks have little capacity to support higher catches. Notably, in 2014 aquaculture exceeded wild fish catch for the first time in history.'
         },
         {
           tag: 'img',
@@ -266,7 +266,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'The presence of foreign fishing vessels in EEZ waters can cause maritime insecurity and conflict. In African waters, domestic fishing fleets tend to be small-scale and artisanal, using small boats and gear. Foreign vessels, especially those from distant-water fleets that have traveled thousands of miles to fish, are larger, faster, and use larger sets of gear. This can cause direct conflict between domestic and foreign vessels. In some African countries, foreign vessels have been accused of destroying artisanal gear, crowding out smaller boats, destroying marine habitat, and depleting fisheries resources. Case studies in both East and West Africa demonstrate that illegal, unreported, and unregulated (IUU) fishing is often related to, and even caused by, the presence of foreign fishing vessels in a nation’s waters. This is not universally true, and some nations that host foreign fleets have low levels of IUU fishing. Likewise, not all foreign vessels perpetuate conflict.'
+          html: 'The presence of foreign fishing vessels in EEZ waters can cause maritime insecurity and conflict. In African waters, domestic fishing fleets tend to be small-scale and artisanal, using small boats and gear. Foreign vessels, especially those from distant-water fleets that have traveled thousands of miles to fish, are larger, faster, and use larger sets of gear. This can cause direct conflict between domestic and foreign vessels. In some African countries, foreign vessels have been accused of destroying artisanal gear, crowding out smaller boats, destroying marine habitat, and depleting fisheries resources. Case studies in both East and West and Central Africa demonstrate that illegal, unreported, and unregulated (IUU) fishing is often related to, and even caused by, the presence of foreign fishing vessels in a nation’s waters. This is not universally true, and some nations that host foreign fleets have low levels of IUU fishing. Likewise, not all foreign vessels perpetuate conflict.'
         },
         {
           tag: 'img',
@@ -455,11 +455,11 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'Membership in an RFMO is voluntary, and membership comes with both perks and responsibilities. Members vote on management provisions, decide how fishery quotas are allocated between countries, share information and intelligence, and work to improve the sustainability of fish in their waters. Members are bound by decisions made by the RFMO body and are required to submit annual reports documenting their compliance with regulations and detailing their catch of species covered by the RFMO’s mandate.'
+          html: 'Membership in an RFMO is voluntary, and membership comes with both benefits and responsibilities. Members vote on management provisions, decide how fishery quotas are allocated between countries, share information and intelligence, and work to improve the sustainability of fish in their waters. Members are bound by decisions made by the RFMO body and are required to submit annual reports documenting their compliance with regulations and detailing their catch of species covered by the RFMO’s mandate.'
         },
         {
           tag: 'p',
-          html: 'The Indian Ocean Tuna Commission (IOTC) and the International Commission for the Conservation of Atlantic Tunas (ICCAT) are the primary RFMOs managing African fisheries. Thirty-one nations belong to the IOTC, including most fishing nations in East Africa. Fifty-two nations belong to ICCAT, including most fishing nations in West Africa.'
+          html: 'The Indian Ocean Tuna Commission (IOTC) and the International Commission for the Conservation of Atlantic Tunas (ICCAT) are the primary RFMOs managing African fisheries. Thirty-one nations belong to the IOTC, including most fishing nations in East Africa. Fifty-two nations belong to ICCAT, including most fishing nations in Wes and Central Africa.'
         },
         {
           tag: 'p',
@@ -551,7 +551,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'While not widespread, toxic waste dumping is also a problem for African waters. The Yauonde Agreement, the Djibouti Code of Conduct, and the Lome Charter recognize illegal toxic waste dumping as part of transnational organized crime in the maritime domain. In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high profile illegal dumping cases:'
+          html: 'While not widespread, toxic waste dumping is also a problem for African waters. The Yaoundé Agreement, the Djibouti Code of Conduct, and the Lome Charter recognize illegal toxic waste dumping as part of transnational organized crime in the maritime domain. In some cases, the perception of the problem is far greater than the reality. But weak maritime enforcement and monitoring capacity have enabled some high profile illegal dumping cases:'
         },
         {
               tag: 'ul',

@@ -1923,11 +1923,11 @@ var regionsData = {
           },
           {
             tag: 'p',
-            html: 'High scores for the Western Coast region in international cooperation are due to the high level of participation in international agreements, such as UNCLOS and the UN Fish Stocks Agreement, as well as demonstrated commitment to regional security strategies through information sharing networks and participation in naval cooperation exercises. The region also benefits from a lack of violations or disputes of maritime boundaries. In terms of piracy, the Western Coast enjoys significant distance from the target-rich environment of the Gulf of Guinea.'
+            html: 'High scores for the Western Coast region in international cooperation are due to the high level of participation in international agreements, such as UNCLOS and the UN Fish Stocks Agreement, as well as demonstrated commitment to regional security strategies through information sharing networks and participation in naval cooperation exercises. The region also benefits from a lack of violations or disputes of maritime boundaries. In terms of piracy, the Western Coast enjoys significant distance from the target-rich environment of the Gulf of Guinea. However, there is a persistent secondary center of low level piracy in this region.'
           },
           {
             tag: 'p',
-            html: 'Maritime enforcement is key to the continued development of the blue economy. The Western Coast would benefit from increasing investments in their naval capability and coastal patrol assets in order to fully take advantage of their regional security strategies and promote the blue economy.'
+            html: 'Maritime enforcement is key to the continued development of the blue economy. The Western Coast would benefit from increasing investments in their naval capability and coastal patrol assets in order to fully take advantage of their regional security strategies and promote the blue economy. The region has exceptional potential for fisheries but is plagued by IUU fishing.'
           }
           // ...
         ]
@@ -1971,7 +1971,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cabo Verde is Illicit Trades. Cabo Verde scores 40 in this area, above the regional average of 29. To further             improve upon this score, Cabo Verde can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine and cannabis crossing the Atlantic Ocean from South America.. Further progress can be made by working with African, European, and South American partners to undermine this major route in the global narcotics network.. Through these efforts, Cabo Verde can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Cabo Verde is Illicit Trades. Cabo Verde scores 40 in this area, above the regional average of 29. To further             improve upon this score, Cabo Verde can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America.. Further progress can be made by working with African, European, and South American partners to undermine this major route in the global narcotics network.. Through these efforts, Cabo Verde can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2013,7 +2013,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 5 in this area,  about the same as  the regional average of 29. To further             improve upon this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine and cannabis crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Senegal can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 5 in this area,  about the same as  the regional average of 29. To further             improve upon this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Senegal can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2097,7 +2097,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Guinea-Bissau is Maritime Enforcement. Guinea-Bissau scores 28 in this area, below the regional average of 41. To further             improve upon this score, Guinea-Bissau can increase its investment in maritime domain awareness, as our experts gave it one of the lowest scores in the region in this area. Guinea-Bissau also has among the lowest number of coastal patrol vessels in West Africa, making it all but impossible to monitor illicit activity in the complicated and remote Bijagos archipelago.. Further progress can be made by continued participation in regional integration efforts, including Gambian participation in Zone G of the Yaounde Code of Conduct and regional counter-trafficking exercises.. Through these efforts, Guinea-Bissau can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Guinea-Bissau is Maritime Enforcement. Guinea-Bissau scores 28 in this area, below the regional average of 41. To further             improve upon this score, Guinea-Bissau can increase its investment in maritime domain awareness, as our experts gave it one of the lowest scores in the region in this area. Guinea-Bissau also has among the lowest number of coastal patrol vessels in West Africa, making it all but impossible to monitor illicit activity in the complicated and remote Bijagos archipelago. Further progress can be made by continued participation in regional integration efforts, including Guinean participation in Zone G of the Yaounde Code of Conduct and regional counter-trafficking exercises.. Through these efforts, Guinea-Bissau can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2139,7 +2139,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Guinea is Illicit Trades. Guinea scores 10 in this area, below the regional average of 29. To further             improve upon this score, Guinea can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Guinea also sees considerable trafficking in synthetic drugs, opiates, and wildlife products.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Guinea can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Guinea is Illicit Trades. Guinea scores 10 in this area, below the regional average of 29. To further improve upon this score, Guinea can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Guinea also sees considerable trafficking in synthetic drugs, opiates, and wildlife products.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Guinea can raise its weakest score and work toward comprehensive and lasting maritime security as well as address local focus points for piracy."
           }
         ]
       },
@@ -2181,7 +2181,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Sierra Leone is Maritime Enforcement. Sierra Leone scores 38 in this area, below the regional average of 41. To further             improve upon this score, Sierra Leone can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America.. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement.. Through these efforts, Sierra Leone can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Sierra Leone is Maritime Enforcement. Sierra Leone scores 38 in this area, below the regional average of 41. To further             improve upon this score, Sierra Leone can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America.. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement. Through these efforts, Sierra Leone can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2215,7 +2215,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Liberia ranks highest in Piracy. Liberia's score of 88 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Liberia can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Liberia ranks highest in Piracy. Liberia's score of 88 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. Liberia can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
@@ -2223,7 +2223,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Liberia is Maritime Enforcement. Liberia scores 20 in this area, below the regional average of 41. To further             improve upon this score, Liberia can developing its coastal patrol assets and naval capability, which rank among the lowest in sub-Saharan Africa.. Further progress can be made by continued participation in multilateral efforts, such as Liberian involvement in Zone F of the Yaounde Code of Conduct.. Through these efforts, Liberia can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Liberia is Maritime Enforcement. Liberia scores 20 in this area, below the regional average of 41. To further             improve upon this score, Liberia can develop its coastal patrol assets and naval capability, which rank among the lowest in sub-Saharan Africa.. Further progress can be made by continued participation in multilateral efforts, such as Liberian involvement in Zone F of the Yaounde Code of Conduct.. Through these efforts, Liberia can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
@@ -2257,7 +2257,7 @@ var regionsData = {
     },
     cards: [{ // Card 0
         title: 'The Northern Gulf of Guinea',
-        menu: 'The Northern Gulf',
+        menu: 'The Northern Gulf of Guinea',
         metadata: {
           owner: '',
           description: ''
@@ -2536,7 +2536,7 @@ var regionsData = {
     },
     cards: [{ // Card 0
         title: 'The Southern Gulf of Guinea',
-        menu: 'The Southern Gulf',
+        menu: 'The Southern Gulf of Guinea',
         metadata: {
           owner: '',
           description: ''
@@ -2918,7 +2918,7 @@ var regionsData = {
 
           {
             tag: 'p',
-            html: 'High scores in these issue areas reflect their interconnectedness. Healthy fisheries, supported by effective management and enforcement capacity, encourage the development of the blue economy which in turn discourages maritime mixed migration. A strong blue economy is also linked to lower levels of illicit trades. This region is good example of how support to one pillar of maritime security can have positive spillover effects on other issue areas.'
+            html: 'High scores in these issue areas reflect their interconnectedness. Healthy fisheries, supported by effective management and enforcement capacity, encourage the development of the blue economy which in turn discourages maritime mixed migration. A strong blue economy is also linked to lower levels of illicit trades. This region is a good example of how support to one pillar of maritime security can have positive spillover effects on other issue areas.'
           },
 
           {
