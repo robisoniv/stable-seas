@@ -538,7 +538,7 @@ var blueEconomyData = {
         // },
         {
           tag: 'blockquote',
-          html: '“The extent of the damage to the ocean is many decades shy of the impact of industrialisation on land, and there is still time, if we act now, to get the principles and the framework for the development of the ocean economy right. Business as usual is clearly not an option.” <br />Source: The Economist Intelligence Unit Limited, 2015<sup>6</sup>'
+          html: '“The extent of the damage to the ocean is many decades shy of the impact of industrialisation on land and there is still time, if we act now, to get the principles and the framework for the development of the ocean economy right. Business as usual is clearly not an option.” <br />Source: The Economist Intelligence Unit Limited, 2015<sup>6</sup>'
         },
         {
           tag: 'p',
