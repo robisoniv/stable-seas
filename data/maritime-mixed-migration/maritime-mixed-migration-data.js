@@ -447,7 +447,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          html: 'As maritime mixed migration routes and networks shift with political and economic conditions, combatting this challenge requires both international cooperation and strong domestic legal response structures.'
+          html: 'As maritime mixed migration routes and networks shift with political and economic conditions, combating this challenge requires both international cooperation and strong domestic legal response structures.'
         },
         {
           tag: 'p',
@@ -455,7 +455,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          html: 'At the country level, states are responsible for prosecuting criminals involved in human trafficking as well as protecting potential victims and preventing the development and evolution of trafficking networks. For many states, the greatest challenges is prosecution. As with other maritime crimes, including the illicit trades and piracy and armed robbery, the lack of a legal finish allows human trafficking to flourish.'
+          html: 'At the country level, states are responsible for prosecuting criminals involved in human trafficking as well as protecting potential victims and preventing the development and evolution of trafficking networks. For many states, the greatest challenge is prosecution. As with other maritime crimes, including the illicit trades and piracy and armed robbery, the lack of a legal finish allows human trafficking to flourish.'
         }
       ]
     },
@@ -607,7 +607,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          text: 'Finally, populations are more vulnerable to trafficking where political systems are ineffective, human capital is low, and socioeconomic conditions are poor. We operationalize a population’s vulnerability with two indicators: the primary-school completion rate as recorded by the World Bank, and the Vulnerability to Slavery score calculated by the Walk Free Foundation as part of its Global Slavery Index.'
+          text: 'Finally, populations are more vulnerable to trafficking where political systems are ineffective, human capital is low, and socioeconomic conditions are poor. We operationalize a population’s vulnerability with two indicators: the primary school completion rate as recorded by the World Bank, and the Vulnerability to Slavery score calculated by the Walk Free Foundation as part of its Global Slavery Index.'
         },
 
       ] // end of els array
