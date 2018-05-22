@@ -128,7 +128,7 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          html: 'Every state in the Stable Seas Index is presented with a unique geographic challenge in ensuring the security of its maritime space. Stable Seas measures the scope of the hurdles presented to each state by its maritime geography, because this geography defines their maritime enforcement needs. When considering the scope of these geographic challenges four components are likely to be important:'
+          html: 'Every state in the Stable Seas Index is presented with a unique geographic challenge in ensuring the security of its maritime space. Stable Seas measures the scope of the hurdles presented to each state by its maritime geography, because this geography defines their maritime enforcement needs. When considering the scope of these geographic challenges, four components are likely to be important:'
         },
         {
           tag: 'ul',
