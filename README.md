@@ -14,12 +14,12 @@ The creation of the report interface was a joint effort between OEF's Research a
 
 
 
-![Oceans Beyond Piracy][obp-logo]
+[![Oceans Beyond Piracy][obp-logo]](http://oceansbeyondpiracy.org/)
 
 
-![Secure Fisheries][secure-fisheries-logo]
+[![Secure Fisheries][secure-fisheries-logo]](http://securefisheries.org/)
 
-![OEF Research][oefr-logo]
+[![OEF Research][oefr-logo]](http://oefresearch.org/)
 
 
 
