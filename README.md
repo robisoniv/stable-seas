@@ -10,9 +10,9 @@ The creation of the report interface was a joint effort between OEF's Research a
 
 ---
 
-![One Earth Future][oef-logo]
+<span style="display:block;text-align:center">![One Earth Future][oef-logo]</span>
 
----
+
 
 ![Oceans Beyond Piracy][obp-logo]
 
