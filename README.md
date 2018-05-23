@@ -1,4 +1,4 @@
-# The Stable Seas Maritime Security Index
+[header-logo]: https://stableseas.org/assets/stable_seas_intro_logo.png
 
 The Stable Seas Maritime Security Index is a new effort to measure and map nine facets of good maritime governance. The report is a collaborative effort that builds on One Earth Future's experience and expertise in maritime issues in sub-Saharan Africa. We hope that this tool will help policy makers in the region design more holistic and inclusive policies to promote the peace of mariners, populations and anyone connected to the continent's maritime space.
 
