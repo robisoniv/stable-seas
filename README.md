@@ -10,10 +10,10 @@ The creation of the report interface was a joint effort between OEF's Research a
 
 ---
 
-![]
+![One Earth Future][oef-logo]
 
 
-[stable-seas-header]: https://stableseas.org/assets/stable_s eas_intro_logo.png
+[stable-seas-header]: https://stableseas.org/assets/stable_seas_intro_logo.png
 [oef-logo]: https://stableseas.org/assets/stable_seas_intro_oef_logo.png
 [secure-fisheries-logo]: https://stableseas.org/assets/secure_fisheries_logo.png
 [oefr-logo]: https://stableseas.org/assets/oef_research_logo.png
