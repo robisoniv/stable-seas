@@ -10,7 +10,7 @@ The creation of the report interface was a joint effort between OEF's Research a
 
 ---
 
-<span style="display:block;text-align:center">![One Earth Future][oef-logo]</span>
+![One Earth Future][oef-logo]
 
 
 
