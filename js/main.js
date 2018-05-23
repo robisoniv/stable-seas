@@ -1587,77 +1587,62 @@ d3.selection.prototype.moveToBack = function() {
 
 // Interactivity functions
 function switchCard(target) {
-  // First, remove highlighted menu item
 
+// Clear out prior active card styles, elements, attributes ...
   d3.selectAll('.active')
-    .attr('style', null) // what did this just break??
+    .attr('style', null)
     .classed('active', false);
 
   d3.selectAll('.included')
-    .transition()
     .attr('style', null)
 
-  clearBGImg();
+  d3.selectAll('.on')
+    .classed('on', false);
 
-  d3.selectAll('.country')
-    .attr('data-val', null);
-
-  var targetCard = '#card' + target;
-
-
+  // Clear all .card divs from view
   d3.selectAll('.card')
     .classed('invisible', true);
 
+  // Hide legend and accessories
   d3.select('.legend-pointer')
     .classed('hidden', true);
-
   d3.selectAll('.legend')
     .classed('invisible', true);
 
-  d3.select('.card.active')
-    .classed('active', false);
-
-  // And the active geographic layers (fade out)
+  // Hide the  geographic layers from prior active card
   d3.selectAll('.card-layer')
     .classed('invisible', true);
 
-  // Now make target card visible
+  // Clear value from country elements' data-val attributes
+  // so we can replace it with the target card's values
+  d3.selectAll('.country')
+    .attr('data-val', null);
+
+  // Set HTML selector
+  var targetCard = '#card' + target;
+
+  // Now make target card visible ..
   d3.select(targetCard)
     .classed('invisible', false)
     .classed('active', true);
 
-  window.scrollTo(0, 0); // do we want the toolbar to expand if they haven't hovered on it or scrolled up? Kinda no...
+  // ... and ensure it is scrolled to top
+  window.scrollTo(0, 0);
 
-  var mapObj = issueAreaData[issueArea].cards[target].map;
-
+  // Reveal target card's geographic layers
   d3.selectAll('.card-' + target + '-layer')
     .classed('invisible', false);
 
+
+  var mapObj = issueAreaData[issueArea].cards[target].map;
+
+  // Execute switch() method - opportunity to
+  // customize for each card if needed
   if (mapObj.switch) {
     mapObj.switch(target);
-  } // ### This has to be on every card - no 'if' statement needed??
-
-  // And turn on target card's data layers
-  // And highlight the relevant countries:
-  d3.selectAll('.on').classed('on', false);
-  // ### Then loop through cards[i].map.highlights,
-  var highlights = issueAreaData[issueArea].cards[target].map.highlights;
-  if (highlights) {
-    highlights.forEach(function(highlight, i) {
-      d3.selectAll('.' + highlight)
-        .classed('active', true)
-        .transition().delay(10 * i)
-        .style('fill', function() {
-          return rampColor(0.5);
-        })
-        .style('stroke', function() {
-          return themeColor(1);
-        });
-      //.classed('on', true);
-
-    })
   }
 
+  // Style card menu with active card
   d3.select('#card-' + target + '-menu')
     .classed('active', true)
     .style('background-color', function() {
@@ -1667,13 +1652,38 @@ function switchCard(target) {
       return '5px solid ' + themeColor(1);
     });
 
-  var cardMapObj = issueAreaData[issueArea].cards[target].map;
-  cardMapObj.extent ? zoom(cardMapObj.extent) : reset();
+  // Zoom to specified extent
+  cardMap.extent ? zoom(cardMap.extent) : reset();
 
-  // Update the browser URL:
+  // Update the browser URL so we can link directly to cards:
   history.pushState(null, issueAreaData[issueArea].cards[target].title, '#' + target);
 
+  // Update activeCard variable with target (i.e. new active) card
   activeCard = target;
+
+
+
+
+
+  // DEPRECATED:
+  // And turn on target card's data layers
+  // And highlight the relevant countries:
+  // var highlights = issueAreaData[issueArea].cards[target].map.highlights;
+  // if (highlights) {
+  //   highlights.forEach(function(highlight, i) {
+  //     d3.selectAll('.' + highlight)
+  //       .classed('active', true)
+  //       .transition().delay(10 * i)
+  //       .style('fill', function() {
+  //         return rampColor(0.5);
+  //       })
+  //       .style('stroke', function() {
+  //         return themeColor(1);
+  //       });
+  //     //.classed('on', true);
+  //
+  //   })
+  // }
 }
 
 // Arrow buttons to step up or down a card.
@@ -1696,50 +1706,60 @@ Array.prototype.contains = function(needle) {
 }
 
 function choropleth(cardIndex, order, key, animated) {
-  //console.log('choro!', key);
+  // cardIndex:   target card
+  // order:       forward (1) or inverse (-1) color ramp
+  // key:         column reference
+  // animated:    whether or not to animate recoloring of map
+
+  // Set variables
   var target = 'card-' + cardIndex + '-layer';
   var vals = issueAreaData[issueArea].metadata.countryData;
   var mapData = issueAreaData[issueArea].cards[cardIndex].map;
   var mapType = mapData.type;
 
-  //console.log(cardIndex, mapType);
-
+  // Clear prior card elements
   d3.selectAll('.legend')
     .classed('invisible', true);
 
   d3.selectAll('.legend-cat')
     .classed('invisible', true);
 
+  // mapType defines which code to run
   if (mapType == 'continuous') {
-    // First set up the legend
+
+    // Reveal continuous (color ramp) legend
     d3.select('.legend.continuous')
       .classed('invisible', false)
       .select('.legend-title')
       .text(mapData.legend ? mapData.legend : null);
 
+    // Set iterator as timer for animation
     var i = 0;
-    for (iso3 in vals) {
+
+    // Loop through vals (page's countryData) object
+    for (iso3 in vals) {    // iso3 are keys in vals object literal
+
+      // Test if country is included in scope of study
       if ($.inArray(iso3, includedCountries) != -1) {
+
+        // Select country-specific polygons
         var highlightedEEZ = d3.selectAll('.eez.' + iso3);
         var highlightedCountry = d3.selectAll('.country.' + iso3);
 
+        // Set variable to value to be visualized for that country
         var val = vals[iso3][key];
 
-        // Check if val is float; if so highlight on continuous scale
-
-
-        // First make sure that 0 - 100 range is converted into 0 - 1.
-        //  console.log('FLOAT');
+        // Convert val to float, range 0 - 1
         if (!(val <= 1 && val != 0)) {
           val = val / 100;
         }
 
+        // Color polygons according to val (float)
         if (animated || animated == null ) {
           highlightedEEZ.classed('active', true)
-            .transition()
-            .delay(i * 5)
+            .transition().delay(i * 5)   // <--- animation
             .style('fill', function() {
-              if (order == -1) {
+              if (order == -1) {        // option to invert color ramp
                 return rampColor(1 - val);
               } else {
                 return rampColor(val);
@@ -1756,7 +1776,8 @@ function choropleth(cardIndex, order, key, animated) {
             });
         }
 
-
+        // Set data-val attribute on .country polygons,
+        // for highlighting functionality
         d3.selectAll('.country.' + iso3)
           .attr('data-val', function (){
             if (order == -1) {
@@ -1766,108 +1787,114 @@ function choropleth(cardIndex, order, key, animated) {
             }
           });
         i++;
-
       }
     }
 
-  } else if (mapType == 'categorical') { // val is an integer
+  } else if (mapType == 'categorical') { // meaning val is an integer
 
     var i = 0;
     var legendCategories = mapData.categories;
     var legendTitle = mapData.legend;
 
-    // This is hard coded at a 433px tall categorical legend ... which i don't like. but it works for now.
-    var translateTitle = 'translate(0, 320)';
-
+    // Set legend title
     d3.select('.legend-categorical-title')
-      .attr('transform', translateTitle)
       .text(legendTitle);
 
-    //console.log(legendCategories);
-
+    // Reveal categorical legend elements
     d3.select('.legend.categorical')
       .classed('invisible', false);
-    // .select('.legend-title')
-    // .text(mapData.legend ? mapData.legend : null);
-    //
-    legendCategories.forEach(function(category, i) {
 
+    // Loop through legend categories; add text and reveal
+    legendCategories.forEach(function(category, i) {
       d3.select('.legend-cat text.cat-' + i)
         .text(category);
       d3.select('.legend-cat.cat-' + i)
         .classed('invisible', false);
+    });
 
-
-      console.log(category, i);
-    })
-
+    // Loop through vals object with country-specific data
     for (iso3 in vals) {
       var highlightedEEZ = d3.selectAll('.eez.' + iso3);
       var highlightedCountry = d3.selectAll('.country.' + iso3);
 
+      // Set val based on iso3 country code and choropleth()'s key parameter
       var val = vals[iso3][key];
 
-      highlightedCountry.classed('active', true)
-        .transition()
-        .delay(i * 10)
-        .style('fill', function() {
-          //  console.log('fill', colorBrew[(val * 2) - 1]);
-          if (val == 0) {
-            return null;
-          } else {
-            return colorBrew[(val * 2) - 1];
-          }
-        });
+      // Test animation
+      if (animated || animated == null) {
 
-      d3.selectAll('.eez.' + iso3).classed('active', true)
-        .transition()
-        .delay(i * 10)
-        .style('fill', function() {
-          //  console.log('fill', colorBrew[(val * 2) - 1]);
-          if (val == 0) {
-            return null;
-          } else {
-            return colorBrew[(val * 2) - 1];
-          }
-        })
-        .style('opacity', 0.2);
+        // Color countries as appropriate
+        highlightedCountry.classed('active', true)
+          .transition()
+          .delay(i * 10)
+          .style('fill', function() {
+            if (val == 0) {
+              return null;
+            } else {
+              // Note use of colorBrew categorical color array,
+              // not continuous rampColor() function
+              return colorBrew[(val * 2) - 1];
+            }
+          });
 
+        d3.selectAll('.eez.' + iso3).classed('active', true)
+          .transition()
+          .delay(i * 10)
+          .style('fill', function() {
+            if (val == 0) {
+              return null;
+            } else {
+              return colorBrew[(val * 2) - 1];
+            }
+          })
+          .style('opacity', 0.2);
+
+      } else {
+        highlightedCountry.classed('active', true)
+          .style('fill', function() {
+            if (val == 0) {
+              return null;
+            } else {
+              return colorBrew[(val * 2) - 1];
+            }
+          });
+
+        d3.selectAll('.eez.' + iso3).classed('active', true)
+          .style('fill', function() {
+            if (val == 0) {
+              return null;
+            } else {
+              return colorBrew[(val * 2) - 1];
+            }
+          })
+          .style('opacity', 0.2);
+      }
+
+      // Set data-val attributes for highlighting functions
       d3.selectAll('.country.' + iso3)
         .attr('data-val', val);
 
       d3.selectAll('.eez.' + iso3)
         .attr('data-val', val);
       i++;
-
     }
-
-
-
-
-
   } else if (mapType == 'boolean') {
-    // single highlight option ...
-    console.log('bool!');
+
+    // Similar workflow, main difference being ....
     var i = 0;
     var legendTitle = mapData.legend;
 
     d3.select('.legend-boolean-title')
       .text(legendTitle);
-
-    //console.log(legendCategories);
-
     d3.select('.legend.boolean')
       .classed('invisible', false);
 
     for (iso3 in vals) {
       var highlightedEEZ = d3.selectAll('.eez.' + iso3);
       var highlightedCountry = d3.selectAll('.country.' + iso3);
-  //    console.log(vals[iso3])
-    //  console.log(':::', iso3, typeof vals[iso3][key]);
 
       // Convert numeric into boolean:
       var val = vals[iso3][key];
-      console.log('iso', iso3, 'val', val);
 
       if (typeof val == 'number') {
         if (val > 0) {
@@ -1877,49 +1904,75 @@ function choropleth(cardIndex, order, key, animated) {
         }
 
       } else {
+        // set to boolean data type
         val = eval(vals[iso3][key].toLowerCase());
-
       }
-      console.log(':::', iso3, typeof val);
 
+      if (animated || animated == null) {
+        highlightedCountry.classed('active', true)
+          .transition()
+          .delay(i * 10)
+          .style('fill', function() {
+            if (!val) {
+              return null;
+            } else {
 
-      highlightedCountry.classed('active', true)
-        .transition()
-        .delay(i * 10)
+              // Main difference: color with theme color, not color
+              // ramp or categorical colors
+              return themeColor(0.5);
+            }
+          });
+
+        d3.selectAll('.eez.' + iso3).classed('active', true)
+          .transition()
+          .delay(i * 10)
+          .style('fill', function() {
+            if (!val) {
+              return null;
+            } else {
+              return themeColor(1);
+            }
+          })
+          .style('opacity', val ? 0.3 : null);
+
+      } else {
+        // Same workflow, with animation removed
+        highlightedCountry.classed('active', true)
+          .style('fill', function() {
+            if (!val) {
+              return null;
+            } else {
+              return themeColor(0.5);
+            }
+          });
+
+        d3.selectAll('.eez.' + iso3).classed('active', true)
         .style('fill', function() {
-          //  console.log('fill', colorBrew[(val * 2) - 1]);
-          if (!val) {
-            return null;
-          } else {
-            return themeColor(0.5);
-          }
-        });
+            if (!val) {
+              return null;
+            } else {
+              return themeColor(1);
+            }
+          })
+          .style('opacity', val ? 0.3 : null);
+      }
 
-      d3.selectAll('.eez.' + iso3).classed('active', true)
-        .transition()
-        .delay(i * 10)
-        .style('fill', function() {
-          //  console.log('fill', colorBrew[(val * 2) - 1]);
-          if (!val) {
-            return null;
-          } else {
-            return themeColor(1);
-          }
-        })
-        .style('opacity', val ? 0.3 : null);
 
+      // Set data-val attribute to that specific country's val
       d3.selectAll('.country.' + iso3)
         .attr('data-val', val.toString());
       i++;
-
     }
   }
 
-  // This is where we'd put the title of the legend
-
+  // Reveal legend
   d3.select('.legend-g')
     .classed('hidden', false);
 }
+
+
+
+
 
 function updatePointer(tooltipVal) {
   d3.select('.legend-pointer')
