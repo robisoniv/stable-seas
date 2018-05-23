@@ -531,27 +531,27 @@ var internationalCooperationData = {
         highlights: [],
         tooltip: true,
         legend: 'Regional Coordination in sub-Saharan Africa',
-        categories: ['Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G', 'Djibouti Code of Conduct'],
+        categories: ['Jeddah Amendment, Djibouti Code of Conduct', 'Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G'],
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];
           switch (zone.yaounde) {
-            case 1:
+            case 2:
               return "Yaoundé Zone A";
               break;
-            case 2:
+            case 3:
               return "Yaoundé Zone D";
               break;
-            case 3:
+            case 4:
               return "Yaoundé Zone E";
               break;
-            case 4:
+            case 5:
               return "Yaoundé Zone F";
               break;
-            case 5:
+            case 6:
               return "Yaoundé Zone G";
               break;
-            case 6:
-              return "Party to Djibouti Code of Conduct";
+            case 1:
+              return "Jeddah Amendment, Djibouti Code of Conduct";
               break;
             default:
               return null;
