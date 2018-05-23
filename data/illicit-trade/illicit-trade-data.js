@@ -684,14 +684,7 @@ var illicitTradeData = {
         categories: [1,2,3,4,5,6,7,8],
         tooltipHTML: function(iso) {
         //  console.log(issueAreaData[issueArea].metadata.countryData[iso]['significant_trades']);
-          return "Major Maritime Illicit trades in: <br />" + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
-          // var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['issues'];
-          // switch (tooltipVal) {
-          //   case <3:
-          //     return 'Fewer'
-          // }
-          // updatePointer(tooltipVal);
-          // return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100";
+          return "Major Maritime Illicit Trades in: <br />" + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
 
         },
         load: function (index, csv) {
