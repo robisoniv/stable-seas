@@ -685,7 +685,7 @@ var illicitTradeData = {
         tooltipHTML: function(iso) {
         //  console.log(issueAreaData[issueArea].metadata.countryData[iso]['significant_trades']);
           return "Major Maritime Illicit Trades in: <br />" + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
-
+    
         },
         load: function (index, csv) {
           // Load points layer with boxes

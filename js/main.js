@@ -1653,7 +1653,7 @@ function switchCard(target) {
     });
 
   // Zoom to specified extent
-  cardMap.extent ? zoom(cardMap.extent) : reset();
+  mapObj.extent ? zoom(mapObj.extent) : reset();
 
   // Update the browser URL so we can link directly to cards:
   history.pushState(null, issueAreaData[issueArea].cards[target].title, '#' + target);
