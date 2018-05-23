@@ -1,4 +1,4 @@
-![# Stable Seas Maritime Security Index][stable-seas-header]
+![Stable Seas Maritime Security Index][stable-seas-header]
 
 ---
 
