@@ -425,6 +425,21 @@ var blueEconomyData = {
                 .classed('offshore-oil', true);
           })
 
+
+          var oilLegend = d3.select('.legend.continuous')
+            .append('g').classed('oil-legend invisible card-layer card-4-layer', true)
+            .attr('transform', 'translate(10,-80)');
+
+          oilLegend.append('rect')
+            .attr('width', '20px')
+            .attr('height', '20px')
+            .style('fill', 'black');
+
+          oilLegend.append('text')
+            .attr('transform', 'translate(30,15)')
+            .attr('font-size', '18px')
+            .text('Areas of oil extraction');
+
         },
         switch: function(index) {
           choropleth(index, 1, 'BE_OILGAS');
@@ -588,8 +603,8 @@ var blueEconomyData = {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['BE_CLIMATE'];
           tooltipVal = Math.round(tooltipVal);
-          updatePointer(tooltipVal);
-          return "Climate Vulnerability Score:<br />" + tooltipVal + " / 100";
+          updatePointer(100 - tooltipVal);
+          return "Climate Vulnerability Score:<br />" + (100 - tooltipVal) + " / 100";
 
         },
         load: function(index, csv) {
