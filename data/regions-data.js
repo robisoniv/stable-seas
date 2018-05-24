@@ -1963,7 +1963,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cabo Verde ranks highest in Piracy. Cabo Verde's score of 98 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. Cabo Verde can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cabo Verde scores highest in Piracy. Cabo Verde's score of 98 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. Cabo Verde can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
@@ -2005,15 +2005,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Senegal ranks highest in Piracy. Senegal's score of 93 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Senegal can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Senegal scores highest in Piracy. Senegal's score of 93 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Senegal can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
-            "html": "Senegal is also above the regional average in Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, and Piracy."
+            "html": "Senegal also scores above the regional average in Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, International Cooperation, and Piracy."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 5 in this area,  about the same as  the regional average of 29. To further             improve upon this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Senegal can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 20 in this area,  below  the regional average of 36. The Union of Young Pharmacists of Senegal notes that the country does poorly when it comes to the trafficking of pharmaceuticalsTo             improve this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Senegal can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
