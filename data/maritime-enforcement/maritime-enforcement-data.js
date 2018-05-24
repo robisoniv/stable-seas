@@ -99,7 +99,7 @@ var maritimeEnforcementData = {
         classes: 'card-2-layer',
         translate: [],
         tooltip: true,
-        legend: 'Maritime Domain Awareness Score ####?',
+        legend: 'Measure of Maritime Domain Awareness',
         tooltipHTML: function(iso) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].mda;
           tooltipVal = Math.round((tooltipVal * 100));
@@ -171,7 +171,7 @@ var maritimeEnforcementData = {
         classes: 'card-2-layer',
         translate: [],
         tooltip: true,
-        legend: 'Maritime Domain Awareness Score ####?',
+        legend: 'Measure of Maritime Domain Awareness',
         tooltipHTML: function(iso) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].mda;
           tooltipVal = Math.round((tooltipVal * 100));
@@ -219,15 +219,14 @@ var maritimeEnforcementData = {
         {
           tag: 'video',
           videoId: 'Ih6M-NfLybc',
-          thumb: '../../assets/maritime-enforcement/eu-crimario-video-thumb.png' // ###
+          thumb: '../../assets/maritime-enforcement/eu-crimario-video-thumb.png', // ###
         },
         {
-          tag: 'caption',
-          text: 'EU CRIMARIO - Video on information sharing.'
+          tag: 'hr'
         },
         {
           tag: 'p',
-          html: 'MDA is also being built at a regional level. A prime example of this is the Critical Maritime Routes (CMR) initiative, an EU-funded program to enhance MDA in the Western Indian Ocean region and Gulf of Guinea. The program includes the development of a new information-sharing platform, the IORIS Network,<sup>4</sup> as well as trainings for individuals from regional maritime agencies on subjects such as data collection/analysis and information sharing which build MDA capabilities.<sup>5</sup> Similar information-sharing efforts are being made in the Gulf of Guinea via the <a class="international-cooperation inline" href="../../international-cooperation#4">Yaoundé Process</a>.'
+          html: 'MDA is also being built at a regional level. A prime example of this is the Critical Maritime Routes (CMR) initiative, an EU-funded program to enhance MDA in the Western Indian Ocean region and Gulf of Guinea. The program includes the development of a new information-sharing platform, the IORIS Network,<sup>4</sup> as well as trainings for individuals from regional maritime agencies on subjects such as data collection/analysis and information sharing which build MDA capabilities.<sup>5</sup> Similar information-sharing efforts are being made in the Gulf of Guinea via the <a class="international-cooperation inline" href="../international-cooperation#3">Yaoundé Process</a>.'
         },
         {
           tag: 'p',
@@ -431,7 +430,7 @@ var maritimeEnforcementData = {
         // },
         {
           tag: 'p',
-          html: 'Most states in sub-Saharan Africa have navies, but relatively few have forces such as coast guards dedicated to maritime law enforcement. While navies are built primarily for national defense and warfighting, maritime law enforcement is intended to counter a variety of illicit activities at sea, including but not limited to <a href="../../piracy" class="piracy inline">piracy</a>, <a href="../../human-trafficking" class="maritime-mixed-migration inline"> maritime mixed migration</a>, <a href="../../fisheries" class="fisheries inline">IUU fishing</a>, and transport of drugs, arms, and wildlife.<sup>9</sup>'
+          html: 'Most states in sub-Saharan Africa have navies, but relatively few have forces such as coast guards dedicated to maritime law enforcement. While navies are built primarily for national defense and warfighting, maritime law enforcement is intended to counter a variety of illicit activities at sea, including but not limited to <a href="../piracy" class="piracy inline">piracy</a>, <a href="../human-trafficking" class="maritime-mixed-migration inline"> maritime mixed migration</a>, <a href="../fisheries" class="fisheries inline">IUU fishing</a>, and transport of drugs, arms, and wildlife.<sup>9</sup>'
         },
         {
           tag: 'img',
@@ -573,7 +572,7 @@ var maritimeEnforcementData = {
         }, //###Insert image
         {
           tag: 'p',
-          html: 'Despite this lack of resources, enforcement capacity in the region is steadily improving. The acquisition of additional maritime security assets and the continued development of actors’ human capital through investments in training, capacity building, and <a class="maritime-enforcement inline internal-ref" data-link="5">multilateral exercises</a> is giving regional forces the ability to more actively govern their maritime domains. This has resulted in an increasing number of enforcement operations countering maritime security threats such as <a class="fisheries inline" href="../fisheries">illegal, unreported, and unregulated (IUU) fishing</a>, <a class="illicit-trade inline" href="../illicit-trade">illicit trades</a>, and <a class="piracy inline" href="../piracy">piracy</a>. Continuing to improve the region’s enforcement capacity will require additional resources, training, and regional cooperation.'
+          html: 'Despite this lack of resources, enforcement capacity in the region is steadily improving. The acquisition of additional maritime security assets and the continued development of actors’ human capital through investments in training, capacity building, and multilateral exercises is giving regional forces the ability to more actively govern their maritime domains. This has resulted in an increasing number of enforcement operations countering maritime security threats such as <a class="fisheries inline" href="../fisheries">illegal, unreported, and unregulated (IUU) fishing</a>, <a class="illicit-trade inline" href="../illicit-trade">illicit trades</a>, and <a class="piracy inline" href="../piracy">piracy</a>. Continuing to improve the region’s enforcement capacity will require additional resources, training, and regional cooperation.'
         },
         {
           tag: 'img',

@@ -936,10 +936,7 @@ function buildVideo(obj, container, elIndex) {
     videoThumb.append('img')
       .attr('src', obj.thumb)
       .classed('background-video-image', true);
-    //
-    // videoThumb.append('img')
-    //   .classed('inner-thumb', true)
-    //   .attr('src', '../assets/play-icon.png');
+
   }
 
 }
