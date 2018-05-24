@@ -147,11 +147,11 @@ var ruleOfLawData = {
         {
           tag: 'img',
           src: '../../assets/rule-of-law/eiti_members-01.png',
-          alt: 'Map of EITI African member states'
+          alt: 'Map of EITI African member states',
+          caption: 'These countries are African members of the <a href="https://eiti.org/" target="_blank"> Extractive Industries Transparency Initiative</a>'
         },
         {
-          tag: 'caption',
-          text: 'These countries are African members of the <a href="https://eiti.org/" target="_blank"> Extractive Industries Transparency Initiative</a>'
+          tag: 'hr',
         },
         {
           tag: 'h3',
@@ -195,7 +195,7 @@ var ruleOfLawData = {
         translate: [],
         highlights: null,
         tooltip: true,
-        legend: 'WB "Trading Across Borders" Score',
+        legend: 'World Bank "Trading Across Borders" Score',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['efficiency'];
@@ -343,7 +343,7 @@ var ruleOfLawData = {
           tag: 'blockquote',
           html: '“It is important to have women involved in these activities since their contributions have a big influence on ensuring stronger household level financial management and food security that will directly benefit their families.”',
           source: 'Ms. Shukri Ahmed Mohamed, community organizer with FAO Somalia<sup>9</sup',
-          link: '#'
+          link: 'http://www.fao.org/blogs/blue-growth-blog/promoting-gender-in-fisheries-activities-in-somalia/en/'
         },
         {
           tag: 'p',
