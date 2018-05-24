@@ -2290,7 +2290,7 @@ var regionsData = {
           },
           {
             tag: 'p',
-            html: 'The Northern Gulf of Guinea region is defined by Cote d’Ivoire to the west and Nigeria to the east. Compared to overall scores for sub-Saharan Africa, this region outperforms on international cooperation, rule of law, and maritime enforcement. However, these states struggle to combat piracy and armed robbery as well as illicit trades.'
+            html: 'The Northern Gulf of Guinea region is defined by Côte d’Ivoire to the west and Nigeria to the east. Compared to overall scores for sub-Saharan Africa, this region outperforms on international cooperation, rule of law, and maritime enforcement. However, these states struggle to combat piracy and armed robbery as well as illicit trades.'
           },
           {
             tag: 'radar'
@@ -2308,8 +2308,8 @@ var regionsData = {
         ]
       },
       {
-        "title": "Cote d'Ivoire",
-        "menu": "Cote d'Ivoire",
+        "title": "Côte d'Ivoire",
+        "menu": "Côte d'Ivoire",
         "map": {
           "highlights": [
             "CIV"
@@ -2324,26 +2324,26 @@ var regionsData = {
         },
         "els": [{
             "tag": "h1",
-            "text": "Cote d'Ivoire"
+            "text": "Côte d'Ivoire"
           },
           {
             "tag": "p",
-            "html": "Cote d'Ivoire's exclusive economic zone covers roughly 176,254 square kilometers of the Gulf of Guinea.           This gives Cote d'Ivoire the seventeenth largest EEZ in sub-Saharan Africa. Meanwhile, Cote d'Ivoire's Maritime Enforcement Score indicates that the country is below the regional average."
+            "html": "Côte d'Ivoire's exclusive economic zone covers roughly 176,254 square kilometers of the Gulf of Guinea.           This gives Côte d'Ivoire the seventeenth largest EEZ in sub-Saharan Africa. Meanwhile, Côte d'Ivoire's Maritime Enforcement Score indicates that the country is below the regional average."
           },
           {
             "tag": "radar"
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cote d'Ivoire scores highest in International Cooperation. Cote d'Ivoire's score of 84 in this area is high relative to its other issue scores,          due in part to its participation in five of the seven global agreements counted in the score as well as the recent agreement to apply the decision of the International Tribunal of the Sea regarding the maritime boundary between Cote d'Ivoire and Ghana. Cote d'Ivoire can further improve upon this area of relative strength by signing and ratifying the Port State Measures Agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Côte d'Ivoire scores highest in International Cooperation. Côte d'Ivoire's score of 84 in this area is high relative to its other issue scores,          due in part to its participation in five of the seven global agreements counted in the score as well as the recent agreement to apply the decision of the International Tribunal of the Sea regarding the maritime boundary between Côte d'Ivoire and Ghana. Côte d'Ivoire can further improve upon this area of relative strength by signing and ratifying the Port State Measures Agreement."
           },
           {
             "tag": "bigtext",
-            "html": "Cote d'Ivoire is also above the regional average in Rule of Law, Piracy, and Maritime Enforcement."
+            "html": "Côte d'Ivoire is also above the regional average in Rule of Law, Piracy, and Maritime Enforcement."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cote d'Ivoire is Illicit Trade. Cote d'Ivoire scores 22 in this area, below the regional average of 36. The country is already working to reduce the illicit drug trade, particularly where cocaine and cannabis are concerned. https://news.abidjan.net/h/637513.html To further             improve the Illicit Trade score, Cote d'Ivoire can continue to invest in maritime domain awareness and maritime enforcement capacity to combat illicit trafficking in synthetic drugs, opiates, and wildlife products. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Cote d'Ivoire can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Côte d'Ivoire is Illicit Trade. Côte d'Ivoire scores 22 in this area, below the regional average of 36. The country is already working to reduce the illicit drug trade, particularly where cocaine and cannabis are concerned. https://news.abidjan.net/h/637513.html To further             improve the Illicit Trade score, Côte d'Ivoire can continue to invest in maritime domain awareness and maritime enforcement capacity to combat illicit trafficking in synthetic drugs, opiates, and wildlife products. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Côte d'Ivoire can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2375,7 +2375,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Ghana scores highest in International Cooperation. Ghana's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. This score is also supported by Ghana's recent agreement to uphold the decision of the International Tribunal of the Sea regarding the maritime boundary between Ghana and Cote d'Ivoire. Ghana can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaounde Code of Conduct and advocating for the more widespread adoption of the African Union's Lome Charter."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Ghana scores highest in International Cooperation. Ghana's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. This score is also supported by Ghana's recent agreement to uphold the decision of the International Tribunal of the Sea regarding the maritime boundary between Ghana and Côte d'Ivoire. Ghana can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaounde Code of Conduct and advocating for the more widespread adoption of the African Union's Lome Charter."
           },
           {
             "tag": "bigtext",
