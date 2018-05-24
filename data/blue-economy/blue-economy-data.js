@@ -599,7 +599,7 @@ var blueEconomyData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          choropleth(index, 1, 'BE_CLIMATE');
+          choropleth(index, -1, 'BE_CLIMATE');
         }
       },
 
