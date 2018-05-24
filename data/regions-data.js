@@ -2173,15 +2173,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Sierra Leone ranks highest in Piracy. Sierra Leone's score of 82 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Sierra Leone can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Sierra Leone scores highest in Piracy. Sierra Leone's score of 82 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. Sierra Leone can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
-            "html": "Sierra Leone is also above the regional average in Rule of Law, Fisheries, Piracy, Illicit Trades, and Maritime Mixed Migration."
+            "html": "Sierra Leone is also above the regional average in Rule of Law, Fisheries, Illicit Trade, International Cooperation, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Sierra Leone is Maritime Enforcement. Sierra Leone scores 38 in this area, below the regional average of 41. To further             improve upon this score, Sierra Leone can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America.. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement. Through these efforts, Sierra Leone can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Sierra Leone is Blue Economy. Sierra Leone scores 29 in this area, below the regional average of 40. To further             improve this score, Sierra Leone can continue to invest in maritime domain awareness and maritime enforcement capacity to combat Illicit Trades and support the development of the licit Blue Economy. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement. Formally defining these boundaries may support increased development of the offshore Blue Economy.   Through these efforts, Sierra Leone can raise its weakest score and move toward comprehensive and lasting maritime security."
           }
         ]
       },
