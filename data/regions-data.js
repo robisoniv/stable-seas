@@ -2013,7 +2013,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 20 in this area,  below  the regional average of 36. The Union of Young Pharmacists of Senegal notes that the country does poorly when it comes to the trafficking of pharmaceuticalsTo             improve this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Senegal can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 20 in this area,  below  the regional average of 36. In particular, the Union of Young Pharmacists of Senegal notes that the country does poorly when it comes to the trafficking of pharmaceuticals.CITE To             improve this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Senegal can raise its weakest score and move toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2047,15 +2047,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, The Gambia ranks highest in Piracy. The Gambia's score of 94 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. The Gambia can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, The Gambia scores highest in Piracy. The Gambia's score of 94 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. The Gambia can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
-            "html": "The Gambia is also above the regional average in Coastal Welfare, Blue Economy, Piracy, and Illicit Trades."
+            "html": "The Gambia is also above the regional average in Coastal Welfare, Blue Economy, International Cooperation, Maritime Mixed Migration, and Illicit Trades."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for The Gambia is Maritime Enforcement. The Gambia scores 39 in this area, below the regional average of 41. To further             improve upon this score, The Gambia can increase its investment in maritime domain awareness, as our experts gave it one of the lowest scores in the region in this area. The Gambia can also develop its coastal patrol assets.. Further progress can be made by continued participation in regional integration efforts, including Gambian participation in Zone G of the Yaounde Code of Conduct.. Through these efforts, The Gambia can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for The Gambia is Maritime Enforcement. The Gambia scores 39 in this area, below the regional average of 50. To further             improve upon this score, The Gambia can increase its investment in maritime domain awareness, as our experts gave it one of the lowest scores in the region in this area. The Gambia can also develop its coastal patrol assets. Further progress can be made by continued participation in regional integration efforts, including Gambian participation in Zone G of the Yaoundé Code of Conduct. Through these efforts, The Gambia can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2089,15 +2089,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Guinea-Bissau ranks highest in Piracy. Guinea-Bissau's score of 89 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Guinea-Bissau can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Guinea-Bissau scores highest in Piracy. Guinea-Bissau's score of 89 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. Guinea-Bissau can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
-            "html": "Guinea-Bissau is also above the regional average in Piracy, Illicit Trades, and Maritime Mixed Migration."
+            "html": "Guinea-Bissau is also above the regional average in Piracy, Illicit Trades, International Cooperation, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Guinea-Bissau is Maritime Enforcement. Guinea-Bissau scores 28 in this area, below the regional average of 41. To further             improve upon this score, Guinea-Bissau can increase its investment in maritime domain awareness, as our experts gave it one of the lowest scores in the region in this area. Guinea-Bissau also has among the lowest number of coastal patrol vessels in West Africa, making it all but impossible to monitor illicit activity in the complicated and remote Bijagos archipelago. Further progress can be made by continued participation in regional integration efforts, including Guinean participation in Zone G of the Yaounde Code of Conduct and regional counter-trafficking exercises.. Through these efforts, Guinea-Bissau can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Guinea-Bissau is Maritime Enforcement. Guinea-Bissau scores 28 in this area, below the regional average of 50. Guinea-Bissau is widely noted both as a narco-state and as a one of the countries to suffer most from organized criminal groups. These issues highlight the need for improvement in Maritime Enforcement.  Guinea-Bissau can achieve this through increased investment in maritime domain awareness, as our experts gave it one of the lowest scores in the region in this area. Guinea-Bissau also has among the lowest number of coastal patrol vessels in West Africa, making it all but impossible to monitor illicit activity in the complicated and remote Bijagos archipelago. Further progress can be made by continued participation in regional integration efforts, including Guinean participation in Zone G of the Yaoundé Code of Conduct and regional counter-trafficking exercises. Through these efforts, Guinea-Bissau can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
