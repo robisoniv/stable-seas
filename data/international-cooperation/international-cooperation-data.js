@@ -482,7 +482,7 @@ var internationalCooperationData = {
         },
         {
           tag: 'p',
-          html: 'The African maritime domain is confronted with a variety of security and governance challenges from <a class="piracy inline" href="../../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../../fisheries#1">IUU Fishing</a>. AIMS builds a comprehensive, unified set of maritime policies to address these challenges, including issues of economic development, environmental protection, maritime crime, disaster management, and maritime law.<sup>3</sup>'
+          html: 'The African maritime domain is confronted with a variety of security and governance challenges from <a class="piracy inline" href="./piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="./maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="./maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="./fisheries">IUU Fishing</a>. AIMS builds a comprehensive, unified set of maritime policies to address these challenges, including issues of economic development, environmental protection, maritime crime, disaster management, and maritime law.<sup>3</sup>'
         },
         {
           tag: 'p',
@@ -618,7 +618,7 @@ var internationalCooperationData = {
         },
         {
           tag: 'p',
-          html: 'The agreement lays out plans for regional capacity building and information sharing.  It establishes three multinational information exchange centers, based in Sana’a, Yemen, Mombasa, Kenya,  and Dar es Salaam, Tanzania, to lead coordination efforts among northern, central, and southern groupings of signatory states. In addition, the DCoC places a premium on <a class="maritime-enforcement inline" href="./maritime-enforcement#1">maritime domain awareness</a>, and efforts are being made in conjunction with a variety of international partners across the Western Indian Ocean to put in place additional automatic identification and radar systems to provide regional maritime security forces with a clearer picture of their operating environment.'
+          html: 'The agreement lays out plans for regional capacity building and information sharing.  It establishes three multinational information exchange centers, based in Sana’a, Yemen, Mombasa, Kenya,  and Dar es Salaam, Tanzania, to lead coordination efforts among northern, central, and southern groupings of signatory states. In addition, the DCoC places a premium on <a class="maritime-enforcement inline" href="./maritime-enforcement#2">maritime domain awareness</a>, and efforts are being made in conjunction with a variety of international partners across the Western Indian Ocean to put in place additional automatic identification and radar systems to provide regional maritime security forces with a clearer picture of their operating environment.'
         },
         {
           tag: 'p',
