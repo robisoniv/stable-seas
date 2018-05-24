@@ -176,7 +176,7 @@ var overviewData = {
         }
       ] // end of els array
     },
-    { // Card 3
+    { // Card 2
       title: 'Gulf of Guinea Overview',
       menu: 'Gulf of Guinea Overview',
       metadata: {
@@ -430,7 +430,7 @@ var overviewData = {
     //     //###ADD DROPDOWNS FOR PUBLICATIONS FOR EACH PROGRAM.
     //   ] // end of els array
     // }
-    { // Card 5
+    { // Card 3
       title: 'About the Scores',
       menu: 'About the Scores',
       metadata: {
@@ -461,7 +461,7 @@ var overviewData = {
 
         },
         switch: function(index) {
-          choropleth(index,1, 'Average');
+          choropleth(index,1, 'Average', false);
         }
       },
       els: [{
