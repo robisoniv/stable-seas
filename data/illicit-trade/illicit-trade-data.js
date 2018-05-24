@@ -685,7 +685,7 @@ var illicitTradeData = {
         tooltipHTML: function(iso) {
         //  console.log(issueAreaData[issueArea].metadata.countryData[iso]['significant_trades']);
           return "Major Maritime Illicit Trades in: <br />" + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
-    
+
         },
         load: function (index, csv) {
           // Load points layer with boxes
@@ -797,13 +797,10 @@ var illicitTradeData = {
         },
 
         {
-        //  gif: true,
           tag: 'img',
-      //    videoId: 'nGL85NkTbUg',
-          thumb: '../assets/illicit-trade/Counterfeit-Medicine-Flows.gif' // ###
+          src: '../assets/illicit-trade/Counterfeit-Medicine-Flows.gif', // ###
+          caption: "Counterfeit medicine flows involving Africa."
         },
-
-            //###Insert JP's GIF
         { tag: 'p',
            html: 'The prevalence of counterfeit medicines is a particular challenge for sub-Saharan African countries, with estimates indicating that on average, 30 percent of medicines available are counterfeit. According to critics, the impact of counterfeit medicines, with specific reference to anti-malarials, should be viewed as a crime against humanity as they deliberately derail efforts to prevent the 660,000 annual deaths attributed to malaria.<sup>73</sup> For instance, 59 percent of the anti-malarial medication monitored in the period 2002–2010 in Burkina Faso, Chad, Cameroon, the Democratic Republic of the Congo, Ghana, Kenya, Nigeria, Rwanda, and Senegal failed chemical analysis. Governance, consumer awareness, and education are central to combating this problem.<sup>74</sup>'
         },
