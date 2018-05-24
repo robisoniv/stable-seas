@@ -23,22 +23,6 @@ var fisheriesData = {
   },
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
-    // var md = issueAreaData[issueArea].metadata;
-    //
-    // d3.csv(csv, function(vals) {
-    //   vals.forEach(function(d) {
-    //     d.ia7c0 = +d.ia7c0;
-    //     d.ia7c2 = +d.ia7c2;
-    //   });
-    //   issueAreaData[issueArea].metadata.countryData = vals;
-    //   callback('coastalWelfare load csv function callback');
-    // });
-    //
-    // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-    //
-    //   issueAreaData[issueArea].metadata.indexData = vals;
-    //
-    // });
   },
   cards: [{ // Card 0
       title: 'Fisheries',
