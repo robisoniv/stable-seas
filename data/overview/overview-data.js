@@ -24,27 +24,6 @@ var overviewData = {
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
 
-    // var md = issueAreaData[issueArea].metadata;
-    // d3.csv(csv, function(vals) {
-    // //  console.log('v',vals);
-    //   vals.forEach(function(d) {
-    //     for (key in d) {
-    //       if (isNaN(d[key]) != true) {
-    //         // Convert all numbers (floats and ints) to proper data type
-    //         d[key] = +d[key];
-    //       }
-    //
-    //     }
-    //     md.countryData[d.iso3] = d;
-    //
-    //   });
-    // //  md.countryData = vals;
-    //   callback('overview load csv function callback');
-    // });
-
-    // d3.csv('../../data/' + md.path + '/indexValues.csv', function(vals) {
-    //   issueAreaData[issueArea].metadata.indexData = vals;
-    // });
   },
   cards: [
     { // Card 0
@@ -111,7 +90,7 @@ var overviewData = {
         }
       ] // end of els array
     },
-    { // Card 2
+    { // Card 1
       title: 'Indian Ocean Overview',
       menu: 'Indian Ocean Overview',
       metadata: {
@@ -164,7 +143,7 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'From the Gulf of Aden to South Africa, <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">maritime mixed migration</a> is nearly omnipresent.  Some of those seeking better socioeconomic conditions head south along the Tanzanian and Mozambican coasts for South Africa. Many more take the dangerous journey north through Somalia or Djibouti toward the Arabian Peninsula. At all stages, migrants are vulnerable to forced labor, sex trafficking, and other forms of degradation.'
+          html: 'From the Gulf of Aden to South Africa, <a class="maritime-mixed-migration inline" href="./maritime-mixed-migration">maritime mixed migration</a> is nearly omnipresent.  Some of those seeking better socioeconomic conditions head south along the Tanzanian and Mozambican coasts for South Africa. Many more take the dangerous journey north through Somalia or Djibouti toward the Arabian Peninsula. At all stages, migrants are vulnerable to forced labor, sex trafficking, and other forms of degradation.'
         },
         {
           tag: 'bigtext',
@@ -172,7 +151,7 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'The transnational criminal networks in this area are entrenched and their activities fuel conflict around the globe. <a class="illicit-trade inline" href="../../illicit-trade">Illicit trading in arms, wildlife, drugs, and contraband</a> links East African ports to distant markets in the Middle East, Southeast Asia, and beyond. These activities provide weapons for African insurgent groups, fill the coffers of separatists and drug cultivators in South Asia, and corrupt the massively important seaports that oversee the majority of Africa’s international commerce.'
+          html: 'The transnational criminal networks in this area are entrenched and their activities fuel conflict around the globe. <a class="illicit-trade inline" href="./illicit-trade">Illicit trading in arms, wildlife, drugs, and contraband</a> links East African ports to distant markets in the Middle East, Southeast Asia, and beyond. These activities provide weapons for African insurgent groups, fill the coffers of separatists and drug cultivators in South Asia, and corrupt the massively important seaports that oversee the majority of Africa’s international commerce.'
         },
         {
           tag: 'bigtext',
@@ -180,12 +159,12 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'The waters in the north, in the Gulf of Aden and around Somalia, are among the least stable on the planet. Besides the latent threat of <a class="piracy inline" href="../../piracy">Somali pirates,</a>, several military vessels have been targeted and hit by anti-ship missiles by militants in Yemen. Seaborne improvised explosive devices resembling sea mines have been spotted, and there have been incidents of <a class="piracy inline" href="../../piracy#5">attempted maritime terrorism</a> against shipping and oil terminals in the region. These events have the potential to affect international shipping traffic through the Red Sea, which is among the world’s most important global transportation chokepoints.'
+          html: 'The waters in the north, in the Gulf of Aden and around Somalia, are among the least stable on the planet. Besides the latent threat of <a class="piracy inline" href="./piracy">Somali pirates,</a>, several military vessels have been targeted and hit by anti-ship missiles by militants in Yemen. Seaborne improvised explosive devices resembling sea mines have been spotted, and there have been incidents of <a class="piracy inline" href="./piracy#3">attempted maritime terrorism</a> against shipping and oil terminals in the region. These events have the potential to affect international shipping traffic through the Red Sea, which is among the world’s most important global transportation chokepoints.'
         },
 
         {
           tag: 'p',
-          html: 'Throughout the island nations off the east coast of Africa, <a class="fisheries inline" href="../../fisheries#1">illegal, unreported, and unregulated (IUU) fishing</a> is one of the primary concerns. These islands have operated as tax havens, attracting “white-collar crime” and providing money-laundering services for the area’s transnational criminal networks. Many of these states have taken significant measures to combat money laundering and other financial crimes, and in the process have strengthened their banking sectors.'
+          html: 'Throughout the island nations off the east coast of Africa, <a class="fisheries inline" href="./fisheries">illegal, unreported, and unregulated (IUU) fishing</a> is one of the primary concerns. These islands have operated as tax havens, attracting “white-collar crime” and providing money-laundering services for the area’s transnational criminal networks. Many of these states have taken significant measures to combat money laundering and other financial crimes, and in the process have strengthened their banking sectors.'
         },
         {
           tag: 'p',
@@ -245,7 +224,7 @@ var overviewData = {
         // },
         {
           tag: 'p',
-          html: 'Twenty one sub-Saharan countries line the long coastline that stretches from the waters off Senegal to South Africa’s Cape of Good Hope. The heart of the region, the Gulf of Guinea, faces what is perhaps the world’s most severe maritime security challenge. Tremendous natural resources, proximity to onshore violent non-state actors, and limited maritime law enforcement capabilities leave countries vulnerable to <a class="piracy inline" href="../../piracy">piracy</a>, <a class="piracy inline" href="../../piracy#4">crude oil-related crime</a>, smuggling, and more.'
+          html: 'Twenty one sub-Saharan countries line the long coastline that stretches from the waters off Senegal to South Africa’s Cape of Good Hope. The heart of the region, the Gulf of Guinea, faces what is perhaps the world’s most severe maritime security challenge. Tremendous natural resources, proximity to onshore violent non-state actors, and limited maritime law enforcement capabilities leave countries vulnerable to <a class="piracy inline" href="./piracy">piracy</a>, <a class="piracy inline" href="./piracy#1">crude oil-related crime</a>, smuggling, and more.'
         },
         {
           tag: 'img',
@@ -264,11 +243,11 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'For many coastal states in West Africa, <a class="fisheries inline" href="../../fisheries#1">illegal, unregulated, and unreported (IUU) fishing</a> is threatening the long-term sustainability of the <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>. IUU fishing reduces the catch available for local artisanal fishers and threatens local food security while allowing foreign fishing vessels to profit through resource theft. Though extensive legal regimes are in place, the region’s coast guards and maritime domain awareness are proving insufficient.'
+          html: 'For many coastal states in West Africa, <a class="fisheries inline" href="./fisheries">illegal, unregulated, and unreported (IUU) fishing</a> is threatening the long-term sustainability of the <a class="blue-economy inline" href="./blue-economy">Blue Economy</a>. IUU fishing reduces the catch available for local artisanal fishers and threatens local food security while allowing foreign fishing vessels to profit through resource theft. Though extensive legal regimes are in place, the region’s coast guards and maritime domain awareness are proving insufficient.'
         },
         {
           tag: 'p',
-          html: '<a class="illicit-trade inline" href="../../illicit-trade#2">Drug smuggling</a>, <a class="illicit-trade inline" href="../../illicit-trade#3">weapons trafficking</a>, <a class="illicit-trade inline" href="../../illicit-trade#4">illicit trade in wildlife</a>, and <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">human trafficking</a> are also common in the West African maritime space. Combating each of these crimes presents unique challenges. While the world’s most trafficked animal, the pangolin, makes its home in African states and its illicit trade can be countered at its point of origin, the drug trade often uses African states as a transshipment point en route to Europe. These activities undermine good governance while funding narcotics networks that stretch from the Americas to West Africa and Europe.'
+          html: '<a class="illicit-trade inline" href="./illicit-trade#1">Drug smuggling</a>, <a class="illicit-trade inline" href="./illicit-trade#3">weapons trafficking</a>, <a class="illicit-trade inline" href="./illicit-trade#4">illicit trade in wildlife</a>, and <a class="maritime-mixed-migration inline" href="./maritime-mixed-migration">human trafficking</a> are also common in the West African maritime space. Combating each of these crimes presents unique challenges. While the world’s most trafficked animal, the pangolin, makes its home in African states and its illicit trade can be countered at its point of origin, the drug trade often uses African states as a transshipment point en route to Europe. These activities undermine good governance while funding narcotics networks that stretch from the Americas to West Africa and Europe.'
         },
         {
           tag: 'bigtext',
@@ -276,7 +255,7 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'Fortunately, Africa’s Atlantic coast is also home to some of the region’s best-established multilateral maritime security strategies. Through agreements like the <a class="international-cooperation inline" href="../../international-cooperation#3">Yaoundé Code of Conduct</a>, coastal countries are increasing maritime domain awareness and coordinating their responses to the region’s maritime security challenges.'
+          html: 'Fortunately, Africa’s Atlantic coast is also home to some of the region’s best-established multilateral maritime security strategies. Through agreements like the <a class="international-cooperation inline" href="./international-cooperation#3">Yaoundé Code of Conduct</a>, coastal countries are increasing maritime domain awareness and coordinating their responses to the region’s maritime security challenges.'
         }
       ] // end of els array
     },
