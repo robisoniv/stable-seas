@@ -626,7 +626,7 @@ var internationalCooperationData = {
         },
         {
           tag: 'p',
-          html: 'Most of the difficulties presented by this change of scope are due to the DCoC’s origin as a response to piracy. The urgency of the situation meant that signatory states were eager to cooperate to address the pressing security threat, but there may not be sufficient political will to pivot toward a broader framework for cooperative maritime governance. Due to the urgent nature of its formation, the DCoC is not rooted in existing regional organizations. This means DCoC efforts cannot utilize the leverage the broader resources of such organizations. '
+          html: 'Most of the difficulties presented by this change of scope are due to the DCoC’s origin as a response to piracy. The urgency of the situation meant that signatory states were eager to cooperate to address the pressing security threat, but there may not be sufficient political will to pivot toward a broader framework for cooperative maritime governance. Due to the urgent nature of its formation, the DCoC is not rooted in existing regional organizations. This means DCoC efforts cannot leverage the broader resources of such organizations. '
         },
         // {
         //   tag: 'p',
