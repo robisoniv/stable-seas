@@ -2335,15 +2335,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cote d'Ivoire ranks highest in International Cooperation. Cote d'Ivoire's score of 84 in this area is high relative to its other issue scores,          due in part to its participation in five of the seven global agreements counted in the score. Cote d'Ivoire can further improve upon this area of relative strength by signing and ratifying the Port State Measures Agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cote d'Ivoire scores highest in International Cooperation. Cote d'Ivoire's score of 84 in this area is high relative to its other issue scores,          due in part to its participation in five of the seven global agreements counted in the score as well as the recent agreement to apply the decision of the International Tribunal of the Sea regarding the maritime boundary between Cote d'Ivoire and Ghana. Cote d'Ivoire can further improve upon this area of relative strength by signing and ratifying the Port State Measures Agreement."
           },
           {
             "tag": "bigtext",
-            "html": "Cote d'Ivoire is also above the regional average in Rule of Law and Maritime Enforcement."
+            "html": "Cote d'Ivoire is also above the regional average in Rule of Law, Piracy, and Maritime Enforcement."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cote d'Ivoire is Illicit Trades. Cote d'Ivoire scores 9 in this area, above the regional average of 6. To further             improve upon this score, Cote d'Ivoire can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Cote d'Ivoire also sees considerable trafficking in synthetic drugs, opiates, and wildlife products.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Cote d'Ivoire can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Cote d'Ivoire is Illicit Trade. Cote d'Ivoire scores 22 in this area, below the regional average of 36. The country is already working to reduce the illicit drug trade, particularly where cocaine and cannabis are concerned. https://news.abidjan.net/h/637513.html To further             improve the Illicit Trade score, Cote d'Ivoire can continue to invest in maritime domain awareness and maritime enforcement capacity to combat illicit trafficking in synthetic drugs, opiates, and wildlife products. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Cote d'Ivoire can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2375,7 +2375,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Ghana ranks highest in International Cooperation. Ghana's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score.. Ghana can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaounde Code of Conduct and advocating for the more widespread adoption of the African Union's Lome Charter."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Ghana scores highest in International Cooperation. Ghana's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. This score is also supported by Ghana's recent agreement to uphold the decision of the International Tribunal of the Sea regarding the maritime boundary between Ghana and Cote d'Ivoire. Ghana can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaounde Code of Conduct and advocating for the more widespread adoption of the African Union's Lome Charter."
           },
           {
             "tag": "bigtext",
@@ -2383,7 +2383,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Ghana is Illicit Trades. Ghana scores 4 in this area,  about the same as  the regional average of 6. To further             improve upon this score, Ghana can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Ghana also sees considerable trafficking in synthetic drugs, opiates, and wildlife products, all of which could be addressed by improved port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Ghana can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Ghana is Illicit Trade. Ghana scores 13 in this area,  below  the regional average of 36. Recent developments to counter illicit trade, particularly of counterfeit pharmaceuticals, include a call for stiffer sanctions and increased enforcement of the law. (ghanabusinessnews) To further             improve upon this score, Ghana can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Ghana also sees considerable trafficking in synthetic drugs, opiates, and wildlife products, all of which could be addressed by improved port security measures. Through these efforts, Ghana can raise its weakest score and move toward comprehensive and lasting maritime security."
           }
         ]
       },
