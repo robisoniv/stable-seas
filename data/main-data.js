@@ -197,7 +197,7 @@ var countries = {
   "VCT": "Saint Vincent and the Grenadines",
   "WSM": "Samoa",
   "SMR": "San Marino",
-  "STP": "Sao Tome and Principe",
+  "STP": "São Tomé and Príncipe",
   "SAU": "Saudi Arabia",
   "SEN": "Senegal",
   "SRB": "Serbia",

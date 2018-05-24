@@ -555,7 +555,7 @@ var fisheriesData = {
         },
         {
               tag: 'ul',
-              rows: ['In 2006, a ship flagged in Panama but chartered by a multinational company docked in the Port of Abidjan, Cote d’Ivoire carrying 500 tons of hazardous waste. Ultimately, 100,000 people sought medical attention, the company responsible settled a lawsuit, and several Ivoiran officials were <a href="http://www.bbc.com/news/world-africa-10735255" target="_blank">forced to resign</a>.', 'Dumping in Somalia has long been alleged but difficult to prove. A series of reports in the 1990s alleged vast inland toxic waste dumping by Italian and other European groups in Somalia. Several reports suggest waste also dumped at sea.']
+              rows: ['In 2006, a ship flagged in Panama but chartered by a multinational company docked in the Port of Abidjan, Côte d’Ivoire carrying 500 tons of hazardous waste. Ultimately, 100,000 people sought medical attention, the company responsible settled a lawsuit, and several Ivoiran officials were <a href="http://www.bbc.com/news/world-africa-10735255" target="_blank">forced to resign</a>.', 'Dumping in Somalia has long been alleged but difficult to prove. A series of reports in the 1990s alleged vast inland toxic waste dumping by Italian and other European groups in Somalia. Several reports suggest waste also dumped at sea.']
             },
         {
           tag: 'p',

@@ -5,7 +5,7 @@ Cabo Verde,CPV,maritimeMixedMigration,Mixed Migration,,,maritimeEnforcement,Mari
 Cameroon,CMR,maritimeEnforcement,Maritime Enforcement Capacity,,,fisheries,Fisheries,0.47
 Comoros,COM,internationalCooperation,International Cooperation,piracy,Piracy and Armed Robbery,,,0.49
 Congo,COG,maritimeMixedMigration,Maritime Mixed Migration,,,ruleOfLaw,Rule of Law,0.48
-Cote d'Ivoire,CIV,internationalCooperation,International Cooperation,,,maritimeMixedMigration,Maritime Mixed Migration,0.51
+Côte d'Ivoire,CIV,internationalCooperation,International Cooperation,,,maritimeMixedMigration,Maritime Mixed Migration,0.51
 Djibouti,DJI,illicitTrade,Illicit Trades,internationalCooperation,International Cooperation,,,0.52
 DRC,COD,illicitTrade,Illicit Trades,,,blueEconomy,Blue Economy,0.37
 Equatorial Guinea,GNQ,illicitTrade,Illicit Trades,,,ruleOfLaw,Rule of Law,0.5
@@ -20,7 +20,7 @@ Mauritus,MUS,coastalWelfare,Coastal Welfare,illicitTrade,Illicit Trades,,,0.69
 Mozambique,MOZ,fisheries,Fisheries,illicitTrade,Illicit Trades,,,0.55
 Namibia,NAM,illicitTrade,Illicit Trades,,,,,0.7
 Nigeria,NGA,maritimeEnforcement,Maritime Enforcement Capacity,,,coastalWelfare,Coastal Welfare,0.47
-Sao Tome and Principe,STP,illicitTrade,Illicit Trades,,,piracy,Piracy and Armed Robbery,0.59
+São Tomé and Príncipe,STP,illicitTrade,Illicit Trades,,,piracy,Piracy and Armed Robbery,0.59
 Senegal,SEN,ruleOfLaw,Rule of Law,,,illicitTrade,Illicit Trades,0.62
 Seychelles,SYC,coastalWelfare,Coastal Welfare,maritimeEnforcement,Maritime Enforcement,,,0.7
 Sierra Leone,SLE,fisheries,Fisheries,,,maritimeEnforcement,Maritime Enforcement Capacity,0.58

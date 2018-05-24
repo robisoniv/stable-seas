@@ -23,9 +23,21 @@ var coastalWelfareData = {
   },
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
+    // Add point to Conflict and Maritime Crime legend.
+    var violenceLegend = d3.select('.legend.continuous')
+      .append('g').classed('violent-incidents-legend invisible card-layer card-1-layer', true)
+      .attr('transform', 'translate(10,-80)');
+
+    violenceLegend.append('circle')
+      .attr('r', '7px')
+      .style('fill', '#255aa8');
+
+    violenceLegend.append('text')
+      .attr('transform', 'translate(20,5)')
+      .attr('font-size', '18px')
+      .text('Violent incident, ACLED dataset');
   },
-  cards: [
-    { // Card 0
+  cards: [{ // Card 0
       title: 'Coastal Welfare',
       menu: 'Coastal Welfare',
       metadata: {
@@ -41,14 +53,14 @@ var coastalWelfareData = {
         highlights: [],
         tooltip: true,
         legend: 'Coastal Welfare Score',
-        tooltipHTML: function (iso3) {
+        tooltipHTML: function(iso3) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
           return "Coastal Welfare:<br />" + tooltipVal + " / 100";
         },
         load: function(index, file) {
-          var layer = 'card-'+index+'-layer';
+          var layer = 'card-' + index + '-layer';
           var l = d3.select('.card-eez-layer')
             .classed(layer, true);
         },
@@ -67,7 +79,7 @@ var coastalWelfareData = {
         },
         {
           tag: 'p',
-          html: 'Maritime security is closely linked to the well-being of the people living in adjacent coastal areas. When coastal residents suffer from violence and poverty on or near the coast, their close proximity to the sea may draw them toward illicit maritime activities like piracy, smuggling, and trafficking. Transnational criminal networks are especially likely to establish themselves along coastlines that are weakly governed and affected by <a class="internal-ref inline coastal-welfare" href="#" data-link="3">armed conflict and other forms of violence</a>. In Nigeria, Somalia, the Philippines and elsewhere, violent non-state actors operating on shore often turn to the maritime space to smuggle in <a class="illicit-trade inline" href="../../illicit-trade">arms and illicit goods</a>.The coastal welfare score measures a population’s physical and economic security, both coastal and country-wide.'
+          html: 'Maritime security is closely linked to the well-being of the people living in adjacent coastal areas. When coastal residents suffer from violence and poverty on or near the coast, their close proximity to the sea may draw them toward illicit maritime activities like piracy, smuggling, and trafficking. Transnational criminal networks are especially likely to establish themselves along coastlines that are weakly governed and affected by <a class="internal-ref inline coastal-welfare" href="#" data-link="3">armed conflict and other forms of violence</a>. In Nigeria, Somalia, the Philippines and elsewhere, violent non-state actors operating on shore often turn to the maritime space to smuggle in <a class="illicit-trade inline" href="./illicit-trade">arms and illicit goods</a>.The coastal welfare score measures a population’s physical and economic security, both coastal and country-wide.'
         },
         {
           tag: 'img',
@@ -155,9 +167,11 @@ var coastalWelfareData = {
         switch: function(index) {
           var layer = 'card-' + index + '-layer';
           d3.select('.' + layer)
-            .classed('invisible', false);
+            .classed('invisible', false)
+            .classed('active', true);
 
           choropleth(index, 1, 'physical_security');
+
 
           // Reveal legend item for violent incident
         }
@@ -229,7 +243,7 @@ var coastalWelfareData = {
         highlights: [],
         tooltip: true,
         legend: 'Economic Security Score',
-        tooltipHTML: function (iso3) {
+        tooltipHTML: function(iso3) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].economic;
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
@@ -653,93 +667,113 @@ var coastalWelfareData = {
     //   ] // end of els array
     // },
     { // Card 3
-    title: 'Data and Methods',
-    menu: 'Data and Methods',
-    metadata: {
-      owner: 'Curtis Bell',
-      description: 'Methods.'
-    },
-    map: {
-      type: 'continuous',
-      scale: [],
-      classes: 'card-6-layer',
-      translate: [],
-      highlights: null,
-      tooltip: true,
-      legend: 'Coastal Welfare Score',
-      tooltipHTML: function (iso3) {
-        var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
-        tooltipVal = Math.round(tooltipVal * 100);
-        updatePointer(tooltipVal);
-
-        return "Coastal Welfare:<br />" + tooltipVal + " / 100";
+      title: 'Data and Methods',
+      menu: 'Data and Methods',
+      metadata: {
+        owner: 'Curtis Bell',
+        description: 'Methods.'
       },
-      load: function (index, file) {  // ### *** This only should be for the first card ...
-        // Color EEZ according to master Stable Seas index
-        var layer = 'card-'+index+'-layer';
+      map: {
+        type: 'continuous',
+        scale: [],
+        classes: 'card-6-layer',
+        translate: [],
+        highlights: null,
+        tooltip: true,
+        legend: 'Coastal Welfare Score',
+        tooltipHTML: function(iso3) {
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso3].index;
+          tooltipVal = Math.round(tooltipVal * 100);
+          updatePointer(tooltipVal);
 
-        d3.select('.card-eez-layer')
-          .classed(layer, true);
+          return "Coastal Welfare:<br />" + tooltipVal + " / 100";
+        },
+        load: function(index, file) { // ### *** This only should be for the first card ...
+          // Color EEZ according to master Stable Seas index
+          var layer = 'card-' + index + '-layer';
+
+          d3.select('.card-eez-layer')
+            .classed(layer, true);
+        },
+        switch: function(index) {
+          choropleth(index, 1, 'index');
+        }
       },
-      switch: function (index) {
-        choropleth(index, 1, 'index');
-      }
-    },
-    els: [
-    { tag: 'h1',
-      text: 'Data and Methods'
-    },
-    {
-      tag: 'caption',
-      text: 'How we created the Coastal Welfare score'
-    },
-    // { tag: 'legend',
-    //   text: 'Map Legend',
-    //   legendContent: '<em>Lighter shades indicate higher coastal welfare scores.</em>'
-    // },
-    { tag: 'p',
-       html: 'We conceptualize coastal welfare as a function of a population’s physical and economic security, both on the coast and in a country more generally. We calculate the Coastal Welfare Score with four equally weighted components:'
-    },
-    { tag: 'h4',
-      text: 'Country-wide Physical Security'
-    },
-    { tag: 'p',
-       html: 'We used two indicators to measure the Country-wide Physical Security Component: country-wide armed conflict events and homicide rates. The first indicator was derived from the Georeferenced Event Dataset (GED) produced by a joint initiative of the Uppsala Conflict Data Program (UCDP) and the Peace Research Institute of Oslo (PRIO). The dataset includes geocoded information about specific lethal instances of armed conflict, such as battles between governments and rebels or uses of violence against civilians worldwide. Homicide rate is taken from the United Nations Office on Drugs and Crime (UNODC).'
-    },
-    {
-      tag: 'h4',
-      html: 'Coastal Physical Security'
-    },
-    { tag: 'p',
-       html: 'To isolate armed conflict occurring near the coastline, we identified armed conflict events within 50 kilometers of a country’s coast using the same Georeferenced Event Dataset (GED) from UCDP. The 256 qualifying events are spread across six countries: Somalia, Nigeria, Kenya, Angola, Mozambique, and Côte d’Ivoire.'
-    },
-    {
-      tag: 'h4',
-      html: 'Coastal Economic Security Component'
-    },
-    { tag: 'p',
-       html: 'We use two indicators to measure coastal economic security. The first is the Artisanal Fishing Opportunities goal from the Ocean Health Index (OHI), which captures whether the demand for fishing opportunities is met on the coast in a lawful and sustainable manner. The second is the Coastal Livelihoods and Economies measure from OHI. This score measures the relative economic-well being of coastal areas in comparisonE to the rest of the country. This score is weighted by the Human Development Index (HDI) produced by the United Nations Development Program (UNDP).'
-    },
-    {
-      tag: 'h4',
-      html: 'Country-wide Economic Security'
-    },
-    { tag: 'p',
-       html: 'We measure country-wide economic security using two indicators: the Human Development Index (HDI) from the the UNDP and infant mortality data from the World Bank. The Human Development Index is perhaps the world’s most influential score of social well-being. The HDI seeks to capture well-being by looking at three key measures of economic and human development: life expectancy, education provision, and gross national income. Infant mortality is commonly viewed as one of the best single indicators of social welfare. To improve infant mortality rates, countries must invest in health care, transportation infrastructure, nutrition, and women’s education across all socioeconomic classes and social groups.'
-    },
-    { tag: 'p',
-       html: 'More details about all of these scores are available on our data page.'
-    },
+      els: [{
+          tag: 'h1',
+          text: 'Data and Methods'
+        },
+        {
+          tag: 'caption',
+          text: 'How we created the Coastal Welfare score'
+        },
+        // { tag: 'legend',
+        //   text: 'Map Legend',
+        //   legendContent: '<em>Lighter shades indicate higher coastal welfare scores.</em>'
+        // },
+        {
+          tag: 'p',
+          html: 'We conceptualize coastal welfare as a function of a population’s physical and economic security, both on the coast and in a country more generally. We calculate the Coastal Welfare Score with four equally weighted components:'
+        },
+        {
+          tag: 'h4',
+          text: 'Country-wide Physical Security'
+        },
+        {
+          tag: 'p',
+          html: 'We used two indicators to measure the Country-wide Physical Security Component: country-wide armed conflict events and homicide rates. The first indicator was derived from the Georeferenced Event Dataset (GED) produced by a joint initiative of the Uppsala Conflict Data Program (UCDP) and the Peace Research Institute of Oslo (PRIO). The dataset includes geocoded information about specific lethal instances of armed conflict, such as battles between governments and rebels or uses of violence against civilians worldwide. Homicide rate is taken from the United Nations Office on Drugs and Crime (UNODC).'
+        },
+        {
+          tag: 'h4',
+          html: 'Coastal Physical Security'
+        },
+        {
+          tag: 'p',
+          html: 'To isolate armed conflict occurring near the coastline, we identified armed conflict events within 50 kilometers of a country’s coast using the same Georeferenced Event Dataset (GED) from UCDP. The 256 qualifying events are spread across six countries: Somalia, Nigeria, Kenya, Angola, Mozambique, and Côte d’Ivoire.'
+        },
+        {
+          tag: 'h4',
+          html: 'Coastal Economic Security Component'
+        },
+        {
+          tag: 'p',
+          html: 'We use two indicators to measure coastal economic security. The first is the Artisanal Fishing Opportunities goal from the Ocean Health Index (OHI), which captures whether the demand for fishing opportunities is met on the coast in a lawful and sustainable manner. The second is the Coastal Livelihoods and Economies measure from OHI. This score measures the relative economic-well being of coastal areas in comparisonE to the rest of the country. This score is weighted by the Human Development Index (HDI) produced by the United Nations Development Program (UNDP).'
+        },
+        {
+          tag: 'h4',
+          html: 'Country-wide Economic Security'
+        },
+        {
+          tag: 'p',
+          html: 'We measure country-wide economic security using two indicators: the Human Development Index (HDI) from the the UNDP and infant mortality data from the World Bank. The Human Development Index is perhaps the world’s most influential score of social well-being. The HDI seeks to capture well-being by looking at three key measures of economic and human development: life expectancy, education provision, and gross national income. Infant mortality is commonly viewed as one of the best single indicators of social welfare. To improve infant mortality rates, countries must invest in health care, transportation infrastructure, nutrition, and women’s education across all socioeconomic classes and social groups.'
+        },
+        {
+          tag: 'p',
+          html: 'More details about all of these scores are available on our data page.'
+        },
 
-    { tag: 'links',
-      items: [
-        {org: '<sup>19</sup> ***###??? Sundberg and Melander, “Introducing the UCDP Georeferenced Event Dataset.'},
-        {org: '<sup>20</sup> Ibid., pg. 2'},
-        {org: '<sup>21</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,', url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'},
-        {org: '<sup>22</sup> “Artisanal Fishing Opportunities,” the Ocean Health Index, accessed 1 September 2017,', url: 'http://www.oceanhealthindex.org/methodology/goals/artisanal-fishing-opportunities'},
-        {org: '<sup>23</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,', url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'},
-      ],  // How about internal references????? ###
-    }
+        {
+          tag: 'links',
+          items: [{
+              org: '<sup>19</sup> ***###??? Sundberg and Melander, “Introducing the UCDP Georeferenced Event Dataset.'
+            },
+            {
+              org: '<sup>20</sup> Ibid., pg. 2'
+            },
+            {
+              org: '<sup>21</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,',
+              url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'
+            },
+            {
+              org: '<sup>22</sup> “Artisanal Fishing Opportunities,” the Ocean Health Index, accessed 1 September 2017,',
+              url: 'http://www.oceanhealthindex.org/methodology/goals/artisanal-fishing-opportunities'
+            },
+            {
+              org: '<sup>23</sup> The Women, Business, and the Law Project, “All Indicators,” the World Bank, accessed 1 September 2017,',
+              url: 'http://wbl.worldbank.org/data/exploretopics/all-indicators'
+            },
+          ], // How about internal references????? ###
+        }
 
       ]
     } // End of seventh object in cards array

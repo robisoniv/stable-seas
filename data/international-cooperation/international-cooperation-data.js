@@ -531,7 +531,7 @@ var internationalCooperationData = {
         highlights: [],
         tooltip: true,
         legend: 'Regional Coordination in sub-Saharan Africa',
-        categories: ['Jeddah Amendment, Djibouti Code of Conduct', 'Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G'],
+        categories: ['Djibouti Code of Conduct', 'Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G', 'Yaoundé, no zone'],
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];
           switch (zone.yaounde) {
@@ -550,8 +550,11 @@ var internationalCooperationData = {
             case 6:
               return "Yaoundé Zone G";
               break;
+            case 7:
+              return "Yaounde, No zone";
+              break;
             case 1:
-              return "Jeddah Amendment, Djibouti Code of Conduct";
+              return "Djibouti Code of Conduct";
               break;
             default:
               return null;
@@ -906,8 +909,8 @@ var internationalCooperationData = {
         // {
         //   tag: 'img',
         //   src: '../../assets/international-cooperation/Jubilee_Oil_Field_of_the_Ghana_National_Petroleum_Corporation_GNPC_and_National_Petroleum_Authority.png', // This should be on the Stable Seas Deck - comments
-        //   alt: 'The Jubilee Oil field straddles the contested boundary between Cote d\'Ivoire and Ghana.',
-        //   caption: 'The Jubilee Oil field straddles the contested boundary between Cote d\'Ivoire and Ghana.'
+        //   alt: 'The Jubilee Oil field straddles the contested boundary between Côte d\'Ivoire and Ghana.',
+        //   caption: 'The Jubilee Oil field straddles the contested boundary between Côte d\'Ivoire and Ghana.'
         // },
         //
         // {

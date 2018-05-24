@@ -70,7 +70,7 @@
     "type": "regional"
   },
   {
-    "location": "Abidjan, Cote d'Ivoire ###",
+    "location": "Abidjan, Côte d'Ivoire ###",
     "lat": 5.36,
     "lon": -4.0083,
     "names": ["regional Coordination Centere for Maritime Security in Western Africa (CRESMAO) (Planned)"],
