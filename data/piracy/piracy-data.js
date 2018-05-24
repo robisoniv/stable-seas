@@ -358,7 +358,7 @@ var piracyData = {
         },
         switch: function(index) {
 
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
         }
       },
@@ -541,7 +541,7 @@ var piracyData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
           d3.selectAll('.card' + index + '-layer')
             .classed('invisible', false);
@@ -774,7 +774,7 @@ var piracyData = {
           //.classed(layer, true);
         },
         switch: function(index) {
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
 
           d3.selectAll('.card' + index + '-layer')
@@ -1239,7 +1239,7 @@ var piracyData = {
         },
         switch: function(index) {
 
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
         }
       },
