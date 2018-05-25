@@ -2705,15 +2705,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Equatorial Guinea ranks highest in Coastal Welfare. Equatorial Guinea's score of 67 in this area is high relative to its other issue scores,          due in part to having exceptionally low rates of homicide and political violence.. Equatorial Guinea can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the oil and gas sector."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Equatorial Guinea scores highest in Coastal Welfare. Equatorial Guinea's score of 67 in this area is high relative to its other issue scores,          due in part to having exceptionally low rates of homicide and political violence.. Equatorial Guinea can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the oil and gas sector."
           },
           {
             "tag": "bigtext",
-            "html": "Equatorial Guinea is also above the regional average in Maritime Enforcement, Coastal Welfare, Blue Economy, and Illicit Trades."
+            "html": "Equatorial Guinea is also above the regional average in Maritime Enforcement, Blue Economy, and Illicit Trades."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Equatorial Guinea is Rule of Law. Equatorial Guinea scores 25 in this area,  about the same as  the regional average of 35. To further             improve upon this score, Equatorial Guinea can invest in anti-corruption efforts and increase judicial accountability.. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Equatorial Guinea than it is elsewhere in the region.. Through these efforts, Equatorial Guinea can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Equatorial Guinea is Rule of Law. Equatorial Guinea scores 25 in this area, below the regional average of 48. To further             improve upon this score, Equatorial Guinea can invest in anti-corruption efforts and increase judicial accountability.. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Equatorial Guinea than it is elsewhere in the region. Through these efforts, Equatorial Guinea can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
