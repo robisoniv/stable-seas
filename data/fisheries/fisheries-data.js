@@ -59,8 +59,6 @@ var fisheriesData = {
             .classed('invisible', false);
 
           choropleth(index, 1, 'FI_INDEX');
-          //    console.log('choro')
-
         }
       },
       els: [{
@@ -187,7 +185,7 @@ var fisheriesData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>3</sup>“The State of World Fisheries and Aquaculture,” <em>Rome: The Food and Agriculture Organization of the United Nations, 2016</em> ',
+              org: '<sup>3</sup> “The State of World Fisheries and Aquaculture,” <em>Rome: The Food and Agriculture Organization of the United Nations, 2016.</em> ',
               url: 'http://www.fao.org/3/a-i5555e.pdf'
             },
             // {
@@ -279,21 +277,21 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'In addition, in 2016 the Port State Measures Agreement (PSMA) entered into force with ratification by 25 countries, including Cabo Verde, Gabon, The Gambia, Ghana, Guinea, Madagascar, Mauritius, Mozambique, São Tomé, Senegal, the Seychelles, Somalia, South Africa, and Togo. The PSMA is an international treaty written by the UN Food and Agriculture Organization that strengthens enforcement and monitoring capabilities at ports to reduce the amount of IUU fish entering global marketplaces. The strong support from African nations is a promising sign of political will to increase maritime domain awareness around fisheries issues and to prioritize the health of wild fisheries.'
+          html: 'In addition, in 2016 the Port State Measures Agreement (PSMA) entered into force with ratification by 25 countries, including Cabo Verde, Gabon, The Gambia, Ghana, Guinea, Madagascar, Mauritius, Mozambique, São Tomé and Príncipe, Senegal, the Seychelles, Somalia, South Africa, and Togo. The PSMA is an international treaty written by the UN Food and Agriculture Organization that strengthens enforcement and monitoring capabilities at ports to reduce the amount of IUU fish entering global marketplaces. The strong support from African nations is a promising sign of political will to increase maritime domain awareness around fisheries issues and to prioritize the health of wild fisheries.'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>4</sup>Alkaly Doumbouya, Ousmane T. Camara, Josephus Mamie, Jeremias F. Intchama, Abdoulie Jarra, Salifu Ceesay, Assane Guye, Diene Ndiaye, Elye Beibou, Allan Padilla, and Dyhia Belhabib, “Assessing the Effectiveness of Monitoring Control and Surveillance of Illegal Fishing: The Case of West Africa,” <em>Frontiers in Marine Science</em> 50, no. 4 (2017), doi: 10.3389/fmars.2017.00050.',
-              //url: 'http://dx.doi.org/10.18289/OEF.2017.014'
+              org: '<sup>4</sup> Alkaly Doumbouya, Ousmane T. Camara, Josephus Mamie, Jeremias F. Intchama, Abdoulie Jarra, Salifu Ceesay, Assane Guye, Diene Ndiaye, Elye Beibou, Allan Padilla, and Dyhia Belhabib, “Assessing the Effectiveness of Monitoring Control and Surveillance of Illegal Fishing: The Case of West Africa,” <em>Frontiers in Marine Science</em> 50, no. 4 (2017), doi: 10.3389/fmars.2017.00050.',
+              url: 'https://www.frontiersin.org/articles/10.3389/fmars.2017.00050/full'
             },
             {
-              org: '<sup>5</sup>D.J. Agnew, J. Pearce, G. Pramod, T. Peatman, R.A. Watson, J.R. Beddington, and T.J. Pitcher, “Estimating the Worldwide Extent of Illegal Fishing,” PloS One 4, no. 2 (2009), e4570.',
+              org: '<sup>5</sup> D.J. Agnew, J. Pearce, G. Pramod, T. Peatman, R.A. Watson, J.R. Beddington, and T.J. Pitcher, “Estimating the Worldwide Extent of Illegal Fishing,” PloS One 4, no. 2 (2009), e4570.',
               url: 'http://doi.org/10.1371/journal.pone.0004570'
             },
             {
-              org: '<sup>6</sup>Sarah Glaser, Paige Roberts, Robert Mazurek, Kaija Hurlburt, and Liza Kane-Hartnett, Securing Somali Fisheries (Denver: One Earth Future, 2015), doi: 10.18289/OEF.2015.001.',
-              //  url: 'http://dx.doi.org/10.18289/OEF.2017.014'
+              org: '<sup>6</sup> Sarah Glaser, Paige Roberts, Robert Mazurek, Kaija Hurlburt, and Liza Kane-Hartnett, "Securing Somali Fisheries" (Denver: One Earth Future, 2015), doi: 10.18289/OEF.2015.001.',
+              url: 'http://securefisheries.org/sites/default/files/SecuringSomaliFisheries-FullReport.pdf'
             },
           ]
         }
@@ -366,7 +364,9 @@ var fisheriesData = {
         },
         {
           tag: 'blockquote',
-          html: '“Seeing the results of the Pristine Seas expedition made me realize that our marine ecosystems were as rich and as precious as our better-known rain forests, and that we had to do for the oceans what my father, the late President Omar Bongo Ondimba, did for the forests when he created 13 national parks in 2002.” — President Ali Bongo Ondimba of Gabon'
+          html: '“Seeing the results of the Pristine Seas expedition made me realize that our marine ecosystems were as rich and as precious as our better-known rain forests, and that we had to do for the oceans what my father, the late President Omar Bongo Ondimba, did for the forests when he created 13 national parks in 2002.”',
+          source: 'President Ali Bongo Ondimba of Gabon',
+          link: 'https://newsroom.wcs.org/News-Releases/articleType/ArticleView/articleId/10114/Gabon-Announces-Vast-Marine-Protected-Area-Network-at-UN-Ocean-Conference.aspx'
         },
         {
           tag: 'p',
@@ -582,8 +582,6 @@ var fisheriesData = {
             .classed('invisible', false);
 
           choropleth(index, 1, 'FI_INDEX');
-          //    console.log('choro')
-
         }
       },
       els: [{
@@ -643,18 +641,18 @@ var fisheriesData = {
           tag: 'p',
           html: 'More details about all of these scores are available on our data page.'
         },
-        {
-          tag: 'links',
-          items: [{
-              org: '<sup>11</sup> “FAO Document Depository,”',
-              url: 'http://www.fao.org/documents/search/en/'
-            },
-            {
-              org: '<sup>12</sup> “The Ocean Health Index,” Ocean Health Index, accessed 1 September 2017,',
-              url: 'www.oceanhealthindex.org'
-            },
-          ]
-        }
+        // {
+        //   tag: 'links',
+        //   items: [{
+        //       org: '<sup>11</sup> “FAO Document Depository,”',
+        //       url: 'http://www.fao.org/documents/search/en/'
+        //     },
+        //     {
+        //       org: '<sup>12</sup> “The Ocean Health Index,” Ocean Health Index, accessed 1 September 2017,',
+        //       url: 'www.oceanhealthindex.org'
+        //     },
+        //   ]
+        // }
       ]
     }
   ]
