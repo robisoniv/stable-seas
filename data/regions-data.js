@@ -2455,15 +2455,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Benin ranks highest in International Cooperation. Benin's score of 67 in this area is high relative to its other issue scores,          due in part to its participation in most international agreements and the Yaounde Code of Conduct.. Benin can further improve upon this area of relative strength by revisiting its territorial claims, which exceed the twelve nautical mile limit defined by UNCLOS and ratifying the Port State Measures Agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Benin scores highest in International Cooperation. Benin's score of 67 in this area is high relative to its other issue scores,          due in part to its participation in most international agreements and the Yaounde Code of Conduct.. Benin can further improve upon this area of relative strength by revisiting its territorial claims, which exceed the twelve nautical mile limit defined by UNCLOS and ratifying the Port State Measures Agreement."
           },
           {
             "tag": "bigtext",
-            "html": "Benin is also above the regional average in Rule of Law, Maritime Enforcement, and Maritime Mixed Migration."
+            "html": "Benin is also above the regional average in Rule of Law, Maritime Enforcement, Coastal Welfare, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Benin is Illicit Trades. Benin scores 3 in this area, below the regional average of 6. To further             improve upon this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Benin is Illicit Trade. Benin scores 12 in this area, below the regional average of 36. Progress is already being made to improve this score through a crackdown on the illicit trade of counterfeit drugs. (voaafrique) To further             improve upon this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
