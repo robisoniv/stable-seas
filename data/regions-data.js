@@ -3435,7 +3435,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Tanzania's exclusive economic zone covers roughly  square kilometers of the Indian Ocean.           This gives Tanzania the twelfth largest EEZ in sub-Saharan Africa. Meanwhile, Tanzania's Maritime Enforcement Score indicates that the country is above the regional average."
+            "html": "Tanzania's exclusive economic zone covers roughly 241,888 square kilometers of the Indian Ocean.           This gives Tanzania the twelfth largest EEZ in sub-Saharan Africa. Meanwhile, Tanzania's Maritime Enforcement Score indicates that the country is above the regional average."
           },
           {
             "tag": "radar"

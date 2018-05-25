@@ -592,7 +592,7 @@ var blueEconomyData = {
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['BE_CLIMATE'];
-          tooltipVal = Math.round(tooltipVal);
+          tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(100 - tooltipVal);
           return "Climate Vulnerability Score:<br />" + (100 - tooltipVal) + " / 100";
 
