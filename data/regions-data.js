@@ -2415,7 +2415,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Togo ranks highest in Coastal Welfare. Togo's score of 65 in this area is high relative to its other issue scores,          due in part to better-than-average coastal economic opportunities and low threats to coastal physical security.. Togo can further improve upon this area of relative strength by investing more in artisanal fishing opportunities, which are somewhat lower than  the continental average."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Togo scores highest in Coastal Welfare. Togo's score of 71 in this area is high relative to its other issue scores,          due in part to better-than-average coastal economic opportunities and low threats to coastal physical security. Togo can further improve upon this area of relative strength by investing more in artisanal fishing opportunities, which are somewhat lower than  the continental average."
           },
           {
             "tag": "bigtext",
@@ -2423,7 +2423,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Togo is Illicit Trades. Togo scores 13 in this area, above the regional average of 6. To further             improve upon this score, Togo can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Togo can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Togo is Illicit Trade. Togo scores 26 in this area, below the regional average of 36. To further             improve upon this score, Togo can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Togo can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
