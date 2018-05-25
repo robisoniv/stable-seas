@@ -116,7 +116,7 @@ var countries = {
   "IMN": "Isle of Man",
   "ISR": "Israel",
   "ITA": "Italy",
-  "CIV": "Ivory Coast",
+  "CIV": "Côte d'Ivoire",
   "JAM": "Jamaica",
   "JPN": "Japan",
   "JEY": "Jersey",

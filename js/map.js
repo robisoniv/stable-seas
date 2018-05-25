@@ -56,7 +56,7 @@ var svg = d3.select('#map-svg')
 
   var countryNames = ['Angola', 'Benin', 'Cameroon', 'Cape Verde', 'Comoros', 'Congo (Rep)',
     'Djibouti', 'DRC','Equatorial Guinea', 'Gabon', 'Gambia', 'Ghana', 'Guinea',
-    'Guinea-Bissau', 'Ivory Coast', 'Kenya', 'Liberia', 'Madagascar', 'Mauritius',
+    'Guinea-Bissau', 'Côte d'Ivoire', 'Kenya', 'Liberia', 'Madagascar', 'Mauritius',
     'Mozambique', 'Namibia', 'Nigeria', 'São Tomé and Príncipe', 'Senegal', 'Seychelles',
     'Sierra Leone', 'Somalia', 'South Africa', 'Tanzania', 'Togo']
 
