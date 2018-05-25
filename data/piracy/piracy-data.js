@@ -788,7 +788,7 @@ var piracyData = {
         // },
         {
           tag: 'p',
-          html: 'The Gulf of Guinea has earned its reputation for being the most dangerous area of transit in the world for seafarers. Since 2013, attacks in West Africa have occurred at much higher frequency than in East Africa. There were 100 estimated attacks in the Gulf of Guinea in 2013 compared to 23 off the Somali coast. In 2016, 95 attacks were reported in the Gulf of Guinea compared to 27 attacks in the Horn of Africa. This difference is particularly significant in terms of the human cost. Nearly 1,400 more seafarers were subjected to attacks in the Gulf of Guinea than off the coast of Somalia.3 While the number of attacks has remained high in recent years, the model of piracy has gradually shifted.'
+          html: 'The Gulf of Guinea has earned its reputation for being the most dangerous area of transit in the world for seafarers. Since 2013, attacks in West Africa have occurred at much higher frequency than in East Africa. There were 100 estimated attacks in the Gulf of Guinea in 2013 compared to 23 off the Somali coast.<sup>2</sup> In 2016, 95 attacks were reported in the Gulf of Guinea compared to 27 attacks in the Horn of Africa. This difference is particularly significant in terms of the human cost. Nearly 1,400 more seafarers were subjected to attacks in the Gulf of Guinea than off the coast of Somalia.<sup>3</sup> While the number of attacks has remained high in recent years, the model of piracy has gradually shifted.'
         },
         {
           tag: 'h2',
