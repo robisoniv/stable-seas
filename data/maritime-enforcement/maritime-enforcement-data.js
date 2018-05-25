@@ -99,12 +99,12 @@ var maritimeEnforcementData = {
         classes: 'card-2-layer',
         translate: [],
         tooltip: true,
-        legend: 'Measure of Maritime Domain Awareness',
+        legend: 'Measure of patrol difficulty',
         tooltipHTML: function(iso) {
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].mda;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].difficulty;
           tooltipVal = Math.round((tooltipVal * 100));
           updatePointer(tooltipVal);
-          return "Maritime Domain Awareness:<br />" + tooltipVal + " / 100";
+          return "Measure of patrol difficulty:<br />" + tooltipVal + " / 100";
 
         },
         highlights: null,
@@ -114,7 +114,7 @@ var maritimeEnforcementData = {
         },
         switch: function(index) {
           // Show loaded GIS layer
-          choropleth(index, 1, 'mda')
+          choropleth(index, 1, 'difficulty')
 
         }
       },

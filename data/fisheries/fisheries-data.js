@@ -24,7 +24,8 @@ var fisheriesData = {
   load: function(csv, callback) {
     loadIAcsv(csv, callback);
   },
-  cards: [{ // Card 0
+  cards: [
+    { // Card 0
       title: 'Fisheries',
       menu: 'Fisheries',
       metadata: {
@@ -166,7 +167,7 @@ var fisheriesData = {
           tag: 'img',
           src: '../../assets/fisheries/Kleisner_stockstatus_final.png', // This should be on the Stable Seas Deck - comments
           //    alt: 'Source: Agnew, et al, (2009) Estimating the Worldwide Extent of Illegal Fishing, PLoS One, 4(2)',
-          caption: 'Stock status for fisheries around the world.'
+          caption: 'Stock status for fisheries around the world. Reproduced from Figure 6a in Kleisner et al. (2013)<sup>4</sup>'
         },
         {
           tag: 'p',
@@ -188,6 +189,10 @@ var fisheriesData = {
               org: '<sup>3</sup> “The State of World Fisheries and Aquaculture,” <em>Rome: The Food and Agriculture Organization of the United Nations, 2016.</em> ',
               url: 'http://www.fao.org/3/a-i5555e.pdf'
             },
+            {
+              org: '<sup>4</sup> Kleisner, K., Zeller, D., Froese, R., & Pauly, D. (2013). Using global catch data for inferences on the world’s marine fisheries. Fish and Fisheries, 14(3), 293–311.',
+              url: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-2979.2012.00469.x'
+            }
             // {
             //   org: '<sup>4</sup> D.J. Agnew, J. Pearce, G. Pramod, T. Peatman, R.A. Watson, J.R. Beddington, and T.J. Pitcher, “Estimating the Worldwide Extent of Illegal Fishing,” <em>PloS One</em> 4, no. 2 (2009), e4570.',
             //   url: 'http://doi.org/10.1371/journal.pone.0004570'
@@ -258,7 +263,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'IUU fishing exacerbates maritime insecurity and fuels armed conflict at sea, undermines national and international governance, and threatens the sustainability of fisheries. IUU fishing costs Mauritania, Senegal, The Gambia, Guinea-Bissau, and Sierra Leone $2.3 billion per year.<sup>4</sup> About 37% of all fish catch off West Africa and 18% off East Africa is considered illegal or unreported.<sup>5</sup> Foreign unregulated fishing accounts for twice as much fish catch as that made by the domestic artisanal fishing fleet in Somali waters.<sup>6</sup> While good estimates can be difficult to make, the emerging picture is clear: IUU fishing deprives African fishers of a significant source of income, and much of it is driven by distant-water fishing fleets from Europe and Asia.'
+          html: 'IUU fishing exacerbates maritime insecurity and fuels armed conflict at sea, undermines national and international governance, and threatens the sustainability of fisheries. IUU fishing costs Mauritania, Senegal, The Gambia, Guinea-Bissau, and Sierra Leone $2.3 billion per year.<sup>5</sup> About 37% of all fish catch off West Africa and 18% off East Africa is considered illegal or unreported.<sup>6</sup> Foreign unregulated fishing accounts for twice as much fish catch as that made by the domestic artisanal fishing fleet in Somali waters.<sup>7</sup> While good estimates can be difficult to make, the emerging picture is clear: IUU fishing deprives African fishers of a significant source of income, and much of it is driven by distant-water fishing fleets from Europe and Asia.'
         },
         {
           tag: 'img',
@@ -282,15 +287,15 @@ var fisheriesData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>4</sup> Alkaly Doumbouya, Ousmane T. Camara, Josephus Mamie, Jeremias F. Intchama, Abdoulie Jarra, Salifu Ceesay, Assane Guye, Diene Ndiaye, Elye Beibou, Allan Padilla, and Dyhia Belhabib, “Assessing the Effectiveness of Monitoring Control and Surveillance of Illegal Fishing: The Case of West Africa,” <em>Frontiers in Marine Science</em> 50, no. 4 (2017), doi: 10.3389/fmars.2017.00050.',
+              org: '<sup>5</sup> Alkaly Doumbouya, Ousmane T. Camara, Josephus Mamie, Jeremias F. Intchama, Abdoulie Jarra, Salifu Ceesay, Assane Guye, Diene Ndiaye, Elye Beibou, Allan Padilla, and Dyhia Belhabib, “Assessing the Effectiveness of Monitoring Control and Surveillance of Illegal Fishing: The Case of West Africa,” <em>Frontiers in Marine Science</em> 50, no. 4 (2017), doi: 10.3389/fmars.2017.00050.',
               url: 'https://www.frontiersin.org/articles/10.3389/fmars.2017.00050/full'
             },
             {
-              org: '<sup>5</sup> D.J. Agnew, J. Pearce, G. Pramod, T. Peatman, R.A. Watson, J.R. Beddington, and T.J. Pitcher, “Estimating the Worldwide Extent of Illegal Fishing,” PloS One 4, no. 2 (2009), e4570.',
+              org: '<sup>6</sup> D.J. Agnew, J. Pearce, G. Pramod, T. Peatman, R.A. Watson, J.R. Beddington, and T.J. Pitcher, “Estimating the Worldwide Extent of Illegal Fishing,” PloS One 4, no. 2 (2009), e4570.',
               url: 'http://doi.org/10.1371/journal.pone.0004570'
             },
             {
-              org: '<sup>6</sup> Sarah Glaser, Paige Roberts, Robert Mazurek, Kaija Hurlburt, and Liza Kane-Hartnett, "Securing Somali Fisheries" (Denver: One Earth Future, 2015), doi: 10.18289/OEF.2015.001.',
+              org: '<sup>7</sup> Sarah Glaser, Paige Roberts, Robert Mazurek, Kaija Hurlburt, and Liza Kane-Hartnett, "Securing Somali Fisheries" (Denver: One Earth Future, 2015), doi: 10.18289/OEF.2015.001.',
               url: 'http://securefisheries.org/sites/default/files/SecuringSomaliFisheries-FullReport.pdf'
             },
           ]
@@ -346,7 +351,7 @@ var fisheriesData = {
         },
         {
           tag: 'p',
-          html: 'Minimizing conflict around fisheries requires strong national policies and resource governance, and most African states have enacted domestic fisheries legislation. We identified eight key factors these policies should include:<sup>7</sup> a fisheries observer program, data collection, foreign-vessel licensing, restrictions on foreign vessels, gear restrictions, endangered species protections, artisanal fisher protections, and catch limits based on maximum sustainable yield (MSY).'
+          html: 'Minimizing conflict around fisheries requires strong national policies and resource governance, and most African states have enacted domestic fisheries legislation. We identified eight key factors these policies should include:<sup>8</sup> a fisheries observer program, data collection, foreign-vessel licensing, restrictions on foreign vessels, gear restrictions, endangered species protections, artisanal fisher protections, and catch limits based on maximum sustainable yield (MSY).'
         },
         {
           tag: 'p',
@@ -375,7 +380,7 @@ var fisheriesData = {
         {
           tag: 'links',
           items: [{
-            org: '<sup>7</sup> Paige M. Roberts, Laura C. Burroughs, and Robert H. Mazurek, “An Exploration of Federal Fisheries Management Agencies in Eastern Africa,” Secure Fisheries, 2017.',
+            org: '<sup>8</sup> Paige M. Roberts, Laura C. Burroughs, and Robert H. Mazurek, “An Exploration of Federal Fisheries Management Agencies in Eastern Africa,” Secure Fisheries, 2017.',
             url: 'http://dx.doi.org/10.18289/OEF.2017.014'
           }, ]
         }
