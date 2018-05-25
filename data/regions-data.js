@@ -3419,15 +3419,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Mozambique ranks highest in Piracy. Mozambique's score of 90 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Mozambique can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Mozambique scores highest in Piracy. Mozambique's score of 90 in this area is high relative to its other issue scores. Reports of pirates in the Mozambique Channel have been significantly reduced, due in part to the elimination of piracy in the Mozambique Channel and the sharp decline of piracy in the western Indian Ocean.. Mozambique can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
-            "html": "Mozambique is also above the regional average in Rule of Law, Blue Economy, Fisheries, Piracy, and Maritime Mixed Migration."
+            "html": "Mozambique is also above the regional average in Internal Cooperation, Rule of Law, Blue Economy, Fisheries, Piracy, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Mozambique is Illicit Trades. Mozambique scores 4 in this area, below the regional average of 22. To further             improve upon this score, Mozambique can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Mozambique can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Mozambique is Illicit Trade. Mozambique scores 14 in this area, below the regional average of 36. To further             improve upon this score, Mozambique can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Mozambique can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
