@@ -562,7 +562,7 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'img',
-          src: '../../assets/maritime-enforcement/south_africa_navy_ltcommander_501416590.png',
+          src: '../../assets/maritime-enforcement/south_africa_navy_ltcommander_501416590.PNG',
           alt: 'Lieutenant Commander Zimasa Mabela aboard South African naval vessel. Photo credit: Rodger Bosch/AFP/Getty Images.',
           caption: 'Lieutenant Commander Zimasa Mabela aboard South African naval vessel. Photo credit: Rodger Bosch/AFP/Getty Images.'
         }, //###Insert image
@@ -572,7 +572,7 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'img',
-          src: '../../assets/maritime-enforcement/bosaaso-port-police.jpg',
+          src: '../../assets/maritime-enforcement/bosaaso-port-police.JPG',
           alt: 'Bosasso Port Police. Photo credit: Oceans Beyond Piracy.', // ### Spelling on Bosasso?
           caption: 'Bosasso Port Police. Photo credit: Oceans Beyond Piracy.'
         }, //###Insert image
