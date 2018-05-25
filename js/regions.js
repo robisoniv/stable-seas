@@ -490,13 +490,12 @@ function loadRegions(data, card) { // where data = data.js format ... so it's an
 
     var regionIABtn = d3.select('#regions-' + region);
 
-    regionIABtn.style('background-color', function() {
-        return rampColor(0.6);
-      })
+    regionIABtn.classed('active-page', true);
+    // .style('background-color', function() {
+    //     return rampColor(0.6);
+    //   })
       //.style('margin-bottom', 5)
-      .style('border-bottom', function() {
-        return "5px solid black";
-      });
+
 
     // Pull target card index from URL anchor:
     var hash = window.location.hash;

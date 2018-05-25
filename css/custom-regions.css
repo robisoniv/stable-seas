@@ -236,10 +236,10 @@ nav {
   height: 50px;
   display: table;
   cursor: pointer;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  /* border-left: 1px solid white;
+  border-right: 1px solid white; */
 }
-
+/* 
 .regions-btn:nth-child(0) {
   border-left: 2px solid white;
 }
@@ -247,7 +247,7 @@ nav {
 
 .regions-btn:nth-child(n) {
   border-right: 2px solid white;
-}
+} */
 
 .regions-btn:hover {
 
@@ -263,9 +263,20 @@ nav {
   display: table-cell;
   vertical-align: middle;
 }
+
+.regions-btn.active-page {
+  border-bottom: 10px solid black;
+  margin-bottom: -10px;
+  height: 60px;
+}
+
+.regions-btn.active-page.small {
+  height: 25px;
+}
+
 .regions-buffer {
   height: 50px;
-  background-color: #0d3a58;
+  background-color: #969696;
 }
 
 .small {
