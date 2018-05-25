@@ -130,23 +130,23 @@ var maritimeMixedMigrationData = {
         },
         {
           "tag": "p",
-          "html": "Maritime trafficking in the form of forced labor is a significant problem in the fishing industry in the Gulf of Guinea, where both adults and children can suffer severe physical abuse, starvation, and sickness due to labor exploitation.<sup>24</sup>  At the time of writing, there are no legal instruments in place that regulate living and working conditions on fishing vessels, making the fishing sector “particularly susceptible to human trafficking.”<sup>25</sup>"
+          "html": "Maritime trafficking in the form of forced labor is a significant problem in the fishing industry in the Gulf of Guinea, where both adults and children can suffer severe physical abuse, starvation, and sickness due to labor exploitation.<sup>1</sup>  At the time of writing, there are no legal instruments in place that regulate living and working conditions on fishing vessels, making the fishing sector “particularly susceptible to human trafficking.”<sup>2</sup>"
         },
         {
           "tag": "p",
-          "html": "In many cases, fishing vessels are registered in states that do not enforce international protocols and treaties on human smuggling and trafficking.<sup>26</sup>  Trafficking victims have no access to legal recourse, are stripped of identification documents, and are often stuck on fishing vessels against their will for prolonged periods of time.<sup>27</sup>"
+          "html": "In many cases, fishing vessels are registered in states that do not enforce international protocols and treaties on human smuggling and trafficking.<sup>3</sup>  Trafficking victims have no access to legal recourse, are stripped of identification documents, and are often stuck on fishing vessels against their will for prolonged periods of time.<sup>4</sup>"
         },
         {
           "tag": "p",
-          "html": "The U.S. State Department’s 2017 <em>Trafficking in Persons Report</em> lists several countries where human trafficking is directly linked to the fishing industry. Among the listed countries, South Africa and Ghana stand out for different reasons.<sup>28</sup>"
+          "html": "The U.S. State Department’s 2017 <em>Trafficking in Persons Report</em> lists several countries where human trafficking is directly linked to the fishing industry. Among the listed countries, South Africa and Ghana stand out for different reasons.<sup>5</sup>"
         },
         {
           "tag": "p",
-          "html": "In South Africa, young, mostly South and Southeast Asian men<sup>29</sup> are deceived by recruitment agencies specializing in the fishing industry.<sup>30</sup>  Once on board the fishing vessels, these men suffer from beatings and verbal abuse they cannot escape due to their isolation at sea.<sup>31</sup>"
+          "html": "In South Africa, young, mostly South and Southeast Asian men<sup>6</sup> are deceived by recruitment agencies specializing in the fishing industry.<sup>7</sup>  Once on board the fishing vessels, these men suffer from beatings and verbal abuse they cannot escape due to their isolation at sea.<sup>8</sup>"
         },
         {
           "tag": "p",
-          "html": "In Ghana, traffickers exploit the traditional practice of leasing young boys to fishing boats, beating and denying food and education to children as young as six who have been knowingly turned over by their parents due to extreme poverty.<sup>32</sup>  The violence these boys are subjected to is especially heinous “because trafficked children [are] considered dispensable due to the poverty of their families and the ease of acquiring more children” to work.<sup>33</sup>  While pressure from the international community has led to significant changes in other industries that have relied predominantly on child labor and child trafficking (e.g., cocoa), legislation is non-existent for boys in the artisanal fishing industry on Lake Volta.<sup>34</sup>"
+          "html": "In Ghana, traffickers exploit the traditional practice of leasing young boys to fishing boats, beating and denying food and education to children as young as six who have been knowingly turned over by their parents due to extreme poverty.<sup>9</sup>  The violence these boys are subjected to is especially heinous “because trafficked children [are] considered dispensable due to the poverty of their families and the ease of acquiring more children” to work.<sup>10</sup>  While pressure from the international community has led to significant changes in other industries that have relied predominantly on child labor and child trafficking (e.g., cocoa), legislation is non-existent for boys in the artisanal fishing industry on Lake Volta.<sup>11</sup>"
         },
         {
           "tag": "img",
@@ -156,57 +156,57 @@ var maritimeMixedMigrationData = {
         },
         {
           "tag": "p",
-          "html": "In both artisanal inland and sea-based fishing, it remains unclear to what extent human trafficking for forced labor as a cost-saving feature influences the pricing of fish.<sup>35</sup>  What is clear, however, is the fact that human trafficking networks thrive where there is high demand for cheap labor and poor enforcement of labor protections.<sup>36</sup> "
+          "html": "In both artisanal inland and sea-based fishing, it remains unclear to what extent human trafficking for forced labor as a cost-saving feature influences the pricing of fish.<sup>12</sup>  What is clear, however, is the fact that human trafficking networks thrive where there is high demand for cheap labor and poor enforcement of labor protections.<sup>13</sup> "
         },
         {
           "tag": "links",
           "items": [{
-              "org": "<sup>24</sup> International Labour Organization, <em>Caught at Sea: Forced Labour and Trafficking in Fisheries</em> (Geneva, Switzerland: ILO, 2013),",
+              "org": "<sup>1</sup> International Labour Organization, <em>Caught at Sea: Forced Labour and Trafficking in Fisheries</em> (Geneva, Switzerland: ILO, 2013).",
               "url": "http://www.ilo.org/wcmsp5/groups/public/---ed_norm/---declaration/documents/publication/wcms_214472.pdf"
             },
             {
-              "org": "<sup>25</sup> Interpol, <em>Study on Fisheries Crime in the West African Coastal Region</em> (Lyon, France: Interpol Environmental Security Sub-Directorate, 2014),",
-              "url": "http://globalinitiative.net/wp-content/uploads/2017/01/interpol-illegal-fishing-study.pdf"
+              "org": "<sup>2</sup> Interpol, <em>Study on Fisheries Crime in the West African Coastal Region</em> (Lyon, France: Interpol Environmental Security Sub-Directorate, 2014).",
+              "url": "https://www.interpol.int/content/download/27590/369574/version/3/file/WACS%20EN.pdf"
             },
             {
-              "org": "<sup>26</sup> United Nations Office on Drugs and Crime, <em>Transnational Organized Crime in the Fishing Industry – Focus on: Trafficking in Persons, Smuggling of Migrants, Illicit Drugs Trafficking</em> (Vienna, Austria: United Nations, 2011),",
+              "org": "<sup>3</sup> United Nations Office on Drugs and Crime, <em>Transnational Organized Crime in the Fishing Industry – Focus on: Trafficking in Persons, Smuggling of Migrants, Illicit Drugs Trafficking</em> (Vienna, Austria: United Nations, 2011).",
               "url": "https://www.unodc.org/documents/human-trafficking/Issue_Paper_-_TOC_in_the_Fishing_Industry.pdf"
             },
             {
-              "org": "<sup>27</sup> Ibid."
+              "org": "<sup>4</sup> Ibid."
             },
             {
-              "org": "<sup>28</sup> U.S. Department of State, <em>Trafficking in Persons Report</em> (Washington, D.C.: U.S Department of State, June 2017),",
+              "org": "<sup>5</sup> U.S. Department of State, <em>Trafficking in Persons Report</em> (Washington, D.C.: U.S Department of State, June 2017).",
               "url": "https://www.state.gov/documents/organization/271339.pdf"
             },
             {
-              "org": "<sup>29</sup> Melanie Gosling, “’Slave Ships’ Seized off Cape Coast,” <em>Independent Online</em>, 24 January 2014,",
+              "org": "<sup>6</sup> Melanie Gosling, “’Slave Ships’ Seized off Cape Coast,” <em>Independent Online</em>, 24 January 2014.",
               "url": "https://www.iol.co.za/news/south-africa/western-cape/slave-ships-seized-off-cape-coast-1636266"
             },
             {
-              "org": "<sup>30</sup> Seafish, <em>Seafish Ethics Profile: South Africa</em> (Grimsby, UK: Seafish Industry Authority, 2015),",
+              "org": "<sup>7</sup> Seafish, <em>Seafish Ethics Profile: South Africa</em> (Grimsby, UK: Seafish Industry Authority, 2015).",
               "url": "http://www.seafish.org/media/publications/SouthAfricaEthicsProfile_201509.pdf"
             },
             {
-              "org": "<sup>31</sup> Rebecca Surtees, <em>In African Waters: The Trafficking of Cambodian Fishers in South Africa</em> (Geneva, Switzerland and Washington, D.C.: IOM and Nexus Institute, 2014),",
+              "org": "<sup>8</sup> Rebecca Surtees, <em>In African Waters: The Trafficking of Cambodian Fishers in South Africa</em> (Geneva, Switzerland and Washington, D.C.: IOM and Nexus Institute, 2014).",
               "url": "http://un-act.org/publication/view/in-african-waters-the-trafficking-of-cambodian-fishers-in-south-africa/"
             },
             {
-              "org": "<sup>32</sup> Sharon LaFraniere, “Africa’s World of Forced Labor, in a 6-Year-Old’s Eyes,” <em>The New York Times</em>, 29 October 2006,",
+              "org": "<sup>9</sup> Sharon LaFraniere, “Africa’s World of Forced Labor, in a 6-Year-Old’s Eyes,” <em>The New York Times</em>, 29 October 2006.",
               "url": " http://www.nytimes.com/2006/10/29/world/africa/29ghana.html"
             },
             {
-              "org": "<sup>33</sup> Kirsten Singleton, Katrina B. Stone, and Julie Stricker, <em>Child Trafficking into Forced Labor on Lake Volta, Ghana: A Mixed Methods Assessment</em> (Washington, D.C.: International Justice Mission, 2016),",
+              "org": "<sup>10</sup> Kirsten Singleton, Katrina B. Stone, and Julie Stricker, <em>Child Trafficking into Forced Labor on Lake Volta, Ghana: A Mixed Methods Assessment</em> (Washington, D.C.: International Justice Mission, 2016).",
               "url": "https://www.ijm.org/sites/default/files/resources/ijm-ghana-report.pdf"
             },
             {
-              "org": "<sup>34</sup> Ibid."
+              "org": "<sup>11</sup> Ibid."
             },
             {
-              "org": "<sup>35</sup> International Labour Organization, <em>Caught at Sea</em>; Singleton, Stone, and Stricker, <em>Child Trafficking into Forced Labor on Lake Volta, Ghana</em>."
+              "org": "<sup>12</sup> International Labour Organization, <em>Caught at Sea</em>; Singleton, Stone, and Stricker, <em>Child Trafficking into Forced Labor on Lake Volta, Ghana</em>."
             },
             {
-              "org": "<sup>36</sup> Christopher Horwood, <em>In Pursuit of the Southern Dream: Victims of Necessity: Assessment of the Irregular Movement of Men from East Africa and the Horn to South Africa</em> (Geneva, Switzerland: International Organization for Migration, 2009),",
+              "org": "<sup>13</sup> Christopher Horwood, <em>In Pursuit of the Southern Dream: Victims of Necessity: Assessment of the Irregular Movement of Men from East Africa and the Horn to South Africa</em> (Geneva, Switzerland: International Organization for Migration, 2009).",
               "url": "http://publications.iom.int/system/files/pdf/iomresearchassessment.pdf"
             }
           ]
@@ -227,13 +227,13 @@ var maritimeMixedMigrationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        legend: 'Measure of transit ???###',
+        legend: 'Measure of maritime transit',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['MMM_MAP_TRANSIT'];
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measure of transit??####:<br />" + tooltipVal + " / 100";
+          return "Measure of maritime transit:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, file) { // ### *** This only should be for the first card ...
@@ -342,7 +342,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          html: 'Nearly a decade ago, the West African route that links Senegal and Mauritania to the Spanish Canary Islands was frequently utilized for migrants smuggled in small wooden fishing boats. When its popularity peaked in 2006, nearly 32,000 migrants made the journey and an estimated 20 percent died in the attempt.<sup>1</sup> Increased patrolling efforts by Spain, Senegal, and Mauritania over the last decade have reduced the popularity of this route by 98 percent; in 2016, these countries identified just 671 known travelers.<sup>2</sup>'
+          html: 'Nearly a decade ago, the West African route that links Senegal and Mauritania to the Spanish Canary Islands was frequently utilized for migrants smuggled in small wooden fishing boats. When its popularity peaked in 2006, nearly 32,000 migrants made the journey and an estimated 20 percent died in the attempt.<sup>14</sup> Increased patrolling efforts by Spain, Senegal, and Mauritania over the last decade have reduced the popularity of this route by 98 percent; in 2016, these countries identified just 671 known travelers.<sup>15</sup>'
         },
         {
           tag: 'h3',
@@ -369,7 +369,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          html: 'South Africa receives around 15,000 migrants per year from the Horn of Africa.<sup>3</sup> They travel a maritime route that transits Kenya and Tanzania to arrive in Mozambique. From there, migrants travel over land to South Africa. Approximately 97 percent of the migrants on this route use smuggling networks.<sup>4</sup>'
+          html: 'South Africa receives around 15,000 migrants per year from the Horn of Africa.<sup>16</sup> They travel a maritime route that transits Kenya and Tanzania to arrive in Mozambique. From there, migrants travel over land to South Africa. Approximately 97 percent of the migrants on this route use smuggling networks.<sup>17</sup>'
         },
         {
           tag: 'h3',
@@ -378,7 +378,7 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          html: 'Each year, the French territorial island of Mayotte draws migrants from neighboring countries including Comoros and Madagascar. This draw increased when Mayotte became France’s 101<sup>st</sup> department in 2011. This new political status brought higher wages, higher standards of health and education, and the practice of birthright citizenship, which allows non-French citizens born in Mayotte to apply for citizenship upon attaining adulthood.<sup>5</sup> Migrants often travel by night in small overcrowded boats called <em>kwassa-kwassa</em>; this makes the risky journey even more perilous by increasing the risk of capsizing.'
+          html: 'Each year, the French territorial island of Mayotte draws migrants from neighboring countries including Comoros and Madagascar. This draw increased when Mayotte became France’s 101<sup>st</sup> department in 2011. This new political status brought higher wages, higher standards of health and education, and the practice of birthright citizenship, which allows non-French citizens born in Mayotte to apply for citizenship upon attaining adulthood.<sup>18</sup> Migrants often travel by night in small overcrowded boats called <em>kwassa-kwassa</em>; this makes the risky journey even more perilous by increasing the risk of capsizing.'
         },
         {
           tag: 'img',
@@ -387,20 +387,23 @@ var maritimeMixedMigrationData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>1</sup> Walter Kemp, “Learning from the Canaries: Lessons from the ‘Cayucos’ Crisis,” New York: International Peace Institute, May 2016, 3.'
+              org: '<sup>14</sup> Walter Kemp, “Learning from the Canaries: Lessons from the ‘Cayucos’ Crisis,” New York: International Peace Institute, May 2016, 3.',
+              url: 'https://www.ipinst.org/2016/05/lessons-from-the-cayucos-crisis'
             },
             {
-              org: '<sup>2</sup> Jorgen Carling and Maria Hernandez-Carretero. “Protecting Europe and Protecting Migrants? Strategies for Managing Unauthorised Migration from Africa,” <em>British Journal of Politics and International Relations</em> 13 (2011): 43, doi:10.1111/j.1467-856X.2010.00438.x.'
+              org: '<sup>15</sup> Jorgen Carling and Maria Hernandez-Carretero. “Protecting Europe and Protecting Migrants? Strategies for Managing Unauthorised Migration from Africa,” <em>British Journal of Politics and International Relations</em> 13 (2011): 43, doi:10.1111/j.1467-856X.2010.00438.x.',
+              url: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-856X.2010.00438.x'
             },
             {
-              org: '<sup>3</sup> Bram Frouws and Christopher Horwood, “Smuggled South,” Regional Mixed Migration Secretariat, March 2017,2,',
+              org: '<sup>16</sup> Bram Frouws and Christopher Horwood, “Smuggled South,” Regional Mixed Migration Secretariat, March 2017,2.',
               url: 'http://regionalmms.org/images/briefing/Smuggled_South.pdf'
             },
             {
-              org: '<sup>4</sup> Frouws and Horwood, “Smuggled South,” 15.'
+              org: '<sup>17</sup> Ibid.'
             },
             {
-              org: '<sup>5</sup> Simon Massey, “A Hidden Catastrophe: Irregular Migration within the Comoros Archipelago,” in <em>Eurafrican Migration: Legal, Economic and Social Responses to Irregular Migration</em>, eds. Simon Massey and Rino Coluccello (London: Palgrave Pivot, 2015), 109.'
+              org: '<sup>18</sup> Simon Massey, “A Hidden Catastrophe: Irregular Migration within the Comoros Archipelago,” in <em>Eurafrican Migration: Legal, Economic and Social Responses to Irregular Migration</em>, eds. Simon Massey and Rino Coluccello (London: Palgrave Pivot, 2015), 109.',
+              url: 'https://link.springer.com/chapter/10.1057/9781137391353_7'
             }
           ]
         }
@@ -421,13 +424,13 @@ var maritimeMixedMigrationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        legend: 'Measure of Legal Protections',
+        legend: 'Measure of legal protections',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['MMM_MAP_LEGAL'];
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measure of Legal Protections:<br />" + tooltipVal + " / 100";
+          return "Measure of legal protections:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, csv) {
@@ -476,13 +479,13 @@ var maritimeMixedMigrationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        legend: 'Measure of Vulnerability',
+        legend: 'Measure of vulnerability',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['MMM_MAP_VULNERABLE'];
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measure of Vulnerability:<br />" + tooltipVal + " / 100";
+          return "Measure of vulnerability:<br />" + tooltipVal + " / 100 <br />Lower scores represent more vulnerable populations.";
 
         },
         load: function(index, csv) {
@@ -509,11 +512,25 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'p',
-          html: 'In oil-rich Gabon and Equatorial Guinea, children are trafficked into the oil industry, domestic servitude, or the commercial sex trade.18 Many of these victims arrive by cramped boat from southern Nigeria. These migrations take several days and there is a high risk of boats capsizing.19 Due to limited monitoring services, few statistics are available to prove exactly how many children begin and complete this journey.'
+          html: 'In oil-rich Gabon and Equatorial Guinea, children are trafficked into the oil industry, domestic servitude, or the commercial sex trade.<sup>19</sup> Many of these victims arrive by cramped boat from southern Nigeria. These migrations take several days and there is a high risk of boats capsizing.<sup>20</sup> Due to limited monitoring services, few statistics are available to prove exactly how many children begin and complete this journey.'
         },
         {
           tag: 'p',
-          html: 'In Gabon, girls are trafficked through middlepersons, including women called “aunties,” who facilitate opportunities for girls to work for wealthy African or European families.20 The risks of sexual abuse and forced child labor are severe. Often, girls fleeing situations of forced domestic labor fall into prostitution and pedophilia networks. Young girls from neighboring countries also run the risk of becoming child brides in Gabon. Boys who come to Gabon seeking work can be lured into unpaid and unsafe jobs, or forced into street begging. Others are trafficked in the fishing sector, forced into dangerous jobs on the open sea.'
+          html: 'In Gabon, girls are trafficked through middlepersons, including women called “aunties,” who facilitate opportunities for girls to work for wealthy African or European families. The risks of sexual abuse and forced child labor are severe. Often, girls fleeing situations of forced domestic labor fall into prostitution and pedophilia networks. Young girls from neighboring countries also run the risk of becoming child brides in Gabon. Boys who come to Gabon seeking work can be lured into unpaid and unsafe jobs, or forced into street begging. Others are trafficked in the fishing sector, forced into dangerous jobs on the open sea.'
+        },
+        {
+          tag: 'links',
+          items: [
+            {
+              org: '<sup>19</sup> IRIN News, “Africa: High Cost of Child Trafficking,” <em>ReliefWeb</em>, 25 January 2012.',
+              url: 'http://reliefweb.int/report/gabon/africa-high-cost-child-trafficking'
+            },
+            {
+              org: '<sup>20</sup> “Borderline Slavery,” <em>Human Rights Watch</em>.',
+              url: 'https://www.hrw.org/report/2003/03/31/borderline-slavery'
+            }
+
+          ]
         }
       ]
     },
@@ -565,7 +582,9 @@ var maritimeMixedMigrationData = {
         },
         {
           tag: 'blockquote',
-          html: '“The principal characteristics of mixed migration flows include the irregular nature of and the multiplicity of factors driving such movements, and the differentiated needs and profiles of the persons involved. Mixed flows have been defined as ‘complex population movements including refugees, asylum seekers, economic migrants and other migrants’. Unaccompanied minors, environmental migrants, smuggled persons, victims of trafficking and stranded migrants, among others, may also form part of a mixed flow.”'
+          html: 'The principal characteristics of mixed migration flows include the irregular nature of and the multiplicity of factors driving such movements, and the differentiated needs and profiles of the persons involved. Mixed flows have been defined as \"complex population movements including refugees, asylum seekers, economic migrants and other migrants\". Unaccompanied minors, environmental migrants, smuggled persons, victims of trafficking and stranded migrants, among others, may also form part of a mixed flow.',
+          source: 'International Organization for Migration',
+          link: 'https://www.iom.int/jahia/webdav/shared/shared/mainsite/microsites/IDM/workshops/return_migration_challenges_120208/mixed_migration_flows.pdf'
         },
         {
           tag: 'p',
