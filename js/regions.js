@@ -14,123 +14,171 @@ var includedCountries = ['AGO', 'BEN', 'CMR', 'CPV', 'COM', 'COG', 'DJI', 'COD',
 var countryPaths = {
   "AGO": {
     "region": "southernCoast",
-    "index": 1
+    "index": 1,
+    'name': 'Angola'
   },
   "BEN": {
     "region": "northernGulf",
-    "index": 4
+    "index": 4,
+    name: 'Benin'
   },
   "CMR": {
     "region": "southernGulf",
-    "index": 2
+    "index": 2,
+    name: 'Cameroon'
   },
   "CPV": {
     "region": "westernCoast",
-    "index": 1
+    "index": 1,
+    name: 'Cabo Verde'
   },
   "COM": {
     "region": "westIndianOcean",
-    "index": 4
+    "index": 4,
+    name: "Comoros"
   },
   "COG": {
     "region": "southernGulf",
-    "index": 5
+    "index": 5,
+    name: 'Congo'
   },
   "DJI": {
     "region": "easternCoast",
-    "index": 5
+    "index": 5,
+    name: 'Djibouti'
   },
   "COD": {
     "region": "southernGulf",
-    "index": 6
+    "index": 6,
+    name: 'DRC'
   },
   "GNQ": {
     "region": "southernGulf",
-    "index": 3
+    "index": 3,
+    name: 'Equatorial Guinea'
   },
   "GAB": {
     "region": "southernGulf",
-    "index": 4
+    "index": 4,
+    name: 'Gabon'
   },
   "GMB": {
     "region": "westernCoast",
-    "index": 3
+    "index": 3,
+    name: 'The Gambia'
   },
   "GHA": {
     "region": "northernGulf",
-    "index": 2
+    "index": 2,
+    name: 'Ghana'
   },
   "GIN": {
     "region": "westernCoast",
-    "index": 5
+    "index": 5,
+    name: 'Guinea'
   },
   "GNB": {
     "region": "westernCoast",
-    "index": 4
+    "index": 4,
+    name: 'Guinea-Bissau'
   },
   "CIV": {
     "region": "northernGulf",
-    "index": 1
+    "index": 1,
+    name: "Côte d'Ivoire"
   },
   "KEN": {
     "region": "easternCoast",
-    "index": 3
+    "index": 3,
+    name: 'Kenya'
   },
   "LBR": {
     "region": "westernCoast",
-    "index": 7
+    "index": 7,
+    name: "Liberia"
   },
   "MDG": {
     "region": "westIndianOcean",
-    "index": 1
+    "index": 1,
+    name: "Madagascar"
   },
   "MUS": {
     "region": "westIndianOcean",
-    "index": 2
+    "index": 2,
+    name: 'Mauritius'
   },
   "MOZ": {
     "region": "easternCoast",
-    "index": 1
+    "index": 1,
+    name: 'Mozambique'
   },
   "NAM": {
     "region": "southernCoast",
-    "index": 2
+    "index": 2,
+    name: 'Namibia'
   },
   "NGA": {
     "region": "northernGulf",
-    "index": 5
+    "index": 5,
+    name: 'Nigeria'
   },
   "STP": {
     "region": "southernGulf",
-    "index": 1
+    "index": 1,
+    name: 'São Tomé and Príncipe'
   },
   "SEN": {
     "region": "westernCoast",
-    "index": 2
+    "index": 2,
+    name: 'Senegal'
   },
   "SYC": {
     "region": "westIndianOcean",
-    "index": 3
+    "index": 3,
+    name: 'Seychelles'
   },
   "SLE": {
     "region": "westernCoast",
-    "index": 6
+    "index": 6,
+    name: 'Sierra Leone'
   },
   "SOM": {
     "region": "easternCoast",
-    "index": 4
+    "index": 4,
+    name: 'Somalia'
   },
   "ZAF": {
     "region": "southernCoast",
-    "index": 3
+    "index": 3,
+    name: "South Africa"
   },
   "TZA": {
     "region": "easternCoast",
-    "index": 2
+    "index": 2,
+    name: 'Tanzania'
   },
   "TGO": {
     "region": "northernGulf",
-    "index": 3
+    "index": 3,
+    name: "Togo"
+  },
+  'westernCoast': {
+    name: 'Western Coast'
+  },
+  'northernGulf': {
+    name: "Northern Gulf"
+  },
+  'southernGulf': {
+    name: 'Southern Gulf'
+  },
+  'southernCoast': {
+    name: 'Southern Coast'
+  },
+  "westIndianOcean": {
+    name: "West Indian Ocean"
+  },
+  'easternCoast' : {
+    name: "Eastern Coast"
   }
 }
 
@@ -257,21 +305,10 @@ if (width > 1199 || window.navigator.userAgent.indexOf('MSIE') != -1) {
     });
 
 } else { // redirect to PDF if on a small screen !
-  window.location.href = "../stable-seas-executive-brief.html";
+  window.location.href = "../../assets/summaries/StableSeasBooklet.pdf";
 }
 
-
-// 2 Tutorial ? (if never loaded ??) Will we implement this? Not MVP ...
-
-// Small divs pop up on 3-step walkthrough
-// 1 Issue Area menu
-// 2 Card menu
-// 3 Map & card interactivity
-
-
-// Ad hoc elements - ### Add these to templates !
-
-$('#resources-menu').prepend('<li><a href="../stable-seas-executive-brief.pdf" target="_blank">Executive Summary</a></li>');
+$('#resources-menu').prepend('<li><a href="../../assets/summaries/StableSeasBooklet.pdf" target="_blank">Executive Summary</a></li>');
 
 
 // 3 Event listeners
@@ -293,12 +330,12 @@ $('#map-svg').on('mouseenter', '.stableseas', function(e) {
   //var iso3 = e.getAttribute('data-iso3');
   var iso3 = d3.select(this).attr('data-iso3');
   var iso = iso3.split(' ');
-//  console.log(iso);
+  //  console.log(iso);
   //console.log(iso3);
   if (iso.length > 1) {
     pulse(iso[0]);
     pulse(iso[1]);
-  //  console.log('double!');
+    //  console.log('double!');
   }
   pulse(iso3);
 });
@@ -306,12 +343,12 @@ $('#map-svg').on('mouseenter', '.stableseas', function(e) {
 $('#map-svg').on('mouseleave', '.stableseas', function() {
   var iso3 = d3.select(this).attr('data-iso3');
   var iso = iso3.split(' ');
-//  console.log(iso);
+  //  console.log(iso);
   //console.log(iso3);
   if (iso.length > 1) {
     unpulse(iso[0]);
     unpulse(iso[1]);
-  //  console.log('double!');
+    //  console.log('double!');
   }
   unpulse(iso3);
 });
@@ -1098,11 +1135,12 @@ function buildRadar(obj, container, cardIndex, elIndex) {
   //console.log('card', cardIndex);
   //console.log('el', elIndex);
   var iso3 = regionsData[region].cards[cardIndex].map.highlights;
+  var activePlot = "";
 
   var radarAverages = {};
   for (key in radarData) {
     var sum = 0;
-    radarData[key].forEach(function (rec) {
+    radarData[key].forEach(function(rec) {
       sum += rec.value;
     })
     radarAverages[key] = sum / 9;
@@ -1114,6 +1152,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
       radarData.africa
     ];
     var color = regionsData[region].metadata.color;
+    activePlot = "Africa"
   } else if (cardIndex == 0 && region != 'overview') {
 
     if (radarAverages[region] > radarAverages.africa) {
@@ -1122,6 +1161,11 @@ function buildRadar(obj, container, cardIndex, elIndex) {
         radarData[region],
         radarData.africa
       ];
+      activePlot = region;
+    //    secondplot = "Africa";
+
+      var color = [regionsData[region].metadata.color, 'gray']
+
     } else {
       cardRadarData = [
 
@@ -1129,32 +1173,43 @@ function buildRadar(obj, container, cardIndex, elIndex) {
         radarData[region]
 
       ];
+
+    //  firstPlot = "Africa";
+      activePlot = region;
+      color = ['gray', regionsData[region].metadata.color];
+
     }
 
 
-    var color = [regionsData[region].metadata.color, '#0d3a58']
 
   } else {
-    if (radarAverages[iso3] < radarAverages[region]) {
+    if (radarAverages[iso3] < radarAverages.africa) {
       cardRadarData = [
-        radarData[region],
+        radarData.africa,
         radarData[iso3]
       ];
+
+  //    firstPlot = 'Africa';
+      activePlot = iso3;
+      color = ['gray', regionsData[region].metadata.color];
+
     } else {
       cardRadarData = [
         radarData[iso3],
-        radarData[region]
+        radarData.africa
 
       ];
+      color = [regionsData[region].metadata.color, 'gray'];
+
+      activePlot = iso3;
+  //    secondPlot = "Africa";
     }
 
 
-    color = ['gray', regionsData[region].metadata.color];
-  }
-  {
+  } {
     // setup a div with class called "radarChart" so that we can put chart to this div.
     var chartIndex = Math.random().toString(36).substring(5); // random chart index so that it won't add 2 charts into 1 div.
-    d3.select('#card' + cardIndex).append('div')
+    var chart = d3.select('#card' + cardIndex).append('div')
       .classed('radarChart radarChart-' + chartIndex, true);
     // setup all need for chart
     var margin = {
@@ -1163,13 +1218,11 @@ function buildRadar(obj, container, cardIndex, elIndex) {
         bottom: 60,
         left: 80
       },
-      // We should get width of "card" div
+
       cardWidth = w / 3.5;
-      width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
+    width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
       height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-    // var color = d3.scaleOrdinal() // setup color for lines
-    //     .range(["#EDC951", "#CC333F", "#00A0B0"]);
-    // console.log(color);
+
     var radarChartOptions = {
       w: width,
       h: height,
@@ -1184,8 +1237,9 @@ function buildRadar(obj, container, cardIndex, elIndex) {
     };
     //Call function to draw the Radar chart
     RadarChart(".radarChart-" + chartIndex, cardRadarData, radarChartOptions);
-    var aspect = width / height,
-      chart = d3.select('.radarChart');
+    var aspect = width / height;
+    //  chart = d3.select('.radarChart');
+
     d3.select(window)
       .on("resize", function() {
         var targetWidth = chart.node().getBoundingClientRect().width;
@@ -1193,6 +1247,85 @@ function buildRadar(obj, container, cardIndex, elIndex) {
         chart.attr("height", targetWidth / aspect);
       });
   }
+
+//  console.log('Card' + cardIndex, firstPlot, secondPlot);
+
+  var radarLegend = chart.append('div')
+    .classed('col-sm-12', true)
+    .style('height', '80px');
+
+  if (region == 'overview') {
+
+    var color = regionsData[region].metadata.color;
+
+    radarLegend.append('div')
+      .classed('col-sm-3', true);
+
+    radarLegend = radarLegend.append('div')
+        .classed('col-sm-6', true)
+      .style('height', '100%');
+    //  .style('background-color', color);
+
+    radarLegend.append('div')
+      .classed('col-sm-2', true)
+      .style('height', '40%')
+      .style('background-color', 'gray');
+
+    radarLegend.append('div')
+      .classed('col-sm-8', true)
+      .html("African index averages")
+  } else {
+
+    var first = radarLegend.append('div')
+      .classed('col-sm-6', true)
+      .style('height', '100%');
+
+    var second = radarLegend.append('div')
+      .classed('col-sm-6', true)
+      .style('height', '100%');
+
+
+    first.append('div')
+      .classed('col-sm-2', true);
+
+    first.append('div')
+      .classed('col-sm-2', true)
+      .style('height', '40%')
+      .style('background-color', regionsData[region].metadata.color);
+
+
+
+
+
+    second.append('div')
+      .classed('col-sm-2', true)
+    second.append('div')
+      .classed('col-sm-2', true)
+      .style('height', '40%')
+      .style('background-color', 'gray');
+
+        var activeHTML = "";
+        if (cardIndex == 0 && region != 'overview') {
+          activeHTML = 'Averages for ' + countryPaths[region].name;
+
+        } else {
+          activeHTML = 'Values for <br />' + countryPaths[iso3].name;
+        }
+
+        first.append('div')
+          .classed('col-sm-8', true)
+          .html(activeHTML);
+
+        second.append('div')
+          .classed('col-sm-8', true)
+          .html('African averages');
+
+
+
+
+
+  }
+
 }
 
 
@@ -1282,7 +1415,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
             return null;
           } else {
             if (d.properties.ISO_Ter2) {
-              return d.properties.ISO_Ter1 + ' ' + d.properties.ISO_Ter2 ;
+              return d.properties.ISO_Ter1 + ' ' + d.properties.ISO_Ter2;
             } else {
               return d.properties.ISO_Ter1;
             }
@@ -1302,7 +1435,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
         .on('click', function(d) {
           console.log(d)
 
-        //  loadCountryCard(d3.select(this).attr('data-iso3'))
+          //  loadCountryCard(d3.select(this).attr('data-iso3'))
         });
 
       // Countries
@@ -1352,7 +1485,7 @@ function buildMap(json) { // ### Need some way to attach EEZ layer to specific c
 
         })
         .on('click', function(d) {
-         loadCountryCard(d3.select(this).attr('data-iso3'));
+          loadCountryCard(d3.select(this).attr('data-iso3'));
         });
 
       var wSaharaCoords = [
@@ -1428,7 +1561,7 @@ function loadCountryCard(iso3) {
 }
 
 d3.selection.prototype.moveToFront = function() {
-//  console.log('front!');
+  //  console.log('front!');
   return this.each(function() {
     this.parentNode.appendChild(this);
   });
