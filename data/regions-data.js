@@ -2662,7 +2662,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cameroon ranks highest in International Cooperation. Cameroon's score of 86 in this area is high relative to its other issue scores,          due in part to Cameroon's leadership in regional efforts like the Yaounde Code of Conduct and its strong relationships with maritime neighbors.. Cameroon can further improve upon this area of relative strength by ratifying important international agreements. Cameroon is one of only five coastal Gulf of Guinea countries to have not signed CSUA, the Convention for the Suppression of Unlawful Acts against the Safety of Maritime Navigation.  "
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cameroon scores highest in International Cooperation. Cameroon's score of 86 in this area is high relative to its other issue scores,          due in part to Cameroon's leadership in regional efforts like the Yaounde Code of Conduct and its strong relationships with maritime neighbors.. Cameroon can further improve upon this area of relative strength by ratifying important international agreements. Cameroon is one of only five coastal Gulf of Guinea countries to have not signed CSUA, the Convention for the Suppression of Unlawful Acts against the Safety of Maritime Navigation.  "
           },
           {
             "tag": "bigtext",
@@ -2670,7 +2670,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cameroon is Illicit Trades. Cameroon scores 8 in this area,  about the same as  the regional average of 44. To further             improve upon this score, Cameroon can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Cameroon can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Cameroon is Illicit Trade. Cameroon scores 21 in this area, below  the regional average of 36. Cameroon recognizes the seriousness of this issue, as evidenced by a 2017 government report which estimated the cost of illicit trade to be more than a 100 billion francs CFA. Steps are being taken to combat this issue, including the recent seizure of a ship participating in the illicit arms trade.  To further             improve upon this score, Cameroon can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Cameroon can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
