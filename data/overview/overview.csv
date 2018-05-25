@@ -1,31 +1,31 @@
-country,iso3,strength,Strength,weaknessDjibouti,Weakness Djibouti,weaknessYaounde,Weakness Yaounde,Average
-Angola,AGO,illicitTrade,Illicit Trades,,,ruleOfLaw,Rule of Law,0.49
-Benin,BEN,ruleOfLaw,Rule of Law,,,piracy,Piracy,0.46
-Cabo Verde,CPV,maritimeMixedMigration,Mixed Migration,,,maritimeEnforcement,Maritime Enforcement Capacity,0.71
-Cameroon,CMR,maritimeEnforcement,Maritime Enforcement Capacity,,,fisheries,Fisheries,0.47
-Comoros,COM,internationalCooperation,International Cooperation,piracy,Piracy and Armed Robbery,,,0.49
-Congo,COG,maritimeMixedMigration,Maritime Mixed Migration,,,ruleOfLaw,Rule of Law,0.48
-Côte d'Ivoire,CIV,internationalCooperation,International Cooperation,,,maritimeMixedMigration,Maritime Mixed Migration,0.51
-Djibouti,DJI,illicitTrade,Illicit Trades,internationalCooperation,International Cooperation,,,0.52
-DRC,COD,illicitTrade,Illicit Trades,,,blueEconomy,Blue Economy,0.37
-Equatorial Guinea,GNQ,illicitTrade,Illicit Trades,,,ruleOfLaw,Rule of Law,0.5
-Gabon,GAB,piracy,Piracy and Armed Robbery,,,illicitTrade,Illicit Trades,0.56
-Ghana,GHA,internationalCooperation,International Cooperation,,,piracy,Piracy and Armed Robbery,0.54
-Guinea,GIN,internationalCooperation,International Cooperation,,,blueEconomy,Blue Economy,0.48
-Guinea-Bissau,GNB,piracy,Piracy and Armed Robbery,,,maritimeEnforcement,Maritime Enforcement Capacity,0.53
-Kenya,KEN,piracy,Piracy and Armed Robbery,blueEconomy,Blue Economy,,,0.55
-Liberia,LBR,piracy,Piracy and Armed Robbery,,,maritimeEnforcement,Maritime Enforcement Capacity,0.48
-Madagascar,MDG,fisheries,Fisheries,illicitTrade,Illicit Trades,,,0.54
-Mauritius,MUS,coastalWelfare,Coastal Welfare,illicitTrade,Illicit Trades,,,0.69
-Mozambique,MOZ,fisheries,Fisheries,illicitTrade,Illicit Trades,,,0.55
-Namibia,NAM,illicitTrade,Illicit Trades,,,,,0.7
-Nigeria,NGA,maritimeEnforcement,Maritime Enforcement Capacity,,,coastalWelfare,Coastal Welfare,0.47
-São Tomé and Príncipe,STP,illicitTrade,Illicit Trades,,,piracy,Piracy and Armed Robbery,0.59
-Senegal,SEN,ruleOfLaw,Rule of Law,,,illicitTrade,Illicit Trades,0.62
-Seychelles,SYC,coastalWelfare,Coastal Welfare,maritimeEnforcement,Maritime Enforcement,,,0.7
-Sierra Leone,SLE,fisheries,Fisheries,,,maritimeEnforcement,Maritime Enforcement Capacity,0.58
-Somalia,SOM,fisheries,Fisheries,internationalCooperation,International Cooperation,,,0.35
-South Africa,ZAF,internationalCooperation,International Cooperation,coastalWelfare,Coastal Welfare,,,0.7
-Tanzania,TZA,fisheries,Fisheries,illicitTrade,Illicit Trades,,,0.61
-The Gambia,GMB,piracy,Piracy and Armed Robbery,,,fisheries,Fisheries,0.56
-Togo,TGO,maritimeMixedMigration,Maritime Mixed Migration,,,fisheries,Fisheries,0.45
+country,iso3,strength,Strength,weaknessDjibouti,Weakness Djibouti,weaknessYaounde,Weakness Yaounde,Average,,
+Angola,AGO,illicitTrade,Illicit Trades,,,ruleOfLaw,Rule of Law,0.5,,
+Benin,BEN,ruleOfLaw,Rule of Law,,,piracy,Piracy,0.48,,
+Côte d'Ivoire,CIV,internationalCooperation,International Cooperation,,,maritimeMixedMigration,Maritime Mixed Migration,0.53,,
+Cameroon,CMR,maritimeEnforcement,Maritime Enforcement Capacity,,,fisheries,Fisheries,0.48,,
+DRC,COD,illicitTrade,Illicit Trades,,,blueEconomy,Blue Economy,0.38,,
+Congo,COG,maritimeMixedMigration,Maritime Mixed Migration,,,ruleOfLaw,Rule of Law,0.49,,
+Comoros,COM,internationalCooperation,International Cooperation,piracy,Piracy and Armed Robbery,,,0.51,,
+Cabo Verde,CPV,maritimeMixedMigration,Mixed Migration,,,maritimeEnforcement,Maritime Enforcement Capacity,0.72,,
+Djibouti,DJI,illicitTrade,Illicit Trades,internationalCooperation,International Cooperation,,,0.54,,
+Gabon,GAB,piracy,Piracy and Armed Robbery,,,illicitTrade,Illicit Trades,0.57,,
+Ghana,GHA,internationalCooperation,International Cooperation,,,piracy,Piracy and Armed Robbery,0.56,,
+Guinea,GIN,internationalCooperation,International Cooperation,,,blueEconomy,Blue Economy,0.5,,
+The Gambia,GMB,piracy,Piracy and Armed Robbery,,,fisheries,Fisheries,0.57,,
+Guinea-Bissau,GNB,piracy,Piracy and Armed Robbery,,,maritimeEnforcement,Maritime Enforcement Capacity,0.53,,
+Equatorial Guinea,GNQ,illicitTrade,Illicit Trades,,,ruleOfLaw,Rule of Law,0.5,,
+Kenya,KEN,piracy,Piracy and Armed Robbery,blueEconomy,Blue Economy,,,0.57,,
+Liberia,LBR,piracy,Piracy and Armed Robbery,,,maritimeEnforcement,Maritime Enforcement Capacity,0.49,,
+Madagascar,MDG,fisheries,Fisheries,illicitTrade,Illicit Trades,,,0.56,,
+Mozambique,MOZ,fisheries,Fisheries,illicitTrade,Illicit Trades,,,0.57,,
+Mauritius,MUS,coastalWelfare,Coastal Welfare,illicitTrade,Illicit Trades,,,0.7,,
+Namibia,NAM,illicitTrade,Illicit Trades,,,,,0.72,,
+Nigeria,NGA,maritimeEnforcement,Maritime Enforcement Capacity,,,coastalWelfare,Coastal Welfare,0.47,,
+Senegal,SEN,ruleOfLaw,Rule of Law,,,illicitTrade,Illicit Trades,0.65,,
+Sierra Leone,SLE,fisheries,Fisheries,,,maritimeEnforcement,Maritime Enforcement Capacity,0.58,,
+Somalia,SOM,fisheries,Fisheries,internationalCooperation,International Cooperation,,,0.36,,
+São Tomé and Príncipe,STP,illicitTrade,Illicit Trades,,,piracy,Piracy and Armed Robbery,0.6,,
+Seychelles,SYC,coastalWelfare,Coastal Welfare,maritimeEnforcement,Maritime Enforcement,,,0.7,,
+Togo,TGO,maritimeMixedMigration,Maritime Mixed Migration,,,fisheries,Fisheries,0.47,,
+Tanzania,TZA,fisheries,Fisheries,illicitTrade,Illicit Trades,,,0.61,,
+South Africa,ZAF,internationalCooperation,International Cooperation,coastalWelfare,Coastal Welfare,,,0.69,,

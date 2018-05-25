@@ -355,13 +355,13 @@ var ruleOfLawData = {
         translate: [],
         highlights: null,
         tooltip: true,
-        legend: 'Measure of efficacy',
+        legend: 'Freedom House Functioning of Government Score',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['efficacy'];
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measure of efficacy:<br />" + tooltipVal + " / 100";
+          return "Freedom House Functioning of Government Score:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, js) { // ### do we need the 'js' parameter??
