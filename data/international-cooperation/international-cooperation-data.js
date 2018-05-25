@@ -65,8 +65,8 @@ var internationalCooperationData = {
         {
           tag: 'blockquote',
           html: '“We must continue in good spirit of partnership and alliances to support our continent and ensure that trade can advance freely. No one nation can deal with the challenges that we face in the world today. The ocean is so vast that a united effort is required to make sure that our oceans are safe.”',
-          source: 'Rear Adm. B.K. Mhlana, Fleet Flag Officer<br />South African Navy<sup>1</sup>',
-          link: 'http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
+          source: 'Rear Adm. B.K. Mhlana, Fleet Flag Officer<br />South African Navy',
+          link: 'http://www.marsecreview.com/2014/11/exercise-cutlass-express-2015/' //old link, related article: http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
         },
         {
           tag: 'p',
@@ -89,63 +89,7 @@ var internationalCooperationData = {
         {
           tag: 'p',
           html: 'This section is divided into five parts. The first will discuss global legal efforts, including seven multilateral treaties related to the maritime domain. The second will highlight the 2050 Africa’s Integrated Maritime Strategy (AIMS 2050) and Lomé Charter as examples of continental coordination. Next, we compare two regional maritime security strategies: the Yaoundé Code of Conduct (West and Central Africa) and the Jeddah Amendment to the Djibouti Code of Conduct (East Africa and the Arabian Peninsula). The fourth part highlights disputes of maritime boundaries as impediments to governance. The final section concludes with a discussion of our methodology.'
-        },
-
-        // {
-        //   tag: 'p',
-        //   html: 'International cooperation is strongly linked to a stronger rule of law and greater maritime enforcement capacity. In countries with high international cooperation scores, maritime mixed migration is relatively low.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: '*** An image here? Would fill the space nicely ***'
-        // },
-        // {
-        //   tag: 'img',
-        //   src: '../../assets/maritime-enforcement/cameroon-coast-guard.jpg',
-        //   alt: 'Cameroon Coast Guard',
-        //   caption: 'Centre for Multinational Coordination (CMC) in Douala, Cameroon. Photo by Jean-Pierre Larroque, OEF.'
-        //   // from http://www.ghananewsagency.org/social/ghana-and-u-s-maritime-forces-complete-combined-operation-73501
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'This section is divided into five parts. The first will discuss global legal efforts, including seven multilateral treaties related to the maritime domain. The second will highlight the 2050 Africa’s Integrated Maritime Strategy (AIMS 2050) and Lomé Charter as examples of continental coordination. Next, we compare two regional maritime security strategies: the Yaoundé Code of Conduct (West and Central Africa) and the Jeddah Amendment to the Djibouti Code of Conduct (East Africa and the Arabian Peninsula). The fourth part highlights disputes of maritime boundaries as impediments to governance will follow. The final section will conclude with a discussion of our methodology.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'The main ramification of UNCLOS for sub-Saharan Africa was economic. Suddenly, African nations had a legal framework within which they could assert their rights to govern and share in the profits of the resources off of their shores. Potential financial gains for African states from the taxation of maritime resources continue to be massive, but equally significant is the assertion of sovereignty to govern these resources in a manner which protects the long-term economic, environmental, and security interests of their people.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
-        // },
-        {
-          tag: 'links',
-          items: [
-            // {
-            //   org: '*** Still need these??*** <sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
-            //   url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
-            // },
-            // {
-            //   org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
-            //   url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
-            // },
-            {
-              org: '<sup>1</sup> David Rider, “Exercise Cutlass Express 2015,” <em>Maritime Security Review</em>, 21 November 2014.',
-              url: 'http://www.marsecreview.com/2014/11/exercise-cutlass-express-2015/'
-            }
-          ]
         }
-        // { tag: 'h3',
-        //   text: 'The International Cooperation Score'
-        // },
-        // {tag: 'indexTable'
-        // },
-        // { tag: 'caption',
-        //   text: 'Note: scores are rounded to the nearest whole number.'
-        // },
-        // { tag: 'p',
-        //    html: 'Unlike other scores in this index, an International Cooperation Score can be greatly improved without vast material capabilities. The lowest-scoring states are among the few abstainers to important international maritime legal agreements, such as the UN Fish Stocks Agreement and the Convention for the Suppression of Unlawful Acts against the Safety of Maritime Navigation. More states signing, ratifying, and complying with these kinds of agreements would boost global and regional efforts to improve African maritime governance.'
-        // },
       ] // end of els array
     }, // End of first element of cards object
     { // Card 1
@@ -478,11 +422,11 @@ var internationalCooperationData = {
         //###Insert Map: This one is tough. Do you think it would be possible to recalculate the scores in the enforcement section but based on the AU’s five regions (only 4 of which are relevant to SSA)? I think it could be interesting for getting an idea of what larger regions in SSA have the capacity to really improve governance towards AIMS
         {
           tag: 'p',
-          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS)<sup>2</sup> to provide a framework for enhanced governance in Africa’s maritime domain, develop a platform for shared maritime policy, and facilitate the development of the <a class="blue-economy inline" href="./blue-economy">Blue Economy</a>. Implementation of the ambitious strategy continues to be challenging, but huge strides were made by the adoption of the African Charter on Maritime Security, Safety and Development in Africa (the Lomé Charter) in October 2016. The Lomé Charter moves the AIM strategy from a soft law, non-binding approach to a hard law, legally binding treaty which clearly defines the blue economy and emphasizes linkages between maritime safety, security, and marine resource development.'
+          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS)<sup>2</sup> to provide a framework for enhanced governance in Africa’s maritime domain, develop a platform for shared maritime policy, and facilitate the development of the <a class="blue-economy inline" href="../blue-economy">Blue Economy</a>. Implementation of the ambitious strategy continues to be challenging, but huge strides were made by the adoption of the African Charter on Maritime Security, Safety and Development in Africa (the Lomé Charter) in October 2016. The Lomé Charter moves the AIM strategy from a soft law, non-binding approach to a hard law, legally binding treaty which clearly defines the blue economy and emphasizes linkages between maritime safety, security, and marine resource development.<sup>1</sup>'
         },
         {
           tag: 'p',
-          html: 'The African maritime domain is confronted with a variety of security and governance challenges from <a class="piracy inline" href="../../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../../fisheries#1">IUU Fishing</a>. AIMS builds a comprehensive, unified set of maritime policies to address these challenges, including issues of economic development, environmental protection, maritime crime, disaster management, and maritime law.<sup>3</sup>'
+          html: 'The African maritime domain is confronted with a variety of security and governance challenges from <a class="piracy inline" href="../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../fisheries">IUU Fishing</a>. AIMS builds a comprehensive, unified set of maritime policies to address these challenges, including issues of economic development, environmental protection, maritime crime, disaster management, and maritime law.<sup>3</sup>'
         },
         {
           tag: 'p',
@@ -503,7 +447,12 @@ var internationalCooperationData = {
 
         {
           tag: 'links',
-          items: [{
+          items: [
+            {
+              org: '<sup>1</sup> Egede, E. (2017, July 16). Africa\'s Lomé Charter on maritime security: What are the next steps?',
+              url: 'http://piracy-studies.org/africas-lome-charter-on-maritime-security-what-are-the-next-steps/'
+            },
+            {
               org: '<sup>2</sup> “African Maritime Action Plan Adopted,” <em>Maritime Executive</em>, 2 February 2014.',
               url: 'http://www.maritime-executive.com/article/African-Maritime-Action-Plan-Adopted-2014-02-02'
             },
@@ -530,8 +479,8 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        legend: 'Regional Coordination in sub-Saharan Africa',
-        categories: ['Jeddah Amendment, Djibouti Code of Conduct', 'Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G'],
+        legend: 'Regional Coordination in Sub-Saharan Africa',
+        categories: ['Djibouti Code of Conduct', 'Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G', 'Yaoundé, no zone'],
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];
           switch (zone.yaounde) {
@@ -550,8 +499,11 @@ var internationalCooperationData = {
             case 6:
               return "Yaoundé Zone G";
               break;
+            case 7:
+              return "Yaounde, No zone";
+              break;
             case 1:
-              return "Jeddah Amendment, Djibouti Code of Conduct";
+              return "Djibouti Code of Conduct";
               break;
             default:
               return null;
@@ -615,7 +567,7 @@ var internationalCooperationData = {
         },
         {
           tag: 'p',
-          html: 'The agreement lays out plans for regional capacity building and information sharing.  It establishes three multinational information exchange centers, based in Sana’a, Yemen, Mombasa, Kenya,  and Dar es Salaam, Tanzania, to lead coordination efforts among northern, central, and southern groupings of signatory states. In addition, the DCoC places a premium on <a class="maritime-enforcement inline" href="./maritime-enforcement#1">maritime domain awareness</a>, and efforts are being made in conjunction with a variety of international partners across the Western Indian Ocean to put in place additional automatic identification and radar systems to provide regional maritime security forces with a clearer picture of their operating environment.'
+          html: 'The agreement lays out plans for regional capacity building and information sharing.  It establishes three multinational information exchange centers, based in Sana’a, Yemen, Mombasa, Kenya,  and Dar es Salaam, Tanzania, to lead coordination efforts among northern, central, and southern groupings of signatory states. In addition, the DCoC places a premium on <a class="maritime-enforcement inline" href="../maritime-enforcement#2">maritime domain awareness</a>, and efforts are being made in conjunction with a variety of international partners across the Western Indian Ocean to put in place additional automatic identification and radar systems to provide regional maritime security forces with a clearer picture of their operating environment.'
         },
         {
           tag: 'p',
@@ -897,124 +849,7 @@ var internationalCooperationData = {
         {
           tag: 'p',
           html: 'In 2012, Kenya leased seven offshore oil blocks that were located in an area of their Exclusive Economic Zone contested by Somalia. Kenya wants a maritime boundary based on a straight line emanating from the land boundary between the states. Somalia wants a boundary based on the median, as stated in UNCLOS Article 15. The two parties submitted their dispute to the International Court of Justice (ICJ) in 2014. '
-        },
-
-        // {
-        //   tag: 'p',
-        //   html: 'International legal developments including UNCLOS have reduced the potential for conflict by establishing common definitions and guidelines pertaining to maritime claims and resources. This work has provided states with many non-violent methods for overcoming contested claims and most African states have entered formal agreements with their neighbors that establish mutually recognized maritime borders.'
-        // },
-        // {
-        //   tag: 'img',
-        //   src: '../../assets/international-cooperation/Jubilee_Oil_Field_of_the_Ghana_National_Petroleum_Corporation_GNPC_and_National_Petroleum_Authority.png', // This should be on the Stable Seas Deck - comments
-        //   alt: 'The Jubilee Oil field straddles the contested boundary between Cote d\'Ivoire and Ghana.',
-        //   caption: 'The Jubilee Oil field straddles the contested boundary between Cote d\'Ivoire and Ghana.'
-        // },
-        //
-        // {
-        //   tag: 'p',
-        //   html: 'The multifaceted drivers of the region\'s ongoing disputes are typified by the disagreement over the maritime boundary between Ghana and Côte d’Ivoire.<sup>3</sup> The border between these former British and French colonies was never fully demarcated, laying the groundwork for the dispute, but what had previously been a low-profile issue took on new significance after the discovery of the massive Jubilee <a class="blue-economy inline" href="../../blue-economy#6">oil and gas field</a> which straddles the contested border. Both sides have since granted competing operating licenses to international oil companies.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'These disputes have not become militarized, but they pose a problem for governance and security in African waters in two ways. First, unresolved maritime boundaries hamper regional security by encouraging states to look at maritime security from the perspective of national defense as opposed to that of <a class="maritime-enforcement inline" href="../../maritime-enforcement#3">law enforcement</a>, which is better suited to the security threats faced in African waters. In addition, non-demarcated maritime boundaries mean states cannot fully develop their <a class="blue-economy inline" href="../../blue-economy">Blue Economy</a>, including industries such as <a class="fisheries inline" href="../../fisheries">fisheries</a>, <a class="blue-economy inline" href="../../blue-economy#6">hydrocarbon</a>, <a class="blue-economy inline" href="../../blue-economy#2">tourism</a>, and <a class="blue-economy inline" href="../../blue-economy#3">shipping</a>.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'The region primarily uses two models for maritime dispute resolution. The first relies on international legal institutions to resolve disputes. This is the model used in the aforementioned case of Ghana and Côte d’Ivoire, which is at the international Tribunal on the Law of the Sea, as well as the case of Kenya and Somalia, whose dispute is on trial at the International Court of Justice.<sup>4</sup> Alternatively, some states have chosen to shelve issues of sovereignty and establish frameworks and institutions for joint development and governance of maritime industries in the disputed areas. As both the <a class="international-cooperation inline internal-ref" data-link="6">African Union</a> and <a class="international-cooperation inline internal-ref" data-link="3">sub-regional organizations</a> turn their attention to governance of the maritime space, there may be room for both to further develop frameworks for maritime dispute resolution which facilitate cooperative economic development and security.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a id="dispute-1" class="dispute-header">Dispute 1</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-2">Dispute 2</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-3">Dispute 3</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-4">Dispute 4</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-5">Dispute 5</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-6">Dispute 6</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-7">Dispute 7</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-8">Dispute 8</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-9">Dispute 9</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'h2',
-        //   html: function () {return '<a class="dispute-header" id="dispute-10">Dispute 10</a>'}
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.'
-        // },
-        // {
-        //   tag: 'links',
-        //   items: [{
-        //       org: '<sup>3</sup> Barthélemy Blédé and André Diouf, “The First Verdict in the Ghana-Côte d’Ivoire Maritime Border Dispute Will be Delivered Tomorrow,” Institute for Security Studies, 24 April 2015,',
-        //       url: 'https://issafrica.org/iss-today/gulf-of-guinea-who-will-win-the-oil-battle'
-        //     },
-        //     {
-        //       org: '<sup>4</sup> David Mwere, “Kenya-Somalia Maritime Boundary Dispute Proceeds to Full Trail, ICJ Rules,” The Star, 2 February 2017,',
-        //       url: 'https://www.the-star.co.ke/news/2017/02/02/kenya-somalia-maritime-boundary-dispute-proceeds-to-full-trial-icj_c1499658'
-        //     },
-        //   ]
-        // },
-        //###Insert image and Video for card
+        }
       ] // end of els array
     },
     // { // Card 3

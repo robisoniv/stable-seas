@@ -358,7 +358,7 @@ var piracyData = {
         },
         switch: function(index) {
 
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
         }
       },
@@ -366,27 +366,13 @@ var piracyData = {
           tag: 'h1',
           text: 'Piracy and Armed Robbery',
         },
-        // {tag: 'indexTable'
-        // },
-        // { tag: 'caption',
-        //   text: 'Note: scores are rounded to the nearest whole number.'
-        // },
         {
           tag: 'caption',
           text: 'An evolving threat on both coasts'
         },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>Dots represent known piracy and armed robbery incidents in 2016. <br> Source: <a href="http://obp.ngo/" target="_blank">Oceans Beyond Piracy</a></em>'
-        // },
         {
           tag: 'p',
-          html: 'Though terrorism is a growing concern in some regions, the most significant challenge to effective maritime governance and security across sub-Saharan Africa is piracy and armed robbery at sea. Piracy and armed robbery are distinguished by geography. Attacks beyond a state’s territorial sea are classified as piracy, those within are armed robbery. In either case, these crimes endanger seafarers, threaten commerce, fund violent actors, and enable transnational criminal networks. The piracy and armed robbery score measures a country’s proximity to piracy and armed robbery incidents using data from Oceans Beyond Piracy’s annual State of Piracy report.'
-        },
-        {
-          tag: 'h2',
-          text: 'Piracy & Armed Robbery and related issues'
+          html: 'Though terrorism is a growing concern in some regions, the most significant challenge to effective maritime governance and security across sub-Saharan Africa is piracy and armed robbery at sea. Piracy and armed robbery are distinguished by geography. Attacks beyond a state’s territorial sea are classified as piracy, those within are armed robbery. In either case, these crimes endanger seafarers, threaten commerce, fund violent actors, and enable transnational criminal networks. The piracy and armed robbery score measures a country’s proximity to piracy and armed robbery incidents using data from Oceans Beyond Piracy’s annual State of Piracy report.<sup>1</sup>'
         },
         {
           tag: 'img',
@@ -541,7 +527,7 @@ var piracyData = {
             .classed(layer, true);
         },
         switch: function(index) {
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
           d3.selectAll('.card' + index + '-layer')
             .classed('invisible', false);
@@ -774,7 +760,7 @@ var piracyData = {
           //.classed(layer, true);
         },
         switch: function(index) {
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
 
           d3.selectAll('.card' + index + '-layer')
@@ -802,7 +788,7 @@ var piracyData = {
         // },
         {
           tag: 'p',
-          html: 'The Gulf of Guinea has earned its reputation for being the most dangerous area of transit in the world for seafarers. Since 2013, attacks in West Africa have occurred at much higher frequency than in East Africa. There were 100 estimated attacks in the Gulf of Guinea in 2013 compared to 23 off the Somali coast. In 2016, 95 attacks were reported in the Gulf of Guinea compared to 27 attacks in the Horn of Africa. This difference is particularly significant in terms of the human cost. Nearly 1,400 more seafarers were subjected to attacks in the Gulf of Guinea than off the coast of Somalia.3 While the number of attacks has remained high in recent years, the model of piracy has gradually shifted.'
+          html: 'The Gulf of Guinea has earned its reputation for being the most dangerous area of transit in the world for seafarers. Since 2013, attacks in West Africa have occurred at much higher frequency than in East Africa. There were 100 estimated attacks in the Gulf of Guinea in 2013 compared to 23 off the Somali coast.<sup>2</sup> In 2016, 95 attacks were reported in the Gulf of Guinea compared to 27 attacks in the Horn of Africa. This difference is particularly significant in terms of the human cost. Nearly 1,400 more seafarers were subjected to attacks in the Gulf of Guinea than off the coast of Somalia.<sup>3</sup> While the number of attacks has remained high in recent years, the model of piracy has gradually shifted.'
         },
         {
           tag: 'h2',
@@ -855,11 +841,11 @@ var piracyData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>2</sup> Madsen, Jens Vestergard, et al. “State of Maritime Piracy 2013,” 8 May 2017,',
+              org: '<sup>2</sup> Madsen, Jens Vestergard, et al. “State of Maritime Piracy 2013,” 8 May 2017.',
               url: 'http://oceansbeyondpiracy.org/sites/default/files/attachments/SoP2013-2PagerDigital_0.pdf'
             },
             {
-              org: '<sup>3</sup> Pigeon, Maisie et al., “State of Maritime Piracy 2016,” 3 May 2017,',
+              org: '<sup>3</sup> Pigeon, Maisie et al., “State of Maritime Piracy 2016,” 3 May 2017.',
               url: 'http://oceansbeyondpiracy.org/reports/sop'
             },
           ]
@@ -1002,7 +988,7 @@ var piracyData = {
         //extent: [[45,24],[88,-15]],
         highlights: [],
         tooltip: false,
-        load: function(index, file) { // ### *** This only should be for the first card ...
+        load: function(index, file) {
           var layer = 'card-' + index + '-layer';
 
           d3.csv(file, function(incidents) {
@@ -1066,11 +1052,7 @@ var piracyData = {
               .attr('pointer-events', 'none')
               .style('opacity', 0.5)
               .classed('bam-terror-incident', true);
-
           });
-
-
-
         },
         switch: function(index) {
           d3.selectAll('.card-' + index + '-layer')
@@ -1121,7 +1103,7 @@ var piracyData = {
         },
         {
           tag: 'p',
-          html: 'Attacks on five vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. The trend continued into 2017 with Oceans Beyond Piracy recording an increase in suspicious activity in the Bab el-Mandeb, including sightings of naval mines and marine-borne improvised explosive devices.'
+          html: 'Attacks on five vessels in the Bab el-Mandeb strait in the last quarter of 2016 raised concerns over increasing maritime instability there. The trend continued into 2017 with Oceans Beyond Piracy recording an increase in suspicious activity in the Bab el-Mandeb, including sightings of naval mines and marine-borne improvised explosive devices.<sup>4</sup>'
         },
         {
         //  gif: true,
@@ -1133,74 +1115,24 @@ var piracyData = {
           tag: 'p',
           html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
         },
-        // {
-        //   tag: 'p',
-        //   html: 'The attack against HSV-2 Swift was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are most likely attributable to spillover from the conflict in Yemen.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'First, many naval operations deployed to address piracy are currently winding down or have ended already: EU NAVFOR’s Operation Atalanta was extended through the end of 2018, but NATO’s Operation Ocean Shield concluded its mission at the end of 20166 leaving limited naval forces in the area available for response. Complicating this further is the fact that the Combined Maritime Forces operations in the region are the only ones with a mandate that explicitly includes combating these evolving maritime terrorism threats.7'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Second, the response required to counter an attack of this nature differs considerably from the response necessary to protect a vessel from a pirate attack. Oceans Beyond Piracy asks if recommendations established to counter piracy in Best Management Practices (Version 4) need to be reevaluated to fit an evolving threat, and similarly, if private security teams require training to combat an array of risks in addition to piracy.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Finally, vessels may decide to re-route around the Bab el-Mandeb strait entirely in order to avoid any potential dangers—a decidedly expensive and difficult option for the shipping industry to take.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
-        // },
-        // {
-        //   gif: true,
-        //   tag: 'video',
-        //   videoId: 'Dscw8gv4maY',
-        //   thumb: '../../assets/piracy/bab-al-mandeb-attacks.gif'
-        // },
-        // {
-        //   tag: 'caption',
-        //   html: 'Note - this is not the correct video, just wanted to indicate functionality of the gif. Try clicking on it ;) ###'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'The attack against HSV-2 <em>Swift</em> was claimed by Houthi rebels, but the majority of the incidents have gone unclaimed, despite most having originated from Houthi-held territory in Yemen. The attacks in the region are therefore most likely attributable to spillover from the conflict in Yemen. As discussed in the <em>Stable Seas: Somali Waters</em>  report, this has myriad implications for shipping traffic in the region.' //### add hyperlink to somali waters report
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'First, many naval operations deployed to address piracy are currently winding down or have ended already: EU NAVFOR’s Operation Atalanta was extended through the end of 2018, but NATO’s Operation Ocean Shield concluded its mission at the end of 2016<sup>6</sup> leaving limited naval forces in the area available for response. Complicating this further is the fact that the Combined Maritime Forces operations in the region are the only ones with a mandate that explicitly includes combating these evolving maritime terrorism threats.<sup>7</sup>'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Second, the response required to counter an attack of this nature differs considerably from the response necessary to protect a vessel from a pirate attack. Oceans Beyond Piracy asks if recommendations established to counter piracy in <em>Best Management Practices (Version 4)</em> need to be reevaluated to fit an evolving threat, and similarly, if private security teams require training to combat an array of risks in addition to piracy.<sup>8</sup>'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'Finally, vessels may decide to re-route around the Bab el-Mandeb strait entirely in order to avoid any potential dangers—a decidedly expensive and difficult option for the shipping industry to take.'
-        // },
-        // {
-        //   tag: 'p',
-        //   html: 'The full extent to which these violent incidents might impact the international community has yet to be seen, but vessel traffic transiting the Gulf of Aden must continue to be vigilant.'
-        // },
         {
           tag: 'links',
           items: [{
-              org: '<sup>5</sup> NYA International, “Special Advisory: Naval mines and MBIEDs off Yemen,” 19 May 2017.',
+              org: '<sup>4</sup> NYA International, “Special Advisory: Naval mines and MBIEDs off Yemen,” 19 May 2017.',
               url: 'https://www.ukpandi.com/fileadmin/uploads/uk-pi/LP%20Documents/LP_Bulletins/170519_NYA_M_Special_Advisory_Yemen.pdf'
-            },
-            {
-              org: '<sup>6</sup> North Atlantic Treaty Organization, “NATO Concludes Successful Counter-piracy Mission,” 15 December 2016.',
-              url: 'http://www.nato.int/cps/en/natohq/news_139420.htm'
-            },
-            {
-              org: '<sup>7</sup> Combined Maritime Forces, “About CMF,” accessed 31 August 2017.',
-              url: 'https://combinedmaritimeforces.com/about/'
-            },
-            {
-              org: '<sup>7</sup> Oceans Beyond Piracy, “Addressing Maritime Insecurity in the Horn of Africa: Can the Existing Counter-Piracy Framework Help Address the Evolving Maritime Threat?” Oceans Beyond Piracy Issue Paper, accessed 29 August 2017.',
-              url: 'http://oceansbeyondpiracy.org/sites/default/files/attachments/Maritime_Insecurity_HornofAfrica_Issue_Paper.pdf'
-            },
+            }
+            // {
+            //   org: '<sup>6</sup> North Atlantic Treaty Organization, “NATO Concludes Successful Counter-piracy Mission,” 15 December 2016.',
+            //   url: 'http://www.nato.int/cps/en/natohq/news_139420.htm'
+            // },
+            // {
+            //   org: '<sup>7</sup> Combined Maritime Forces, “About CMF,” accessed 31 August 2017.',
+            //   url: 'https://combinedmaritimeforces.com/about/'
+            // },
+            // {
+            //   org: '<sup>7</sup> Oceans Beyond Piracy, “Addressing Maritime Insecurity in the Horn of Africa: Can the Existing Counter-Piracy Framework Help Address the Evolving Maritime Threat?” Oceans Beyond Piracy Issue Paper, accessed 29 August 2017.',
+            //   url: 'http://oceansbeyondpiracy.org/sites/default/files/attachments/Maritime_Insecurity_HornofAfrica_Issue_Paper.pdf'
+            // },
           ]
         }
       ] // end of els array
@@ -1239,7 +1171,7 @@ var piracyData = {
         },
         switch: function(index) {
 
-          choropleth(index, 1, 'index');
+          choropleth(index, 1, 'index', false);
 
         }
       },

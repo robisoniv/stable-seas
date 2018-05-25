@@ -108,7 +108,7 @@ var illicitTradeData = {
               org: '<sup>1</sup> Robert J. Kelly, Jess Maghan, and Joseph D. Serio, <em>Illicit Trafficking: A Reference Handbook</em> (Santa Barbara, California: ABC-CLIO, 2005).'
             },
             {
-              org: '<sup>2</sup> The Globalization of Crime: A Transnational Organized Crime Threat Assessment,” United Nations Office on Drugs and Crime, 2010,',
+              org: '<sup>2</sup> The Globalization of Crime: A Transnational Organized Crime Threat Assessment,” United Nations Office on Drugs and Crime, 2010.',
               url: 'https://www.unodc.org/documents/data-and-analysis/tocta/TOCTA_Report_2010_low_res.pdf'
             },
             {
@@ -202,18 +202,18 @@ var illicitTradeData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>4</sup> “World Drug Report 2017,” United Nations Office on Drugs and Crime, 2017,',
+              org: '<sup>4</sup> “World Drug Report 2017,” United Nations Office on Drugs and Crime, 2017.',
               url: 'https://www.unodc.org/wdr2017/index.html'
             },
             {
-              org: '<sup>5</sup> “The Afghan Opiate Trade and Africa 2016: A Baseline Assessment,” United Nations Office on Drugs and Crime, 2017,',
+              org: '<sup>5</sup> “The Afghan Opiate Trade and Africa 2016: A Baseline Assessment,” United Nations Office on Drugs and Crime, 2017.',
               url: 'https://www.unodc.org/documents/data-and-analysis/Afghanistan/Afghan_Opiate_trade_Africa_2016_web.pdf'
             },
             {
               org: '<sup>6</sup> Ibid.'
             },
             {
-              org: '<sup>7</sup> “Transnational Organized Crime in Eastern Africa: A Threat Assessment,” United Nations Office on Drugs and Crime, 2013,',
+              org: '<sup>7</sup> “Transnational Organized Crime in Eastern Africa: A Threat Assessment,” United Nations Office on Drugs and Crime, 2013.',
               url: 'https://www.unodc.org/documents/data-and-analysis/Studies/TOC_East_Africa_2013.pdf'
             },
             {
@@ -226,11 +226,11 @@ var illicitTradeData = {
               org: '<sup>10</sup> Ibid.'
             },
             {
-              org: '<sup>11</sup> Margarita Dimova, “A New Agenda for Policing: Understanding the Heroin Trade in Eastern Africa,” University of London School of Economics and Political Science, N.D., available at,',
+              org: '<sup>11</sup> Margarita Dimova, “A New Agenda for Policing: Understanding the Heroin Trade in Eastern Africa,” University of London School of Economics and Political Science, N.D., available at.',
               url: 'https://ecpr.eu/Filestore/PaperProposal/9e9dd3da-27fa-42cb-96c6-0bc8b5639c99.pdf'
             },
             {
-              org: '<sup>12</sup> “UN Security Council Report of the Monitoring Group on Somalia and Eritrea pursuant to Security Council Resolution 2244 (2015): Somalia,” United Nations Security Council S/2016/919, 28 September 2016,',
+              org: '<sup>12</sup> “UN Security Council Report of the Monitoring Group on Somalia and Eritrea pursuant to Security Council Resolution 2244 (2015): Somalia,” United Nations Security Council S/2016/919, 28 September 2016.',
               url: 'http://www.securitycouncilreport.org/atf/cf/%7B65BFCF9B-6D27-4E9C-8CD3-CF6E4FF96FF9%7D/s_2016_919.pdf'
             },
             {
@@ -265,13 +265,13 @@ var illicitTradeData = {
         // ],
         highlights: [],
         tooltip: true,
-        legend: 'Measurement of cocaine trade',
+        legend: 'Measure of cocaine trade',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['cocaine'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of cocaine trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant <br /> illicit trades.";
+          return "Measure of cocaine trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -296,7 +296,7 @@ var illicitTradeData = {
         },
         {
           tag: 'p',
-          html: 'West African ports have been important transshipment points in the global narcotics trade for decades, though the nature and volume of the trade has been very dynamic. The earliest evidence of Africa’s involvement in the Atlantic Ocean narcotics trade involved Lebanese traffickers sending heroin via Nigeria to the United States in 1952.<sup16</sup> The 1960s saw the region dominate the supply of African marijuana to Europe. Shortly thereafter, in the 1970s and 1980s, Ghanaian and Nigerian traffickers secured a foothold in the supply of cocaine to the United States and Europe.<sup>17</sup> According to a 2007 report by the United Nations Office on Drugs and Crime (UNODC), the region supplied over one-quarter of the 135 to 145 tons of annual cocaine demand in Europe that year.<sup>18</sup>'
+          html: 'West African ports have been important transshipment points in the global narcotics trade for decades, though the nature and volume of the trade has been very dynamic. The earliest evidence of Africa’s involvement in the Atlantic Ocean narcotics trade involved Lebanese traffickers sending heroin via Nigeria to the United States in 1952.<sup>16</sup> The 1960s saw the region dominate the supply of African marijuana to Europe. Shortly thereafter, in the 1970s and 1980s, Ghanaian and Nigerian traffickers secured a foothold in the supply of cocaine to the United States and Europe.<sup>17</sup> According to a 2007 report by the United Nations Office on Drugs and Crime (UNODC), the region supplied over one-quarter of the 135 to 145 tons of annual cocaine demand in Europe that year.<sup>18</sup>'
         },
         {
           tag: 'img',
@@ -342,7 +342,8 @@ var illicitTradeData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>16</sup> Stephen Ellis, “West Africa’s International Drug Trade,” African Affairs 108 (2009): 171–196.'
+              org: '<sup>16</sup> Stephen Ellis, “West Africa’s International Drug Trade,” African Affairs 108 (2009): 171–196.',
+              url: 'https://www.jstor.org/stable/27667118?seq=1#page_scan_tab_contents'
             },
             {
               org: '<sup>17</sup> Ibid.'
@@ -351,17 +352,18 @@ var illicitTradeData = {
               org: '<sup>18</sup> Ibid.'
             },
             {
-              org: '<sup>19</sup> “Transnational Organized Crime in Eastern Africa,” United Nations Office on Drugs and Crime.'
+              org: '<sup>19</sup> “Transnational Organized Crime in Eastern Africa,” United Nations Office on Drugs and Crime.',
+              url: 'http://www.unodc.org/res/cld/bibliography/transnational-organized-crime-in-eastern-africa-_-a-threat-assessment_html/TOC_East_Africa_2013.pdf'
             },
             {
-              org: '<sup>20</sup> Peter McGuire, “Narcotics Trafficking in West Africa: A Governance Challenge,” <em>The Pardee Papers</em> No. 9, March 2010,',
+              org: '<sup>20</sup> Peter McGuire, “Narcotics Trafficking in West Africa: A Governance Challenge,” <em>The Pardee Papers</em> No. 9, March 2010.',
               url: 'http://www.bu.edu/pardee/files/2010/03/Pardee_Paper-9-Narcotics-Trafficking.pdf'
             },
             {
               org: '<sup>21</sup> Ellis, “West Africa’s International Drug Trade.”'
             },
             {
-              org: '<sup>22</sup> “Cocaine Trafficking in Western Africa: Situation Report,” United Nations Office on Drugs and Crime, October 2007,',
+              org: '<sup>22</sup> “Cocaine Trafficking in Western Africa: Situation Report,” United Nations Office on Drugs and Crime, October 2007.',
               url: 'https://www.unodc.org/documents/data-and-analysis/Cocaine-trafficking-Africa-en.pdf'
             },
             {
@@ -372,15 +374,16 @@ var illicitTradeData = {
               url: 'http://scholarcommons.usf.edu/cgi/viewcontent.cgi?article=1536&amp;context=jss'
             },
             {
-              org: '<sup>25</sup> “World Drug Report 2017,” United Nations Office on Drugs and Crime.'
+              org: '<sup>25</sup> “World Drug Report 2017,” United Nations Office on Drugs and Crime.',
+              url: 'https://www.unodc.org/wdr2017/index.html'
             },
             {
-              org: '<sup>26</sup> “Transnational Organized Crime in West Africa: A Threat Assessment,” United Nations Office on Drugs and Crime, 2013,',
+              org: '<sup>26</sup> “Transnational Organized Crime in West Africa: A Threat Assessment,” United Nations Office on Drugs and Crime, 2013.',
               url: 'https://www.unodc.org/toc/en/reports/TOCTAWestAfrica.html'
             },
             {
-              org: '<sup>27</sup> Christopher Woody, “Spanish and Moroccan Police Seized 5,700 Pounds of Cocaine in the Middle of a High-Seas Trafficking Corridor,” <em>Business Insider</em>, 6 December 2016,',
-              url: 'http://www.businessinsider.com/spanish-police-seize-cocaine-morocco-2016-12.'
+              org: '<sup>27</sup> Christopher Woody, “Spanish and Moroccan Police Seized 5,700 Pounds of Cocaine in the Middle of a High-Seas Trafficking Corridor,” <em>Business Insider</em>, 6 December 2016.',
+              url: 'http://www.businessinsider.com/spanish-police-seize-cocaine-morocco-2016-12'
             },
             {
               org: '<sup>28</sup> “Transnational Organized Crime in West Africa,” United Nations Office on Drugs and Crime.'
@@ -411,13 +414,13 @@ var illicitTradeData = {
         // ],
         highlights: [],
         tooltip: true,
-        legend: 'Measurement of arms trade',
+        legend: 'Measure of arms trade',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['arms'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of arms trade:<br />" +  tooltipVal + " / 100<br />Lower scores represent more significant <br /> illicit trades.";
+          return "Measure of arms trade:<br />" +  tooltipVal + " / 100<br />Lower scores represent more significant <br /> illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -484,27 +487,28 @@ var illicitTradeData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>30</sup> “Small Arms: The Human Cost of the Illicit Transfer, Destabilizing Accumulation and Misuse of Small Arms and Light Weapons” (Statement by Ambassador Tete Antonio to the United Nations Security Council, New York, 13 May 2015),',
+              org: '<sup>30</sup> “Small Arms: The Human Cost of the Illicit Transfer, Destabilizing Accumulation and Misuse of Small Arms and Light Weapons” (Statement by Ambassador Tete Antonio to the United Nations Security Council, New York, 13 May 2015).',
               url: 'http://archive.au.int/collect/newyorko/import/English/Statement%20By%20Amb%20Tete%20Antonio%20in%20Security%20Council%20Debat_E.pdf'
             },
             {
-              org: '<sup>31</sup> Dahida D. Philip and Akangbe Oluwabamidele Moses, “Arms, Light Weapons and Rebel Insurgency Across Africa: Impact on Neighboring States,” <em>Public Policy and Administration Research</em> 3, No.10 (2013).'
+              org: '<sup>31</sup> Dahida D. Philip and Akangbe Oluwabamidele Moses, “Arms, Light Weapons and Rebel Insurgency Across Africa: Impact on Neighboring States,” <em>Public Policy and Administration Research</em> 3, No.10 (2013).',
+              url: 'http://iiste.org/Journals/index.php/PPAR/article/view/8399'
             },
             {
-              org: '<sup>32</sup> “Human Cost of Illicit Flow of Small Arms, Light Weapons Stressed in Security Council Debate,” SC/11889, United Nations Security Council 7442nd Meeting,13 May 2015,',
+              org: '<sup>32</sup> “Human Cost of Illicit Flow of Small Arms, Light Weapons Stressed in Security Council Debate,” SC/11889, United Nations Security Council 7442nd Meeting,13 May 2015.',
               url: 'https://www.un.org/press/en/2015/sc11889.doc.htm'
             },
             {
-              org: '<sup>33</sup> Manasseh Wepundi, Eliud Nthiga, Eliud Kabuu, Ryan Murray, and Anna Alvazzi del Frate, “Availability of Small Arms and Perceptions of Security in Kenya: An Assessment,” <em>Small Arms Survey Special Report</em>, June 2012,',
+              org: '<sup>33</sup> Manasseh Wepundi, Eliud Nthiga, Eliud Kabuu, Ryan Murray, and Anna Alvazzi del Frate, “Availability of Small Arms and Perceptions of Security in Kenya: An Assessment,” <em>Small Arms Survey Special Report</em>, June 2012.',
               url: 'http://www.smallarmssurvey.org/fileadmin/docs/C-Special-reports/SAS-SR16-Kenya.pdf'
             },
             {
-              org: '<sup>34</sup> “Small Arms Survey 2001: Profiling the Problem,” <em>Small Arms Survey</em> (Oxford: Oxford University Press, 2001),',
+              org: '<sup>34</sup> “Small Arms Survey 2001: Profiling the Problem,” <em>Small Arms Survey</em> (Oxford: Oxford University Press, 2001).',
               url: 'http://www.smallarmssurvey.org/fileadmin/docs/A-Yearbook/2001/en/Small-Arms-Survey-2001-Executive-Summary-EN.pdf'
             },
             {
-              org: '<sup>35</sup> “Silencing the Guns, Owning the Future: Realizing a Conflict-Free Africa” (report on the proceedings of the Fifth African Union High-Level Retreat on the Promotion of Peace, Security and Stability in Africa, 21–23 October 2014, Arusha, Tanzania), African Centre for the Constructive Resolution of Disputes, 2015,',
-              url: 'http://www.peaceau.org/uploads/arusha-au-high-level-retreat-report-web.pdf'
+              org: '<sup>35</sup> “Silencing the Guns, Owning the Future: Realizing a Conflict-Free Africa” (report on the proceedings of the Fifth African Union High-Level Retreat on the Promotion of Peace, Security and Stability in Africa, 21–23 October 2014, Arusha, Tanzania), African Centre for the Constructive Resolution of Disputes, 2015.',
+          //    url: 'http://www.peaceau.org/uploads/arusha-au-high-level-retreat-report-web.pdf'
             },
             {
               org: '<sup>36</sup> Ibid.'
@@ -516,14 +520,15 @@ var illicitTradeData = {
               org: '<sup>38</sup> Ibid.'
             },
             {
-              org: '<sup>39</sup> “UN Security Council Report of the Monitoring Group on Somalia and Eritrea pursuant to Security Council Resolution 2244 (2015): Somalia,” United Nations Security Council S/2016/919.'
+              org: '<sup>39</sup> “UN Security Council Report of the Monitoring Group on Somalia and Eritrea pursuant to Security Council Resolution 2244 (2015): Somalia,” United Nations Security Council S/2016/919.',
+              url: 'http://www.un.org/ga/search/view_doc.asp?symbol=S/2016/919'
             },
             {
-              org: '<sup>40</sup> Jonah Leff and Emile LeBrun, “Following the Thread: Arms and Ammunition Tracing in Sudan and South Sudan,” <em>Small Arms Survey 2014</em> (Geneva: Graduate Institute of International and Development Studies, 2014),',
+              org: '<sup>40</sup> Jonah Leff and Emile LeBrun, “Following the Thread: Arms and Ammunition Tracing in Sudan and South Sudan,” <em>Small Arms Survey 2014</em> (Geneva: Graduate Institute of International and Development Studies, 2014).',
               url: 'http://www.smallarmssurveysudan.org/fileadmin/docs/working-papers/HSBA-WP32-Arms-Tracing.pdf'
             },
             {
-              org: '<sup>41</sup> Hugh Griffiths and Michael Jenks, “Maritime Transport and Destabilizing Commodity Flows,” Stockholm International Peace Institute, January 2012,',
+              org: '<sup>41</sup> Hugh Griffiths and Michael Jenks, “Maritime Transport and Destabilizing Commodity Flows,” Stockholm International Peace Institute, January 2012.',
               url: 'https://www.sipri.org/publications/2012/sipri-policy-papers/maritime-transport-and-destabilizing-commodity-flows'
             },
             {
@@ -553,13 +558,13 @@ var illicitTradeData = {
         // ],
         highlights: [],
         tooltip: true,
-        legend: 'Measurement of wildlife trade',
+        legend: 'Measure of wildlife trade',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['wildlife'];
           tooltipVal = 100 - Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measurement of wildlife trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant <br /> illicit trades.";
+          return "Measure of wildlife trade:<br />" + tooltipVal + " / 100<br />Lower scores represent more significant illicit trades.";
 
         },
         load: function(index, csv) { // ### *** This only should be for the first card ...
@@ -585,7 +590,7 @@ var illicitTradeData = {
         },
         {
           tag: 'p',
-          html: 'The illicit trade in wildlife and protected species is global in scale but particularly prevalent across sub-Saharan Africa. Reptiles, big cats, apes, parrots, ivory, rhino horn, pangolin scales,  teak wood, and rosewood<sup>44</sup> are only some of the plant and wildlife species trafficked in Africa. Rhino horn and ivory comprise most of the global illicit market, with a market value of between USD$5 and $23 billion annually.<sup>45</sup> The vast majority of trafficked wildlife and related products are destined for markets in Asia.<sup>46</sup>'
+          html: 'The illicit trade in wildlife and protected species is global in scale but particularly prevalent across sub-Saharan Africa. Reptiles, big cats, apes, parrots, ivory, rhino horn, pangolin scales,<sup>43</sup> teak wood, and rosewood<sup>44</sup> are only some of the plant and wildlife species trafficked in Africa. Rhino horn and ivory comprise most of the global illicit market, with a market value of between USD$5 and $23 billion annually.<sup>45</sup> The vast majority of trafficked wildlife and related products are destined for markets in Asia.<sup>46</sup>'
         },
         {
           tag: 'img',
@@ -611,26 +616,26 @@ var illicitTradeData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>43</sup> “World Wildlife Crime Report: Trafficking in Protected Species,” United Nations Office on Drugs and Crime, 2016,',
+              org: '<sup>43</sup> “World Wildlife Crime Report: Trafficking in Protected Species,” United Nations Office on Drugs and Crime, 2016.',
               url: 'https://www.unodc.org/documents/data-and-analysis/wildlife/World_Wildlife_Crime_Report_2016_final.pdf'
             },
             {
-              org: '<sup>44</sup> “Forest Governance and Timber Trade Flows Within, To and From Eastern and Southern African Countries: Kenya Country Study,” the European Commission, February 2014,',
+              org: '<sup>44</sup> “Forest Governance and Timber Trade Flows Within, To and From Eastern and Southern African Countries: Kenya Country Study,” the European Commission, February 2014.',
               url: 'https://europa.eu/capacity4dev/file/21144/download?token=eNn21m25'
             },
             {
-              org: '<sup>45</sup> Channing May, “Transnational Crime and the Developing World,” Global Financial Integrity, March 2017,',
+              org: '<sup>45</sup> Channing May, “Transnational Crime and the Developing World,” Global Financial Integrity, March 2017.',
               url: 'http://www.gfintegrity.org/wp-content/uploads/2017/03/Transnational_Crime-final.pdf'
             },
             {
-              org: '<sup>46</sup> <em>Illicit Trade: Converging Criminal Networks</em> (Paris: Organisation for Economic Co-operation and Development, 2016),',
+              org: '<sup>46</sup> <em>Illicit Trade: Converging Criminal Networks</em> (Paris: Organisation for Economic Co-operation and Development, 2016).',
               url: 'http://dx.doi.org/10.1787/9789264251847-en'
             },
             {
               org: '<sup>47</sup> Ibid.'
             },
             {
-              org: '<sup>48</sup> “Poaching Statistics,” Save the Rhino, accessed 5 September 2017,',
+              org: '<sup>48</sup> “Poaching Statistics,” Save the Rhino, accessed 5 September 2017.',
               url: 'https://www.savetherhino.org/rhino_info/poaching_statistics'
             },
             {
@@ -640,14 +645,14 @@ var illicitTradeData = {
               org: '<sup>50</sup> May, “Transnational Crime and the Developing World.”'
             },
             {
-              org: '<sup>51</sup> “Illegal Trade in Wildlife and Timber Products Finances Criminal and Militia Groups, Threatening Security and Sustainable Development,” United Nations Environment Programme, 24 June 2014,',
-              url: 'groups-threatening-security'
+              org: '<sup>51</sup> “Illegal Trade in Wildlife and Timber Products Finances Criminal and Militia Groups, Threatening Security and Sustainable Development,” United Nations Environment Programme, 24 June 2014.',
+              url: 'https://www.unenvironment.org/news-and-stories/press-release/illegal-trade-wildlife-and-timber-products-finances-criminal-and'
             },
             {
               org: '<sup>52</sup> <em>Illicit Trade: Converging Criminal Networks</em>, Organisation for Economic Co-operation and Development.'
             },
             {
-              org: '<sup>53</sup> Varun Vira, Thomas Ewing, and Jackson Miller, “Out of Africa: Mapping the Global Trade in Illicit Elephant Ivory,” C4Adsand Born Free USA, August 2014,',
+              org: '<sup>53</sup> Varun Vira, Thomas Ewing, and Jackson Miller, “Out of Africa: Mapping the Global Trade in Illicit Elephant Ivory,” C4Adsand Born Free USA, August 2014.',
               url: 'http://www.wwf.se/source.php/1578610/out%20of%20africa.pdf'
             },
             {
@@ -685,7 +690,7 @@ var illicitTradeData = {
         tooltipHTML: function(iso) {
         //  console.log(issueAreaData[issueArea].metadata.countryData[iso]['significant_trades']);
           return "Major Maritime Illicit Trades in: <br />" + issueAreaData[issueArea].metadata.countryData[iso]['significant_trades'];
-    
+
         },
         load: function (index, csv) {
           // Load points layer with boxes
@@ -790,39 +795,36 @@ var illicitTradeData = {
           text: 'The health crisis of counterfeit medicines in Africa'
         },
         { tag: 'p',
-          html: 'Counterfeit and pirated goods are classified as the most valuable illicit economy subsector, with estimates of annual revenue ranging between USD$923 billion and $1.13 trillion. Counterfeit pharmaceuticals and medicines comprise approximately 25 percent of this market, and are valued at between USD$70 and $200 billion annually.<sup>68</sup> It is also the only counterfeiting sector that completely displaces original products from the market.<sup>69</sup>'
+          html: 'Counterfeit and pirated goods are classified as the most valuable illicit economy subsector, with estimates of annual revenue ranging between USD$923 billion and $1.13 trillion. Counterfeit pharmaceuticals and medicines comprise approximately 25 percent of this market, and are valued at between USD$70 and $200 billion annually.<sup>58</sup> It is also the only counterfeiting sector that completely displaces original products from the market.<sup>59</sup>'
         },
         { tag: 'p',
-           html: 'China is the largest single source of counterfeit medicines, with substantial factories also reported in India and Russia.<sup>70</sup> Most of the counterfeit medicines emanate from commercial shipping ports and are transported in containers.<sup>71</sup> Recently, Nigeria has been cited as a key emerging source of counterfeit medicine production and distribution in Africa.<sup>72</sup>'
+           html: 'China is the largest single source of counterfeit medicines, with substantial factories also reported in India and Russia.<sup>60</sup> Most of the counterfeit medicines emanate from commercial shipping ports and are transported in containers.<sup>61</sup> Recently, Nigeria has been cited as a key emerging source of counterfeit medicine production and distribution in Africa.<sup>62</sup>'
         },
 
         {
-        //  gif: true,
           tag: 'img',
-      //    videoId: 'nGL85NkTbUg',
-          thumb: '../assets/illicit-trade/Counterfeit-Medicine-Flows.gif' // ###
+          src: '../../assets/illicit-trade/Counterfeit-Medicine-Flows.gif', // ###
+          caption: "Counterfeit medicine flows involving Africa."
         },
-
-            //###Insert JP's GIF
         { tag: 'p',
-           html: 'The prevalence of counterfeit medicines is a particular challenge for sub-Saharan African countries, with estimates indicating that on average, 30 percent of medicines available are counterfeit. According to critics, the impact of counterfeit medicines, with specific reference to anti-malarials, should be viewed as a crime against humanity as they deliberately derail efforts to prevent the 660,000 annual deaths attributed to malaria.<sup>73</sup> For instance, 59 percent of the anti-malarial medication monitored in the period 2002–2010 in Burkina Faso, Chad, Cameroon, the Democratic Republic of the Congo, Ghana, Kenya, Nigeria, Rwanda, and Senegal failed chemical analysis. Governance, consumer awareness, and education are central to combating this problem.<sup>74</sup>'
+           html: 'The prevalence of counterfeit medicines is a particular challenge for sub-Saharan African countries, with estimates indicating that on average, 30 percent of medicines available are counterfeit. According to critics, the impact of counterfeit medicines, with specific reference to anti-malarials, should be viewed as a crime against humanity as they deliberately derail efforts to prevent the 660,000 annual deaths attributed to malaria.<sup>63</sup> For instance, 59 percent of the anti-malarial medication monitored in the period 2002–2010 in Burkina Faso, Chad, Cameroon, the Democratic Republic of the Congo, Ghana, Kenya, Nigeria, Rwanda, and Senegal failed chemical analysis. Governance, consumer awareness, and education are central to combating this problem.<sup>64</sup>'
         },
         { tag: 'h3',
           text: 'Law Enforcement Efforts',
         },
         { tag: 'p',
-           html: 'There are ongoing efforts by sub-Saharan African countries and international development agencies to address the challenge of counterfeit medicine. Four law enforcement operations led by the World Customs Organization and the International Institute of Research Against Counterfeit Medicines in partnership with African countries have yielded significant successes, with an average interception rate of 78 percent. The seized counterfeit medications include antibiotics and painkillers as well as anti-malarial, anti-inflammatory, anti-cancer, and diabetes medications that posed direct threats to human health. Starting in 2012, 869 million counterfeit medicines have been seized by the four enforcement operations, with the seized contraband valued at an estimated USD$569 million.<sup>75</sup>'
+           html: 'There are ongoing efforts by sub-Saharan African countries and international development agencies to address the challenge of counterfeit medicine. Four law enforcement operations led by the World Customs Organization and the International Institute of Research Against Counterfeit Medicines in partnership with African countries have yielded significant successes, with an average interception rate of 78 percent. The seized counterfeit medications include antibiotics and painkillers as well as anti-malarial, anti-inflammatory, anti-cancer, and diabetes medications that posed direct threats to human health. Starting in 2012, 869 million counterfeit medicines have been seized by the four enforcement operations, with the seized contraband valued at an estimated USD$569 million.<sup>65</sup>'
         },
         { tag: 'links',
           items: [
-            {org: '<sup>68</sup> May, “Transnational Crime and the Developing World.”'},
-            {org: '<sup>69</sup> “The Economic Impact of Counterfeiting and Piracy: Report Prepared for BASCAP and INTA,” Frontier Economics, 2017,', url: 'https://www.inta.org/Communications/Documents/2017_Frontier_Report.pdf'},
-            {org: '<sup>70</sup> “The Globalization of Crime,” United Nations Office on Drugs and Crime.'},
-            {org: '<sup>71</sup> Ibid.'},
-            {org: '<sup>72</sup> Ibid.'},
-            {org: '<sup>73</sup> Kaliyaperumal Karunamoorthi, “The Counterfeit Anti-Malarial is a Crime Against Humanity: A Systematic Review of the Scientific Evidence,” <em>Malaria Journal</em> 13 (209): 2014, doi: 10.1186/1475-2875-13-209. '},
-            {org: '<sup>74</sup> <em>Illicit Trade: Converging Criminal Networks</em>, Organisation for Economic Co-operation and Development.'},
-            {org: '<sup>75</sup> “Operation Vice Grips 2: Record Seizure of Counterfeit Medicines in Africa, Alert to Public Health Emergency,” International Institute of Research Against Counterfeit Medicines, 25 October 2012,', url: 'http://www.iracm.com/en/vice-grips-2-2/'}
+            {org: '<sup>58</sup> May, “Transnational Crime and the Developing World.”'},
+            {org: '<sup>59</sup> “The Economic Impact of Counterfeiting and Piracy: Report Prepared for BASCAP and INTA,” Frontier Economics, 2017.', url: 'https://www.inta.org/Communications/Documents/2017_Frontier_Report.pdf'},
+            {org: '<sup>60</sup> “The Globalization of Crime,” United Nations Office on Drugs and Crime.'},
+            {org: '<sup>61</sup> Ibid.'},
+            {org: '<sup>62</sup> Ibid.'},
+            {org: '<sup>63</sup> Kaliyaperumal Karunamoorthi, “The Counterfeit Anti-Malarial is a Crime Against Humanity: A Systematic Review of the Scientific Evidence,” <em>Malaria Journal</em> 13 (209): 2014, doi: 10.1186/1475-2875-13-209.', url: 'https://malariajournal.biomedcentral.com/articles/10.1186/1475-2875-13-209'},
+            {org: '<sup>64</sup> <em>Illicit Trade: Converging Criminal Networks</em>, Organisation for Economic Co-operation and Development.'},
+            {org: '<sup>65</sup> “Operation Vice Grips 2: Record Seizure of Counterfeit Medicines in Africa, Alert to Public Health Emergency,” International Institute of Research Against Counterfeit Medicines, 25 October 2012.', url: 'http://www.iracm.com/en/vice-grips-2-2/'}
           ]
         }
       ] // end of els array

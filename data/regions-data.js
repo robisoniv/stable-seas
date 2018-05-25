@@ -2589,8 +2589,8 @@ var regionsData = {
       },
 
       {
-        "title": "Sao Tome and Principe",
-        "menu": "Sao Tome and Principe",
+        "title": "São Tomé and Príncipe",
+        "menu": "São Tomé and Príncipe",
         "map": {
           "highlights": [
             "STP"
@@ -2608,26 +2608,26 @@ var regionsData = {
         },
         "els": [{
             "tag": "h1",
-            "text": "Sao Tome and Principe"
+            "text": "São Tomé and Príncipe"
           },
           {
             "tag": "p",
-            "html": "Sao Tome and Principe's exclusive economic zone covers roughly 131,397 square kilometers of the Gulf of Guinea.           This gives Sao Tome and Principe the twentieth largest EEZ in sub-Saharan Africa. Meanwhile, Sao Tome and Principe's Maritime Enforcement Score indicates that the country is below the regional average."
+            "html": "São Tomé and Príncipe's exclusive economic zone covers roughly 131,397 square kilometers of the Gulf of Guinea.           This gives São Tomé and Príncipe the twentieth largest EEZ in sub-Saharan Africa. Meanwhile, São Tomé and Príncipe's Maritime Enforcement Score indicates that the country is below the regional average."
           },
           {
             "tag": "radar"
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Sao Tome and Principe ranks highest in International Cooperation. Sao Tome and Principe's score of 90 in this area is high relative to its other issue scores,          due in part to its commitment to regional efforts like the Yaounde Code of Conduct and it strong relations with maritime neighbors.. Sao Tome and Principe can further improve upon this area of relative strength by greater participation in global agreements like Part XI of the UN Convention on the Law of the Sea and the United Nations Fish Stocks agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, São Tomé and Príncipe ranks highest in International Cooperation. São Tomé and Príncipe's score of 90 in this area is high relative to its other issue scores,          due in part to its commitment to regional efforts like the Yaounde Code of Conduct and it strong relations with maritime neighbors.. São Tomé and Príncipe can further improve upon this area of relative strength by greater participation in global agreements like Part XI of the UN Convention on the Law of the Sea and the United Nations Fish Stocks agreement."
           },
           {
             "tag": "bigtext",
-            "html": "Sao Tome and Principe is also above the regional average in Rule of Law, Coastal Welfare, Blue Economy, Illicit Trades, and Maritime Mixed Migration."
+            "html": "São Tomé and Príncipe is also above the regional average in Rule of Law, Coastal Welfare, Blue Economy, Illicit Trades, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Sao Tome and Principe is Piracy. Sao Tome and Principe scores 23 in this area, below the regional average of 32. To further             improve upon this score, Sao Tome and Principe can continue to work with maritime neighbors to boost regional maritime domain awareness, particularly in the waters north of Principe.. Further progress can be made by continuing to participate in multilateral naval training and exercises like African NEMO and Obangame Express.. Through these efforts, Sao Tome and Principe can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for São Tomé and Príncipe is Piracy. São Tomé and Príncipe scores 23 in this area, below the regional average of 32. To further             improve upon this score, São Tomé and Príncipe can continue to work with maritime neighbors to boost regional maritime domain awareness, particularly in the waters north of Principe.. Further progress can be made by continuing to participate in multilateral naval training and exercises like African NEMO and Obangame Express.. Through these efforts, São Tomé and Príncipe can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },

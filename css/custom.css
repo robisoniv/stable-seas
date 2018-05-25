@@ -514,6 +514,11 @@ p.indent-2 {
   margin: 0px 0px 5px 0px;
 }
 
+.svg-link {
+  fill: #245177;
+  cursor: pointer;
+}
+
 span.glyphicon {
   margin-left: 10px;
 }

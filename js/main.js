@@ -106,7 +106,7 @@ var mapg = d3.select('.map-g');
 
 function buildLegendContinuous() {
 
-  var translateG = 'translate(20, ' + (h - 80).toString() + ')';
+  var translateG = 'translate(20, ' + (h - 100).toString() + ')';
 
   var legendG = d3.select('#map-svg')
     .append('g')
@@ -936,10 +936,7 @@ function buildVideo(obj, container, elIndex) {
     videoThumb.append('img')
       .attr('src', obj.thumb)
       .classed('background-video-image', true);
-    //
-    // videoThumb.append('img')
-    //   .classed('inner-thumb', true)
-    //   .attr('src', '../assets/play-icon.png');
+
   }
 
 }

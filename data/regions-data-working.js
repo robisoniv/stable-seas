@@ -2427,8 +2427,8 @@ var regionsData = {
         ]
       },
       { // Card 1
-        title: 'Cote d\'Ivoire',
-        menu: 'Cote d\'Ivoire',
+        title: 'Côte d\'Ivoire',
+        menu: 'Côte d\'Ivoire',
         metadata: {
           owner: '',
           description: ''
@@ -2453,7 +2453,7 @@ var regionsData = {
         },
         els: [{
             tag: 'h1',
-            text: 'Cote d\'Ivoire'
+            text: 'Côte d\'Ivoire'
           },
           {
             tag: 'caption',
@@ -2862,8 +2862,8 @@ var regionsData = {
         ]
       },
       { // Card 1
-        title: 'Sao Tome and Principe',
-        menu: 'Sao Tome and Principe',
+        title: 'São Tomé and Príncipe',
+        menu: 'São Tomé and Príncipe',
         metadata: {
           owner: '',
           description: ''
@@ -2888,7 +2888,7 @@ var regionsData = {
         },
         els: [{
             tag: 'h1',
-            text: 'Sao Tome and Principe'
+            text: 'São Tomé and Príncipe'
           },
           {
             tag: 'caption',

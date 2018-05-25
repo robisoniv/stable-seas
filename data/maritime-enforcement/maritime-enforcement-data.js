@@ -99,12 +99,12 @@ var maritimeEnforcementData = {
         classes: 'card-2-layer',
         translate: [],
         tooltip: true,
-        legend: 'Maritime Domain Awareness Score ####?',
+        legend: 'Measure of patrol difficulty',
         tooltipHTML: function(iso) {
-          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].mda;
+          var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].difficulty;
           tooltipVal = Math.round((tooltipVal * 100));
           updatePointer(tooltipVal);
-          return "Maritime Domain Awareness:<br />" + tooltipVal + " / 100";
+          return "Measure of patrol difficulty:<br />" + tooltipVal + " / 100";
 
         },
         highlights: null,
@@ -114,7 +114,7 @@ var maritimeEnforcementData = {
         },
         switch: function(index) {
           // Show loaded GIS layer
-          choropleth(index, 1, 'mda')
+          choropleth(index, 1, 'difficulty')
 
         }
       },
@@ -171,7 +171,7 @@ var maritimeEnforcementData = {
         classes: 'card-2-layer',
         translate: [],
         tooltip: true,
-        legend: 'Maritime Domain Awareness Score ####?',
+        legend: 'Measure of Maritime Domain Awareness',
         tooltipHTML: function(iso) {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso].mda;
           tooltipVal = Math.round((tooltipVal * 100));
@@ -214,20 +214,19 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          html: 'One of many examples at the level of the state is the donation made to Seychelles by EUCAP Somalia of imagery analysis software and training.<sup>3</sup> These tools should significantly enhance capacity for maritime intelligence collection. Further capacity building of this kind will be critical to developing the tools and skills necessary for accurate MDA in African waters.'
+          html: 'One of many examples at the level of the state is the donation made to Seychelles by EUCAP Somalia of imagery analysis software and training.<sup>1</sup> These tools should significantly enhance capacity for maritime intelligence collection. Further capacity building of this kind will be critical to developing the tools and skills necessary for accurate MDA in African waters.'
         },
         {
           tag: 'video',
           videoId: 'Ih6M-NfLybc',
-          thumb: '../../assets/maritime-enforcement/eu-crimario-video-thumb.png' // ###
+          thumb: '../../assets/maritime-enforcement/eu-crimario-video-thumb.png', // ###
         },
         {
-          tag: 'caption',
-          text: 'EU CRIMARIO - Video on information sharing.'
+          tag: 'hr'
         },
         {
           tag: 'p',
-          html: 'MDA is also being built at a regional level. A prime example of this is the Critical Maritime Routes (CMR) initiative, an EU-funded program to enhance MDA in the Western Indian Ocean region and Gulf of Guinea. The program includes the development of a new information-sharing platform, the IORIS Network,<sup>4</sup> as well as trainings for individuals from regional maritime agencies on subjects such as data collection/analysis and information sharing which build MDA capabilities.<sup>5</sup> Similar information-sharing efforts are being made in the Gulf of Guinea via the <a class="international-cooperation inline" href="../../international-cooperation#4">Yaoundé Process</a>.'
+          html: 'MDA is also being built at a regional level. A prime example of this is the Critical Maritime Routes (CMR) initiative, an EU-funded program to enhance MDA in the Western Indian Ocean region and Gulf of Guinea. The program includes the development of a new information-sharing platform, the IORIS Network,<sup>2</sup> as well as trainings for individuals from regional maritime agencies on subjects such as data collection/analysis and information sharing which build MDA capabilities.<sup>3</sup> Similar information-sharing efforts are being made in the Gulf of Guinea via the <a class="international-cooperation inline" href="../international-cooperation#3">Yaoundé Process</a>.'
         },
         {
           tag: 'p',
@@ -236,24 +235,19 @@ var maritimeEnforcementData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>3</sup> DefenceWeb, “European Union Enhances Maritime Awareness of Seychelles Air Force,” April 7, 2014,',
+              org: '<sup>1</sup> DefenceWeb, “European Union Enhances Maritime Awareness of Seychelles Air Force,” April 7, 2014,',
               url: 'http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=34272:european-union-enhances-maritime-awareness-of-seychelles-air-force&catid=35:Aerospace&Itemid=107'
             },
             {
-              org: '<sup>4</sup> CRIMARIO, “The IORIS Network,” 2016,',
+              org: '<sup>2</sup> CRIMARIO, “The IORIS Network,” 2016,',
               url: 'http://www.crimario.eu/en/information-sharing/the-ioris-network/'
             },
             {
-              org: '<sup>5</sup> CRIMARIO, “Achievements,” 2017,',
+              org: '<sup>3</sup> CRIMARIO, “Achievements,” 2017,',
               url: 'http://www.crimario.eu/en/training/achievements/'
             },
           ],
         }
-        // { tag: 'img',
-        //   src: '../../assets/maritime-enforcement/mda-center.jpg',
-        //   alt: 'MDA systems.',
-        //   caption: 'MDA systems from www.imagesatintl.com.'
-        // }
       ]
     }, // End of third object in cards array
     // { // Card deprecated
@@ -404,7 +398,7 @@ var maritimeEnforcementData = {
         //   console.log(legend);
            tooltipVal = Math.round((tooltipVal * 100));
            updatePointer(tooltipVal);
-          return "Coastal Patrol Assets Score: " + tooltipVal + ' / 100';
+          return "Coastal Patrol Assets Score:<br />" + tooltipVal + ' / 100';
         },
         load: function(index, file) {
           // Color map with vessel score chloropleth ...
@@ -431,7 +425,7 @@ var maritimeEnforcementData = {
         // },
         {
           tag: 'p',
-          html: 'Most states in sub-Saharan Africa have navies, but relatively few have forces such as coast guards dedicated to maritime law enforcement. While navies are built primarily for national defense and warfighting, maritime law enforcement is intended to counter a variety of illicit activities at sea, including but not limited to <a href="../../piracy" class="piracy inline">piracy</a>, <a href="../../human-trafficking" class="maritime-mixed-migration inline"> maritime mixed migration</a>, <a href="../../fisheries" class="fisheries inline">IUU fishing</a>, and transport of drugs, arms, and wildlife.<sup>9</sup>'
+          html: 'Most states in sub-Saharan Africa have navies, but relatively few have forces such as coast guards dedicated to maritime law enforcement. While navies are built primarily for national defense and warfighting, maritime law enforcement is intended to counter a variety of illicit activities at sea, including but not limited to <a href="../piracy" class="piracy inline">piracy</a>, <a href="../human-trafficking" class="maritime-mixed-migration inline"> maritime mixed migration</a>, <a href="../fisheries" class="fisheries inline">IUU fishing</a>, and transport of drugs, arms, and wildlife.<sup>4</sup>'
         },
         {
           tag: 'img',
@@ -446,7 +440,7 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          html: 'The region is experiencing an increase in maritime law enforcement capabilities through both internal and external capacity-building. One example of these efforts is South Africa’s Project Biro, which commissioned three inshore and three offshore patrol vessels, increasing the country’s maritime law enforcement capacity and lessening the burden of such patrols for the navy’s frigates, which are significantly more expensive to operate.<sup>10</sup>'
+          html: 'The region is experiencing an increase in maritime law enforcement capabilities through both internal and external capacity-building. One example of these efforts is South Africa’s Project Biro, which commissioned three inshore and three offshore patrol vessels, increasing the country’s maritime law enforcement capacity and lessening the burden of such patrols for the navy’s frigates, which are significantly more expensive to operate.<sup>5</sup>'
         },
         {
           tag: 'h4',
@@ -454,7 +448,7 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          html: 'External capacity-building in this area comes in the form of training and equipment contributed by a variety of state and multilateral actors. One example of such efforts is the Africa Maritime Law Enforcement Partnership (AMLEP) program.<sup>11</sup> AMLEP involves training and multinational operations/boardings which are focused on countering maritime crime, as opposed to national defense. In 2016, AMLEP multinational patrols conducted 32 boardings which identified 50 violations of maritime law, and issued $1.2 million in fines. While these interdictions are valuable in their own right, the skills developed in the course of such operations will be even more critical to creating sustained maritime security in the region.'
+          html: 'External capacity-building in this area comes in the form of training and equipment contributed by a variety of state and multilateral actors. One example of such efforts is the Africa Maritime Law Enforcement Partnership (AMLEP) program.<sup>6</sup> AMLEP involves training and multinational operations/boardings which are focused on countering maritime crime, as opposed to national defense. In 2016, AMLEP multinational patrols conducted 32 boardings which identified 50 violations of maritime law, and issued $1.2 million in fines. While these interdictions are valuable in their own right, the skills developed in the course of such operations will be even more critical to creating sustained maritime security in the region.'
         },
         {
           tag: 'video',
@@ -464,27 +458,28 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          html: 'African maritime law enforcement is also being strengthened through multilateral assistance, the most prominent example of which is the UNODC’s Global Maritime Crime Programme (GMCP).<sup>12</sup> GMCP has enhanced maritime law enforcement by developing models for prosecuting acts of piracy, training regional legal professionals on issues related to maritime crime, constructing law enforcement facilities, and training coast guard personnel in counter-trafficking and smuggling operations.<sup>13</sup> Like the AMLEP program described above, these kinds of capacity building projects will be crucial to ensuring the region has the infrastructure, equipment, and training to effectively govern its maritime space.'
+          html: 'African maritime law enforcement is also being strengthened through multilateral assistance, the most prominent example of which is the UNODC’s Global Maritime Crime Programme (GMCP).<sup>7</sup> GMCP has enhanced maritime law enforcement by developing models for prosecuting acts of piracy, training regional legal professionals on issues related to maritime crime, constructing law enforcement facilities, and training coast guard personnel in counter-trafficking and smuggling operations.<sup>8</sup> Like the AMLEP program described above, these kinds of capacity building projects will be crucial to ensuring the region has the infrastructure, equipment, and training to effectively govern its maritime space.'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>9</sup> Augustus Vogel, “Navies versus. Coast Guards: Defining the Roles of African Maritime Security Forces,” <em>African Security Brief</em>, No. 2, December 2009, p. 2.'
+              org: '<sup>4</sup> Augustus Vogel, “Navies versus. Coast Guards: Defining the Roles of African Maritime Security Forces,” <em>African Security Brief</em>, No. 2, December 2009, p. 2.',
+              url: 'https://africacenter.org/publication/navies-versus-coast-guards-defining-the-roles-of-african-maritime-security-forces/'
             },
             {
-              org: '<sup>10</sup> Timothy Walker, “Can Project Brio Help Africa to Overcome its Maritime Security Challenges?” <em>Institute for Security Studies</em>, May 4, 2015,',
+              org: '<sup>5</sup> Timothy Walker, “Can Project Brio Help Africa to Overcome its Maritime Security Challenges?” <em>Institute for Security Studies</em>, May 4, 2015,',
               url: 'https://issafrica.org/iss-today/can-project-biro-help-africa-to-overcome-its-maritime-security-challenges'
             },
             {
-              org: '<sup>11</sup> Africom, “Africa Maritime Law Enforcement Partnership (AMLEP) Program,”',
+              org: '<sup>6</sup> Africom, “Africa Maritime Law Enforcement Partnership (AMLEP) Program,”',
               url: 'http://www.africom.mil/what-we-do/security-cooperation/africa-maritime-law-enforcement-partnership-amlep-program'
             },
             {
-              org: '<sup>12</sup> UNODC,”UNODC Global Maritime Crime Programme,”',
+              org: '<sup>7</sup> UNODC, ”UNODC Global Maritime Crime Programme,”',
               url: 'https://www.unodc.org/unodc/en/piracy/index.html'
             },
             {
-              org: '<sup>13</sup> UNODC, “Maritime Crime Programme- Indian Ocean,”',
+              org: '<sup>8</sup> UNODC, “Maritime Crime Programme- Indian Ocean,”',
               url: 'https://www.unodc.org/unodc/en/piracy/indian-ocean-division.html'
             },
           ]
@@ -549,7 +544,7 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'img',
-          src: '../assets/maritime-enforcement/global_military_spending-01.png',
+          src: '../../assets/maritime-enforcement/global_military_spending-01.png',
           alt: 'Pie graph'
           //caption: 'al estimate.'
         },
@@ -563,32 +558,32 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          html: 'Enforcement capabilities are generally low given the severity of the maritime security threats seen across the region. The thirty sub-Saharan countries covered in this report have approximately 36,000 sailors in total, nearly 10,000 fewer than Japan’s Maritime Self-Defense Force.<sup>1</sup> This lack of capacity is a result of both limited resources and an understandable tendency across the region to focus on land-based security threats. Total sub-Saharan military spending in 2016 was $19.2 billion, just 1.1% of estimated global military spending,<sup>2</sup> despite the presence of several of the globe’s most active conflicts. Given the urgency with which African states must address security threats on shore, a relatively small share of African military spending is available to maintain maritime enforcement capability.'
+          html: 'Enforcement capabilities are generally low given the severity of the maritime security threats seen across the region. The thirty sub-Saharan countries covered in this report have approximately 36,000 sailors in total, nearly 10,000 fewer than Japan’s Maritime Self-Defense Force.<sup>9</sup> This lack of capacity is a result of both limited resources and an understandable tendency across the region to focus on land-based security threats. Total sub-Saharan military spending in 2016 was $19.2 billion, just 1.1% of estimated global military spending,<sup>10</sup> despite the presence of several of the globe’s most active conflicts. Given the urgency with which African states must address security threats on shore, a relatively small share of African military spending is available to maintain maritime enforcement capability.'
         },
         {
           tag: 'img',
-          src: '../assets/maritime-enforcement/south_africa_navy_ltcommander_501416590.png',
+          src: '../../assets/maritime-enforcement/south_africa_navy_ltcommander_501416590.PNG',
           alt: 'Lieutenant Commander Zimasa Mabela aboard South African naval vessel. Photo credit: Rodger Bosch/AFP/Getty Images.',
           caption: 'Lieutenant Commander Zimasa Mabela aboard South African naval vessel. Photo credit: Rodger Bosch/AFP/Getty Images.'
         }, //###Insert image
         {
           tag: 'p',
-          html: 'Despite this lack of resources, enforcement capacity in the region is steadily improving. The acquisition of additional maritime security assets and the continued development of actors’ human capital through investments in training, capacity building, and <a class="maritime-enforcement inline internal-ref" data-link="5">multilateral exercises</a> is giving regional forces the ability to more actively govern their maritime domains. This has resulted in an increasing number of enforcement operations countering maritime security threats such as <a class="fisheries inline" href="../fisheries">illegal, unreported, and unregulated (IUU) fishing</a>, <a class="illicit-trade inline" href="../illicit-trade">illicit trades</a>, and <a class="piracy inline" href="../piracy">piracy</a>. Continuing to improve the region’s enforcement capacity will require additional resources, training, and regional cooperation.'
+          html: 'Despite this lack of resources, enforcement capacity in the region is steadily improving. The acquisition of additional maritime security assets and the continued development of actors’ human capital through investments in training, capacity building, and multilateral exercises is giving regional forces the ability to more actively govern their maritime domains. This has resulted in an increasing number of enforcement operations countering maritime security threats such as <a class="fisheries inline" href="../fisheries">illegal, unreported, and unregulated (IUU) fishing</a>, <a class="illicit-trade inline" href="../illicit-trade">illicit trades</a>, and <a class="piracy inline" href="../piracy">piracy</a>. Continuing to improve the region’s enforcement capacity will require additional resources, training, and regional cooperation.'
         },
         {
           tag: 'img',
-          src: '../assets/maritime-enforcement/bosaaso-port-police.jpg',
-          alt: 'Boasasso Port Police. Photo credit: Oceans Beyond Piracy.', // ### Spelling on Bosasso?
-          caption: 'Boasasso Port Police. Photo credit: Oceans Beyond Piracy.'
+          src: '../../assets/maritime-enforcement/bosaaso-port-police.JPG',
+          alt: 'Bosasso Port Police. Photo credit: Oceans Beyond Piracy.', // ### Spelling on Bosasso?
+          caption: 'Bosasso Port Police. Photo credit: Oceans Beyond Piracy.'
         }, //###Insert image
         {
           tag: 'links',
           items: [{
-              org: '<sup>1</sup> Céline Pajon, “Japan’s Coast Guard and Maritime Self-Defense Force: Cooperation among Siblings,” <em>Maritime Awareness Project</em>, December 1, 2016,',
+              org: '<sup>9</sup> Céline Pajon, “Japan’s Coast Guard and Maritime Self-Defense Force: Cooperation among Siblings,” <em>Maritime Awareness Project</em>, December 1, 2016,',
               url: 'http://maritimeawarenessproject.org/2016/12/01/japans-coast-guard-and-maritime-self-defense-force-cooperation-among-siblings/'
             },
             {
-              org: '<sup>2</sup> Nan Tian, Aude Fleurant, Pieter D. Wezeman and Siemont T Wezeman, “Trends in World Military Expenditure, 2016,” SIPRI, April 2017, p. 4',
+              org: '<sup>10</sup> Nan Tian, Aude Fleurant, Pieter D. Wezeman and Siemont T Wezeman, “Trends in World Military Expenditure, 2016,” SIPRI, April 2017, p. 4',
               url: 'https://www.sipri.org/sites/default/files/Trends-world-military-expenditure-2016.pdf'
             },
           ],
@@ -946,11 +941,13 @@ var maritimeEnforcementData = {
         },
         {
           tag: 'p',
-          text: 'We measure the number of coastal patrol vessels available, which may include a navy, coast guard, port police, and/or other maritime enforcement division. We derive these vessel counts from The Military Balance 2016, an annual global report from the International Institute for Strategic Studies (IISS). This report did not include information for Sao Tome and Principe or Comoros, so we supplemented these data with in-house research and inquiries to regional stakeholders. We adopt the coastal patrol vessel definition from the Military Balance report:'
+          text: 'We measure the number of coastal patrol vessels available, which may include a navy, coast guard, port police, and/or other maritime enforcement division. We derive these vessel counts from The Military Balance 2016, an annual global report from the International Institute for Strategic Studies (IISS). This report did not include information for São Tomé and Príncipe or Comoros, so we supplemented these data with in-house research and inquiries to regional stakeholders. We adopt the coastal patrol vessel definition from the Military Balance report:'
         },
         {
           tag: 'blockquote',
-          html: 'Patrol and Coast Combatants: “surface vessels designed for coastal or inshore operations. These include corvettes... offshore patrol ships…, patrol craft…, and patrol boats.”'
+          html: 'Patrol and Coast Combatants: “surface vessels designed for coastal or inshore operations. These include corvettes... offshore patrol ships…, patrol craft…, and patrol boats.”',
+          source: '2016 Military Balance Report',
+          link: 'https://www.iiss.org/-/media/documents/publications/the%20military%20balance/military%20balance%202016/mb2016%20further%20assessments.pdf?la=en'
         },
         {
           tag: 'h4',
