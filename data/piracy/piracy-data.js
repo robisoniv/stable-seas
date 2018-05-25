@@ -841,11 +841,11 @@ var piracyData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>2</sup> Madsen, Jens Vestergard, et al. “State of Maritime Piracy 2013,” 8 May 2017,',
+              org: '<sup>2</sup> Madsen, Jens Vestergard, et al. “State of Maritime Piracy 2013,” 8 May 2017.',
               url: 'http://oceansbeyondpiracy.org/sites/default/files/attachments/SoP2013-2PagerDigital_0.pdf'
             },
             {
-              org: '<sup>3</sup> Pigeon, Maisie et al., “State of Maritime Piracy 2016,” 3 May 2017,',
+              org: '<sup>3</sup> Pigeon, Maisie et al., “State of Maritime Piracy 2016,” 3 May 2017.',
               url: 'http://oceansbeyondpiracy.org/reports/sop'
             },
           ]
