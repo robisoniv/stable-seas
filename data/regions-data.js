@@ -2463,7 +2463,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Benin is Illicit Trade. Benin scores 12 in this area, below the regional average of 36. Progress is already being made to improve this score through a crackdown on the illicit trade of counterfeit drugs. (voaafrique) To further             improve upon this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Benin is Illicit Trade. Benin scores 12 in this area, below the regional average of 36. Progress is already being made to improve this score through a crackdown on the illicit trade of counterfeit drugs. (voaafrique) To further             improve upon this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2495,7 +2495,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Nigeria ranks highest in International Cooperation. Nigeria's score of 87 in this area is high relative to its other issue scores,          due in part to its participation in six of the seven global agreements we record and its leadership in regional efforts like the Yaounde Code of Conduct.. Nigeria can further improve upon this area of relative strength by signing the Port State Measures agreement and using its navy, the strongest in the region, to advance regional maritime security goals."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Nigeria scores highest in International Cooperation. Nigeria's score of 87 in this area is high relative to its other issue scores,          due in part to its participation in six of the seven global agreements we record and its leadership in regional efforts like the Yaounde Code of Conduct.. Nigeria can further improve upon this area of relative strength by signing the Port State Measures agreement and using its navy, the strongest in the region, to advance regional maritime security goals."
           },
           {
             "tag": "bigtext",
@@ -2503,7 +2503,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Nigeria is Piracy. Nigeria scores 0 in this area,  about the same as  the regional average of 30. To further             improve upon this score, Nigeria can maintain its leadership of regional counter-piracy efforts and improve inter-agency coordination against the transnational criminal networks operating in the Niger River Delta.. Further progress can be made by continuing to invest in regional maritime domain awareness efforts through Zone E of the Yaounde Code of Conduct.. Through these efforts, Nigeria can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Nigeria is Piracy. Nigeria scores 0 in this area,  below the regional average of 30. To further             improve upon this score, Nigeria can maintain its leadership of regional counter-piracy efforts and improve inter-agency coordination against the transnational criminal networks operating in the Niger River Delta.. Further progress can be made by continuing to invest in regional maritime domain awareness efforts through Zone E of the Yaoundé Code of Conduct. Through these efforts, Nigeria can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
