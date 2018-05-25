@@ -363,6 +363,11 @@ var maritimeMixedMigrationData = {
           html: 'Over 200,000 migrants from the Horn of Africa crossed the Red Sea or Gulf of Aden to reach Yemen over the last decade, but ongoing conflict and increasing travel costs have caused a sharp drop in the popularity of this route. The severity of Yemen’s ongoing humanitarian disaster and stronger labor laws around the Arabian Peninsula have instead generated a growing reverse flow back to the Horn of Africa. Since 2015, nearly 100,000 people are believed to have migrated to Africa from this war zone.'
         },
         {
+          tag: 'img',
+          src: '../../assets/maritime-mixed-migration/migration-flows.gif', // ###
+          caption: "Migration routes in the Gulf of Aden."
+        },
+        {
           tag: 'h3',
           classes: 'migration-heading migration-route-4',
           text: '4 East Africa to South Africa',
