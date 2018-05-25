@@ -96,7 +96,8 @@ var blueEconomyData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>1</sup> Christopher Blattman and Eduard Miguel, “Civil War,” <em>Journal of Economic Literature</em> 48 (2010), doi: 10.1257/jel.48.1.3.'
+              org: '<sup>1</sup> Christopher Blattman and Eduard Miguel, “Civil War,” <em>Journal of Economic Literature</em> 48 (2010), doi: 10.1257/jel.48.1.3.',
+              url: 'https://www.aeaweb.org/articles?id=10.1257/jel.48.1.3'
             },
             {
               org: '<sup>2</sup> John Copley, “Just How Little Do We Know About the Ocean Floor,” Scientific American, 9 October 2014,',
@@ -120,13 +121,13 @@ var blueEconomyData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        legend: 'Measure of fisheries****?',
+        legend: 'Measure of fisheries',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['BE_FISHERIES'];
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Measure of fisheries***?:<br />" + tooltipVal + " / 100";
+          return "Measure of fisheries:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, csv) {
@@ -149,47 +150,41 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'In 2015, the United Nations FAO estimated worldwide production of fish from aquaculture surpassed - for the first time in history - production of fish from the wild.<sup>1</sup> The history of aquaculture is fraught: while many laud it as the inevitable and welcome progress of time and a shift that will increase global food production, others see it as a threat to the environment, to sustainable livelihoods, and to ways of life.'
+          html: 'In 2015, the United Nations FAO estimated worldwide production of fish from aquaculture surpassed - for the first time in history - production of fish from the wild.<sup>3</sup> The history of aquaculture is fraught: while many laud it as the inevitable and welcome progress of time and a shift that will increase global food production, others see it as a threat to the environment, to sustainable livelihoods, and to ways of life.'
         },
         {
           tag: 'p',
-          html: 'Small-scale fish farming can provide alternative forms of employment for wild fishers and farmers alike, creating economic resilience in communities vulnerable to economic and natural resource shocks.<sup>2</sup> Aquaculture may also provide new employment avenues for women who are often overlooked in the value chains of wild fisheries.'
+          html: 'Small-scale fish farming can provide alternative forms of employment for wild fishers and farmers alike, creating economic resilience in communities vulnerable to economic and natural resource shocks.<sup>4</sup> Aquaculture may also provide new employment avenues for women who are often overlooked in the value chains of wild fisheries.'
         },
-        // {
-        //   tag: 'bigtext',
-        //   html: 'Mariculture: The cultivation of marine species, such as fish and shrimp, in enclosures filled with seawater.'
-        // },
-        //Insert graph from comms
         {
           tag: 'p',
-          html: 'But aquaculture also has drawbacks. It is highly capitalized and requires access to and familiarity with technology and investment dollars. Mariculture typically occurs directly in marine habitats, such as mangroves or estuaries, and the water pollution and habitat destruction have negative impacts for wild fisheries and the marine ecosystem in general. Finally, as aquaculture markets and demand grows, the value chain for fisheries will be affected, and women and small-scale (i.e., poor) fishers may lost out on the market altogether.<sup>3</sup>'
+          html: 'But aquaculture also has drawbacks. It is highly capitalized and requires access to and familiarity with technology and investment dollars. Mariculture typically occurs directly in marine habitats, such as mangroves or estuaries, and the water pollution and habitat destruction have negative impacts for wild fisheries and the marine ecosystem in general. Finally, as aquaculture markets and demand grows, the value chain for fisheries will be affected, and women and small-scale (i.e., poor) fishers may lost out on the market altogether.<sup>5</sup>'
         },
         //###<<<insert video of Mama Winnie, aquaculture entrepreneur from Kenya>>>
         {
           tag: 'p',
-          html: 'In our study, only ten of 30 countries have reported income from mariculture activities. South Africa reported over $43 million from mariculture in 2015, while Madagascar reported over $20 million.<sup>4</sup> For Madagascar especially, this represents a significant contribution to the domestic economies. South Africa primarily grows mussels and abalone; these stocks of molluscs are typically highly sustainable in terms of growing, feeding, and harvesting. Madagascar, on the other hand, relies on shrimp aquaculture<sup>5</sup> that is implicated in significant mangrove deforestation and water pollution. The future of aquaculture in other African nations could follow the lead of South Africa in promoting sustainable approaches to high-value species if the global market will support it.'
+          html: 'In our study, only ten of 30 countries have reported income from mariculture activities. South Africa reported over $43 million from mariculture in 2015, while Madagascar reported over $20 million.<sup>6</sup> For Madagascar especially, this represents a significant contribution to the domestic economies. South Africa primarily grows mussels and abalone; these stocks of molluscs are typically highly sustainable in terms of growing, feeding, and harvesting. Madagascar, on the other hand, relies on shrimp aquaculture<sup>7</sup> that is implicated in significant mangrove deforestation and water pollution. The future of aquaculture in other African nations could follow the lead of South Africa in promoting sustainable approaches to high-value species if the global market will support it.'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>3</sup> ###### ALLL OF THESE NEEED UPDATINGG###### United Nations Food and Agriculture Organization, “The State of World Fisheries and Aquaculture,” 2016.',
+              org: '<sup>3</sup> United Nations Food and Agriculture Organization, “The State of World Fisheries and Aquaculture,” 2016.',
               url: 'http://www.fao.org/3/a-i5555e.pdf'
             },
             {
-              org: '<sup>4</sup> John Bostock, Brendan McAndrew, Randolph Richards, Kim Jauncey, Trevor Telfer, Kai Lorenzen, David Little, Lindsay Ross, Neil Handisyde, Iain Gatward, and Richard Corner, “Aquaculture: Global Status and Trends.” ,em>Philosophical Transactions of the Royal Society</em> 265, no. 1554 (2010): 2897–912, doi:10.1098/rstb.2010.0170.'
+              org: '<sup>4</sup>   Randall Brummett, Jerome Lazard, and John Moehl, “African Aquaculture: Realizing the Potential,” <em>Food Policy</em> 33 (2008): 371–385, doi:10.1016/j.foodpol.2008.01.005.',
+              url: 'https://www.sciencedirect.com/science/article/pii/S0306919208000067'
             },
             {
-              org: '<sup>5</sup>   Randall Brummett, Jerome Lazard, and John Moehl, “African Aquaculture: Realizing the Potential,” <em>Food Policy</em> 33 (2008): 371–385, doi:10.1016/j.foodpol.2008.01.005.'
+              org: '<sup>5</sup> Christophe Béné, Robert Arthur, Hannah Norbury, Edward Allison, Malcolm Beveridge, Simon Bush, Liam Campling, Will Leschen, David Little, Dale Squires, Shakuntala Thilsted, Max Troell, and Meryl Williams, “Contribution of Fisheries and Aquaculture to Food Security and Poverty Reduction: Assessing the Current Evidence.” <em>World Development</em> 79 (2016): 177–196, doi:10.1016/j.worlddev.2015.11.007.',
+              url: 'https://www.sciencedirect.com/science/article/pii/S0305750X15002892'
             },
             {
-              org: '<sup>6</sup> Christophe Béné, Robert Arthur, Hannah Norbury, Edward Allison, Malcolm Beveridge, Simon Bush, Liam Campling, Will Leschen, David Little, Dale Squires, Shakuntala Thilsted, Max Troell, and Meryl Williams, “Contribution of Fisheries and Aquaculture to Food Security and Poverty Reduction: Assessing the Current Evidence.” <em>World Development</em> 79 (2016): 177–196, doi:10.1016/j.worlddev.2015.11.007.'
-            },
-            {
-              org: '<sup>7</sup> United Nations Food and Agriculture Organization, “Fisheries and Aquaculture Global Statistical Collection,” 2017.',
+              org: '<sup>6</sup> United Nations Food and Agriculture Organization, “Fisheries and Aquaculture Global Statistical Collection,” 2017.',
               url: 'http://www.fao.org/fishery/statistics/en'
             },
             {
-              org: '<sup>8</sup> Fisheries and Aquaculture Department, “National Aquaculture Sector Overview: Madagascar,” Food and Agriculture Organization of the United Nations, accessed 14 September 2017.',
+              org: '<sup>7</sup> Fisheries and Aquaculture Department, “National Aquaculture Sector Overview: Madagascar,” Food and Agriculture Organization of the United Nations, accessed 14 September 2017.',
               url: 'http://www.fao.org/fishery/countrysector/naso_madagascar/en'
             },
           ]
@@ -244,7 +239,7 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'Ten years ago, the emerging threat of piracy off the coast of Somalia devastated the coastal tourism industry across East Africa. In 2008, well-reported hijackings and kidnappings led to a 95 percent decrease in Kenyan cruise ship tourism.<sup>9</sup> In 2009, Seychelles concluded that piracy and armed robbery were costing the local tourism industry roughly USD$12 million per year.<sup>10</sup> These changes had immediate economic impacts. In Kenya, the loss of cruise ships removed 40,000 tourists from the economy.<sup>11</sup> In Seychelles, the reduction in tourism equated to a 1.5 percent contraction in national gross domestic product.'
+          html: 'Ten years ago, the emerging threat of piracy off the coast of Somalia devastated the coastal tourism industry across East Africa. In 2008, well-reported hijackings and kidnappings led to a 95 percent decrease in Kenyan cruise ship tourism.<sup>8</sup> In 2009, Seychelles concluded that piracy and armed robbery were costing the local tourism industry roughly USD$12 million per year.<sup>9</sup> These changes had immediate economic impacts. In Kenya, the loss of cruise ships removed 40,000 tourists from the economy.<sup>10</sup> In Seychelles, the reduction in tourism equated to a 1.5 percent contraction in national gross domestic product.'
         },
         {
           tag: 'img',
@@ -258,7 +253,7 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'But the trends are reversible. Since instances of piracy and armed robbery off the coast of Somalia sharply decreased in 2012, the economy of Seychelles has rebounded. GDP in 2015 reached approximately USD$1.4 billion—up from the 2009 low point of USD$847 million. Since 2011, the Kenyan tourism industry has rebounded slightly, with roughly 5,000 tourists visiting by cruise ship in 2013.<sup>12</sup>'
+          html: 'But the trends are reversible. Since instances of piracy and armed robbery off the coast of Somalia sharply decreased in 2012, the economy of Seychelles has rebounded. GDP in 2015 reached approximately USD$1.4 billion—up from the 2009 low point of USD$847 million. Since 2011, the Kenyan tourism industry has rebounded slightly, with roughly 5,000 tourists visiting by cruise ship in 2013.<sup>11</sup>'
         },
 
         {
@@ -267,26 +262,26 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'While the Gulf of Guinea’s tourism potential has remained largely untapped, flourishing crime and a lack of maritime governance will only inhibit the growth and development of a thriving tourism industry in the future. As the African Development Bank group has concluded, countries in West Africa lag behind other African countries when it comes to tourism.<sup>13</sup> This is a missed opportunity, as the coastal states in West Africa have unique cultures, heritages, landscapes, and goods that would appeal to tourists coming from both inside and outside the continent. The Gambia, for instance, has 80 km of beaches and rich coastal reserves that few get the chance to enjoy. Gabon is home to beautiful white-sand beaches, and an astounding 11.25 percent of the country has been set aside as national park land. Each country has something special to offer visitors. Consequently, securing the maritime environment in the Gulf of Guinea—and the rest of sub-Saharan Africa—would bolster economic development and allow the region to function more efficiently.'
+          html: 'While the Gulf of Guinea’s tourism potential has remained largely untapped, flourishing crime and a lack of maritime governance will only inhibit the growth and development of a thriving tourism industry in the future. As the African Development Bank group has concluded, countries in West Africa lag behind other African countries when it comes to tourism.<sup>12</sup> This is a missed opportunity, as the coastal states in West Africa have unique cultures, heritages, landscapes, and goods that would appeal to tourists coming from both inside and outside the continent. The Gambia, for instance, has 80 km of beaches and rich coastal reserves that few get the chance to enjoy. Gabon is home to beautiful white-sand beaches, and an astounding 11.25 percent of the country has been set aside as national park land. Each country has something special to offer visitors. Consequently, securing the maritime environment in the Gulf of Guinea—and the rest of sub-Saharan Africa—would bolster economic development and allow the region to function more efficiently.'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>9</sup> “Piracy Forces Kenya Cruise Tourism Down 95 Percent,” <em>VOA News</em>, accessed 28 August 2017,',
+              org: '<sup>8</sup> “Piracy Forces Kenya Cruise Tourism Down 95 Percent,” <em>VOA News</em>, accessed 28 August 2017.',
               url: 'https://www.voanews.com/a/piracy-forces-kenya-cruise-tourism-down-95-percent-95324914/154676.html'
             },
             {
-              org: '<sup>10</sup> Robert Haywood and Roberta Spivak, <em>Maritime Piracy</em> (Abingdon: Routledge, 2012).'
+              org: '<sup>9</sup> Robert Haywood and Roberta Spivak, <em>Maritime Piracy</em> (Abingdon: Routledge, 2012).'
             },
             {
-              org: '<sup>11</sup> Joseph Akwiri, “Kenya to Build Cruise Ship Terminal at Its Biggest Port,” <em>Reuters</em>, 18 November 2015,',
+              org: '<sup>10</sup> Joseph Akwiri, “Kenya to Build Cruise Ship Terminal at Its Biggest Port,” <em>Reuters</em>, 18 November 2015.',
               url: 'http://af.reuters.com/article/topNews/idAFKCN0T71SW20151118'
             },
             {
-              org: '<sup>12</sup> Ibid.'
+              org: '<sup>11</sup> Ibid.'
             },
             {
-              org: '<sup>13</sup> “Tourism in West Africa: An Economic, Social and Cultural Opportunity,” African Development Bank, accessed 31 August 2017,',
+              org: '<sup>12</sup> “Tourism in West Africa: An Economic, Social and Cultural Opportunity,” African Development Bank, accessed 31 August 2017.',
               url: 'https://www.afdb.org/en/blogs/measuring-the-pulse-of-economic-transformation-in-west-africa/post/tourism-in-west-africa-an-economic-social-and-cultural-opportunity-14479/'
             },
           ]
@@ -340,16 +335,16 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'This influx of FDI is positive. African ports remain largely underdeveloped overall, and the lack of proper port infrastructure continues to contribute to expensive delays stemming from the increased amount of time that vessels need to spend in port or waiting to enter a crowded port.15 However, without proper maritime security and safety in these developing ports, vessels can be vulnerable to threats such as piracy and armed robbery.'
+          html: 'This influx of FDI is positive. African ports remain largely underdeveloped overall, and the lack of proper port infrastructure continues to contribute to expensive delays stemming from the increased amount of time that vessels need to spend in port or waiting to enter a crowded port.<sup>13</sup> However, without proper maritime security and safety in these developing ports, vessels can be vulnerable to threats such as piracy and armed robbery.'
         },
         {
           tag: 'p',
-          html: 'These threats can be detrimental to maritime trade and port revenue. For example, commerce in the Gulf of Guinea was significantly impacted during 2011 when more than 20 attacks were recorded off the coast of Benin. The port of Cotonou, which handles approximately 90 percent of the country’s foreign trade and accounts for roughly 80 percent of national fiscal revenue, experienced a steep 70 percent decline in port traffic due to piracy and armed robbery,<sup>16</sup> leading to an estimated loss of USD$81 million in customs revenue for the year as the shipping industry moved business operations to other ports and anchorages in the Gulf of Guinea.<sup>17</sup>'
+          html: 'These threats can be detrimental to maritime trade and port revenue. For example, commerce in the Gulf of Guinea was significantly impacted during 2011 when more than 20 attacks were recorded off the coast of Benin. The port of Cotonou, which handles approximately 90 percent of the country’s foreign trade and accounts for roughly 80 percent of national fiscal revenue, experienced a steep 70 percent decline in port traffic due to piracy and armed robbery,<sup>14</sup> leading to an estimated loss of USD$81 million in customs revenue for the year as the shipping industry moved business operations to other ports and anchorages in the Gulf of Guinea.<sup>15</sup>'
         },
         //###<<< video: https://www.youtube.com/watch?v=vM_f2g0jXTg>>>
         {
           tag: 'p',
-          html: 'Similarly, the large number of piracy and armed robbery–related incidents recorded in the Gulf of Guinea in 2015 likely had something to do with the dramatic decreases in gross tonnage handled at Nigerian ports. The Rivers and Delta port complexes recorded the largest declines in volume throughout the year, with decreases in gross tonnage of 29 percent and 33.5 percent respectively.<sup>18</sup> Enhancing port capacity would decrease the amount of time vessels spend in port and waiting to enter port, and would likely lead to increased port revenue stemming from enhanced efficiency.'
+          html: 'Similarly, the large number of piracy and armed robbery–related incidents recorded in the Gulf of Guinea in 2015 likely had something to do with the dramatic decreases in gross tonnage handled at Nigerian ports. The Rivers and Delta port complexes recorded the largest declines in volume throughout the year, with decreases in gross tonnage of 29 percent and 33.5 percent respectively.<sup>16</sup> Enhancing port capacity would decrease the amount of time vessels spend in port and waiting to enter port, and would likely lead to increased port revenue stemming from enhanced efficiency.'
         },
         {
           tag: 'p',
@@ -357,24 +352,25 @@ var blueEconomyData = {
         },
         {
           tag: 'links',
-          items: [{
-              org: '<sup>14</sup> ### These need review ####*** Matina Stevis and Asa Fitch, “Dubai’s DP World Agrees to Manage Port in Somaliland for 30 Years,” <em>The Wall Street Journal</em>, 30 May 2016,',
-              url: 'https://www.wsj.com/articles/dubais-dp-world-agrees-to-manage-port-in-somaliland-for-30-years-1464549937'
-            },
+          items: [
+            // {
+            //   org: '<sup>14</sup> ### These need review ####*** Matina Stevis and Asa Fitch, “Dubai’s DP World Agrees to Manage Port in Somaliland for 30 Years,” <em>The Wall Street Journal</em>, 30 May 2016,',
+            //   url: 'https://www.wsj.com/articles/dubais-dp-world-agrees-to-manage-port-in-somaliland-for-30-years-1464549937'
+            // },
             {
-              org: '<sup>15</sup> Savahna Nightingale, “IHS Maritime: The African Paradigm Shift and the Importance of Maritime Development,” Youtube video posted 6 June 2013 by IHSChannel,',
+              org: '<sup>13</sup> Savahna Nightingale, “IHS Maritime: The African Paradigm Shift and the Importance of Maritime Development,” Youtube video posted 6 June 2013 by IHSChannel.',
               url: 'https://www.youtube.com/watch?v=vM_f2g0jXTg'
             },
             {
-              org: '<sup>16</sup> United Nations Security Council, “Report of the United Nations Assessment Mission on Piracy in the Gulf of Guinea (7 to 24 November 2011),” United Nations Security Council Report S/2012/45, 19 January 2012,',
+              org: '<sup>14</sup> United Nations Security Council, “Report of the United Nations Assessment Mission on Piracy in the Gulf of Guinea (7 to 24 November 2011),” United Nations Security Council Report S/2012/45, 19 January 2012.',
               url: 'http://www.securitycouncilreport.org/atf/cf/%7B65BFCF9B-6D27-4E9C-8CD3-CF6E4FF96FF9%7D/AUUN%20S%202012%2045.pdf'
             },
             {
-              org: '<sup>17</sup> Ibid.'
+              org: '<sup>15</sup> Ibid.'
             },
             {
-              org: '<sup>18</sup> “2015 Full Year Report,” Nigerian Ports Authority, accessed 28 August 2017,',
-              url: 'https://www.nigerianports.org/dynamicdata/uploads/YearlyReports/2015-FULL-YEAR-REPORT.pdf'
+              org: '<sup>16</sup> “2015 Full Year Report,” Nigerian Ports Authority, accessed 28 August 2017.'
+        //      url: 'http://www.nigerianports.org.ng/dynamicdata/uploads/YearlyReports/2015-FULL-YEAR-REPORT.pdf'
             },
           ]
         }
@@ -395,7 +391,7 @@ var blueEconomyData = {
         highlights: [],
         tooltip: true,
         legend: 'Oil and Gas measurement',
-        path: '../data/blue-economy/offshore-oil.json',
+        path: '../../data/blue-economy/offshore-oil.json',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['BE_OILGAS'];
