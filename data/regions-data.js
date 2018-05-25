@@ -2748,15 +2748,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Gabon ranks highest in Coastal Welfare. Gabon's score of 73 in this area is high relative to its other issue scores,          due in part to high standards of living. Gabon possesses one of the lowest infant mortality rates and one of the highest Human Development Index scores in Africa.. Gabon can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the dominant oil and gas sector."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Gabon scores highest in Coastal Welfare. Gabon's score of 79 in this area is high relative to its other issue scores,          due in part to high standards of living. Gabon possesses one of the lowest infant mortality rates and one of the highest Human Development Index scores in Africa.. Gabon can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the dominant oil and gas sector."
           },
           {
             "tag": "bigtext",
-            "html": "Gabon is also above the regional average in Maritime Enforcement, Coastal Welfare, Blue Economy, and Illicit Trades."
+            "html": "Gabon is also above the regional average in Maritime Enforcement, Blue Economy, and Illicit Trade."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Gabon is Rule of Law. Gabon scores 41 in this area, above the regional average of 35. To further             improve upon this score, Gabon can invest in anti-corruption efforts and increase judicial accountability.. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Gabon than it is elsewhere in the region.. Through these efforts, Gabon can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Gabon is Rule of Law. Gabon scores 41 in this area, below the regional average of 48. To further             improve upon this score, Gabon can invest in anti-corruption efforts and increase judicial accountability.. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Gabon than it is elsewhere in the region. Through these efforts, Gabon can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
