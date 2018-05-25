@@ -3297,15 +3297,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Comoros ranks highest in Piracy. Comoros's score of 88 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Comoros can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Comoros scores highest in Piracy. Comoros's score of 88 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Comoros can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
-            "html": "Comoros is also above the regional average in Fisheries and Piracy."
+            "html": "Comoros is also above the regional average in Fisheries and Blue Economy."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Comoros is Illicit Trades. Comoros scores 10 in this area, below the regional average of 23. To further             improve upon this score, Comoros can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Comoros can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Comoros is Illicit Trade. Comoros scores 22 in this area, below the regional average of 36. To further             improve this score, Comoros can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Comoros can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
