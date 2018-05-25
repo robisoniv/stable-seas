@@ -482,7 +482,7 @@ var overviewData = {
         },
         {
           tag: 'p',
-          html: 'The measures presented here reflect the best available information about complex and under-reported issues occurring in expansive remote areas. Some issue scores necessarily reflect best faith estimates rather than exact and verifiable figures. Readers can find methodology summaries throughout the website, along with complete datasets and technical notes from our main page at www.stableseas.org.'
+          html: 'The measures presented here reflect the best available information about complex and under-reported issues occurring in expansive remote areas. Some issue scores necessarily reflect best faith estimates rather than exact and verifiable figures. Readers can find methodology summaries throughout the website, along with complete datasets and technical notes from our main page at <a href="https://stableseas.org/">www.stableseas.org</a>.'
         },
         {
           tag: 'p',
