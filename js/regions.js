@@ -1099,33 +1099,55 @@ function buildRadar(obj, container, cardIndex, elIndex) {
   //console.log('el', elIndex);
   var iso3 = regionsData[region].cards[cardIndex].map.highlights;
 
-  // Lex - this is how you access the radar data
+  var radarAverages = {};
+  for (key in radarData) {
+    var sum = 0;
+    radarData[key].forEach(function (rec) {
+      sum += rec.value;
+    })
+    radarAverages[key] = sum / 9;
 
+  }
 
   if (region == 'overview') {
     cardRadarData = [
-      // africa average data
       radarData.africa
     ];
     var color = regionsData[region].metadata.color;
   } else if (cardIndex == 0 && region != 'overview') {
-    cardRadarData = [
-      // >>>>>>> radar-lex
-      // region average data
-      radarData[region],
-      // africa average data
-      radarData.africa
-    ];
+
+    if (radarAverages[region] > radarAverages.africa) {
+      cardRadarData = [
+
+        radarData[region],
+        radarData.africa
+      ];
+    } else {
+      cardRadarData = [
+
+        radarData.africa,
+        radarData[region]
+
+      ];
+    }
+
 
     var color = [regionsData[region].metadata.color, '#0d3a58']
 
   } else {
-    cardRadarData = [
-      // region average data
-      radarData[iso3],
-      // africa average data
-      radarData[region]
-    ];
+    if (radarAverages[iso3] < radarAverages[region]) {
+      cardRadarData = [
+        radarData[region],
+        radarData[iso3]
+      ];
+    } else {
+      cardRadarData = [
+        radarData[iso3],
+        radarData[region]
+
+      ];
+    }
+
 
     color = ['gray', regionsData[region].metadata.color];
   }
