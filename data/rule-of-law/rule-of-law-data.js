@@ -68,29 +68,19 @@ var ruleOfLawData = {
           tag: 'caption',
           text: 'Progress requires effective and legitimate legal institutions'
         },
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>Lighter shades indicate countries with a better Corruption Perceptions Index score. <br />Source: <a href="https://www.transparency.org/" target="_blank">Transparency International</a></em>'
-        // },
         {
           tag: 'p',
           html: 'Rule of law is crucial for translating maritime security measures from paper to practice. Good governance of the maritime space requires bureaucratic and legal structures that are capable of developing, implementing, and enforcing policy. Where these structures are undermined by corruption, ineffectiveness, inefficiency, and inconsistent application of the law, legislative approaches to maritime security cannot be enforced and legal measures have little impact.'
         },
         {
           tag: 'img',
-          src: '../../assets/rule-of-law/rule-of-law-coin-cloud.png', // This should be on the Stable Seas Deck - comments
-          alt: 'Command exercise, Crew of EU Naval Force frigate FGS Augsburg, police officers with EUCAP NESTOR and Djibouti Navy. Photo credit: European Union Naval Force',
-          caption: 'Command exercise, Crew of EU Naval Force frigate FGS Augsburg, police officers with EUCAP NESTOR and Djibouti Navy. Photo credit: European Union Naval Force'
+          src: '../../assets/rule-of-law/rule-of-law-coin-cloud.png',
+          alt: 'Rule of Law and related issue areas'
         },
         {
           tag: 'p',
           html: 'Countries with high scores for rule of law also had high scores for coastal welfare and fisheries as well as relatively low levels of migration and human trafficking at sea. These correlations demonstrate the threat that corruption can pose to healthy fisheries management and participation in the legal coastal economy.'
         },
-        // {
-        //   tag: 'p',
-        //   html: 'This section is divided into three parts. The first section explores the intersection of corruption and the blue economy. Then next section discusses the role of the legal finish as a deterrent to transnational maritime crime. The section concludes with a review of methodology.'
-        // },
       ] // end of els array
     }, // End of first element of cards object
     { // Card 1
@@ -166,9 +156,9 @@ var ruleOfLawData = {
         },
         {
           tag: 'blockquote',
-          html: '“Nigeria has repeatedly demonstrated how the EITI process can be used to achieve important, tangible results for its citizens. Swiftly addressing the corrective actions identified through Validation should help Nigeria continue to demonstrate regional leadership and make a full transition to the EITI standard.”<br /><em>- Fredrik Reinfeldt, Chair of the EITI Board</em>',
-          source: ''
-          //link: '#'       // What about internal references?
+          html: '“Nigeria has repeatedly demonstrated how the EITI process can be used to achieve important, tangible results for its citizens. Swiftly addressing the corrective actions identified through Validation should help Nigeria continue to demonstrate regional leadership and make a full transition to the EITI standard.”',
+          source: 'Fredrik Reinfeldt, Chair of the EITI Board',
+          link: 'https://eiti.org/news/nigeria-eiti-recognises-progress-in-addressing-natural-resource-governance'
         },
         {
           tag: 'p',
@@ -201,7 +191,7 @@ var ruleOfLawData = {
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['efficiency'];
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return 'WB "Trading Across Borders" Score:<br />' + tooltipVal + " / 100";
+          return 'World Bank "Trading Across Borders" Score:<br />' + tooltipVal + " / 100";
 
         },
         load: function(index, js) { // ### do we need the 'js' parameter??
@@ -226,12 +216,6 @@ var ruleOfLawData = {
           tag: 'caption',
           text: 'How excessive bureaucracy brings bribe-seeking'
         },
-        //###insert corruption infographic from Andrea
-        // {
-        //   tag: 'legend',
-        //   text: 'Map Legend',
-        //   legendContent: '<em>Lighter shades indicate lower barriers and restrictions on international trade <br> Source: <a href="https://www.doingbusiness.org/" target="_blank">2017 World Bank Doing Business Report</a></em>'
-        // },
         {
           tag: 'p',
           html: 'To effectively fight corruption and curtail bribe-seeking, states can review their bureaucracies and eliminate points where these activities are most likely to occur. Seaports should be a focal point in this search. Because more than 90% of sub-Saharan Africa’s international trade flows through its seaports, port administrators are uniquely positioned to demand bribes, permit illicit economic activity, and undermine good governance. A recent report by <em> The Economist </em> went as far as to call this behavior “onshore piracy.”<sup>1</sup>'
@@ -342,7 +326,7 @@ var ruleOfLawData = {
         {
           tag: 'blockquote',
           html: '“It is important to have women involved in these activities since their contributions have a big influence on ensuring stronger household level financial management and food security that will directly benefit their families.”',
-          source: 'Ms. Shukri Ahmed Mohamed, community organizer with FAO Somalia<sup>9</sup',
+          source: 'Ms. Shukri Ahmed Mohamed<br />Community organizer with FAO Somalia',
           link: 'http://www.fao.org/blogs/blue-growth-blog/promoting-gender-in-fisheries-activities-in-somalia/en/'
         },
         {
@@ -411,25 +395,26 @@ var ruleOfLawData = {
           html: 'Unfortunately, the same geographic characteristics that undermine effective law enforcement also provide safe sanctuaries for traffickers, pirates, and insurgents operating in maritime spaces. Small, portable, high-value goods, including cocaine and heroin, are most likely to be smuggled in these areas. These problems are especially evident in offshore island groups, such as Guinea-Bissau’s Bijagos archipelago or the Lamu region of Kenya.'
         },
         {
-          tag: 'p',
-          html: 'When states eliminate these “blind spots,” they gain the ability to enforce good policy and exert local control. Legislation can more directly translate into action and states can become much more likely to successfully curb illicit maritime activities. Because criminal networks based in under-governed locales travel great distances to smuggle or pirate, eliminating local areas with weak governance can significantly improve maritime security over very large regions.'
-        },
-        {
           tag: 'img',
           src: '../../assets/rule-of-law/packets_cocaine_guinea_bissau.jpg', // This should be on the Stable Seas Deck - comments
           alt: 'Packets of seized cocaine at a police station in Guinea-Bissau. Photo: Issouf Sanogo/AFP/Getty Images',
           caption: 'Packets of seized cocaine at a police station in Guinea-Bissau. Photo: Issouf Sanogo/AFP/Getty Images'
         },
         {
-          tag: 'blockquote',
-          html: '“The greatest fragility we have is the islands, many of them uninhabited, but still the drug traffickers use them as a depot and then transport [the drug] to the continent. On the other hand, even in those that are inhabited the presence of the state is weak, or in some cases nonexistent.” —Mamadu Djalo Pires, Minister of Justice, Guinea-Bissau, 2009; translated<sup>5</sup>', //### need closed brackets around the words "the drug" in this blockquote
-          link: 'http://***.org/***' // What about internal references?
+          tag: 'p',
+          html: 'When states eliminate these “blind spots,” they gain the ability to enforce good policy and exert local control. Legislation can more directly translate into action and states can become much more likely to successfully curb illicit maritime activities. Because criminal networks based in under-governed locales travel great distances to smuggle or pirate, eliminating local areas with weak governance can significantly improve maritime security over very large regions.'
         },
-        { tag: 'links',
-          items: [
-            {org: '<sup>5</sup> S.A, RTP, Rádio e Televisão de Portugal 2009 LUSA Agência de Notícias de Portugal. “Arquipélago Dos Bijagós Utilizado Como Depósito Dos Narcotraficantes.” Accessed September 28, 2017.', url: 'https://www.rtp.pt/noticias/mundo/arquipelago-dos-bijagos-utilizado-como-deposito-dos-narcotraficantes_n302245.'}
-          ]
-        }
+        {
+          tag: 'blockquote',
+          html: '“The greatest fragility we have is the islands, many of them uninhabited, but still the drug traffickers use them as a depot and then transport [the drug] to the continent. On the other hand, even in those that are inhabited the presence of the state is weak, or in some cases nonexistent."', //### need closed brackets around the words "the drug" in this blockquote
+          link: 'https://www.rtp.pt/noticias/mundo/arquipelago-dos-bijagos-utilizado-como-deposito-dos-narcotraficantes_n302245',
+          source: 'Mamadu Djalo Pires, 2009, translated<br />Minister of Justice, Guinea-Bissau'
+        },
+        // { tag: 'links',
+        //   items: [
+        //     {org: '<sup>5</sup> S.A, RTP, Rádio e Televisão de Portugal 2009 LUSA Agência de Notícias de Portugal. “Arquipélago Dos Bijagós Utilizado Como Depósito Dos Narcotraficantes.” Accessed September 28, 2017.', url: 'https://www.rtp.pt/noticias/mundo/arquipelago-dos-bijagos-utilizado-como-deposito-dos-narcotraficantes_n302245.'}
+        //   ]
+        // }
 
       ]
     },

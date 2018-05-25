@@ -65,8 +65,8 @@ var internationalCooperationData = {
         {
           tag: 'blockquote',
           html: '“We must continue in good spirit of partnership and alliances to support our continent and ensure that trade can advance freely. No one nation can deal with the challenges that we face in the world today. The ocean is so vast that a united effort is required to make sure that our oceans are safe.”',
-          source: 'Rear Adm. B.K. Mhlana, Fleet Flag Officer<br />South African Navy<sup>1</sup>',
-          link: 'http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
+          source: 'Rear Adm. B.K. Mhlana, Fleet Flag Officer<br />South African Navy',
+          link: 'http://www.marsecreview.com/2014/11/exercise-cutlass-express-2015/' //old link, related article: http://www.navy.mil/submit/display.asp?story_id=99689' // What about internal references?
         },
         {
           tag: 'p',
@@ -118,23 +118,23 @@ var internationalCooperationData = {
         //   tag: 'p',
         //   html: 'Protecting the rights of African maritime states under UNCLOS needs to be a priority for all actors interested in maintaining maritime security. The case of Somali piracy demonstrates how failure to observe the rights to maritime governance established in UNCLOS III can generate grievances<sup>2</sup> which give rise to other threats. Rather than exploiting the inability of many sub-Saharan states to effectively enforce their sovereignty in their maritime domains, actors interested in maritime security need to partner with such states in order to build capacity to govern and enforce law in these spaces.'
         // },
-        {
-          tag: 'links',
-          items: [
-            // {
-            //   org: '*** Still need these??*** <sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
-            //   url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
-            // },
-            // {
-            //   org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
-            //   url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
-            // },
-            {
-              org: '<sup>1</sup> David Rider, “Exercise Cutlass Express 2015,” <em>Maritime Security Review</em>, 21 November 2014.',
-              url: 'http://www.marsecreview.com/2014/11/exercise-cutlass-express-2015/'
-            }
-          ]
-        }
+        // {
+        //   tag: 'links',
+        //   items: [
+        //     // {
+        //     //   org: '*** Still need these??*** <sup>1</sup> “Reflections on Africa and the Law of the Sea Regime,” <em>CEMLAWS Blog</em>, 24 November 2016,',
+        //     //   url: 'http://www.cemlawsafrica.com/blog/reflections-africa-and-law-sea-regime-part-i'
+        //     // },
+        //     // {
+        //     //   org: '<sup>2</sup> Peter Kerins, “Somali Perspectives on Piracy and Illegal Fishing,” Oceans Beyond Piracy,',
+        //     //   url: 'http://oceansbeyondpiracy.org/publications/somali-perspectives-piracy-and-illegal-fishing'
+        //     // },
+        //     {
+        //       org: '<sup>1</sup> David Rider, “Exercise Cutlass Express 2015,” <em>Maritime Security Review</em>, 21 November 2014.',
+        //       url: 'http://www.marsecreview.com/2014/11/exercise-cutlass-express-2015/'
+        //     }
+        //   ]
+        // }
         // { tag: 'h3',
         //   text: 'The International Cooperation Score'
         // },
@@ -478,11 +478,11 @@ var internationalCooperationData = {
         //###Insert Map: This one is tough. Do you think it would be possible to recalculate the scores in the enforcement section but based on the AU’s five regions (only 4 of which are relevant to SSA)? I think it could be interesting for getting an idea of what larger regions in SSA have the capacity to really improve governance towards AIMS
         {
           tag: 'p',
-          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS)<sup>2</sup> to provide a framework for enhanced governance in Africa’s maritime domain, develop a platform for shared maritime policy, and facilitate the development of the <a class="blue-economy inline" href="../blue-economy">Blue Economy</a>. Implementation of the ambitious strategy continues to be challenging, but huge strides were made by the adoption of the African Charter on Maritime Security, Safety and Development in Africa (the Lomé Charter) in October 2016. The Lomé Charter moves the AIM strategy from a soft law, non-binding approach to a hard law, legally binding treaty which clearly defines the blue economy and emphasizes linkages between maritime safety, security, and marine resource development.'
+          html: 'In January of 2014, the African Union (AU) adopted Africa’s Integrated Maritime Strategy (AIMS)<sup>1</sup> to provide a framework for enhanced governance in Africa’s maritime domain, develop a platform for shared maritime policy, and facilitate the development of the <a class="blue-economy inline" href="../blue-economy">Blue Economy</a>. Implementation of the ambitious strategy continues to be challenging, but huge strides were made by the adoption of the African Charter on Maritime Security, Safety and Development in Africa (the Lomé Charter) in October 2016. The Lomé Charter moves the AIM strategy from a soft law, non-binding approach to a hard law, legally binding treaty which clearly defines the blue economy and emphasizes linkages between maritime safety, security, and marine resource development.'
         },
         {
           tag: 'p',
-          html: 'The African maritime domain is confronted with a variety of security and governance challenges from <a class="piracy inline" href="../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../fisheries">IUU Fishing</a>. AIMS builds a comprehensive, unified set of maritime policies to address these challenges, including issues of economic development, environmental protection, maritime crime, disaster management, and maritime law.<sup>3</sup>'
+          html: 'The African maritime domain is confronted with a variety of security and governance challenges from <a class="piracy inline" href="../piracy">piracy</a> to <a class="maritime-mixed-migration inline" href="../maritime-mixed-migration">human trafficking</a> and <a class="maritime-enforcement inline" href="../maritime-enforcement#2">waste dumping</a> to <a class="fisheries inline" href="../fisheries">IUU Fishing</a>. AIMS builds a comprehensive, unified set of maritime policies to address these challenges, including issues of economic development, environmental protection, maritime crime, disaster management, and maritime law.<sup>2</sup>'
         },
         {
           tag: 'p',
@@ -504,11 +504,11 @@ var internationalCooperationData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>2</sup> “African Maritime Action Plan Adopted,” <em>Maritime Executive</em>, 2 February 2014.',
+              org: '<sup>1</sup> “African Maritime Action Plan Adopted,” <em>Maritime Executive</em>, 2 February 2014.',
               url: 'http://www.maritime-executive.com/article/African-Maritime-Action-Plan-Adopted-2014-02-02'
             },
             {
-              org: '<sup>3</sup> “2050 Africa’s Integrated Maritime Strategy,” African Union, 2012, Version 1.0.',
+              org: '<sup>2</sup> “2050 Africa’s Integrated Maritime Strategy,” African Union, 2012, Version 1.0.',
               url: 'http://cggrps.org/wp-content/uploads/2050-AIM-Strategy_EN.pdf'
             },
           ]
@@ -530,7 +530,7 @@ var internationalCooperationData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        legend: 'Regional Coordination in sub-Saharan Africa',
+        legend: 'Regional Coordination in Sub-Saharan Africa',
         categories: ['Djibouti Code of Conduct', 'Yaoundé Zone A', 'Yaoundé Zone D', 'Yaoundé Zone E', 'Yaoundé Zone F', 'Yaoundé Zone G', 'Yaoundé, no zone'],
         tooltipHTML: function(iso) {
           var zone = issueAreaData[issueArea].metadata.countryData[iso];
