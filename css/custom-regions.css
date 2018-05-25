@@ -1125,7 +1125,7 @@ div.navy-and-maritime-law-enforcement {
 /**
  * Radar Chart
  */
-.radarChart {
-  width: 450px;
-  margin: 0 auto;
+.radarChart svg {
+  display: block;
+  margin: auto;
 }

@@ -1160,12 +1160,12 @@ function buildRadar(obj, container, cardIndex, elIndex) {
     var margin = {
         top: 50,
         right: 80,
-        bottom: 50,
+        bottom: 60,
         left: 80
       },
       // We should get width of "card" div
-      cardWidth = 470;
-    width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
+      cardWidth = w / 3.5;
+      width = Math.min(700, cardWidth - 10) - margin.left - margin.right,
       height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
     // var color = d3.scaleOrdinal() // setup color for lines
     //     .range(["#EDC951", "#CC333F", "#00A0B0"]);
@@ -1183,9 +1183,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
       formatValue: '.3', // value will be displayed as: xx
     };
     //Call function to draw the Radar chart
-    // console.log('hiiiiiiii', chartIndex, cardRadarData, radarChartOptions);
     RadarChart(".radarChart-" + chartIndex, cardRadarData, radarChartOptions);
-
     var aspect = width / height,
       chart = d3.select('.radarChart');
     d3.select(window)
@@ -1195,10 +1193,6 @@ function buildRadar(obj, container, cardIndex, elIndex) {
         chart.attr("height", targetWidth / aspect);
       });
   }
-
-  //console.log(cardRadarData);
-  //>>>>>>> radar-lex
-
 }
 
 
