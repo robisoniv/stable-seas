@@ -100,7 +100,7 @@ var blueEconomyData = {
               url: 'https://www.aeaweb.org/articles?id=10.1257/jel.48.1.3'
             },
             {
-              org: '<sup>2</sup> John Copley, “Just How Little Do We Know About the Ocean Floor,” Scientific American, 9 October 2014,',
+              org: '<sup>2</sup> John Copley, “Just How Little Do We Know About the Ocean Floor,” Scientific American, 9 October 2014.',
               url: 'https://www.scientificamerican.com/article/just-how-little-do-we-know-about-the-ocean-floor/'
             },
           ]
@@ -390,14 +390,14 @@ var blueEconomyData = {
         translate: [],
         highlights: [],
         tooltip: true,
-        legend: 'Oil and Gas measurement',
+        legend: 'Measure of oil and gas',
         path: '../../data/blue-economy/offshore-oil.json',
         tooltipHTML: function(iso) {
 
           var tooltipVal = issueAreaData[issueArea].metadata.countryData[iso]['BE_OILGAS'];
           tooltipVal = Math.round(tooltipVal * 100);
           updatePointer(tooltipVal);
-          return "Oil and Gas measurement:<br />" + tooltipVal + " / 100";
+          return "Measure oil and gas:<br />" + tooltipVal + " / 100";
 
         },
         load: function(index, file) {
@@ -405,7 +405,6 @@ var blueEconomyData = {
           var layer = 'card-' + index + '-layer';
           d3.select('.card-eez-layer')
             .classed(layer, true);
-          //  console.log('?!@#!@#', csv);
           d3.json(file, function (error, offshoreOil) {
 
             var oilInfrastructure = mapg.append('g')
@@ -457,7 +456,7 @@ var blueEconomyData = {
         //###<<<The map complementing this section will be a choropleth map of the offshore oil and gas producing nations in our study>>>
         {
           tag: 'p',
-          html: 'Sub-Saharan Africa may hold 203 billion barrels of recoverable oil resources, and the region accounted for 30 percent of global oil and gas discoveries made from 2009 to 2014.<sup>29</sup> These discoveries have boosted the reserves of major oil producers like Nigeria and Angola (the world’s 16th and 17th largest producers, respectively)<sup>30</sup> while also bringing new countries into the international oil and gas trade, including Kenya, Madagascar, and Mozambique.<sup>31</sup>'
+          html: 'Sub-Saharan Africa may hold 203 billion barrels of recoverable oil resources, and the region accounted for 30 percent of global oil and gas discoveries made from 2009 to 2014.<sup>17</sup> These discoveries have boosted the reserves of major oil producers like Nigeria and Angola (the world’s 16th and 17th largest producers, respectively)<sup>18</sup> while also bringing new countries into the international oil and gas trade, including Kenya, Madagascar, and Mozambique.<sup>19</sup>'
         },
         {
           tag: 'bigtext',
@@ -465,7 +464,7 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'Although some of these recent discoveries are, at this stage, deemed to be non-transformative, these resources could potentially play a key role in meeting the current and future domestic energy demands of sub-Saharan African countries in addition to being a key earner in foreign exchange. Realizing sub-Saharan Africa’s natural resource energy potential requires continuing investment in further exploration, shortening the transition from exploration to production, and creating a more certain political and regulatory environment. Arguably the most challenging binding constraint in this sector concerns the high levels of corruption and rent-seeking in sub-Saharan African natural resource–rich states: for example, Africa’s largest oil and gas producers, Nigeria and Angola, ranked poorly as 136th and 164th out of 176 countries, respectively, according to <a href="https://www.transparency.org/research/cpi/overview" target="_blank">Transparency International’s 2016 Corruption Perceptions Index</a>.<sup>32</sup>'
+          html: 'Although some of these recent discoveries are, at this stage, deemed to be non-transformative, these resources could potentially play a key role in meeting the current and future domestic energy demands of sub-Saharan African countries in addition to being a key earner in foreign exchange. Realizing sub-Saharan Africa’s natural resource energy potential requires continuing investment in further exploration, shortening the transition from exploration to production, and creating a more certain political and regulatory environment. Arguably the most challenging binding constraint in this sector concerns the high levels of corruption and rent-seeking in sub-Saharan African natural resource–rich states: for example, Africa’s largest oil and gas producers, Nigeria and Angola, ranked poorly as 136th and 164th out of 176 countries, respectively, according to <a href="https://www.transparency.org/research/cpi/overview" target="_blank">Transparency International’s 2016 Corruption Perceptions Index</a>.<sup>20</sup>'
         },
         {
           tag: 'p',
@@ -473,29 +472,28 @@ var blueEconomyData = {
         },
         {
           tag: 'blockquote',
-          html: '“One of the potential game-changers for the region is the discovery of globally significant natural gas resources both onshore and offshore in a number of our member states. As a new initiative, we are proposing the establishment of an Inter-state Natural Gas Committee to share learning for regional gas development and to prepare for the development of the wider gas economy. As such, the inclusion and promotion of gas into the regional energy mix will facilitate an increase in universal access to energy, as well as industrial development in SADC.”<sup>33</sup>'
+          html: '“One of the potential game-changers for the region is the discovery of globally significant natural gas resources both onshore and offshore in a number of our member states. As a new initiative, we are proposing the establishment of an Inter-state Natural Gas Committee to share learning for regional gas development and to prepare for the development of the wider gas economy. As such, the inclusion and promotion of gas into the regional energy mix will facilitate an increase in universal access to energy, as well as industrial development in SADC.”<sup>33</sup>',
+          source: "Jacob Zuma<br />President of South Africa",
+          link: 'http://www.thepresidency.gov.za/speeches/acceptance-speech-president-jacob-zuma-occasion-37th-sadc-summit-heads-state-and-government'
         },
         {
           tag: 'links',
           items: [{
-              org: '<sup>28</sup> International Energy Agency, “Africa Energy Outlook: A Focus on Energy Prospects in Sub-Sharan Africa,” World Energy Outlook Special Report, 2014,',
+              org: '<sup>17</sup> International Energy Agency, “Africa Energy Outlook: A Focus on Energy Prospects in Sub-Sharan Africa,” World Energy Outlook Special Report, 2014.',
               url: 'https://www.iea.org/publications/freepublications/publication/WEO2014_AfricaEnergyOutlook.pdf'
             },
             {
-              org: '<sup>29</sup> Ibid.'
-            },
-            {
-              org: '<sup>30</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017,',
+              org: '<sup>18</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017.',
               url: 'https://www.transparency.org/news/feature/corruption_perceptions_index_2016'
             },
             {
-              org: '<sup>31</sup> Jacob Zuma, “Acceptance Speech by President Jacob Zuma on the Occasion of the 37th SADC Summit of Heads of State and Government, Pretoria, 19th of August 2017,” The Presidency of the Republic of South Africa,',
+              org: '<sup>19</sup> Jacob Zuma, “Acceptance Speech by President Jacob Zuma on the Occasion of the 37th SADC Summit of Heads of State and Government, Pretoria, 19th of August 2017,” The Presidency of the Republic of South Africa.',
               url: 'http://www.thepresidency.gov.za/speeches/acceptance-speech-president-jacob-zuma-occasion-37th-sadc-summit-heads-state-and-government'
             },
             {
-              org: '<sup>32</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017,',
+              org: '<sup>20</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017.',
               url: 'https://www.transparency.org/news/feature/corruption_perceptions_index_2016'
-            },
+            }
           ]
         }
         //###INSERT BLOCKQUOTE: “One of the potential game-changers for the region is the discovery of globally significant natural gas resources both onshore and offshore in a number of our member states. As a new initiative, we are proposing the establishment of an Inter-state Natural Gas Committee to share learning for regional gas development and to prepare for the development of the wider gas economy. As such, the inclusion and promotion of gas into the regional energy mix will facilitate an increase in universal access to energy, as well as industrial development in SADC.”<sup>33</sup>
@@ -549,7 +547,9 @@ var blueEconomyData = {
         // },
         {
           tag: 'blockquote',
-          html: '“The extent of the damage to the ocean is many decades shy of the impact of industrialisation on land and there is still time, if we act now, to get the principles and the framework for the development of the ocean economy right. Business as usual is clearly not an option.” <br />Source: The Economist Intelligence Unit Limited, 2015<sup>6</sup>'
+          html: '“The extent of the damage to the ocean is many decades shy of the impact of industrialisation on land and there is still time, if we act now, to get the principles and the framework for the development of the ocean economy right. Business as usual is clearly not an option.”',
+          source: 'The Economist Intelligence Unit Limited, 2015',
+          link: 'https://www.eiuperspectives.economist.com/sustainability/blue-economy'
         },
         {
           tag: 'p',
@@ -557,7 +557,7 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'Adjusted Net Savings (ANS) measures sustainable development by examining changes in comprehensive wealth and after accounting for depletion of natural resources and investments in human capital.<sup>7</sup> One of the core principles behind ANS is that it is necessary for countries to create a surplus investment in order to escape low-level subsistence—which is particularly relevant in the African context.'
+          html: 'Adjusted Net Savings (ANS) measures sustainable development by examining changes in comprehensive wealth and after accounting for depletion of natural resources and investments in human capital.<sup>21</sup> One of the core principles behind ANS is that it is necessary for countries to create a surplus investment in order to escape low-level subsistence—which is particularly relevant in the African context.'
         },
         {
           tag: 'p',
@@ -565,17 +565,11 @@ var blueEconomyData = {
         },
         {
           tag: 'links',
-          items: [{
-              org: '<sup>25</sup> ### all NEED REVIEW### The Economist Intelligence Unit, <em>“The Blue Economy: Growth, Opportunity and a Sustainable Ocean Economy,”</em> Briefing Paper presented at the World Ocean Summit 2015,',
-              url: 'https://www.eiuperspectives.economist.com/sustainability/blue-economy'
-            },
+          items: [
             {
-              org: '<sup>26</sup> Environmental Department of the World Bank, “Beyond GDP: Measuring Progress, True Wealth, and the Well Being of Nations,” contribution to Beyond GDP Virtual Indicator Expo, 29 June 2012,',
+              org: '<sup>21</sup> Environmental Department of the World Bank, “Beyond GDP: Measuring Progress, True Wealth, and the Well Being of Nations,” contribution to Beyond GDP Virtual Indicator Expo, 29 June 2012.',
               url: 'http://ec.europa.eu/environment/beyond_gdp/download/factsheets/bgdp-ve-ans.pdf'
-            },
-            {
-              org: '<sup>27</sup> Cullen Hendrix and Idean Salehyan, “Climate Change, Rainfall, and Social Conflict in Africa,” <em>Journal of Peace Research</em> 49 (2012), doi: 10.1177/0022343311426165.'
-            },
+            }
           ]
         }
       ] // end of els array
@@ -624,7 +618,7 @@ var blueEconomyData = {
         },
         {
           tag: 'p',
-          html: 'Climate change presents varied risks to sustainable economic development: depending on the underlying biome and other geophysical considerations, a given nation may experience more or less rainfall in the future, rise in sea surface temperature may be minor or major, and sea level rise may threaten coastal developments or not. The risk of conflict is strongly related.<sup>8</sup> The ND-GAIN Climate Vulnerability index, incorporated into our measure of Blue Economy, accounts for 75 different climate-related variables.'
+          html: 'Climate change presents varied risks to sustainable economic development: depending on the underlying biome and other geophysical considerations, a given nation may experience more or less rainfall in the future, rise in sea surface temperature may be minor or major, and sea level rise may threaten coastal developments or not. The risk of conflict is strongly related.<sup>22</sup> The ND-GAIN Climate Vulnerability index, incorporated into our measure of Blue Economy, accounts for 75 different climate-related variables.'
         },
 
         {
@@ -634,25 +628,30 @@ var blueEconomyData = {
 
         {
           tag: 'links',
-          items: [{
-              org: '<sup>28</sup>### NEEDS REVIEW ####  International Energy Agency, “Africa Energy Outlook: A Focus on Energy Prospects in Sub-Sharan Africa,” World Energy Outlook Special Report, 2014,',
-              url: 'https://www.iea.org/publications/freepublications/publication/WEO2014_AfricaEnergyOutlook.pdf'
-            },
+          items: [
             {
-              org: '<sup>29</sup> Ibid.'
-            },
-            {
-              org: '<sup>30</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017,',
-              url: 'https://www.transparency.org/news/feature/corruption_perceptions_index_2016'
-            },
-            {
-              org: '<sup>31</sup> Jacob Zuma, “Acceptance Speech by President Jacob Zuma on the Occasion of the 37th SADC Summit of Heads of State and Government, Pretoria, 19th of August 2017,” The Presidency of the Republic of South Africa,',
-              url: 'http://www.thepresidency.gov.za/speeches/acceptance-speech-president-jacob-zuma-occasion-37th-sadc-summit-heads-state-and-government'
-            },
-            {
-              org: '<sup>32</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017,',
-              url: 'https://www.transparency.org/news/feature/corruption_perceptions_index_2016'
-            },
+              org: '<sup>22</sup> Cullen Hendrix and Idean Salehyan, “Climate Change, Rainfall, and Social Conflict in Africa,” <em>Journal of Peace Research</em> 49 (2012), doi: 10.1177/0022343311426165.',
+              url: 'http://journals.sagepub.com/doi/abs/10.1177/0022343311426165'
+            }
+            // {
+            //   org: '<sup>28</sup>### NEEDS REVIEW ####  International Energy Agency, “Africa Energy Outlook: A Focus on Energy Prospects in Sub-Sharan Africa,” World Energy Outlook Special Report, 2014,',
+            //   url: 'https://www.iea.org/publications/freepublications/publication/WEO2014_AfricaEnergyOutlook.pdf'
+            // },
+            // {
+            //   org: '<sup>29</sup> Ibid.'
+            // },
+            // {
+            //   org: '<sup>30</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017,',
+            //   url: 'https://www.transparency.org/news/feature/corruption_perceptions_index_2016'
+            // },
+            // {
+            //   org: '<sup>31</sup> Jacob Zuma, “Acceptance Speech by President Jacob Zuma on the Occasion of the 37th SADC Summit of Heads of State and Government, Pretoria, 19th of August 2017,” The Presidency of the Republic of South Africa,',
+            //   url: 'http://www.thepresidency.gov.za/speeches/acceptance-speech-president-jacob-zuma-occasion-37th-sadc-summit-heads-state-and-government'
+            // },
+            // {
+            //   org: '<sup>32</sup> “Corruption Perceptions Index 2016,” Transparency International, 25 January 2017,',
+            //   url: 'https://www.transparency.org/news/feature/corruption_perceptions_index_2016'
+            // },
           ]
         }
         //###INSERT BLOCKQUOTE: “One of the potential game-changers for the region is the discovery of globally significant natural gas resources both onshore and offshore in a number of our member states. As a new initiative, we are proposing the establishment of an Inter-state Natural Gas Committee to share learning for regional gas development and to prepare for the development of the wider gas economy. As such, the inclusion and promotion of gas into the regional energy mix will facilitate an increase in universal access to energy, as well as industrial development in SADC.”<sup>33</sup>
@@ -693,63 +692,63 @@ var blueEconomyData = {
       },
       els: [{
           tag: 'h1',
-          text: 'Data and Methods'
+          html: 'Data and Methods'
         },
         {
           tag: 'caption',
-          text: 'How we created the Blue Economy score'
+          html: 'How we created the Blue Economy score'
         },
         {
           tag: 'p',
-          text: 'The Blue Economy score incorporates six equally-weighted components that are central to the blue economy: fisheries, marine and coastal tourism, maritime transportation and shipping, offshore oil and gas, adjusted net savings, and climate change.'
+          html: 'The Blue Economy score incorporates six equally-weighted components that are central to the blue economy: fisheries, marine and coastal tourism, maritime transportation and shipping, offshore oil and gas, adjusted net savings, and climate change.'
         },
         {
           tag: 'h4',
-          text: 'Fisheries'
+          html: 'Fisheries'
         },
         {
           tag: 'p',
-          text: 'Fisheries are an important part of the economy throughout Africa. In some countries, fisheries products are the top grossing export. In others, the income from artisanal and small-scale fisheries are important for livelihoods. We combine the value (in U.S. dollars) of wild caught fisheries and mariculture (aquaculture occurring in the marine environment or of marine species) for this input. Value of wild caught fish by a given country (i.e., excluding fish caught by foreign-flagged vessels) was obtained from the Sea Around Us program. Value of mariculture by a given country was obtained from the UN Food and Agriculture Organization’s Global Statistical collection. The values were summed, and standardized by dividing by total population of a country as reported by the World Bank.'
+          html: 'Fisheries are an important part of the economy throughout Africa. In some countries, fisheries products are the top grossing export. In others, the income from artisanal and small-scale fisheries are important for livelihoods. We combine the value (in U.S. dollars) of wild caught fisheries and mariculture (aquaculture occurring in the marine environment or of marine species) for this input. Value of wild caught fish by a given country (i.e., excluding fish caught by foreign-flagged vessels) was obtained from the Sea Around Us program. Value of mariculture by a given country was obtained from the UN Food and Agriculture Organization’s Global Statistical collection. The values were summed, and standardized by dividing by total population of a country as reported by the World Bank.'
         },
         {
           tag: 'h4',
-          text: 'Maritime and Coastal tourism'
+          html: 'Maritime and Coastal tourism'
         },
         {
           tag: 'p',
-          text: 'Sustainable coastal tourism supports jobs and livelihoods in coastal communities. We use the score from the Tourism and Recreation goal in the Ocean Health Index. The Ocean Health Index  measures countries on biological, physical, economic, and social factors to assess how sustainably humans are using the ocean. The Tourism and Recreation goal measures the proportion of the total labor force engaged in the coastal tourism and travel sector, factoring in unemployment and sustainability. Countries where such employment was 9.5% or greater of the total labor force received a perfect (100) score.'
+          html: 'Sustainable coastal tourism supports jobs and livelihoods in coastal communities. We use the score from the Tourism and Recreation goal in the Ocean Health Index.<sup>23</sup> The Ocean Health Index  measures countries on biological, physical, economic, and social factors to assess how sustainably humans are using the ocean. The Tourism and Recreation goal measures the proportion of the total labor force engaged in the coastal tourism and travel sector, factoring in unemployment and sustainability. Countries where such employment was 9.5% or greater of the total labor force received a perfect (100) score.'
         },
         {
           tag: 'h4',
-          text: 'Maritime Transportation and Shipping'
+          html: 'Maritime Transportation and Shipping'
         },
         {
           tag: 'p',
-          text: 'Maritime ports and the shipping and commerce they support are pillars of the Blue Economy. Large, well-functioning ports support larger volumes of shipping, geater export and import markets, and link national economies to the global economy. We calculated this score by combining two sub-scores: port quantity and port quality. Port quantity was calculated from the Liner Shipping Connectivity Index, a national-level metric developed by the United Nations Conference on Trade and Development and accounts for number of ships, container capacity of those ships, maximum vessel size, number of services, and number of companies that operate in ports. We developed our own port quality metric that accounted for harbor size plus availability of the following services: first port of entry, tug assist, air and rail communications, medical facilities, water and fuel supplies, and dry dock repair. The overall transportation score was calculated by equally weighting the port quantity and quality sub-scores.'
+          html: 'Maritime ports and the shipping and commerce they support are pillars of the Blue Economy. Large, well-functioning ports support larger volumes of shipping, geater export and import markets, and link national economies to the global economy. We calculated this score by combining two sub-scores: port quantity and port quality. Port quantity was calculated from the Liner Shipping Connectivity Index, a national-level metric developed by the United Nations Conference on Trade and Development and accounts for number of ships, container capacity of those ships, maximum vessel size, number of services, and number of companies that operate in ports. We developed our own port quality metric that accounted for harbor size plus availability of the following services: first port of entry, tug assist, air and rail communications, medical facilities, water and fuel supplies, and dry dock repair. The overall transportation score was calculated by equally weighting the port quantity and quality sub-scores.'
         },
         {
           tag: 'h4',
-          text: 'Offshore Oil and Gas'
+          html: 'Offshore Oil and Gas'
         },
         {
           tag: 'p',
-          text: 'Offshore oil and natural gas development contributes substantially to some African nations, like Nigeria, but the distribution is highly skewed. Our score accounts for six factors: proved oil reserves, proved gas reserves, oil production, gas production, the share of oil activities located offshore and the share of gas activities located offshore. Most of our data are from the United States Energy Information Administration, which updates these figures annually.'
+          html: 'Offshore oil and natural gas development contributes substantially to some African nations, like Nigeria, but the distribution is highly skewed. Our score accounts for six factors: proved oil reserves, proved gas reserves, oil production, gas production, the share of oil activities located offshore and the share of gas activities located offshore. Most of our data are from the United States Energy Information Administration, which updates these figures annually.'
         },
         {
           tag: 'h4',
-          text: 'Adjusted Net Savings'
+          html: 'Adjusted Net Savings'
         },
         {
           tag: 'p',
-          text: 'Adjusted Net Savings (ANS) is a measure of true savings in a country after taking into account depletion of natural resources and damages, as well as investments in human capital.[1] Many economists have adopted ANS as a metric that overcomes some shortfalls in using Gross Domestic Product to measure economic growth and development. ANS is derived from the standard national accounting measure of gross saving by making four adjustments: consumption of fixed capital is deducted to obtain net national saving; current public expenditure on education is added to account for investment in human capital; estimates of the depletion of a variety of natural resources are deducted to reflect the decline in asset values associated with extraction and depletion; and deductions are made for damages from carbon dioxide and particulate emissions. We use ANS measures from the World Bank’s World Development Indicators Little Green Book. Values for 23 of the countries here were used, and the regional average was used for countries without ANS values. Raw scores ranged from -47.8 to 36.9 so we normalized scores and benchmarked regional values to the global range.'
+          html: 'Adjusted Net Savings (ANS) is a measure of true savings in a country after taking into account depletion of natural resources and damages, as well as investments in human capital. Many economists have adopted ANS as a metric that overcomes some shortfalls in using Gross Domestic Product to measure economic growth and development. ANS is derived from the standard national accounting measure of gross saving by making four adjustments: consumption of fixed capital is deducted to obtain net national saving; current public expenditure on education is added to account for investment in human capital; estimates of the depletion of a variety of natural resources are deducted to reflect the decline in asset values associated with extraction and depletion; and deductions are made for damages from carbon dioxide and particulate emissions. We use ANS measures from the World Bank’s World Development Indicators Little Green Book.<sup>24</sup> Values for 23 of the countries here were used, and the regional average was used for countries without ANS values. Raw scores ranged from -47.8 to 36.9 so we normalized scores and benchmarked regional values to the global range.'
         },
         {
           tag: 'h4',
-          text: 'Climate Vulnerability'
+          html: 'Climate Vulnerability'
         },
         {
           tag: 'p',
-          text: 'Several components of the Blue Economy, such as fisheries and tourism, may be affected by global climate change. To account for this risk, we included a measure of vulnerability to climate change. We used the University of Notre Dame’s Global Adaptation Index (known as ND-GAIN). The index measures a country’s vulnerability to climate change based on: (1) exposure to climate-related or climate-exacerbated hazards, (2) sensitivity to the hazard’s impacts and (3) capacity to adapt or manage to the impacts. We use the ND-GAIN Vulnerability score which is calculated at a national scale and updated annually.'
+          html: 'Several components of the Blue Economy, such as fisheries and tourism, may be affected by global climate change. To account for this risk, we included a measure of vulnerability to climate change. We used the University of Notre Dame’s Global Adaptation Index (known as ND-GAIN). The index measures a country’s vulnerability to climate change based on: (1) exposure to climate-related or climate-exacerbated hazards, (2) sensitivity to the hazard’s impacts and (3) capacity to adapt or manage to the impacts. We use the ND-GAIN Vulnerability score which is calculated at a national scale and updated annually.'
         },
         {
           tag: 'p',
@@ -758,17 +757,14 @@ var blueEconomyData = {
         {
           tag: 'links',
           items: [{
-              org: '<sup>32</sup>#### Review #### “The Ocean Health Index,” Ocean Health Index, accessed 1 September 2017,',
+              org: '<sup>23</sup> “The Ocean Health Index,” Ocean Health Index, accessed 1 September 2017.',
               url: 'http://www.oceanhealthindex.org'
             },
             /// ### added http to the website as original did not include it. Please check if valid.
             {
-              org: '<sup>33</sup> World Bank, <em>The Little Green Data Book 2017</em>, World Development Indicators (Washington, DC: World Bank, 2017),',
+              org: '<sup>24</sup> World Bank, <em>The Little Green Data Book 2017</em>, World Development Indicators (Washington, DC: World Bank, 2017).',
               url: 'https://openknowledge.worldbank.org/handle/10986/27466 License: CC BY 3.0 IGO'
-            },
-            {
-              org: '<sup>34</sup> Ibid.'
-            },
+            }
           ]
         }
       ]
