@@ -177,7 +177,7 @@ var countryPaths = {
   "westIndianOcean": {
     name: "West Indian Ocean"
   },
-  'easternCoast' : {
+  'easternCoast': {
     name: "Eastern Coast"
   }
 }
@@ -494,7 +494,7 @@ function loadRegions(data, card) { // where data = data.js format ... so it's an
     // .style('background-color', function() {
     //     return rampColor(0.6);
     //   })
-      //.style('margin-bottom', 5)
+    //.style('margin-bottom', 5)
 
 
     // Pull target card index from URL anchor:
@@ -1161,7 +1161,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
         radarData.africa
       ];
       activePlot = region;
-    //    secondplot = "Africa";
+      //    secondplot = "Africa";
 
       var color = [regionsData[region].metadata.color, 'gray']
 
@@ -1173,7 +1173,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
 
       ];
 
-    //  firstPlot = "Africa";
+      //  firstPlot = "Africa";
       activePlot = region;
       color = ['gray', regionsData[region].metadata.color];
 
@@ -1188,7 +1188,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
         radarData[iso3]
       ];
 
-  //    firstPlot = 'Africa';
+      //    firstPlot = 'Africa';
       activePlot = iso3;
       color = ['gray', regionsData[region].metadata.color];
 
@@ -1201,7 +1201,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
       color = [regionsData[region].metadata.color, 'gray'];
 
       activePlot = iso3;
-  //    secondPlot = "Africa";
+      //    secondPlot = "Africa";
     }
 
 
@@ -1247,7 +1247,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
       });
   }
 
-//  console.log('Card' + cardIndex, firstPlot, secondPlot);
+  //  console.log('Card' + cardIndex, firstPlot, secondPlot);
 
   var radarLegend = chart.append('div')
     .classed('col-sm-12', true)
@@ -1258,17 +1258,19 @@ function buildRadar(obj, container, cardIndex, elIndex) {
     var color = regionsData[region].metadata.color;
 
     radarLegend.append('div')
-      .classed('col-sm-3', true);
+      .classed('col-sm-4', true);
 
     radarLegend = radarLegend.append('div')
-        .classed('col-sm-6', true)
-      .style('height', '100%');
+      .classed('col-sm-6', true)
+      .style('height', '100%')
+      .append('div').classed('row', true).style('height', '100%');
     //  .style('background-color', color);
 
     radarLegend.append('div')
-      .classed('col-sm-2', true)
+      .classed('col-sm-2 radar-legend-box', true)
       .style('height', '40%')
-      .style('background-color', 'gray');
+      .style('background-color', 'gray')
+      .style('border', '5px solid gray');
 
     radarLegend.append('div')
       .classed('col-sm-8', true)
@@ -1287,10 +1289,12 @@ function buildRadar(obj, container, cardIndex, elIndex) {
     first.append('div')
       .classed('col-sm-2', true);
 
+
     first.append('div')
-      .classed('col-sm-2', true)
+      .classed('col-sm-2 radar-legend-box', true)
       .style('height', '40%')
-      .style('background-color', regionsData[region].metadata.color);
+      .style('background-color', regionsData[region].metadata.color)
+      .style('border', '5px solid ' + regionsData[region].metadata.color);
 
 
 
@@ -1303,21 +1307,21 @@ function buildRadar(obj, container, cardIndex, elIndex) {
       .style('height', '40%')
       .style('background-color', 'gray');
 
-        var activeHTML = "";
-        if (cardIndex == 0 && region != 'overview') {
-          activeHTML = 'Averages for ' + countryPaths[region].name;
+    var activeHTML = "";
+    if (cardIndex == 0 && region != 'overview') {
+      activeHTML = 'Averages for ' + countryPaths[region].name;
 
-        } else {
-          activeHTML = 'Values for <br />' + countryPaths[iso3].name;
-        }
+    } else {
+      activeHTML = 'Values for <br />' + countryPaths[iso3].name;
+    }
 
-        first.append('div')
-          .classed('col-sm-8', true)
-          .html(activeHTML);
+    first.append('div')
+      .classed('col-sm-8', true)
+      .html(activeHTML);
 
-        second.append('div')
-          .classed('col-sm-8', true)
-          .html('African averages');
+    second.append('div')
+      .classed('col-sm-8', true)
+      .html('African averages');
 
 
 
