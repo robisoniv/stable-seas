@@ -3221,7 +3221,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Though the Seychelles outperforms the region across all 9 issue areas, Illicit Trade presents a serious challenge. Seychelles scores 45 in this area, slightly above the regional average of 36. To improve this score, Seychelles can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Seychelles can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "Though the Seychelles outperforms the region in all nine issue areas, Illicit Trade presents a serious challenge. Seychelles scores 45 in this area, slightly above the regional average of 36. To improve this score, Seychelles can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Seychelles can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
 
         ]
@@ -3256,11 +3256,11 @@ var regionsData = {
           },
           {
             "tag": "bigtext",
-            "html": "Comoros is also above the regional average in Fisheries and Blue Economy."
+            "html": "Comoros is also above the regional average in Coastal Welfare and Fisheries."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Comoros is Illicit Trade. Comoros scores 22 in this area, below the regional average of 36. To further             improve this score, Comoros can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Comoros can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Comoros is Illicit Trade. Comoros scores 22 in this area, below the regional average of 36. To further             improve this score, Comoros can improve port security and work to address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Comoros can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
