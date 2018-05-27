@@ -3012,7 +3012,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, South Africa ranks highest in Piracy. South Africa's score of 100 in this area is high relative to its other issue scores,          due in part to South Africa's extreme distance from piracy hot spots in the Gulf of Guinea and the western Indian Ocean.. South Africa can further improve upon this area of relative strength by renewing commitments to help neighbors fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, South Africa scores highest in Piracy. In 2012, South Africa formalized their engagement in counter-piracy activity through a Memorandum of Understanding in partnership with Mozambique and Tanzania. South Africa's score of 100 in this area is high relative to its other issue scores,          due in part to South Africa's extreme distance from piracy hot spots in the Gulf of Guinea and the western Indian Ocean.. South Africa can further improve upon this area of relative strength by renewing commitments to help neighbors fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
