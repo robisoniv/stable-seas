@@ -1971,8 +1971,16 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cabo Verde is Illicit Trade. Although Cabo Verde scores 40 in this area, above the regional average of 29, this score can be improved. Steps already taken include the implementation of the United Nations Container Control Programme (CCP) which aims to target all types of drug trafficking within sea cargo in cooperation with government officials. To further             improve the Illicit Trades score, Cabo Verde can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Progress can also be made by working with African, European, and South American partners to undermine this major route in the global narcotics network. Through these efforts, Cabo Verde can raise its weakest score and move closer to comprehensive and lasting maritime security."
-          }
+            "html": "The greatest remaining challenge for Cabo Verde is Illicit Trade. Although Cabo Verde scores 40 in this area, above the regional average of 29, this score can be improved. Steps already taken include the implementation of the United Nations Container Control Programme (CCP) which aims to target all types of drug trafficking within sea cargo in cooperation with government officials.<sup>1</sup> To further             improve the Illicit Trade score, Cabo Verde can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Progress can also be made by working with African, European, and South American partners to undermine this major route in the global narcotics network. Through these efforts, Cabo Verde can raise its weakest score and move closer to comprehensive and lasting maritime security."
+          },
+        {
+          tag: 'links',
+          items: [{
+            org: '<sup>1</sup>UN News. (2018). UN-backed programme logs record high cocaine seizures at seaports in Latin America and the Caribbean. [online] Available at: https://news.un.org/en/story/2018/04/1008272 [Accessed May 2018].',
+            url: 'https://news.un.org/en/story/2018/04/1008272'
+          },]
+          }]
+        }}
         ]
       },
       {
