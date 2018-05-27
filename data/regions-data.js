@@ -1831,7 +1831,7 @@ var regionsData = {
         },
         {
           tag: 'caption',
-          text: '<em>A subheading line on the continent\'s greatest strength</em>'
+          text: '<em></em>'
         },
         {
           tag: 'p',
@@ -2286,7 +2286,7 @@ var regionsData = {
           },
           {
             tag: 'caption',
-            text: '<em>A subheading line on the region</em>'
+            text: '<em></em>'
           },
           {
             tag: 'p',
@@ -2565,7 +2565,7 @@ var regionsData = {
           },
           {
             tag: 'caption',
-            text: '<em>A subheading line on the region</em>'
+            text: '<em></em>'
           },
           {
             tag: 'p',
@@ -2876,7 +2876,7 @@ var regionsData = {
           },
           {
             tag: 'caption',
-            text: '<em>A subheading line on the country\'s greatest strength</em>'
+            text: '<em></em>'
           },
           {
             tag: 'p',
@@ -3082,7 +3082,7 @@ var regionsData = {
           },
           {
             tag: 'caption',
-            text: '<em>A subheading line on the country\'s greatest strength</em>'
+            text: '<em></em>'
           },
           {
             tag: 'p',
