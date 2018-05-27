@@ -3213,15 +3213,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Seychelles is also above the regional average in International Cooperation, Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, Piracy, Illicit Trade, and Maritime Mixed Migration."
+            "html": "Seychelles is also above the regional average in International Cooperation, Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, Illicit Trade, and Maritime Mixed Migration."
           },
           {
             tag: 'bigtext',
-            html: 'Additionally, the Seychelles government announced a plan to establish a large marine protected area in the Indian Ocean which is 210,000 km², nearly 15% of their EEZ to further develop their blue economy, another indicator above the regional average. '
+            html: 'The Seychelles announced a plan to establish a marine protected area in the Indian Ocean. This area of 210,000 km², nearly 15% of the EEZ, is designed to further develop the blue economy. '
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Seychelles is Illicit Trades. Seychelles scores 44 in this area, above the regional average of 36. To further             improve upon this score, Seychelles can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Seychelles can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "Though the Seychelles outperforms the region across all 9 issue areas, Illicit Trade presents a serious challenge. Seychelles scores 45 in this area, slightly above the regional average of 36. To improve this score, Seychelles can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Seychelles can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
 
         ]
