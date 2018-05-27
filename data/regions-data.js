@@ -3521,15 +3521,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Djibouti scores highest in Piracy. Djibouti's score of 74 in this area is high relative to its other issue scores,          due in part to the sharp decline of piracy in the Gulf of Aden and the western Indian Ocean.. Djibouti can further improve upon this area of relative strength by working with neighbors to fight piracy in potential hot spots and safeguard against maritime piracy and terrorism in the Red Sea and Gulf of Aden."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Djibouti scores highest in Piracy. In 2009, government officials from throughout the region came together to sign the Djibouti Code of Conduct which has been instrumental in repressing piracy. Djibouti's score of 74 in this area is high relative to its other issue scores. Djibouti can further improve upon this area of relative strength by working with neighbors to fight piracy in potential hot spots and safeguard against maritime piracy and terrorism in the Red Sea and Gulf of Aden."
           },
           {
             "tag": "bigtext",
-            "html": "Djibouti is also above the regional average in Maritime Enforcement, Coastal Welfare, and Illicit Trades."
+            "html": "Djibouti is also above the regional average in Maritime Enforcement, Coastal Welfare, and Illicit Trade."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Djibouti is Rule of Law. Djibouti scores 37 in this area,  about the same as  the regional average of 42. To further             improve upon this score, Djibouti can invest in anti-corruption efforts and increase judicial accountability.. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Djibouti than it is elsewhere in the region.. Through these efforts, Djibouti can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Djibouti is Rule of Law. Djibouti scores 37 in this area, below the regional average of 48. To improve this score, Djibouti can invest in anti-corruption efforts and increase judicial accountability. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Djibouti than it is elsewhere in the region. Through these efforts, Djibouti can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
