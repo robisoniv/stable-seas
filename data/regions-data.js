@@ -3407,15 +3407,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Tanzania ranks highest in Piracy. Tanzania's score of 97 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Tanzania can further improve upon this area of relative strength by working with neighbors to fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Tanzania scores highest in Piracy. Since 2015, Tanzania has focused on enhancing their maritime security in an effort to piracy allafrica. It should also be noted that Tanzania's score of 97 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and the sharp decline of piracy in the western Indian Ocean. Tanzania can further improve upon this area of relative strength by working with neighbors to fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
-            "html": "Tanzania is also above the regional average in Maritime Enforcement, Coastal Welfare, Fisheries, Piracy, and Maritime Mixed Migration."
+            "html": "Tanzania is also above the regional average in Coastal Welfare, Fisheries, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Tanzania is Illicit Trades. Tanzania scores 21 in this area,  about the same as  the regional average of 22. To further             improve upon this score, Tanzania can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Tanzania can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Tanzania is Illicit Trade. Tanzania scores 33 in this area,  below the regional average of 36. To further             improve upon this score, Tanzania can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Tanzania can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
