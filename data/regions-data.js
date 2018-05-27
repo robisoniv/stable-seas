@@ -3212,13 +3212,18 @@ var regionsData = {
             "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Seychelles scores highest in Piracy. Seychelles's score of 96 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Seychelles can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
-            "tag": "bigtext",
+            "tag": "p",
             "html": "Seychelles is also above the regional average in International Cooperation, Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, Piracy, Illicit Trade, and Maritime Mixed Migration."
+          },
+          {
+            tag: 'bigtext',
+            html: 'Additionally, the Seychelles government announced a plan to establish a large marine protected area in the Indian Ocean which is 210,000 km², nearly 15% of their EEZ to further develop their blue economy, another indicator above the regional average. '
           },
           {
             "tag": "p",
             "html": "The greatest remaining challenge for Seychelles is Illicit Trades. Seychelles scores 44 in this area, above the regional average of 36. To further             improve upon this score, Seychelles can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Seychelles can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
+
         ]
       },
       {
