@@ -2930,15 +2930,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Angola ranks highest in Fisheries. Angola's score of 65 in this area is high relative to its other issue scores,          due in part to strong participation in regional fisheries management organizations (RFMOs) and low levels of marine pollution relative to the rest of the region.. Angola can further improve upon this area of relative strength by strengthening domestic fisheries legislation."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Angola scores highest in Fisheries. This is exemplified by the creation of seven regional monitoring centers to receive information on fishing vessels operating along the coast. This project was implemented by the Fishery Minister to support the Angolan fishery sector. Angola's score of 65 in this area is high relative to its other issue scores, and also related to strong participation in regional fisheries management organizations (RFMOs) and low levels of marine pollution relative to the rest of the region. Angola can further improve upon this area of relative strength by strengthening domestic fisheries legislation."
           },
           {
             "tag": "bigtext",
-            "html": "Angola is also above the regional average in Blue Economy, Fisheries, Illicit Trades, and Maritime Mixed Migration."
+            "html": "Angola is also above the regional average in Blue Economy, Illicit Trade, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Angola is Piracy. Angola scores 23 in this area, below the regional average of 74. To further             improve upon this score, Angola can continue to improve security around ports and oil and gas infrastructure, while also maintaining investments in maritime domain awareness.. Further progress can be made by working with Yaounde Code of Conduct partners to boost regional maritime enforcement capacity.. Through these efforts, Angola can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Angola is Piracy. Angola scores 23 in this area, below the regional average of 66. To improve upon this score, Angola can continue to improve security around ports and oil and gas infrastructure, while also maintaining investments in maritime domain awareness. Further progress can be made by working with Yaoundé Code of Conduct partners to boost regional maritime enforcement capacity. Through these efforts, Angola can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
