@@ -2021,8 +2021,16 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 20 in this area,  below  the regional average of 36. In particular, the Union of Young Pharmacists of Senegal notes that the country does poorly when it comes to the trafficking of pharmaceuticals.CITE To             improve this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Senegal can raise its weakest score and move toward comprehensive and lasting maritime security."
-          }
+            "html": "The greatest remaining challenge for Senegal is Illicit Trades. Senegal scores 20 in this area,  below  the regional average of 36. In particular, the Union of Young Pharmacists of Senegal notes that the country does poorly when it comes to the trafficking of pharmaceuticals.<sup>1</sup> To             improve this score, Senegal can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Senegal can also continue to deter wildlife and ivory trafficking through domestic legal efforts and port security measures. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Senegal can raise its weakest score and move toward comprehensive and lasting maritime security."
+          },
+        {
+          tag: 'links',
+          items: [{
+            org: '<sup>1</sup> DAKARACTU.COM. (2018). Trafic de médicaments : L’Union des Jeunes Pharmaciens du Sénégal (UJPS) demande l’ouverture du procès des six personnes arrêtées. [online] Available at: https://www.dakaractu.com/Trafic-de-medicaments-L-Union-des-Jeunes-Pharmaciens-du-Senegal-UJPS-demande-l-ouverture-du-proce%CC%80s-des-six-personnes_a151836.html [Accessed 27 May 2018].',
+            url: 'https://www.dakaractu.com/Trafic-de-medicaments-L-Union-des-Jeunes-Pharmaciens-du-Senegal-UJPS-demande-l-ouverture-du-proce%CC%80s-des-six-personnes_a151836.html'
+          },]
+          }]
+        }}
         ]
       },
       {
