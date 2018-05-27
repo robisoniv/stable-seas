@@ -2971,15 +2971,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Namibia ranks highest in Piracy. Namibia's score of 100 in this area is high relative to its other issue scores,          due in part to the remoteness of the Namibian coast, which provides few safe harbors or available targets for would-be pirates.. Namibia can further improve upon this area of relative strength by improving maritime domain awareness along the long and remote coastline."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Namibia scores highest in Piracy. Namibia's score of 100 in this area is high relative to its other issue scores,          due in part to the remoteness of the Namibian coast, which provides few safe harbors or available targets for would-be pirates.. Namibia can further improve upon this area of relative strength by improving maritime domain awareness along the long and remote coastline."
           },
           {
             "tag": "bigtext",
-            "html": "Namibia is also above the regional average in Rule of Law, Coastal Welfare, Blue Economy, Fisheries, Piracy, Illicit Trades, and Maritime Mixed Migration."
+            "html": "Namibia is also above the regional average in International Cooperation, Rule of Law, Coastal Welfare, Blue Economy, Fisheries, Illicit Trade, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Namibia is Maritime Enforcement. Namibia scores 46 in this area, below the regional average of 55. To further             improve upon this score, Namibia can increase assets available for coastal patrol. Namibia has one of the smallest navies in Africa, despite having one of the larger maritime spaces.. Further progress can be made by increasing integration with regional maritime security efforts led by SADC and the Gulf of Guinea states.. Through these efforts, Namibia can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Namibia is Maritime Enforcement. Namibia scores 46 in this area, below the regional average of 50. To             improve this score, Namibia can increase assets available for coastal patrol. Namibia has one of the smallest navies in Africa, despite having one of the larger maritime spaces. Further progress can be made by increasing integration with regional maritime security efforts led by SADC. Through these efforts, Namibia can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
