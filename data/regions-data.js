@@ -1978,9 +1978,9 @@ var regionsData = {
           items: [{
             org: '<sup>1</sup>UN News. (2018). UN-backed programme logs record high cocaine seizures at seaports in Latin America and the Caribbean. [online] Available at: https://news.un.org/en/story/2018/04/1008272 [Accessed May 2018].',
             url: 'https://news.un.org/en/story/2018/04/1008272'
-          },]
           }]
-        }}
+
+        }
         ]
       },
       {
