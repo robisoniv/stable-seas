@@ -3012,15 +3012,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, South Africa scores highest in Piracy. In 2012, South Africa formalized their engagement in counter-piracy activity through a Memorandum of Understanding in partnership with Mozambique and Tanzania. South Africa's score of 100 in this area is high relative to its other issue scores,          due in part to South Africa's extreme distance from piracy hot spots in the Gulf of Guinea and the western Indian Ocean.. South Africa can further improve upon this area of relative strength by renewing commitments to help neighbors fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, South Africa scores highest in Piracy. In 2012, South Africa formalized their engagement in counter-piracy activity through a Memorandum of Understanding in partnership with Mozambique and Tanzania. South Africa's score of 100 in this area is high relative to its other issue scores,          due in part to South Africa's extreme distance from piracy hot spots in the Gulf of Guinea and the western Indian Ocean. South Africa can further improve upon this area of relative strength by renewing commitments to help neighbors fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
-            "html": "South Africa is also above the regional average in Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, Piracy, Illicit Trades, and Maritime Mixed Migration."
+            "html": "South Africa is also above the regional average in International Cooperation, Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, Illicit Trade, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for South Africa is Illicit Trades. South Africa scores 39 in this area,  about the same as  the regional average of 56. To further             improve upon this score, South Africa can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, South Africa can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for South Africa is Illicit Trade. South Africa scores 40 in this area, slightly above the regional average of 36. To further             improve upon this score, South Africa can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, South Africa can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
@@ -3133,15 +3133,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Madagascar ranks highest in Piracy. Madagascar's score of 86 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Madagascar can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Madagascar scores highest in Piracy. Madagascar's score of 86 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Madagascar can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
-            "html": "Madagascar is also above the regional average in Coastal Welfare, Fisheries, Piracy, and Maritime Mixed Migration."
+            "html": "Madagascar is also above the regional average in Coastal Welfare, Fisheries, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Madagascar is Illicit Trades. Madagascar scores 1 in this area, below the regional average of 23. To further             improve upon this score, Madagascar can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Madagascar can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Madagascar is Illicit Trade. Madagascar scores 17 in this area, below the regional average of 36. To         improve this score, Madagascar can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Madagascar can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -3171,15 +3171,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Mauritius ranks highest in Piracy. Mauritius's score of 99 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Mauritius can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Mauritius scores highest in Piracy. Mauritius's score of 99 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Mauritius can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
-            "html": "Mauritius is also above the regional average in Rule of Law, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, Piracy, Illicit Trades, and Maritime Mixed Migration."
+            "html": "Mauritius is also above the regional average in Rule of Law, International Cooperation, Maritime Enforcement, Coastal Welfare, Blue Economy, Fisheries, Illicit Trade, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Mauritius is Illicit Trades. Mauritius scores 36 in this area, above the regional average of 23. To further             improve upon this score, Mauritius can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Mauritius can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Mauritius is Illicit Trade. Mauritius scores 39 in this area, slightly above the regional average of 36. To further             improve upon this score, Mauritius can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Mauritius can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
