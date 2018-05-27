@@ -2766,15 +2766,15 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Congo ranks highest in International Cooperation. Congo's score of 79 in this area is high relative to its other issue scores,          due in part to its strong participation in regional efforts like the Yaounde Code of Conduct and the African Union's Lome Charter.. Congo can further improve upon this area of relative strength by joining the recent wave of African states to sign and ratify the FAO Port State Measures Agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Congo scores highest in International Cooperation. Congo's score of 79 in this area is high relative to its other issue scores,          due in part to its strong participation in regional efforts like the Yaoundé Code of Conduct and the African Union's Lomé Charter. Congo can further improve upon this area of relative strength by joining the recent wave of African states to sign and ratify the FAO Port State Measures Agreement."
           },
           {
             "tag": "bigtext",
-            "html": "Congo is also above the regional average in Blue Economy, Illicit Trades, and Maritime Mixed Migration."
+            "html": "Congo is also above the regional average in Blue Economy, Illicit Trades, Coastal Welfare, and Maritime Mixed Migration."
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Congo is Rule of Law. Congo scores 26 in this area, below the regional average of 35. To further             improve upon this score, Congo can invest in anti-corruption efforts and increase judicial accountability.. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Gabon than it is elsewhere in the region.. Through these efforts, Congo can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Congo is Rule of Law. Congo scores 26 in this area, below the regional average of 48. To improve this score, Congo can invest in anti-corruption efforts and increase judicial accountability. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. Through these efforts, Congo can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
