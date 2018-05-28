@@ -440,7 +440,7 @@ var fisheriesData = {
         {
           tag: 'img',
           src: '../../assets/fisheries/rfmo.jpg',
-          caption: 'Jurisdictions of the five so-called tuna RFMOs that manage most of the world’s tuna stocks. Image: Pew Charitable Trusts.'
+          caption: 'Jurisdictions of the five tuna RFMOs that manage most of the world’s tuna stocks. Image: Pew Charitable Trusts.'
         },
         {
           tag: 'p',

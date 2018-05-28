@@ -1912,7 +1912,7 @@ var regionsData = {
           },
           {
             tag: 'caption',
-            text: '<em>A gateway to Europe</em>'
+            text: '<em></em>'
           },
           {
             tag: 'p',
@@ -3147,7 +3147,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Madagascar scores highest in Piracy. Madagascar's score of 86 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Madagascar can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Madagascar scores highest in Piracy. Madagascar's score of 86 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean. Madagascar can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
@@ -3155,7 +3155,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Madagascar is Illicit Trade. Madagascar scores 17 in this area, below the regional average of 36. To         improve this score, Madagascar can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Madagascar can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Madagascar is Illicit Trade. Madagascar scores 17 in this area, below the regional average of 36. To         improve this score, Madagascar can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Madagascar can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -3336,7 +3336,7 @@ var regionsData = {
           },
           {
             tag: 'caption',
-            text: '<em>The Indian Ocean</em>'
+            text: '<em></em>'
           },
           {
             tag: 'p',
