@@ -1976,7 +1976,7 @@ var regionsData = {
         {
           tag: 'links',
           items: [{
-            org: '<sup>1</sup>UN News. (2018). UN-backed programme logs record high cocaine seizures at seaports in Latin America and the Caribbean. [online] Available at: https://news.un.org/en/story/2018/04/1008272 [Accessed May 2018].',
+            org: '<sup>1</sup>UN News. (2018). UN-backed programme logs record high cocaine seizures at seaports in Latin America and the Caribbean. [online] Available at: https://news.un.org/en/story/2018/04/1008272.',
             url: 'https://news.un.org/en/story/2018/04/1008272'
           }]
 
@@ -2026,7 +2026,7 @@ var regionsData = {
         {
           tag: 'links',
           items: [{
-            org: '<sup>1</sup> DAKARACTU.COM. (2018). Trafic de médicaments : L’Union des Jeunes Pharmaciens du Sénégal (UJPS) demande l’ouverture du procès des six personnes arrêtées. [online] Available at: https://www.dakaractu.com/Trafic-de-medicaments-L-Union-des-Jeunes-Pharmaciens-du-Senegal-UJPS-demande-l-ouverture-du-proce%CC%80s-des-six-personnes_a151836.html [Accessed 27 May 2018].',
+            org: '<sup>1</sup> DAKARACTU.COM. (2018). Trafic de médicaments : L’Union des Jeunes Pharmaciens du Sénégal (UJPS) demande l’ouverture du procès des six personnes arrêtées. [online] Available at: https://www.dakaractu.com/Trafic-de-medicaments-L-Union-des-Jeunes-Pharmaciens-du-Senegal-UJPS-demande-l-ouverture-du-proce%CC%80s-des-six-personnes_a151836.html.',
             url: 'https://www.dakaractu.com/Trafic-de-medicaments-L-Union-des-Jeunes-Pharmaciens-du-Senegal-UJPS-demande-l-ouverture-du-proce%CC%80s-des-six-personnes_a151836.html'
           },]
           }]
@@ -2145,7 +2145,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Guinea scores highest in International Cooperation. Guinea's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. Guinea can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaoundé Code of Conduct and advocating for the more widespread adoption of the African Union's Lomé Charter."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Guinea scores highest in International Cooperation. Guinea's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. Guinea can further improve upon this area of relative strength by continuing to invest in regional integration through Zone F of the Yaoundé Code of Conduct and advocating for the more widespread adoption of the African Union's Lomé Charter."
           },
           {
             "tag": "bigtext",
@@ -2153,7 +2153,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Guinea is Blue Economy. Guinea scores 21 in this area, below the regional average of 40. Supporting the development of the Blue Economy through increased investment in infrastrucure, fisheries, and tourism is especially important for Guinea as there may be positive spillover effects on other issue areas. To improve the Blue Economy score, Guinea can also focus on investing in maritime domain awareness and maritime enforcement capacity to combat illicit trafficking in cocainse, synthetic drugs, opiates, and wildlife products. Addressing these challenges in Illicit Trade can reinforce the Blue Economy, and through these efforts Guinea can raise its weakest score. By also addressing local focus points for piracy, Guinea can move toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Guinea is Blue Economy. Guinea scores 21 in this area, below the regional average of 40. Supporting the development of the Blue Economy through increased investment in infrastrucure, fisheries, and tourism is especially important for Guinea as there may be positive spillover effects on other issue areas. To improve the Blue Economy score, Guinea can also focus on investing in maritime domain awareness and maritime enforcement capacity,  along with Rule of Law, to combat illicit trafficking, particularly of counterfeit pharmaceuticals.<sup>1</sup> Addressing these challenges in Illicit Trade can reinforce the Blue Economy, and through these efforts Guinea can raise its weakest score. By also addressing local focus points for piracy, Guinea can move toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2195,7 +2195,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Sierra Leone is Blue Economy. Sierra Leone scores 29 in this area, below the regional average of 40. To further             improve this score, Sierra Leone can continue to invest in maritime domain awareness and maritime enforcement capacity to combat Illicit Trades and support the development of the licit Blue Economy. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement. Formally defining these boundaries may support increased development of the offshore Blue Economy.   Through these efforts, Sierra Leone can raise its weakest score and move toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Sierra Leone is Blue Economy. Sierra Leone scores 29 in this area, below the regional average of 40. Sierra Leone's President Bio is already committed to improving the economy.<sup>1</sup> Specific actions to develop the Blue Economy include continuing to invest in maritime domain awareness and maritime enforcement capacity to combat Illicit Trades and support the development of the licit Blue Economy. Further progress can be made by formalizing the exclusive economic zone boundaries with Guinea and Liberia, as neither boundary is formally defined by a bilateral agreement. Formally defining these boundaries may support increased development of the offshore Blue Economy. Through these efforts, Sierra Leone can raise its weakest score and move toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2349,7 +2349,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Côte d'Ivoire scores highest in International Cooperation. Côte d'Ivoire's score of 84 in this area is high relative to its other issue scores,          due in part to its participation in five of the seven global agreements counted in the score as well as the recent agreement to apply the decision of the International Tribunal of the Sea regarding the maritime boundary between Côte d'Ivoire and Ghana. Côte d'Ivoire can further improve upon this area of relative strength by signing and ratifying the Port State Measures Agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Côte d'Ivoire scores highest in International Cooperation. Côte d'Ivoire's score of 84 in this area is high relative to its other issue scores,          due in part to its participation in five of the seven global agreements counted in the score as well as the recent agreement to apply the decision of the International Tribunal of the Sea regarding the maritime boundary between Côte d'Ivoire and Ghana.<sup>1</sup> Côte d'Ivoire can further improve upon this area of relative strength by signing and ratifying the Port State Measures Agreement."
           },
           {
             "tag": "bigtext",
@@ -2357,7 +2357,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Côte d'Ivoire is Illicit Trade. Côte d'Ivoire scores 22 in this area, below the regional average of 36. The country is already working to reduce the illicit drug trade, particularly where cocaine and cannabis are concerned. https://news.abidjan.net/h/637513.html To further             improve the Illicit Trade score, Côte d'Ivoire can continue to invest in maritime domain awareness and maritime enforcement capacity to combat illicit trafficking in synthetic drugs, opiates, and wildlife products. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Côte d'Ivoire can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Côte d'Ivoire is Illicit Trade. Côte d'Ivoire scores 22 in this area, below the regional average of 36. The country is already working to reduce the illicit drug trade, particularly where cocaine and cannabis are concerned.<sup>2</sup> To further             improve the Illicit Trade score, Côte d'Ivoire can continue to invest in maritime domain awareness and maritime enforcement capacity to combat illicit trafficking in synthetic drugs, opiates, and wildlife products. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Côte d'Ivoire can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2389,7 +2389,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Ghana scores highest in International Cooperation. Ghana's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. This score is also supported by Ghana's recent agreement to uphold the decision of the International Tribunal of the Sea regarding the maritime boundary between Ghana and Côte d'Ivoire. Ghana can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaounde Code of Conduct and advocating for the more widespread adoption of the African Union's Lome Charter."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Ghana scores highest in International Cooperation. Ghana's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. This score is also supported by Ghana's recent agreement to uphold the decision of the International Tribunal of the Sea regarding the maritime boundary between Ghana and Côte d'Ivoire.<sup>1</sup> Ghana can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaounde Code of Conduct and advocating for the more widespread adoption of the African Union's Lome Charter."
           },
           {
             "tag": "bigtext",
@@ -2397,7 +2397,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Ghana is Illicit Trade. Ghana scores 13 in this area,  below  the regional average of 36. Recent developments to counter illicit trade, particularly of counterfeit pharmaceuticals, include a call for stiffer sanctions and increased enforcement of the law. (ghanabusinessnews) To further             improve upon this score, Ghana can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Ghana also sees considerable trafficking in synthetic drugs, opiates, and wildlife products, all of which could be addressed by improved port security measures. Through these efforts, Ghana can raise its weakest score and move toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Ghana is Illicit Trade. Ghana scores 13 in this area,  below  the regional average of 36. Recent developments to counter illicit trade, particularly of counterfeit pharmaceuticals, include a call for stiffer sanctions and increased enforcement of the law.<sup>2</sup>To further             improve this score, Ghana can continue to invest in maritime domain awareness and maritime enforcement capacity, so as to combat illicit traffic in cocaine crossing the Atlantic Ocean from South America. Ghana also sees considerable trafficking in synthetic drugs, opiates, and wildlife products, all of which could be addressed by improved port security measures. Through these efforts, Ghana can raise its weakest score and move toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2477,7 +2477,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Benin is Illicit Trade. Benin scores 12 in this area, below the regional average of 36. Progress is already being made to improve this score through a crackdown on the illicit trade of counterfeit drugs. (voaafrique) To further             improve upon this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Benin is Illicit Trade. Benin scores 12 in this area, below the regional average of 36. Progress is already being made to improve this score through a crackdown on the illicit trade of counterfeit drugs.<sup>1</sup> To further             improve this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2509,7 +2509,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Nigeria scores highest in International Cooperation. Nigeria's score of 87 in this area is high relative to its other issue scores,          due in part to its participation in six of the seven global agreements we record and its leadership in regional efforts like the Yaounde Code of Conduct. Nigeria can further improve upon this area of relative strength by signing the Port State Measures agreement and using its navy, the strongest in the region, to advance regional maritime security goals."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Nigeria scores highest in International Cooperation. Nigeria's score of 87 in this area is high relative to its other issue scores,          due in part to its participation in six of the seven global agreements we record and its leadership in regional efforts like the Yaoundé Code of Conduct. Nigeria can further improve upon this area of relative strength by signing the Port State Measures agreement and using its navy, the strongest in the region, to advance regional maritime security goals."
           },
           {
             "tag": "bigtext",
@@ -2517,7 +2517,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Nigeria is Piracy. Nigeria scores 0 in this area,  below the regional average of 30. To further             improve upon this score, Nigeria can maintain its leadership of regional counter-piracy efforts and improve inter-agency coordination against the transnational criminal networks operating in the Niger River Delta. Further progress can be made by continuing to invest in regional maritime domain awareness efforts through Zone E of the Yaoundé Code of Conduct. Through these efforts, Nigeria can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Nigeria is Piracy, of which there has been a steep increase in recent years.<sup>1</sup> Nigeria scores 0 in this area,  below the regional average of 30. To further             improve this score, Nigeria can maintain its leadership of regional counter-piracy efforts and improve inter-agency coordination against the transnational criminal networks operating in the Niger River Delta. Further progress can be made by continuing to invest in regional maritime domain awareness efforts through Zone E of the Yaoundé Code of Conduct. Through these efforts, Nigeria can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
@@ -2674,7 +2674,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cameroon is Illicit Trade. Cameroon scores 21 in this area, below  the regional average of 36. Cameroon recognizes the seriousness of this issue, as evidenced by a 2017 government report which estimated the cost of illicit trade to be more than a 100 billion francs CFA. Steps are being taken to combat this issue, including the recent seizure of a ship participating in the illicit arms trade.  To further             improve upon this score, Cameroon can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Cameroon can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Cameroon is Illicit Trade. Cameroon scores 21 in this area, below  the regional average of 36. Cameroon recognizes the seriousness of this issue, as evidenced by a 2017 government report which estimated the cost of illicit trade at more than a 100 billion francs CFA.<sup>1</sup> Steps are being taken to combat this issue, including the recent seizure of a ship participating in the illicit arms trade.<sup>2</sup> To further             improve upon this score, Cameroon can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Cameroon can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
