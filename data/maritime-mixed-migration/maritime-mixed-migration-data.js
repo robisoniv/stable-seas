@@ -150,7 +150,7 @@ var maritimeMixedMigrationData = {
         },
         {
           "tag": "img",
-          "src": "../assets/maritime-mixed-migration/fishing_vessel_illegal_ghana.jpg",
+          "src": "../../assets/maritime-mixed-migration/fishing_vessel_illegal_ghana.jpg",
           "alt": "U.S. and Ghanaian law enforcement inspect a fishing vessel suspected of illicit activity. U.S. Navy photo by Kwabena Akuamoah-Boateng.",
           "caption": "U.S. and Ghanaian law enforcement inspect a fishing vessel suspected of illicit activity. U.S. Navy photo by Kwabena Akuamoah-Boateng."
         },
