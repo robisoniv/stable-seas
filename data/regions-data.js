@@ -2030,9 +2030,7 @@ var regionsData = {
             url: 'https://www.dakaractu.com/Trafic-de-medicaments-L-Union-des-Jeunes-Pharmaciens-du-Senegal-UJPS-demande-l-ouverture-du-proce%CC%80s-des-six-personnes_a151836.html'
           },]
           }]
-        }}
-        ]
-      },
+        },
       {
         "title": "The Gambia",
         "menu": "The Gambia",
