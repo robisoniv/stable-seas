@@ -1309,10 +1309,10 @@ function buildRadar(obj, container, cardIndex, elIndex) {
 
     var activeHTML = "";
     if (cardIndex == 0 && region != 'overview') {
-      activeHTML = 'Averages for ' + countryPaths[region].name;
+      activeHTML = countryPaths[region].name;
 
     } else {
-      activeHTML = 'Values for <br />' + countryPaths[iso3].name;
+      activeHTML =  countryPaths[iso3].name;
     }
 
     first.append('div')
