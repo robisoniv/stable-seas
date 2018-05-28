@@ -1978,9 +1978,9 @@ var regionsData = {
           items: [{
             org: '<sup>1</sup>UN News. (2018). UN-backed programme logs record high cocaine seizures at seaports in Latin America and the Caribbean. [online] Available at: https://news.un.org/en/story/2018/04/1008272 [Accessed May 2018].',
             url: 'https://news.un.org/en/story/2018/04/1008272'
-          },]
           }]
-        }}
+
+        }
         ]
       },
       {
@@ -2013,7 +2013,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Senegal scores highest in Piracy. Senegal's score of 93 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean.. Senegal can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Senegal scores highest in Piracy. Senegal's score of 93 in this area is high relative to its other issue scores,          due in part to its distance from the piracy and armed robbery hotspots in the Gulf of Guinea and western Indian Ocean. Senegal can further improve upon this area of relative strength by continuing to contribute to international efforts designed to further reduce piracy in West African waters."
           },
           {
             "tag": "bigtext",
@@ -2145,7 +2145,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Guinea scores highest in International Cooperation. Guinea's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score.. Guinea can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaoundé Code of Conduct and advocating for the more widespread adoption of the African Union's Lomé Charter."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Guinea scores highest in International Cooperation. Guinea's score of 92 in this area is high relative to its other issue scores,          due in part to its exemplary participation in major international agreements. In fact, no country in sub-Saharan Africa recorded a higher International Cooperation score. Guinea can further improve upon this area of relative strength by investing in further regional integration through Zone F of the Yaoundé Code of Conduct and advocating for the more widespread adoption of the African Union's Lomé Charter."
           },
           {
             "tag": "bigtext",
@@ -2437,7 +2437,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Togo is Illicit Trade. Togo scores 26 in this area, below the regional average of 36. To further             improve upon this score, Togo can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Togo can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Togo is Illicit Trade. Togo scores 26 in this area, below the regional average of 36. To further             improve upon this score, Togo can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Togo can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2469,7 +2469,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Benin scores highest in International Cooperation. Benin's score of 67 in this area is high relative to its other issue scores,          due in part to its participation in most international agreements and the Yaounde Code of Conduct.. Benin can further improve upon this area of relative strength by revisiting its territorial claims, which exceed the twelve nautical mile limit defined by UNCLOS and ratifying the Port State Measures Agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Benin scores highest in International Cooperation. Benin's score of 67 in this area is high relative to its other issue scores,          due in part to its participation in most international agreements and the Yaounde Code of Conduct. Benin can further improve upon this area of relative strength by revisiting its territorial claims, which exceed the twelve nautical mile limit defined by UNCLOS and ratifying the Port State Measures Agreement."
           },
           {
             "tag": "bigtext",
@@ -2477,7 +2477,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Benin is Illicit Trade. Benin scores 12 in this area, below the regional average of 36. Progress is already being made to improve this score through a crackdown on the illicit trade of counterfeit drugs. (voaafrique) To further             improve upon this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Benin is Illicit Trade. Benin scores 12 in this area, below the regional average of 36. Progress is already being made to improve this score through a crackdown on the illicit trade of counterfeit drugs. (voaafrique) To further             improve upon this score, Benin can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Benin can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2509,7 +2509,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Nigeria scores highest in International Cooperation. Nigeria's score of 87 in this area is high relative to its other issue scores,          due in part to its participation in six of the seven global agreements we record and its leadership in regional efforts like the Yaounde Code of Conduct.. Nigeria can further improve upon this area of relative strength by signing the Port State Measures agreement and using its navy, the strongest in the region, to advance regional maritime security goals."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Nigeria scores highest in International Cooperation. Nigeria's score of 87 in this area is high relative to its other issue scores,          due in part to its participation in six of the seven global agreements we record and its leadership in regional efforts like the Yaounde Code of Conduct. Nigeria can further improve upon this area of relative strength by signing the Port State Measures agreement and using its navy, the strongest in the region, to advance regional maritime security goals."
           },
           {
             "tag": "bigtext",
@@ -2517,7 +2517,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Nigeria is Piracy. Nigeria scores 0 in this area,  below the regional average of 30. To further             improve upon this score, Nigeria can maintain its leadership of regional counter-piracy efforts and improve inter-agency coordination against the transnational criminal networks operating in the Niger River Delta.. Further progress can be made by continuing to invest in regional maritime domain awareness efforts through Zone E of the Yaoundé Code of Conduct. Through these efforts, Nigeria can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Nigeria is Piracy. Nigeria scores 0 in this area,  below the regional average of 30. To further             improve upon this score, Nigeria can maintain its leadership of regional counter-piracy efforts and improve inter-agency coordination against the transnational criminal networks operating in the Niger River Delta. Further progress can be made by continuing to invest in regional maritime domain awareness efforts through Zone E of the Yaoundé Code of Conduct. Through these efforts, Nigeria can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
@@ -2628,7 +2628,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, São Tomé and Príncipe scores highest in International Cooperation. São Tomé and Príncipe's score of 90 in this area is high relative to its other issue scores,          due in part to its commitment to regional efforts like the Yaounde Code of Conduct and it strong relations with maritime neighbors.. São Tomé and Príncipe can further improve upon this area of relative strength by greater participation in global agreements like Part XI of the UN Convention on the Law of the Sea and the United Nations Fish Stocks agreement."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, São Tomé and Príncipe scores highest in International Cooperation. São Tomé and Príncipe's score of 90 in this area is high relative to its other issue scores,          due in part to its commitment to regional efforts like the Yaounde Code of Conduct and it strong relations with maritime neighbors. São Tomé and Príncipe can further improve upon this area of relative strength by greater participation in global agreements like Part XI of the UN Convention on the Law of the Sea and the United Nations Fish Stocks agreement."
           },
           {
             "tag": "bigtext",
@@ -2636,7 +2636,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for São Tomé and Príncipe is Piracy. São Tomé and Príncipe scores 23 in this area, below the regional average of 66. To further             improve this score, São Tomé and Príncipe can continue to work with maritime neighbors to boost regional maritime domain awareness, particularly in the waters north of Principe.. Further progress can be made by continuing to participate in multilateral naval training and exercises like African NEMO and Obangame Express. Through these efforts, São Tomé and Príncipe can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for São Tomé and Príncipe is Piracy. São Tomé and Príncipe scores 23 in this area, below the regional average of 66. To further             improve this score, São Tomé and Príncipe can continue to work with maritime neighbors to boost regional maritime domain awareness, particularly in the waters north of Principe. Further progress can be made by continuing to participate in multilateral naval training and exercises like African NEMO and Obangame Express. Through these efforts, São Tomé and Príncipe can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2666,7 +2666,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cameroon scores highest in International Cooperation. Cameroon's score of 86 in this area is high relative to its other issue scores,          due in part to Cameroon's leadership in regional efforts like the Yaounde Code of Conduct and its strong relationships with maritime neighbors.. Cameroon can further improve upon this area of relative strength by ratifying important international agreements. Cameroon is one of only five coastal Gulf of Guinea countries to have not signed CSUA, the Convention for the Suppression of Unlawful Acts against the Safety of Maritime Navigation.  "
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Cameroon scores highest in International Cooperation. Cameroon's score of 86 in this area is high relative to its other issue scores,          due in part to Cameroon's leadership in regional efforts like the Yaounde Code of Conduct and its strong relationships with maritime neighbors. Cameroon can further improve upon this area of relative strength by ratifying important international agreements. Cameroon is one of only five coastal Gulf of Guinea countries to have not signed CSUA, the Convention for the Suppression of Unlawful Acts against the Safety of Maritime Navigation.  "
           },
           {
             "tag": "bigtext",
@@ -2674,7 +2674,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Cameroon is Illicit Trade. Cameroon scores 21 in this area, below  the regional average of 36. Cameroon recognizes the seriousness of this issue, as evidenced by a 2017 government report which estimated the cost of illicit trade to be more than a 100 billion francs CFA. Steps are being taken to combat this issue, including the recent seizure of a ship participating in the illicit arms trade.  To further             improve upon this score, Cameroon can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, Cameroon can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Cameroon is Illicit Trade. Cameroon scores 21 in this area, below  the regional average of 36. Cameroon recognizes the seriousness of this issue, as evidenced by a 2017 government report which estimated the cost of illicit trade to be more than a 100 billion francs CFA. Steps are being taken to combat this issue, including the recent seizure of a ship participating in the illicit arms trade.  To further             improve upon this score, Cameroon can improve port security and address extensive illicit trades in arms, wildlife, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Cameroon can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2704,7 +2704,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Equatorial Guinea scores highest in Coastal Welfare. Equatorial Guinea's score of 67 in this area is high relative to its other issue scores,          due in part to having exceptionally low rates of homicide and political violence.. Equatorial Guinea can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the oil and gas sector."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Equatorial Guinea scores highest in Coastal Welfare. Equatorial Guinea's score of 67 in this area is high relative to its other issue scores,          due in part to having exceptionally low rates of homicide and political violence. Equatorial Guinea can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the oil and gas sector."
           },
           {
             "tag": "bigtext",
@@ -2712,7 +2712,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Equatorial Guinea is Rule of Law. Equatorial Guinea scores 25 in this area, below the regional average of 48. To further             improve upon this score, Equatorial Guinea can invest in anti-corruption efforts and increase judicial accountability.. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Equatorial Guinea than it is elsewhere in the region. Through these efforts, Equatorial Guinea can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Equatorial Guinea is Rule of Law. Equatorial Guinea scores 25 in this area, below the regional average of 48. To further             improve upon this score, Equatorial Guinea can invest in anti-corruption efforts and increase judicial accountability. Further progress can be made by eliminating bureaucratic red tape that inhibits smooth international trade and enables bribe-seeking. The World Bank Doing Business Report finds trade is significantly more difficult in Equatorial Guinea than it is elsewhere in the region. Through these efforts, Equatorial Guinea can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -2742,7 +2742,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Gabon scores highest in Coastal Welfare. Gabon's score of 79 in this area is high relative to its other issue scores,          due in part to high standards of living. Gabon possesses one of the lowest infant mortality rates and one of the highest Human Development Index scores in Africa.. Gabon can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the dominant oil and gas sector."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Gabon scores highest in Coastal Welfare. Gabon's score of 79 in this area is high relative to its other issue scores,          due in part to high standards of living. Gabon possesses one of the lowest infant mortality rates and one of the highest Human Development Index scores in Africa. Gabon can further improve upon this area of relative strength by improving coastal economic opportunities, which are limited beyond the dominant oil and gas sector."
           },
           {
             "tag": "bigtext",
@@ -2985,7 +2985,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Namibia scores highest in Piracy. Namibia's score of 100 in this area is high relative to its other issue scores,          due in part to the remoteness of the Namibian coast, which provides few safe harbors or available targets for would-be pirates.. Namibia can further improve upon this area of relative strength by improving maritime domain awareness along the long and remote coastline."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Namibia scores highest in Piracy. Namibia's score of 100 in this area is high relative to its other issue scores,          due in part to the remoteness of the Namibian coast, which provides few safe harbors or available targets for would-be pirates. Namibia can further improve upon this area of relative strength by improving maritime domain awareness along the long and remote coastline."
           },
           {
             "tag": "bigtext",
@@ -3034,7 +3034,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for South Africa is Illicit Trade. South Africa scores 40 in this area, slightly above the regional average of 36. To further             improve upon this score, South Africa can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs.. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs.. Through these efforts, South Africa can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for South Africa is Illicit Trade. South Africa scores 40 in this area, slightly above the regional average of 36. To further             improve upon this score, South Africa can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs. Further progress can be made by working with African, European, and South American governments, as well as anti-wildlife trafficking NGOs. Through these efforts, South Africa can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       }
@@ -3185,7 +3185,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Mauritius scores highest in Piracy. Mauritius's score of 99 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Mauritius can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Mauritius scores highest in Piracy. Mauritius's score of 99 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean. Mauritius can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
@@ -3223,7 +3223,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Seychelles scores highest in Piracy. Seychelles's score of 96 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Seychelles can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Seychelles scores highest in Piracy. Seychelles's score of 96 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean. Seychelles can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "p",
@@ -3235,7 +3235,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Though the Seychelles outperforms the region in all nine issue areas, Illicit Trade presents a serious challenge. Seychelles scores 45 in this area, slightly above the regional average of 36. To improve this score, Seychelles can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Seychelles can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "Though the Seychelles outperforms the region in all nine issue areas, Illicit Trade presents a serious challenge. Seychelles scores 45 in this area, slightly above the regional average of 36. To improve this score, Seychelles can improve port security and address extensive illicit trades in arms, contraband goods, and several kinds of drugs in transit between Asia and the east African coastline. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Seychelles can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
 
         ]
@@ -3266,7 +3266,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Comoros scores highest in Piracy. Comoros's score of 88 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean.. Comoros can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
+            "html": "Across the nine issues covered by the Stable Seas Maritime Security Index, Comoros scores highest in Piracy. Comoros's score of 88 in this area is high relative to its other issue scores,          due in part to the elimination of piracy in the Mozambique channel and sharp decline of piracy in the western Indian Ocean. Comoros can further improve upon this area of relative strength by renewing commitments to help fight piracy in potential hot spots like the Mozambique Channel and the southwest Indian Ocean."
           },
           {
             "tag": "bigtext",
@@ -3391,7 +3391,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Mozambique is Illicit Trade. Mozambique scores 14 in this area, below the regional average of 36. To            improve this score, Mozambique can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Mozambique can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Mozambique is Illicit Trade. Mozambique scores 14 in this area, below the regional average of 36. To            improve this score, Mozambique can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Mozambique can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -3429,7 +3429,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Tanzania is Illicit Trade. Tanzania scores 33 in this area,  below the regional average of 36. To further             improve upon this score, Tanzania can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Tanzania can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Tanzania is Illicit Trade. Tanzania scores 33 in this area,  below the regional average of 36. To further             improve upon this score, Tanzania can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Tanzania can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -3467,7 +3467,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Kenya is Illicit Trade. Kenya scores 20 in this area, below the regional average of 36. To further             improve upon this score, Kenya can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets.. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Kenya can raise its weakest score and move toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Kenya is Illicit Trade. Kenya scores 20 in this area, below the regional average of 36. To further             improve upon this score, Kenya can immediately address port security at major ports where smuggled drugs and wildlife from the interior are packed onto shipping containers for transshipment to distant global markets. Further progress can be made by working with African, European, and Asian governments, as well as anti-wildlife trafficking NGOs. Through these efforts, Kenya can raise its weakest score and move toward comprehensive and lasting maritime security."
           }
         ]
       },
@@ -3505,7 +3505,7 @@ var regionsData = {
           },
           {
             "tag": "p",
-            "html": "The greatest remaining challenge for Somalia is Maritime Enforcement. Somalia scores 19 in this area, below the regional average of 50. To             improve this score, Somalia can work through efforts like the Djibouti Code of Conduct to boost regional maritime situational awareness.. Further progress can be made by improving inter-agency cooperation between regional coast  guards and port police departments.. Through these efforts, Somalia can raise its weakest score and work toward comprehensive and lasting maritime security."
+            "html": "The greatest remaining challenge for Somalia is Maritime Enforcement. Somalia scores 19 in this area, below the regional average of 50. To             improve this score, Somalia can work through efforts like the Djibouti Code of Conduct to boost regional maritime situational awareness. Further progress can be made by improving inter-agency cooperation between regional coast  guards and port police departments. Through these efforts, Somalia can raise its weakest score and work toward comprehensive and lasting maritime security."
           }
         ]
       },

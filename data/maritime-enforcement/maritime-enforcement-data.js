@@ -425,7 +425,7 @@ var maritimeEnforcementData = {
         // },
         {
           tag: 'p',
-          html: 'Most states in sub-Saharan Africa have navies, but relatively few have forces such as coast guards dedicated to maritime law enforcement. While navies are built primarily for national defense and warfighting, maritime law enforcement is intended to counter a variety of illicit activities at sea, including but not limited to <a href="../piracy" class="piracy inline">piracy</a>, <a href="../human-trafficking" class="maritime-mixed-migration inline"> maritime mixed migration</a>, <a href="../fisheries" class="fisheries inline">IUU fishing</a>, and transport of drugs, arms, and wildlife.<sup>4</sup>'
+          html: 'Most states in sub-Saharan Africa have navies, but relatively few have forces such as coast guards dedicated to maritime law enforcement. While navies are built primarily for national defense and warfighting, maritime law enforcement is intended to counter a variety of illicit activities at sea, including but not limited to <a href="../piracy" class="piracy inline">piracy</a>, <a href="../maritime-mixed-migration" class="maritime-mixed-migration inline"> maritime mixed migration</a>, <a href="../fisheries" class="fisheries inline">IUU fishing</a>, and transport of drugs, arms, and wildlife.<sup>4</sup>'
         },
         {
           tag: 'img',

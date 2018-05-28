@@ -763,7 +763,7 @@ var blueEconomyData = {
             /// ### added http to the website as original did not include it. Please check if valid.
             {
               org: '<sup>24</sup> World Bank, <em>The Little Green Data Book 2017</em>, World Development Indicators (Washington, DC: World Bank, 2017).',
-              url: 'https://openknowledge.worldbank.org/handle/10986/27466 License: CC BY 3.0 IGO'
+              url: 'https://openknowledge.worldbank.org/handle/10986/27466'
             }
           ]
         }
