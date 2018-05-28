@@ -1274,7 +1274,7 @@ function buildRadar(obj, container, cardIndex, elIndex) {
 
     radarLegend.append('div')
       .classed('col-sm-8', true)
-      .html("African index averages")
+      .html("African averages")
   } else {
 
     var first = radarLegend.append('div')
