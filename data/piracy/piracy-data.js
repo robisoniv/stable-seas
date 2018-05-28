@@ -391,7 +391,7 @@ var piracyData = {
         {
           tag: 'links',
           items: [{
-            org: '<sup>1</sup> Pigeon, Maisie et al., “State of Maritime Piracy 2016,” 3 May 2017,',
+            org: '<sup>1</sup> Pigeon, Maisie et al., “State of Maritime Piracy 2016,” 3 May 2017.',
             url: 'http://oceansbeyondpiracy.org/reports/sop'
           }, ]
         }
