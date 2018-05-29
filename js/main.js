@@ -3,27 +3,19 @@
 // v1.0.0
 
 // Define global variables
+
 // Issue Area
 var iaIndex = issueAreaData[issueArea].metadata.index;
 var filtered;
-// Card
+
+// Current Card Index
 var cIndex;
+
 // Included Countries
 var includedCountries = ['AGO', 'BEN', 'CMR', 'CPV', 'COM', 'COG', 'DJI', 'COD', 'GNQ', 'GAB', 'GMB', 'GHA', 'GIN', 'GNB', 'CIV', 'KEN', 'LBR', 'MDG', 'MUS', 'MOZ', 'NAM', 'NGA', 'STP', 'SEN', 'SYC', 'SLE', 'SOM', 'ZAF', 'TZA', 'TGO'];
 
-// Color variables
-var colorBrew = d3.schemeCategory20; // I don't think we need this any more...
-// var colorBrew = [
-//   ['#a6cee3', '#1f78b4'],
-//   ['#b2df8a', '#33a02c'],
-//   ['#fb9a99', '#e31a1c'],
-//   ['#fdbf6f', '#ff7f00'],
-//   ['#cab2d6', '#6a3d9a']
-// ];
-
-
-
-// Color vars and functions
+// Color variables and functions
+var colorBrew = d3.schemeCategory20;
 var iaColorSelection = issueAreaData[issueArea].metadata.color;
 var themeColor = d3.interpolateLab('white', iaColorSelection);
 
@@ -101,10 +93,9 @@ map = map.append('g')
 
 var mapg = d3.select('.map-g');
 
-// Add color gradient rectangle on top of map-g...
-//console.log((h - 100).toString());
 
-function buildLegendContinuous() {
+// Legend functions
+(function buildLegendContinuous() {
 
   var translateG = 'translate(20, ' + (h - 100).toString() + ')';
 
@@ -144,11 +135,11 @@ function buildLegendContinuous() {
     .attr('fill', 'black')
     .attr('transform', 'translate(0, -15)');
 
-}
+})();
 
-buildLegendContinuous();
+//buildLegendContinuous();
 
-function buildLegendCategorical() {
+(function buildLegendCategorical() {
 
   var numCats = 10;
 
@@ -223,11 +214,9 @@ function buildLegendCategorical() {
   //   .attr('points', '0 0, 16 0, 8 15')
   //   .attr('fill', 'black')
   //   .attr('transform', 'translate(0, -15)');
-}
+})();
 
-buildLegendCategorical();
-
-function buildLegendBoolean() {
+(function buildLegendBoolean() {
   var translateG = 'translate(20, ' + (h - 80).toString() + ')';
 
   var legendG = d3.select('#map-svg')
@@ -261,9 +250,7 @@ function buildLegendBoolean() {
     .attr('font-size', 24)
     .text(null);
 
-}
-
-buildLegendBoolean();
+})()
 
 // Set up the tooltip:
 var tooltip = d3.select('body').append('div')
@@ -273,14 +260,6 @@ tooltip.append('h1');
 var tooltipRow = tooltip.append('div')
   .classed('tooltip-body', true);
 
-// #### This needs to get excluded
-// tooltipRow.append('span')
-//   .classed('country-score', true);
-//
-// tooltipRow.append('span')
-//   .classed('units', true);
-
-
 // ... and the modals
 $('#resizeModal').modal({
   show: false
@@ -289,16 +268,15 @@ $('#resizeModal').modal({
 // Active card handler:
 var activeCard = 0;
 
-
-
 // 1 Load page
-
-// Promises, I hope I never break em
 
 // Add a few sheets and js files
 $('head').append('<link href="../../css/fancybox.css" rel="stylesheet">');
 $('body').append('<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>');
+$('#resources-menu').prepend('<li><a href="../../assets/summaries/StableSeasBooklet.pdf" target="_blank">Executive Summary</a></li>');
 
+
+// The primary build mechanism
 if (width > 1199 || window.navigator.userAgent.indexOf('MSIE') != -1) {
 
   buildMap('../../data/map-layer.js')
@@ -307,18 +285,15 @@ if (width > 1199 || window.navigator.userAgent.indexOf('MSIE') != -1) {
       return loadValues();
     })
     .then(function(resolution) {
-      // console.log(resolution);
       // If buildMap() resolves, execute:
       return loadIA(issueAreaData, activeCard); // returns loadIA promise
     }).then(function(resolution) {
-      // console.log(resolution);
       setTimeout(switchCard(activeCard), 500);
     })
     .catch(function(error) {
-      // console.log(error);
     });
 
-} else { // redirect to PDF if on a small screen !
+} else {
   window.location.href = "../../assets/summaries/StableSeasBooklet.pdf";
 }
 
@@ -329,12 +304,6 @@ if (width > 1199 || window.navigator.userAgent.indexOf('MSIE') != -1) {
 // 1 Issue Area menu
 // 2 Card menu
 // 3 Map & card interactivity
-
-
-// Ad hoc elements - ### Add these to templates !
-
-$('#resources-menu').prepend('<li><a href="../../assets/summaries/StableSeasBooklet.pdf" target="_blank">Executive Summary</a></li>');
-
 
 // 3 Event listeners
 
@@ -352,15 +321,11 @@ $('#content-holder').on('click', '.internal-ref', function(e) {
 });
 
 $('#map-svg').on('mouseenter', '.stableseas', function(e) {
-  //var iso3 = e.getAttribute('data-iso3');
   var iso3 = d3.select(this).attr('data-iso3');
   var iso = iso3.split(' ');
-//  console.log(iso);
-  //console.log(iso3);
   if (iso.length > 1) {
     pulse(iso[0]);
     pulse(iso[1]);
-  //  console.log('double!');
   }
   pulse(iso3);
 });
@@ -368,12 +333,9 @@ $('#map-svg').on('mouseenter', '.stableseas', function(e) {
 $('#map-svg').on('mouseleave', '.stableseas', function() {
   var iso3 = d3.select(this).attr('data-iso3');
   var iso = iso3.split(' ');
-//  console.log(iso);
-  //console.log(iso3);
   if (iso.length > 1) {
     unpulse(iso[0]);
     unpulse(iso[1]);
-  //  console.log('double!');
   }
   unpulse(iso3);
 });
@@ -381,7 +343,6 @@ $('#map-svg').on('mouseleave', '.stableseas', function() {
 // Window Resize:
 $(window).resize(function() {
   if ($(window).width() < 1200) {
-    //    console.log('what!?');
     $('#resizeModal').modal('show');
   }
 });
@@ -389,7 +350,7 @@ $(window).resize(function() {
 d3.selectAll('.stableseas')
   .on('mouseenter', pulse)
   .on('mousemove', function(d) {
-    var mouse = d3.mouse(map.node()).map(function(d) { // map. ???
+    var mouse = d3.mouse(map.node()).map(function(d) {
       return parseInt(d);
     })
   })
@@ -397,16 +358,8 @@ d3.selectAll('.stableseas')
     unpulse(iso3);
   });
 
-// d3.selectAll('.label')
-//   .on('mouseenter', function () {
-//     d3.select(this)
-//       .classed('invisible', false);
-//   })
-
 $('#content-holder').on('click', '.table-expand', function() {
-  // e.preventDefault();
   if ($('.ranked-list').hasClass('collapsed')) {
-
     $('.hid').show();
 
     d3.select('.table-expand p')
@@ -427,25 +380,8 @@ $('#content-holder').on('click', '.table-expand', function() {
       .classed('collapsed', true)
       .classed('expanded', false);
 
-  } // this will break if we use more than one ranked list
-
+  }
 });
-
-// function clearTooltip() {
-//   var ttip = d3.select('#tooltip-below-menu');
-//
-//   ttip.select('.country-name')
-//     .classed('muted', true)
-//     .text('Country');
-//
-//   ttip.select('.country-score')
-//     .classed('muted', true)
-//     .text('Score /')
-//   ttip.select('.units')
-//     .classed('muted', true)
-//     .text(' units');
-// }
-
 
 // 4 Functions
 
@@ -460,11 +396,8 @@ function loadValues() {
           }
         }
         ssiValues[d.iso3] = d;
-        //console.log('ssi',d);
       })
-      //  console.log('ssi', ssiValues);
     });
-
     resolve("SSI Values loaded");
   })
 
@@ -652,7 +585,7 @@ function loadIAcsv(csv, callback) {
 }
 // Build Modals:
 function buildModals() {
-  var resizeModalHTML = '<div class="modal fade" id="resizeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Under Construction</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Thanks so much for exploring our interface.<br><br>This beta version of the site does not support dynamic resizing. If you\'d like to view our Issue Area summary paper for mobile, click <a href="../maritime-enforcement/m/stable-seas-maritime-enforcement-summary.pdf">here</a>.<br><br>If you\'d like to use the interactive desktop version of the site maximize your browser window and reload.<br><br>If you have any feedback please email info@stableseas.org.<br><br>Thank you!</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>';
+  var resizeModalHTML = '<div class="modal fade" id="resizeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Under Construction</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Thanks so much for exploring our interface.<br><br>This beta version of the site does not support dynamic resizing. If you\'d like to view our Issue Area summary paper for mobile, click <a href="../assets/summaries/StableSeasBooklet.pdf">here</a>.<br><br>If you\'d like to use the interactive desktop version of the site maximize your browser window and reload.<br><br>If you have any feedback please email info@stableseas.org.<br><br>Thank you!</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>';
 
   $('body').prepend(resizeModalHTML);
 
