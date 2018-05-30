@@ -53,7 +53,7 @@ body {
 }
 
 .overview .overlay {
-  height: 0%;
+  height: 100%;
 }
 
 /* Position the content inside the overlay */
