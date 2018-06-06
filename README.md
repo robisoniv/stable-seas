@@ -28,5 +28,4 @@ The creation of the report interface was a joint effort between OEF's Research a
 [oef-logo]: https://stableseas.org/assets/stable_seas_intro_oef_logo.png
 [obp-logo]: https://stableseas.org/assets/oceans_beyond_piracy_logo.png
 [secure-fisheries-logo]: https://stableseas.org/assets/secure_fisheries_logo.png
-[oefr-logo]: https://stableseas.org/assets/oef_research_logo.png
--
+[oefr-logo]: https://stableseas.org/assets/oef_research_logo.png-
