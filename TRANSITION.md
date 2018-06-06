@@ -24,7 +24,7 @@ SFTP credentials
   - Cross-OS: Windows, Mac, Linux
 
 ## Ownership Transfers
-- Github transfer to @oefdatascience [complete](https://github.com/OEFDataScience/stable-seas/graphs/contributors)
+- Github transfer to @oefdatascience [[complete]](https://github.com/OEFDataScience/stable-seas/graphs/contributors)
 - Update local repos with new remote origin url [complete]
 
 ## Delegate Task Ownership
