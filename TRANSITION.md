@@ -5,11 +5,11 @@ A document detailing the steps necessary to transition management and continued 
 
 ## Integration with Drupal
 
-Landing page
-Link to data
-Link to code book
-Issue papers
-Other supporting materials
+- Landing page
+- Link to data
+- Link to code book
+- Issue papers
+- Other supporting materials
 
 ## Server and Security
 - Security checks

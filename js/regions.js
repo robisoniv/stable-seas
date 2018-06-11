@@ -437,6 +437,8 @@ function loadRegions(data, card) { // where data = data.js format ... so it's an
 
     d3.select('#issue-areas-link').attr('target', null);
 
+    d3.select('body').classed(region,true);
+
     d3.select('head')
       .append('script')
       .html("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag('js', new Date());gtag('config', 'UA-107179985-1');");
