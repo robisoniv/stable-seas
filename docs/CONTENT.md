@@ -1,6 +1,40 @@
-# Content
+# Stable Seas : Core Content Documentation
+
+
 
 For content contributors to update the content on the site, follow the following process:
+
+## Content Creators
+
+In order to create new content in the form of cards for the Stable Seas site, content creators will be required to fill in the Javascript object literal templates included below. For a brief explainer on object literals, check out Mozilla Developer Network's [Grammar and types guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals), or MDN's [Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) tutorial.
+
+Each page on the Stable Seas site is dynamically built in the client browser using D3, jQuery and Bootstrap from data included in a file loaded separately, the `main-data.js` file (which is in turn assembled from data included in other files like `blue-economy-data.js`). Abstractly, each page's data is organized as such:
+
+`var issueAreaData = {
+  overview: {
+    metadata: {
+      // page-level metadata like the name and color assignment.
+    },
+    load: function () {
+      // the page-level load method, which basically always calls
+      // the loadIAcsv(csv, callback) function defined in main.js.
+    },
+    cards: [ // an array of objects, one for each card ...
+      {
+        title: 'Card Title',
+        menu: 'The text displayed on this card\'s menu item',
+        metadata: { \* Card-specific metadata *\ },
+        map: {
+          // The map object 
+        }
+      }
+    ]
+  },
+  internationalCooperation: {
+
+  },
+  ... etc.
+}`
 
 ## Content Contributors
 
@@ -10,7 +44,7 @@ For content contributors to update the content on the site, follow the following
 2. [Fork](https://help.github.com/articles/fork-a-repo/) the [Stable Seas base branch](https://github.com/johnrobisoniv/stable-seas) repository.
 3. Clone your fork of the repository to your local machine. (You will have to use the git command line interface or download Github Desktop. This is possible on Windows, Mac and Linux).
 4. (If you're using Github Desktop) Add the project folder to Github Desktop.
-5. Download [Atom](https://atom.io/) or your favorite text editor.
+5. Download a text editor (I use [Atom](https://atom.io/)).
 6. Add the base repository (**not your fork**) as one of the remote repositories on your local repo:<br />
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On the command line:
