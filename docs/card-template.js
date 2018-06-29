@@ -1,35 +1,14 @@
-// ONE LITTLE THING
-// Another little thing
-// A third thing
-//fourththing
-//fifth
-//six
-// Seven
-//Eight
-// NINE
-var piracyData = {
-  // not prepped?
-  metadata: { // Independent data source for each page
-    version: '1.0.0',
-    name: 'Piracy',
-    updates: true,
-    /*
-         0.0.2:
-           1 footnotes
-           2 legends
-           3 maps ready to go
-
-
-         */
-    index: 8,
-    code: 'piracy',
-    path: 'piracy',
-    countryData: {},
-    incidents: [],
-    csv: '../../data/piracy/piracy.csv',
-    color: '#B6782A',
-    order: -1,
-    description: 'Most maritime crime continues to be piracy and armed robbery. These acts endanger seafarers, threaten commerce, and fund criminal networks.'
+var issueAreaData = { // set variable to iaNameData in camel case
+  metadata: {
+    version: '', // A holder to indicate version - not really in use yet
+    name: '', // Name of page
+    index: 8, // Order
+    code: '', // page title, camelcase (i.e. coastalWelfare)
+    path: '', // page title, with dashes (i.e. coastal-welfare)
+    countryData: {}, // holder object to take in page data
+    csv: '', // relative path to page's csv data file
+    color: '', // hex code for page's theme color
+    description: '' // Description of page
   },
   load: function(csv, callback) {
 

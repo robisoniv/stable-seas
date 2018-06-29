@@ -22,7 +22,7 @@ var issueAreaData = {
       {
         title: 'Card Title',
         menu: 'The text displayed on this card\'s menu item',
-        metadata: { \* Card-specific metadata *\ },
+        metadata: { /* Card-specific metadata */ },
         map: {
           // The map object
         }
@@ -32,7 +32,7 @@ var issueAreaData = {
   internationalCooperation: {
 
   },
-  ... etc.
+  // ... etc.
 }
 ```
 
@@ -41,7 +41,7 @@ var issueAreaData = {
 ### Setup
 
 1. Create a github account.
-2. [Fork](https://help.github.com/articles/fork-a-repo/) the [Stable Seas base branch](https://github.com/johnrobisoniv/stable-seas) repository.
+2. [Fork](https://help.github.com/articles/fork-a-repo/) the [Stable Seas base branch](https://github.com/OEFDataScience/stable-seas) repository.
 3. Clone your fork of the repository to your local machine. (You will have to use the git command line interface or download Github Desktop. This is possible on Windows, Mac and Linux).
 4. (If you're using Github Desktop) Add the project folder to Github Desktop.
 5. Download a text editor (I use [Atom](https://atom.io/)).
@@ -49,7 +49,7 @@ var issueAreaData = {
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On the command line:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`git add remote upstream https://github.com/johnrobisoniv/stable-seas.git`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`git add remote upstream https://github.com/OEFDataScience/stable-seas.git`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In Github Desktop:
 
@@ -62,7 +62,7 @@ var issueAreaData = {
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; First, open your command line and navigate to your git repository:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`cd (path/to/stable-seas/git/repo)`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`cd (path/to/local/stable-seas/git/repo)`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Check if you're in the right folder by running `git status`)
 
@@ -74,12 +74,15 @@ var issueAreaData = {
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`git reset --hard upstream/master`
 
-> **This should make your local master branch look exactly the same the root master branch - now your local codebase is identical to the production version.**
+**This should make your local master branch look exactly the same the root master branch - now your local codebase is identical to the production version.**
 
 3. Make the changes you need to make to the content files.
 4. Commit changed files to your local `master` branch.
-5. Push local `master` to your remote repository's `origin/master` branch. (You should now see your changes reflected on the files on your github account forked repo.)
-6. Submit a pull request to the base branch (https://github.com/johnrobisoniv/stable-seas) and let the base branch owner know, especially if time sensitive.
+5. Push local `master` to *your* remote repository's `origin/master` branch:
+
+`git push origin master`
+(You should now see your changes reflected on the files on your github account forked repo.)
+6. Submit a pull request to the base branch (https://github.com/OEFDataScience/stable-seas) and let the base branch owner know, especially if time sensitive.
 
 ## Site administrator
 
@@ -97,11 +100,11 @@ var issueAreaData = {
 
 > **Now the up-to-date version of the site is synced with the production server, your origin master branch on github and your local machine's master branch.**
 
-> **We think it is important to close this process (i.e. merge the pull request) before initiating another revision process. We suspect this will create conflicts or complicated merge processes.**
+> **We think it is important to close this process (i.e. merge the pull request) before initiating another revision process. We suspect not doing this will create conflicts or complicated merge processes.**
 
 ## Templates
 
-Here are links to files with object literal templates for pages, [cards](./card-template.js) and elements.
+Here are links to files with object literal templates for [pages](./pages-template.js), [cards](./card-template.js) and [elements](./els-templates.js).
 
 When copying a template, be sure to include both of the curly brackets on either end. If adding multiple objects to an array (enclosed in square brackets []) there must be a comma between each. If adding key-value pairs to an object (enclosed in curly braces - {key: value}) there must be a colon between the key and the value and a comma after every value.
 
