@@ -1,12 +1,10 @@
 # Stable Seas : Core Content Documentation
 
-
-
 For content contributors to update the content on the site, follow the following process:
 
-## Content Creators
+## Content update process
 
-In order to create new content in the form of cards for the Stable Seas site, content creators will be required to fill in the Javascript object literal templates included below. For a brief explainer on object literals, check out Mozilla Developer Network's [Grammar and types guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals), or MDN's [Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) tutorial.
+In order to create new content in the form of cards for the Stable Seas site, content editors will be required to fill in the Javascript object literal templates included below. For a brief explainer on object literals, check out Mozilla Developer Network's [Grammar and types guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals), or MDN's [Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) tutorial.
 
 Each page on the Stable Seas site is dynamically built in the client browser using D3, jQuery and Bootstrap from data included in a file loaded separately, the `main-data.js` file (which is in turn assembled from data included in other files like `blue-economy-data.js`). Abstractly, each page's data is organized as such:
 
@@ -25,7 +23,7 @@ Each page on the Stable Seas site is dynamically built in the client browser usi
         menu: 'The text displayed on this card\'s menu item',
         metadata: { \* Card-specific metadata *\ },
         map: {
-          // The map object 
+          // The map object
         }
       }
     ]
@@ -36,7 +34,7 @@ Each page on the Stable Seas site is dynamically built in the client browser usi
   ... etc.
 }`
 
-## Content Contributors
+## Content editors
 
 ### Setup
 
@@ -81,7 +79,7 @@ Each page on the Stable Seas site is dynamically built in the client browser usi
 5. Push local `master` to your remote repository's `origin/master` branch. (You should now see your changes reflected on the files on your github account forked repo.)
 6. Submit a pull request to the base branch (https://github.com/johnrobisoniv/stable-seas) and let the base branch owner know, especially if time sensitive.
 
-## Site Administrator
+## Site administrator
 
 ### Setup
 1. Make a github account.
@@ -98,3 +96,25 @@ Each page on the Stable Seas site is dynamically built in the client browser usi
 > **Now the up-to-date version of the site is synced with the production server, your origin master branch on github and your local machine's master branch.**
 
 > **We think it is important to close this process (i.e. merge the pull request) before initiating another revision process. We suspect this will create conflicts or complicated merge processes.**
+
+## Templates
+
+Here are links to files with object literal templates for pages, [cards](./card-template.js) and elements.
+
+When copying a template, be sure to include both of the curly brackets on either end. If adding multiple objects to an array (enclosed in square brackets []) there must be a comma between each. If adding key-value pairs to an object (enclosed in curly braces - {key: value}) there must be a colon between the key and the value and a comma after every value.
+
+Any syntactical errors will break the code, so if in doubt work with someone on the product team to make sure that updates and new content are valid code and that the site will still work when it is loaded.
+
+## End user guide
+
+The end user - the person who loads and interacts with `stableseas.org` on their web browser - is intended to have a clean and intuitive experience exploring the Stable Seas site and gaining an understanding of the issues analyzed by the research team down to the country level.
+
+Use the main navigation header to toggle between the Issue Areas and Regions sides of the site and to access site resources.
+
+The multi-color navigational ribbon allows users to switch between specific issue areas or regions.
+
+The card navigation menu lets users view different cards on a page, including the interactive maps associated, designed to illustrate what is described on the cards.
+
+The footer allows users to access relevant social media pages and provides instructions on how to contact the Stable Seas team with enquiries.
+
+:D
