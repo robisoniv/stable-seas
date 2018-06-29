@@ -33,7 +33,8 @@ var issueAreaData = {
 
   },
   ... etc.
-}```
+}
+```
 
 ## Content editors
 
