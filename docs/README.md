@@ -21,9 +21,9 @@ High level requirements
 
 [User documentation](./USER.md)
 - Content update process
-  - Content editors*
+  - Content editors
   - Site administrator
-- Templates**
+- Templates
   - Template use guide
 - End user guide
 

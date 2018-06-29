@@ -1,5 +1,12 @@
 # Stable Seas : Core Content Documentation
 
+- Content update process
+  - Content editors
+  - Site administrator
+- Templates
+  - Template use guide
+- End user guide
+
 For content contributors to update the content on the site, follow the following process:
 
 ## Content update process
@@ -25,20 +32,23 @@ var issueAreaData = {
         metadata: { /* Card-specific metadata */ },
         map: {
           // The map object
-        }
+        },
+        els: [
+          // an array of element objects
+        ]
       }
     ]
   },
   internationalCooperation: {
-
+    // same template as above
   },
   // ... etc.
 }
 ```
 
-## Content editors
+### Content editors
 
-### Setup
+#### Setup
 
 1. Create a github account.
 2. [Fork](https://help.github.com/articles/fork-a-repo/) the [Stable Seas base branch](https://github.com/OEFDataScience/stable-seas) repository.
@@ -51,22 +61,18 @@ var issueAreaData = {
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`git add remote upstream https://github.com/OEFDataScience/stable-seas.git`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In Github Desktop:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-### Updating Content
+#### Updating Content
 
 1. Open the project folder in Atom (or your text editor).
-2. *Best Practice: update your local master branch to reflect the upstream/master (AKA base) branch. This will minimize the risk of conflicts*
+2. *Best Practice: update your local master branch to reflect the* `upstream/master` *(AKA base) branch. This will minimize the risk of conflicts.*
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; First, open your command line and navigate to your git repository:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open your command line and navigate to your git repository:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`cd (path/to/local/stable-seas/git/repo)`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Check if you're in the right folder by running `git status`)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check if you're in the right folder by running `git status`. If not, navigate to the right folder.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fetch the `upstream/master` branch (from the root repository - **not your forked `origin`**):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fetch the `upstream/master` branch from the root repository - @OEFDataScience - **not your forked `origin`**:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`git fetch upstream`
 
@@ -74,29 +80,34 @@ var issueAreaData = {
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`git reset --hard upstream/master`
 
-**This should make your local master branch look exactly the same the root master branch - now your local codebase is identical to the production version.**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(This process could be reduced to a `git pull` on configured systems, though that is untested ...)
+
+**This should make your local master branch look exactly the same the root master branch**
 
 3. Make the changes you need to make to the content files.
 4. Commit changed files to your local `master` branch.
 5. Push local `master` to *your* remote repository's `origin/master` branch:
 
 `git push origin master`
-(You should now see your changes reflected on the files on your github account forked repo.)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(You should now see your changes reflected on the files on your github account forked repo.)
+
 6. Submit a pull request to the base branch (https://github.com/OEFDataScience/stable-seas) and let the base branch owner know, especially if time sensitive.
 
-## Site administrator
+### Site administrator
 
-### Setup
+#### Setup
 1. Make a github account.
 2. Create a repository to host the production version of the codebase in the `master` branch.
 3. `git clone` that repository to your local machine so you have the single source of truth (your `origin/master`) and a version you can develop on (your `local/master`.)
 
-### Updating Content
+#### Updating Content
 1. Keep the base `master` branch up to date with the production server version of the site.
 2. Monitor email / github for pull requests from content creators.
 3. When a pull request is received, review changes and merge. *You may have to resolve conflicts if they exist.*
 4. `git pull` the `master` branch from your origin repository to your local `master`.
-5. Deploy the updated code onto the production server.
+5. Test the code in a testing environment identical to the production environment so you can flag errors without disrupting the live site.
+6. Once all is working well, deploy the updated code onto the production server. It is recommended that git push-to-deploy be configured for the production server so administrators can quickly and cleanly update all new code without worrying about an FTP login.
 
 > **Now the up-to-date version of the site is synced with the production server, your origin master branch on github and your local machine's master branch.**
 
@@ -106,7 +117,7 @@ var issueAreaData = {
 
 Here are links to files with object literal templates for [cards](./card-template.js) and [elements](./els-templates.js).
 
-When copying a template, be sure to include both of the curly brackets on either end. If adding multiple objects to an array (enclosed in square brackets []) there must be a comma between each. If adding key-value pairs to an object (enclosed in curly braces - {key: value}) there must be a colon between the key and the value and a comma after every value.
+When copying a template, be sure to include both of the curly brackets on either end. If adding multiple objects to an array (enclosed in square brackets `[]`) there must be a comma between each. If adding key-value pairs to an object (enclosed in curly braces - `{key: value}`) there must be a colon between the key and the value and a comma after every value.
 
 Any syntactical errors will break the code, so if in doubt work with someone on the product team to make sure that updates and new content are valid code and that the site will still work when it is loaded.
 
