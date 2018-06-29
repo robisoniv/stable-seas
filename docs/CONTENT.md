@@ -104,7 +104,7 @@ var issueAreaData = {
 
 ## Templates
 
-Here are links to files with object literal templates for [pages](./pages-template.js), [cards](./card-template.js) and [elements](./els-templates.js).
+Here are links to files with object literal templates for [cards](./card-template.js) and [elements](./els-templates.js).
 
 When copying a template, be sure to include both of the curly brackets on either end. If adding multiple objects to an array (enclosed in square brackets []) there must be a comma between each. If adding key-value pairs to an object (enclosed in curly braces - {key: value}) there must be a colon between the key and the value and a comma after every value.
 
