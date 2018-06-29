@@ -1,6 +1,5 @@
 # Stable Seas : Core System Documentation
 
-- Introduction
 - Site structure
   - Directory structure
 - Functions and Variables
@@ -19,6 +18,7 @@ The site's backend is a flat file system - development of a more sophisticated c
 ### Directory Structure
 *Cleaned of most specific filenames*
 
+```
 stableseas.org/
 ├── assets (contains photos etc)
 │   ├── blue-economy
@@ -80,7 +80,7 @@ stableseas.org/
 ├── README.md (for the github)
 ├── TRANSITION.md (a transition plan)
 └── stable-seas-executive-brief.html
-
+```
 
 The end user will only interact with the root directory (i.e. `https://stableseas.org/`, represented as `/`), as well as `/regions/{region}` and `/issue-areas/{issue area}` directories (and corresponding `index.html` files). Everything else is referenced using relative paths and loaded into the `index.html` pages referenced above.
 

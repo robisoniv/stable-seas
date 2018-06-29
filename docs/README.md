@@ -6,7 +6,7 @@ High level requirements
 - Team goals and business objectives
 - Strategic fit
 
-System documentation
+[System documentation](./SYSTEM.md)
 - Site structure
   - Directory structure
   - Anatomy of a page
@@ -19,7 +19,7 @@ System documentation
 - Dependent Libraries and Frameworks
 - System security
 
-User documentation
+[User documentation](./USER.md)
 - Content update process
   - Content editors*
   - Site administrator
