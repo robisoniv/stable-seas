@@ -9,11 +9,13 @@
 - Dependent Libraries and Frameworks
 - System security
 
+
 ## Site Structure
 
-Broadly, the Stable Seas site is structured as two views of the data and maps based on the same template interface: "Issue Areas" and "Regions". This enables users to view findings through a substantive and geographic lens, respectively, depending on their interests. While these two sides of the site share much interactivity, in the development process they were broken into more-or-less separate sides with separate data sources and load scripts. This made development a bit easier but incurred some technical debt; it is recommended that in future iterations of the site both sides leverage one `main.js` file, for example, so updates to the code are reflected site-wide and don't have to be replicated on the other side.
+Broadly, the Stable Seas site is structured as two views of the data and maps based on the same template interface: "Issue Areas" and "Regions". This enables users to view findings through a substantive and geographic lens, respectively, depending on their interests. While these two sides of the site share many design patterns, in the development process they were broken into more-or-less separate sides with separate data sources and load scripts. This made development a bit easier but incurred some technical debt; it is recommended that in future iterations of the site both sides leverage one `main.js` file, for example, so updates to the code are reflected site-wide and don't have to be replicated on the other side.
 
 The site's backend is a flat file system - development of a more sophisticated content management system was beyond the capability of the initial implementation team. Integration with a CMS such as Drupal could make content updates much easier, but will require a significant investment of time to replicate the existing interface and functionality; as such, it is not the team's priority.
+
 
 ### Directory Structure
 *Cleaned of most specific filenames*
@@ -82,7 +84,7 @@ stableseas.org/
 └── stable-seas-executive-brief.html
 ```
 
-The end user will only interact with the root directory (i.e. `https://stableseas.org/`, represented as `/`), as well as `/regions/{region}` and `/issue-areas/{issue area}` directories (and corresponding `index.html` files). Everything else is referenced using relative paths and loaded into the `index.html` pages referenced above.
+The end user will only interact with the root directory (i.e. `https://stableseas.org/`, represented as `/`), as well as `/regions/{region}` and `/issue-areas/{issue area}` directories (loading these loads their child `index.html` files). Everything else is referenced using relative paths in the `index.html` pages referenced above and loaded into the browser.
 
 There are plans to build user-facing pages at `stableseas.org/data/` but right now there is no outward facing page there.
 
@@ -105,7 +107,7 @@ There are plans to build user-facing pages at `stableseas.org/data/` but right n
 
 When the page is loaded on a desktop or laptop browser, a main javascript file is evaluated. During this evaluation functions are read into memory, global variables are set, and a series of functions are executed in succession to build and configure the page elements and set event listeners, to endow the interface with functionality.
 
-This section will break down that load process and provide an overview of helper functions and variables set. It should be noted that unfortunately the code retains a lot of vestigial code - some commented out, some not. While this code does not serve a purpose, it is beyond the capacity of the development team and the present time to clean and reorganize it; it is recommended that a thorough refactoring take place, as well as that efforts be made to clean and organize the codebase.
+This section will break down that load process and provide an overview of helper functions and variables set. It should be noted that unfortunately the code retains a lot of vestigial statements and comments - some evaluated, some commented out. While this code does not serve a purpose, it is beyond the capacity of the development team at the present time to clean and reorganize it; it is recommended that a thorough refactoring take place, as well as that efforts be made to clean and organize the codebase.
 
 
 ### Assets
@@ -163,11 +165,13 @@ All below in `/data/`
 
 These data files were broken up for ease of development; they should probably be combined in the production codebase to minimize the number HTTP requests to the server. This is especially true as the final custom data file loaded, `main-data.js`, simply defines a global variable (`issueAreaData` or `regionsData`) and sets keys to values defined in data sources above. i.e.
 
-`issueAreaData = {
+```javascript
+issueAreaData = {
   overview: /* data from overview-data.js */,
   internationalCooperation: /* data from international-cooperation.js */,
-  ... etc ...
-  }`
+  //... etc ...
+  }
+  ```
 
 That said, this does represent an opportunity to improve site efficiency: within the context of a single issue area page the other pages' data is not necessary. Alternatively, a single-page app could be built without too much of an architectural redesign, making for a smoother user experience but perhaps sacrificing SEO optimization.
 
@@ -219,13 +223,13 @@ In addition, the Load Process calls a few crucial functions:
 
 ##### `buildMap()`
 
-Loads geographic data to be displayed in the `#map-svg` element included in each page's HTMl template. Furthermore, the function assigns the `<path>` elements representing different country or EEZ polygons with relevant attributes like `data-iso` (ISO country code), the `included` class (for countries included in the study), etc.
+Loads geographic data to be displayed in the `#map-svg` element included in each page's HTML template. Furthermore, the function assigns the `<path>` elements representing different country or EEZ polygons with relevant attributes like `data-iso` (ISO country code), the `included` class (for countries included in the study), etc.
 
 Additionally, the function binds event listeners to the elements created. These event listeners include code to display the appropriate tooltip and to highlight the country and EEZ with the appropriate color on `mouseenter`.
 
 ##### `loadIA()` / `loadRegions()`
 
-These functions both execute a series of statements and return promises, to ensure that subsequent code is not executed until dependent data and DOM elements have loaded or been created. They accept two parameters - the global variable `issueAreaData` (or `regionsData`) object literal (defined in `main-data.js`) and the `activeCard`, which the page will load to display (defaulting to 0).
+These functions both execute a series of statements and return promises, to ensure that subsequent code is not executed until dependent data and DOM elements have loaded or been created. They accept two parameters - the global variable `issueAreaData` (or `regionsData`), assigned to an object literal representing that data (defined in `main-data.js`), and the `activeCard`, which the page will load to display (defaulting to 0).
 
 This function sets page-relevant data like the site title, builds the multicolored nav ribbon, loads page-specific numerical data and builds each card through a series of nested loops.  
 
@@ -235,13 +239,12 @@ This final function called in the load process loads the `activeCard`, displayin
 
 ### Dependent Libraries and Frameworks
 
-The Stable Seas web app relies on a number of open source libraries for page load and site interactivity. Most of these are part of the D3.js family (loaded as individual modules), as well as [Bootstrap](https://getbootstrap.com/) and [jQuery](https://jquery.com/). D3 modules - linked to documentation - used in the project include:
+The Stable Seas web app relies on a number of open source libraries for page load and site interactivity. Most of these are part of the D3.js family, as well as [Bootstrap](https://getbootstrap.com/), [jQuery](https://jquery.com/) and [topojson.js](https://github.com/topojson/topojson). D3 modules - linked to documentation - used in the project include:
 
 - [D3.js (v4)](https://github.com/d3)
   - [color](https://github.com/d3/d3-color)
   - [interpolate](https://github.com/d3/d3-interpolate)
   - [scale-chromatic](https://github.com/d3/d3-scale-chromatic)
-[topojson.js](https://github.com/topojson/topojson)
 
 It should be noted that the beta development team constrained itself to D3.js and jQuery as external; a much more sophisticated site could be built leveraging React, Angular or vue.js, p5.js, node.js, mongodb, wordpress or drupal, etc. If the project is extended it is advised that the software be redesigned and built on top of these helpful tools, as appropriate.
 
