@@ -6,7 +6,7 @@ The Stable Seas Maritime Security Index is a new effort to measure and map nine 
 
 [Dr Curtis Bell](http://oneearthfuture.org/program/oef-research/staff/curtis-bell) serves as the Stable Seas Project Director, and can be contacted at cbell@oneearthfuture.org with any substance- or methods-related questions.
 
-The creation of the report interface was a joint effort between OEF's Research and Communications teams. Design and development was led by John Robison Hoopes ([@robisoniv](https://github.com/robisoniv/stable-seas)) - if you have any questions about the code or design, contact him at cbell@oneearthfuture.org.
+The creation of the report interface was a joint effort between OEF's Research and Communications teams. Design and development was led by John R Hoopes ([@robisoniv](https://github.com/robisoniv/stable-seas)) - if you have any questions about the code or design, contact cbell@oneearthfuture.org.
 
 ---
 
